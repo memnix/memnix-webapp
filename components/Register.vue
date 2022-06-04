@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-neutral drop-shadow-2xl"
+    class="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 drop-shadow-2xl"
   >
     <div class="px-6 py-4">
       <h2 class="text-center text-3xl font-bold">Welcome Back !</h2>
@@ -46,7 +46,7 @@
       </form>
     </div>
     <div class="divider"></div>
-    <div class="flex items-center justify-center bg-neutral py-4 text-center">
+    <div class="flex items-center justify-center bg-base-100 py-4 text-center">
 
       <span class="text-sm">Already have an account? </span>
       <a

@@ -23,10 +23,10 @@
             src="https://api.lorem.space/image/movie?w=260&h=400"
           />
       </div>
-      <div v-else-if="page === 1" class="hero min-h-screen bg-neutral lg:w-1/2">
+      <div v-else-if="page === 1" class="hero min-h-screen bg-base-100 lg:w-1/2">
         <IndexAuth />
       </div>
-      <div v-else-if="page === 2" class="hero min-h-screen bg-neutral lg:w-1/2">
+      <div v-else-if="page === 2" class="hero min-h-screen bg-base-100  lg:w-1/2">
         <IndexLearnMore />
       </div>
     </div>
