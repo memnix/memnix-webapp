@@ -1,6 +1,5 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
-
 module.exports = {
+    mode: "jit",
     content: [
         "./components/**/*.{js,vue,ts}",
         "./layouts/**/*.vue",
@@ -9,21 +8,25 @@ module.exports = {
         "./app.vue",
         "./assets/**/*.scss",
         "./assets/**/*.css",
+        './nuxt.config.js',
+
     ],
     theme: {
-        extend: {
-            fontFamily: {
-                sans: ['"Inter var"', ...defaultTheme.fontFamily.sans],
-            },
-        },
+        extend: {},
     },
     variants: {
         extend: {},
     },
+
     plugins: [
         require("@tailwindcss/forms"),
         require("@tailwindcss/typography"),
         require("@tailwindcss/line-clamp"),
         require("@tailwindcss/aspect-ratio"),
+        require('daisyui'),
     ],
+
+    daisyui: {
+        themes: ["dark"],
+    },
 };

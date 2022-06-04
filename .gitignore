@@ -105,3 +105,4 @@ dist
 
 .idea
 *lock
+package-lock.json

@@ -1,51 +1,46 @@
 <template>
-  <div class="max-w-sm mx-auto mt-4">
-    <div class="flex items-center">
-      <img
-        class="w-40 h-40 rounded-full mb-4"
-        height="160"
-        width="160"
-        src="https://avatars.githubusercontent.com/u/38668796?v=4"
-        alt="productfrontenddeveloper"
-      />
-      <a
-        target="blank"
-        class="ml-4 text-yellow-400 dark:text-green-400 font-bold"
-        href="https://github.com/productdevbook"
-      >Follow Me Github</a
-      >
+  <section>
+    <div class="flex h-screen flex-wrap bg-base-200">
+      <div class="hero lg:w-1/2">
+        <div class="hero-content text-center">
+          <img
+            class="max-w-sm rounded-lg shadow-2xl"
+            src="https://api.lorem.space/image/movie?w=260&h=400"
+          />
+          <div class="max-w-md">
+            <h1 class="text-5xl font-bold">Memnix app</h1>
+            <p class="py-6 font-bold italic">
+              A spaced repetition learning system
+            </p>
+            <button class="btn btn-primary mx-3" @click="page = 1">
+              Get Started
+            </button>
+            <button class="btn btn-secondary" @click="page = 2">
+              Learn more
+            </button>
+          </div>
+        </div>
+      </div>
+      <div v-if="page === 0" class="md:w-1/2">
+        <div class="hero min-h-screen">
+          <img
+            class="max-w-sm rounded-lg shadow-2xl"
+            src="https://api.lorem.space/image/movie?w=260&h=400"
+          />
+        </div>
+      </div>
+      <div v-else-if="page === 1" class="hero min-h-screen bg-neutral lg:w-1/2">
+        <IndexAuth />
+      </div>
+      <div v-else-if="page === 2" class="hero min-h-screen bg-neutral lg:w-1/2">
+        <IndexLearnMore />
+      </div>
     </div>
-    <ul role="list" class="mt-10 space-y-4">
-      <li v-for="item in lists" :key="item.id">
-        <List
-          :link="{
-            id: item.id,
-            title: item.title,
-            url: item.url,
-          }"
-        />
-      </li>
-    </ul>
-  </div>
+  </section>
 </template>
 
-<script lang="ts">
-import { NuxtLink } from "#components";
-import { link } from "~/types";
-export default {
-  components: {
-    NuxtLink,
-  },
-  setup() {
-    const lists = ref<link[]>([
-      { id: 1, title: "Pinia Store", url: "pinia" },
-      { id: 1, title: "Modal", url: "modal" },
-      { id: 1, title: "Menu", url: "menu" },
-      { id: 1, title: "New soon...", url: "" },
-    ]);
-    return {
-      lists,
-    };
-  },
-};
+<script lang="ts" setup>
+import IndexAuth from '~/components/IndexAuth.vue'
+
+const page = ref(0)
 </script>

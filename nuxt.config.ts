@@ -1,28 +1,22 @@
 import { defineNuxtConfig } from "nuxt";
 
 export default defineNuxtConfig({
-    modules: [
-        '@nuxtjs/tailwindcss'
-    ],
+    css: ['~/assets/css/tailwind.css'],
+
+    modules: ['@nuxtjs/tailwindcss'],
+
     buildModules: [
         // pinia plugin - https://pinia.esm.dev
         "@pinia/nuxt",
+
     ],
+
+    tailwindcss: {
+        jit: true,
+    },
+
     build: {
         transpile: ['@heroicons/vue'],
     },
-    postcss: {
-        plugins: {
-            tailwindcss: {},
-            autoprefixer: {},
-        },
-    },
-    vite: {
-        logLevel: "info",
-        optimizeDeps: {
-            include: [
-                '@headlessui/vue', '@heroicons/vue/solid', '@heroicons/vue/outline', 'vue', 'pinia', 'ufo'
-            ]
-        }
-    }
+
 });
