@@ -1,32 +1,38 @@
 module.exports = {
-    mode: "jit",
-    content: [
-        "./components/**/*.{js,vue,ts}",
-        "./layouts/**/*.vue",
-        "./pages/**/*.vue",
-        "./plugins/**/*.{js,ts}",
-        "./app.vue",
-        "./assets/**/*.scss",
-        "./assets/**/*.css",
-        './nuxt.config.js',
+  mode: 'jit',
+  content: [
+    './components/**/*.{js,vue,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './app.vue',
+    './assets/**/*.scss',
+    './assets/**/*.css',
+    './nuxt.config.js',
+  ],
+  purge: [
+    './pages/**/*.vue',
+    './components/**/*.vue',
+    './plugins/**/*.vue',
+    './static/**/*.vue',
+    './store/**/*.vue',
+  ],
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
 
-    ],
-    theme: {
-        extend: {},
-    },
-    variants: {
-        extend: {},
-    },
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/aspect-ratio'),
+    require('daisyui'),
+  ],
 
-    plugins: [
-        require("@tailwindcss/forms"),
-        require("@tailwindcss/typography"),
-        require("@tailwindcss/line-clamp"),
-        require("@tailwindcss/aspect-ratio"),
-        require('daisyui'),
-    ],
-
-    daisyui: {
-        themes: ["dark"],
-    },
-};
+  daisyui: {
+    themes: ['dark'],
+  },
+}
