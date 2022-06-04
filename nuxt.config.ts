@@ -1,22 +1,20 @@
-import { defineNuxtConfig } from "nuxt";
+import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
-    css: ['~/assets/css/tailwind.css'],
+  css: ['~/assets/css/tailwind.css'],
 
-    modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss'],
 
-    buildModules: [
-        // pinia plugin - https://pinia.esm.dev
-        "@pinia/nuxt",
+  buildModules: [
+    // pinia plugin - https://pinia.esm.dev
+    '@pinia/nuxt',
+  ],
 
-    ],
+  tailwindcss: {
+    jit: true,
+  },
 
-    tailwindcss: {
-        jit: true,
-    },
-
-    build: {
-        transpile: ['@heroicons/vue'],
-    },
-
-});
+  build: {
+    transpile: ['@heroicons/vue'],
+  },
+})

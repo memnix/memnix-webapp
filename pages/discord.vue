@@ -13,7 +13,7 @@
             </p>
             <div class="flex items-center">
               <a href="#">
-                <button type="submit" class="btn btn-primary mx-2">
+                <button type="submit" class="btn btn-accent mx-2">
                   Join our Discord
                 </button>
               </a>
@@ -128,6 +128,7 @@
         </div>
       </div>
     </section>
+
 </template>
 
 <script lang="ts" setup>
