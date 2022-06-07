@@ -7,14 +7,19 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
+    "@iconify/json": "^2.1.57",
+    "@intlify/nuxt3": "^0.2.2",
     "@nuxtjs/tailwindcss": "^5.1.2",
     "nuxt": "3.0.0-rc.1",
     "sass": "1.50.1",
-    "sass-loader": "12.6.0"
+    "sass-loader": "12.6.0",
+    "unplugin-icons": "0.14.3",
+    "unplugin-vue-components": "^0.19.6"
   },
   "dependencies": {
     "@headlessui/vue": "1.4.3",
     "@heroicons/vue": "1.0.6",
+    "@nuxtjs/i18n": "npm:@nuxtjs/i18n-edge",
     "@pinia/nuxt": "0.1.8",
     "@tailwindcss/aspect-ratio": "0.4.0",
     "@tailwindcss/forms": "^0.5.2",

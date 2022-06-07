@@ -34,7 +34,6 @@
 </template>
 
 <script lang="ts" setup>
-import IndexAuth from '~/components/IndexAuth.vue'
-
+import IndexAuth from '~/components/Index/Auth.vue'
 const page = ref(0)
 </script>
