@@ -10,7 +10,7 @@
         <div class="mt-4 w-full">
           <input
             aria-label="Username"
-            class="input input-bordered input-accent input-ghost w-full max-w-xs"
+            class="input input-bordered input-ghost input-accent w-full max-w-xs"
             placeholder="Username"
             type="text"
           />
@@ -18,7 +18,7 @@
         <div class="mt-4 w-full">
           <input
             aria-label="Email Address"
-            class="input input-bordered input-accent input-ghost w-full max-w-xs"
+            class="input input-bordered input-ghost input-accent w-full max-w-xs"
             placeholder="Email"
             type="email"
           />
@@ -27,27 +27,32 @@
         <div class="mt-4 w-full">
           <input
             aria-label="Password"
-            class="input input-bordered input-accent input-ghost w-full max-w-xs"
+            class="input input-bordered input-ghost input-accent w-full max-w-xs"
             placeholder="Password"
             type="password"
           />
         </div>
 
-        <div class="mt-4 flex mx-auto">
+        <div class="mx-auto mt-4 flex">
           <div class="flex flex-nowrap">
-          <label class="label cursor-pointer">
-            <input type="checkbox" checked="checked" class="checkbox checkbox-primary" />
-          </label>
-          <span class="label-text my-auto">Accept TOS</span>
+            <label class="label cursor-pointer">
+              <input
+                type="checkbox"
+                checked="checked"
+                class="checkbox checkbox-primary"
+              />
+            </label>
+            <span class="label-text my-auto">Accept TOS</span>
           </div>
           <div class="divider divider-horizontal"></div>
-          <button class="btn btn-accent rounded mx-auto" type="button">Register</button>
+          <button class="btn btn-accent mx-auto rounded" type="button">
+            Register
+          </button>
         </div>
       </form>
     </div>
     <div class="divider"></div>
     <div class="flex items-center justify-center bg-base-100 py-4 text-center">
-
       <span class="text-sm">Already have an account? </span>
       <a
         class="mx-2 text-sm font-bold text-blue-500 hover:underline dark:text-blue-400"
