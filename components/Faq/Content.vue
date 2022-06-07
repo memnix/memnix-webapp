@@ -42,7 +42,7 @@
     </div>
 
     <!--   Collapse content   -->
-    <div class="collapse-content flex">
+    <div class="collapse-content flex mx-4">
       <span class="border border-accent"></span>
       <p class="max-w-3xl px-4">
         {{ content }}

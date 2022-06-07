@@ -3,7 +3,7 @@
     class="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 drop-shadow-2xl"
   >
     <div class="px-6 py-4">
-      <h2 class="text-center text-3xl font-bold">Welcome Back !</h2>
+      <h2 class="text-center text-3xl font-bold">{{  $t("welcome_back") }}</h2>
       <h3 class="mt-1 text-center text-xl font-medium">Login</h3>
       <form>
         <div class="mt-4 w-full ">
