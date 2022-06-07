@@ -1,22 +1,48 @@
-import { defineNuxtConfig } from "nuxt";
+import { defineNuxtConfig } from 'nuxt'
+import Icons from 'unplugin-icons/vite'
+import UnpluginComponentsVite from 'unplugin-vue-components/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 
 export default defineNuxtConfig({
-    css: ['~/assets/css/tailwind.css'],
+  css: ['~/assets/css/tailwind.css'],
 
-    modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss'],
 
-    buildModules: [
-        // pinia plugin - https://pinia.esm.dev
-        "@pinia/nuxt",
+  buildModules: [
+    // pinia plugin - https://pinia.esm.dev
+    '@pinia/nuxt',
+    '@intlify/nuxt3',
+    'unplugin-icons/nuxt',
+  ],
 
+  tailwindcss: {
+    jit: true,
+  },
+  intlify: {
+    localeDir: 'locales',
+    vueI18n: {
+      availableLocales: ['en', 'fr'],
+      locale: 'en',
+      fallbackLocale: 'en',
+    },
+  },
+
+  components: true,
+
+  vite: {
+    plugins: [
+      UnpluginComponentsVite({
+        dts: true,
+        resolvers: [
+          IconsResolver({
+            prefix: 'Icon',
+          }),
+        ],
+      }),
     ],
+  },
 
-    tailwindcss: {
-        jit: true,
-    },
-
-    build: {
-        transpile: ['@heroicons/vue'],
-    },
-
-});
+  build: {
+    transpile: ['@heroicons/vue'],
+  },
+})
