@@ -1,10 +1,10 @@
 import { defineNuxtConfig } from 'nuxt'
-import Icons from 'unplugin-icons/vite'
 import UnpluginComponentsVite from 'unplugin-vue-components/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
 export default defineNuxtConfig({
   css: ['~/assets/css/tailwind.css'],
+  ssr: true,
 
   modules: ['@nuxtjs/tailwindcss'],
 
@@ -43,6 +43,6 @@ export default defineNuxtConfig({
   },
 
   build: {
-    transpile: ['@heroicons/vue'],
+    transpile: ['@heroicons/vue', 'headlessui/vue'],
   },
 })
