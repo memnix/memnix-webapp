@@ -25,10 +25,8 @@
           :value="lang.iso"
           :class="{
             'flex cursor-pointer items-center py-2 px-2 hover:scale-110': true,
-            'bg-base-300 text-accent ':
-              localeSetting === lang.iso,
-            'hover:bg-base-200 ':
-              localeSetting !== lang.iso,
+            'bg-base-300 text-accent ': localeSetting === lang.iso,
+            'hover:bg-base-200 ': localeSetting !== lang.iso,
           }"
         >
           <span class="mr-2 text-sm">
@@ -44,7 +42,7 @@
     <select
       v-if="currentStyle === 'select-box'"
       v-model="localeSetting"
-      class="w-full rounded bg-transparent px-2 py-1 pr-3 "
+      class="w-full rounded bg-transparent px-2 py-1 pr-3"
     >
       <option
         v-for="lang in availableLocales"

@@ -45,7 +45,10 @@
             <span class="label-text my-auto">Accept TOS</span>
           </div>
           <div class="divider divider-horizontal"></div>
-          <button class="btn btn-accent mx-auto rounded" type="button">
+          <button
+            class="btn btn-accent mx-auto rounded transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+            type="button"
+          >
             Register
           </button>
         </div>

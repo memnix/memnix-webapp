@@ -5,7 +5,12 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    IconLucideArrowLeft: typeof import('~icons/lucide/arrow-left')['default']
+    IconLucideBook: typeof import('~icons/lucide/book')['default']
+    IconLucideHome: typeof import('~icons/lucide/home')['default']
     IconLucideLanguages: typeof import('~icons/lucide/languages')['default']
+    IconLucidePlay: typeof import('~icons/lucide/play')['default']
+    IconLucideUser: typeof import('~icons/lucide/user')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

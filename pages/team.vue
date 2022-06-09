@@ -1,7 +1,7 @@
 <template>
   <section class="bg-base-200">
     <div class="pb-5">
-      <div class="lg:h-screen bg-base-200">
+      <div class="bg-base-200 lg:h-screen">
         <div class="container mx-auto px-5 py-24">
           <div class="mb-20 flex w-full flex-col text-center">
             <h1 class="title-font mb-4 text-2xl font-medium tracking-widest">
@@ -284,7 +284,7 @@
         </div>
       </div>
     </div>
-    <div class="mx-auto px-5 py-24 bg-base-100">
+    <div class="mx-auto bg-base-100 px-5 py-24">
       <div class="mb-20 flex w-full flex-col text-center">
         <h1 class="title-font mb-4 text-2xl font-medium sm:text-3xl">
           Our Contributors

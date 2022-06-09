@@ -1,16 +1,15 @@
 <template>
   <div id="app-layout">
     <main>
-      <UtilsHeader />
       <slot />
-      <UtilsFooter />
+      <UtilsBottomNavigation />
     </main>
   </div>
 </template>
 
 <script setup lang="ts">
 definePageMeta({
-  layout: 'static',
+  layout: 'connected',
 })
 </script>
 
