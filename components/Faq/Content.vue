@@ -65,7 +65,7 @@ const props = defineProps({
   },
 })
 
-const checkboxClicked = function (e: Event) {
+const checkboxClicked = function (_: Event) {
   checked.value = !checked.value
 }
 </script>

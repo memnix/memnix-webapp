@@ -46,8 +46,6 @@
 
 <script lang="ts" setup>
 definePageMeta({ layout: 'static' })
-
-let currentContentIndex = ref(0)
 </script>
 
 <style scoped></style>
