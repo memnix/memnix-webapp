@@ -1,128 +1,171 @@
 <template>
-  <section class="hero h-screen bg-base-200">
-    <div class="hero-content bg-base-200">
-      <div class="flex flex-col lg:flex-row">
-        <div class="mx-auto my-10 max-w-xl px-6">
-          <h5 class="mb-6 text-3xl font-extrabold leading-none">
-            Memnix's discord
-          </h5>
-          <p class="mb-6">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque rem aperiam, eaque ipsa quae. Sed ut unde
-            omnis iste natus.
-          </p>
-          <div class="flex items-center">
-            <a href="#">
-              <button type="submit" class="btn btn-accent mx-2">
-                Join our Discord
-              </button>
-            </a>
+  <section class="bg-base-200">
+    <div class="container mx-auto px-6 py-10">
+      <h1 class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-5xl font-bold text-transparent hover:animate-pulse">
+        Learn more about Memnix
+      </h1>
+
+      <iframe
+        class="mt-12 h-64 min-w-full overflow-hidden rounded-xl object-cover md:h-[600px] lg:h-[700px]"
+        src="https://www.youtube-nocookie.com/embed/c9p9QecLhww?modestbranding=1"
+        frameborder="0"
+        title="Memnix app"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen=""
+      ></iframe>
+
+      <div
+        class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:gap-12"
+      >
+        <div class="rounded-xl border p-6">
+          <div class="md:-mx-4 md:flex md:items-start">
+            <span
+              class="inline-block rounded-xl bg-info p-2 text-info-content md:mx-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                />
+              </svg>
+            </span>
+
+            <div class="mt-4 md:mx-4 md:mt-0">
+              <h1 class="text-2xl font-medium capitalize">
+                Copy & paste components
+              </h1>
+
+              <p class="mt-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Provident ab nulla quod dignissimos vel non corrupti doloribus
+                voluptatum eveniet
+              </p>
+            </div>
           </div>
         </div>
-        <div class="grid gap-10 px-6 sm:grid-cols-2">
-          <div class="max-w-md">
-            <div
-              class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary"
+
+        <div class="rounded-xl border p-6">
+          <div class="md:-mx-4 md:flex md:items-start">
+            <span
+              class="inline-block rounded-xl bg-info p-2 text-info-content md:mx-4"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
+                class="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                stroke-width="2"
               >
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                  stroke-width="2"
+                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
                 />
               </svg>
+            </span>
+
+            <div class="mt-4 md:mx-4 md:mt-0">
+              <h1 class="text-2xl font-medium capitalize">
+                Zero Configrations
+              </h1>
+
+              <p class="mt-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Provident ab nulla quod dignissimos vel non corrupti doloribus
+                voluptatum eveniet
+              </p>
             </div>
-            <h6 class="mb-2 font-semibold leading-5">The deep ocean</h6>
-            <p class="text-sm">
-              A flower in my garden, a mystery in my panties. Heart attack never
-              stopped old Big Bear. I didn't even know we were calling him Big
-              Bear.
-            </p>
           </div>
-          <div class="max-w-md">
-            <div
-              class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary"
+        </div>
+
+        <div class="rounded-xl border p-6">
+          <div class="md:-mx-4 md:flex md:items-start">
+            <span
+              class="inline-block rounded-xl bg-info p-2 text-info-content md:mx-4"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
+                class="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                stroke-width="2"
               >
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                  stroke-width="2"
+                  d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
                 />
               </svg>
+            </span>
+
+            <div class="mt-4 md:mx-4 md:mt-0">
+              <h1
+                class="text-2xl font-medium capitalize "
+              >
+                elegant Dark Mode
+              </h1>
+
+              <p class="mt-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Provident ab nulla quod dignissimos vel non corrupti doloribus
+                voluptatum eveniet
+              </p>
             </div>
-            <h6 class="mb-2 font-semibold leading-5">When has justice</h6>
-            <p class="text-sm">
-              Rough pomfret lemon shark plownose chimaera southern sandfish
-              kokanee northern sea robin Antarctic cod. Yellow-and-black
-              triplefin.
-            </p>
           </div>
-          <div class="max-w-md">
-            <div
-              class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary"
+        </div>
+
+        <div
+          class="rounded-xl border p-6"
+        >
+          <div class="md:-mx-4 md:flex md:items-start">
+            <span
+              class="inline-block rounded-xl bg-info p-2 text-info-content md:mx-4"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
+                class="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                stroke-width="2"
               >
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                  stroke-width="2"
+                  d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
                 />
               </svg>
-            </div>
-            <h6 class="mb-2 font-semibold leading-5">Organically grow</h6>
-            <p class="text-sm">
-              A slice of heaven. O for awesome, this chocka full cuzzie is as
-              rip-off as a cracker. Meanwhile, in behind the bicycle shed,
-              Hercules.
-            </p>
-          </div>
-          <div class="max-w-md">
-            <div
-              class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
+            </span>
+
+            <div class="mt-4 md:mx-4 md:mt-0">
+              <h1
+                class="text-2xl font-medium capitalize text-gray-700 dark:text-white"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                />
-              </svg>
+                Simple & clean designs
+              </h1>
+
+              <p class="mt-3 text-gray-500 dark:text-gray-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Provident ab nulla quod dignissimos vel non corrupti doloribus
+                voluptatum eveniet
+              </p>
             </div>
-            <h6 class="mb-2 font-semibold leading-5">A slice of heaven</h6>
-            <p class="text-sm">
-              Disrupt inspire and think tank, social entrepreneur but
-              preliminary thinking think tank compelling. Inspiring, invest
-              synergy capacity.
-            </p>
           </div>
         </div>
       </div>
