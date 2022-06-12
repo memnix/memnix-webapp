@@ -1,19 +1,19 @@
 <template>
   <section class="bg-base-200">
     <div class="container mx-auto px-6 py-10">
-      <h1 class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-5xl font-bold text-transparent hover:animate-pulse">
+      <h1
+        class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-5xl font-bold text-transparent hover:animate-pulse"
+      >
         Learn more about Memnix
       </h1>
-
       <iframe
         class="mt-12 h-64 min-w-full overflow-hidden rounded-xl object-cover md:h-[600px] lg:h-[700px]"
-        src="https://www.youtube-nocookie.com/embed/c9p9QecLhww?modestbranding=1"
+        src="https://www.youtube-nocookie.com/embed/c9p9QecLhww"
         frameborder="0"
         title="Memnix app"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen=""
       ></iframe>
-
       <div
         class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:gap-12"
       >
@@ -115,11 +115,7 @@
             </span>
 
             <div class="mt-4 md:mx-4 md:mt-0">
-              <h1
-                class="text-2xl font-medium capitalize "
-              >
-                elegant Dark Mode
-              </h1>
+              <h1 class="text-2xl font-medium capitalize">elegant Dark Mode</h1>
 
               <p class="mt-3">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -130,9 +126,7 @@
           </div>
         </div>
 
-        <div
-          class="rounded-xl border p-6"
-        >
+        <div class="rounded-xl border p-6">
           <div class="md:-mx-4 md:flex md:items-start">
             <span
               class="inline-block rounded-xl bg-info p-2 text-info-content md:mx-4"
@@ -174,7 +168,7 @@
 </template>
 
 <script lang="ts" setup>
-definePageMeta({ layout: 'static' })
+definePageMeta({ layout: 'static', keepalive: true })
 </script>
 
 <style scoped></style>

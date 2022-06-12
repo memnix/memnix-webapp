@@ -24,15 +24,16 @@
           >
             Get Started
           </button>
-          <button
-            class="btn btn-secondary ml-3 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
-            @click="$router.push('discover')"
-          >
-            Learn more
-          </button>
+          <NuxtLink to="/discover">
+            <button
+              class="btn btn-secondary ml-3 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+            >
+              Learn more
+            </button>
+          </NuxtLink>
         </div>
       </div>
-      <div v-if="page === 1" class="hero min-h-screen bg-base-100 lg:w-1/2">
+      <div v-show="page === 1" class="hero min-h-screen bg-base-200 lg:w-1/2">
         <IndexAuth />
       </div>
     </div>
@@ -40,6 +41,30 @@
 </template>
 
 <script lang="ts" setup>
-import IndexAuth from '~/components/Index/Auth.vue'
+
 const page = ref(0)
+
+useHead({
+  title: "Memnix app",
+  link:
+  [
+    {
+      rel: 'preconnect',
+      href: 'https://www.youtube.com/',
+    },
+    {
+      rel: 'preconnect',
+      href: 'https://s.ytimg.com'
+    }
+  ]
+  }
+)
+
+onMounted(() => {
+  const route = useRoute()
+  if (route.fullPath === '/#auth') {
+    page.value = 1
+  }
+})
+
 </script>

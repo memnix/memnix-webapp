@@ -1,9 +1,9 @@
 <template>
   <div v-if="page === 0">
-    <IndexLogin @register-page-event="registerPageEvent" />
+    <LazyIndexLogin @register-page-event="registerPageEvent" />
   </div>
   <div v-else-if="page === 1">
-    <IndexRegister @login-page-event="loginPageEvent" />
+    <LazyIndexRegister @login-page-event="loginPageEvent" />
   </div>
 </template>
 

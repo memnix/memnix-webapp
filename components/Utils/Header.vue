@@ -23,76 +23,86 @@
           class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
         >
           <li>
-            <a
+            <NuxtLink
+              to="/discover"
               :class="route.name === 'discover' ? 'text-accent' : ''"
-              href="/discover"
-              >Discover</a
+            >
+              Discover
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink
+              :class="route.name === 'team' ? 'text-accent' : ''"
+              to="/team"
+              >Our team</NuxtLink
             >
           </li>
           <li>
-            <a :class="route.name === 'team' ? 'text-accent' : ''" href="/team"
-              >Our team</a
+            <NuxtLink
+              :class="route.name === 'faq' ? 'text-accent' : ''"
+              to="/faq"
+              >FAQ</NuxtLink
             >
           </li>
           <li>
-            <a :class="route.name === 'faq' ? 'text-accent' : ''" href="/faq"
-              >FAQ</a
-            >
-          </li>
-          <li>
-            <a
+            <NuxtLink
               :class="route.name === 'discord' ? 'text-accent' : ''"
-              href="/discord"
-              >Discord</a
+              to="/discord"
+              >Discord</NuxtLink
             >
           </li>
         </ul>
       </div>
-      <a class="btn btn-ghost text-xl normal-case" href='/'>Memnix</a>
+      <NuxtLink class="btn btn-ghost text-xl normal-case" to="/"
+        >Memnix</NuxtLink
+      >
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal p-0">
         <li>
-          <a
-            class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent"
+          <NuxtLink
+            to="/discover"
             :class="route.name === 'discover' ? 'text-accent' : ''"
-            href="/discover"
-            >Discover</a
+            class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent"
           >
+            Discover
+          </NuxtLink>
         </li>
         <li>
-          <a
+          <NuxtLink
             class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent"
             :class="route.name === 'team' ? 'text-accent' : ''"
-            href="/team"
-            >Our team</a
+            to="/team"
+            >Our team</NuxtLink
           >
         </li>
         <li>
-          <a
+          <NuxtLink
             class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent"
             :class="route.name === 'faq' ? 'text-accent' : ''"
-            href="/faq"
-            >FAQ</a
+            to="/faq"
+            >FAQ</NuxtLink
           >
         </li>
         <li>
-          <a
+          <NuxtLink
             class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent"
             :class="route.name === 'discord' ? 'text-accent' : ''"
-            href="/discord"
-            >Discord</a
+            to="/discord"
+            >Discord</NuxtLink
           >
         </li>
       </ul>
     </div>
     <div class="navbar-end">
       <UtilsLangSwitcher />
+      <NuxtLink to='/#auth'>
       <button
         class="btn btn-primary mx-5 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:animate-pulse"
       >
         Login
       </button>
+      </NuxtLink>
     </div>
   </div>
 </template>

@@ -5,6 +5,12 @@ import IconsResolver from 'unplugin-icons/resolver'
 export default defineNuxtConfig({
   css: ['~/assets/css/tailwind.css'],
   ssr: true,
+  head: {
+    link: {
+      rel: 'preconnect',
+      href: 'https://api.memnix.app/v1/',
+    },
+  },
 
   modules: ['@nuxtjs/tailwindcss'],
 
