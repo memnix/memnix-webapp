@@ -2,7 +2,7 @@
   <div
     class="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 drop-shadow-md"
   >
-    <div class="px-6 py-2">
+    <div class="px-6 py-4">
       <h2 class="text-center text-3xl font-bold">{{ $t('welcome_back') }}</h2>
       <h3 class="mt-1 text-center text-xl font-medium">Login</h3>
       <form>
@@ -24,9 +24,9 @@
           />
         </div>
 
-        <div class="mt-4 flex items-center justify-center">
+        <div class="mt-4 flex w-full justify-center">
           <button
-            class="btn btn-accent btn-wide rounded transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+            class="btn btn-accent w-full rounded transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
             type="button"
           >
             Login
