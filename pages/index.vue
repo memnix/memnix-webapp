@@ -1,7 +1,7 @@
 <template>
   <section class="bg-base-200 relative">
     <div class='absolute overflow-hidden bottom-0 left-0 h-20 w-20 invisible lg:visible lg:h-72 lg:w-72 z-0'>
-      <img src='https://github.com/memnix/memnix/blob/main/assets/images/moutmout.png?raw=true'/>
+      <img src='https://github.com/memnix/memnix/blob/main/assets/images/moutmout.png?raw=true' width='100%' height='100%'/>
     </div>
     <div class="flex h-screen flex-wrap bg-base-200">
       <div class="hero hidden lg:hero lg:w-1/2">

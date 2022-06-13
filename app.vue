@@ -14,4 +14,19 @@
 import { LanguageManager } from '~/utils/lang'
 const languageManager = LanguageManager()
 const locale = useState<string>('locale.setting')
+
+useHead({
+  title: 'Memnix app',
+  link: [
+    {
+      rel: 'preconnect',
+      href: 'https://fonts.googleapis.com',
+    },
+    {
+      rel: 'preconnect',
+      href: 'https://fonts.gstatic.com',
+      crossorigin: true,
+    },
+  ],
+})
 </script>

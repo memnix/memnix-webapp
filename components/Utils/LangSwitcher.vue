@@ -25,7 +25,7 @@
           :value="lang.iso"
           :class="{
             'flex cursor-pointer items-center py-2 px-2 hover:scale-110': true,
-            'bg-base-300 text-accent ': localeSetting === lang.iso,
+            'bg-base-300 text-secondary ': localeSetting === lang.iso,
             'hover:bg-base-200 ': localeSetting !== lang.iso,
           }"
         >

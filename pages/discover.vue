@@ -149,12 +149,12 @@
 
             <div class="mt-4 md:mx-4 md:mt-0">
               <h1
-                class="text-2xl font-medium capitalize text-gray-700 dark:text-white"
+                class="text-2xl font-medium capitalize"
               >
                 Simple & clean designs
               </h1>
 
-              <p class="mt-3 text-gray-500 dark:text-gray-300">
+              <p class="mt-3 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Provident ab nulla quod dignissimos vel non corrupti doloribus
                 voluptatum eveniet

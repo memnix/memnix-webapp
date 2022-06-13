@@ -53,12 +53,12 @@
         >Memnix</NuxtLink
       >
     </div>
-    <div class="navbar-center hidden lg:flex">
+    <div class="navbar-center hidden  text-xl lg:flex">
       <ul class="menu menu-horizontal p-0">
         <li>
           <NuxtLink
             to="/discover"
-            class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent"
+            class="transition duration-300 ease-in-out  hover:-translate-y-1 hover:scale-110 hover:text-accent"
           >
             Discover
           </NuxtLink>

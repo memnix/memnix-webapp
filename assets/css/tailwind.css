@@ -1,13 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: 'Pacifico';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2) format('woff2');
-    font-display: swap;
+@layer base {
+    html {
+        font-family: 'Nunito', 'Helvetica Neue', 'Roboto', 'Lato', sans-serif;
+    }
+
+    h1 {
+        font-family: 'Syne', 'Nunito', 'Helvetica Neue', 'Roboto', 'Lato', sans-serif;
+    }
+
+    h2 {
+        font-family: 'Syne', 'Nunito', 'Helvetica Neue', 'Roboto', 'Lato', sans-serif;
+    }
+
 }
 
 @layer components {
