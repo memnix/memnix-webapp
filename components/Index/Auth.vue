@@ -8,7 +8,6 @@
 </template>
 
 <script lang="ts" setup>
-
 const page = ref(0)
 
 const registerPageEvent = () => {

@@ -42,7 +42,7 @@
     </div>
 
     <!--   Collapse content   -->
-    <div class="collapse-content flex mx-4">
+    <div class="collapse-content mx-4 flex">
       <span class="border border-accent"></span>
       <p class="max-w-3xl px-4">
         {{ content }}
@@ -65,7 +65,7 @@ const props = defineProps({
   },
 })
 
-const checkboxClicked = function (e: Event) {
+const checkboxClicked = function (_: Event) {
   checked.value = !checked.value
 }
 </script>

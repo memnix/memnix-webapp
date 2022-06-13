@@ -1,15 +1,14 @@
 <template>
   <div
-    class="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 drop-shadow-2xl"
+    class="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-200 lg:drop-shadow-md"
   >
     <div class="px-6 py-4">
-      <h2 class="text-center text-3xl font-bold">{{  $t("welcome_back") }}</h2>
-      <h3 class="mt-1 text-center text-xl font-medium">Login</h3>
+      <h2 class="text-center text-3xl font-medium">{{ $t('welcome_back') }}</h2>
       <form>
-        <div class="mt-4 w-full ">
+        <div class="mt-4 w-full">
           <input
             aria-label="Email Address"
-            class="input input-bordered input-accent input-ghost w-full max-w-xs"
+            class="input input-bordered input-ghost input-neutral w-full"
             placeholder="Email"
             type="email"
           />
@@ -18,26 +17,41 @@
         <div class="mt-4 w-full">
           <input
             aria-label="Password"
-            class="input input-bordered input-accent w-full input-ghost max-w-xs"
+            class="input input-bordered input-ghost input-neutral w-full "
             placeholder="Password"
             type="password"
           />
         </div>
 
-        <div class="mt-4 flex items-center justify-between">
-          <a class="text-sm" href="#">Forget Password?</a>
-          <button class="btn btn-accent rounded" type="button">Login</button>
+        <div class="mt-4 flex w-full justify-center">
+          <button
+            class="btn btn-primary w-full transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+            type="button"
+          >
+            Login
+          </button>
         </div>
       </form>
     </div>
     <div class="divider"></div>
-    <div class="flex items-center justify-center py-4 text-center">
-      <span class="text-sm">Don't have an account? </span>
-      <a
-        class="mx-2 text-sm font-bold text-blue-500 hover:underline dark:text-blue-400"
-        @click="$emit('registerPageEvent')"
-        >Register</a
-      >
+    <div class="grid grid-cols-2 items-center gap-4 justify-between mt-2 px-6 mb-5 text-center">
+      <div>
+        <button
+          class="btn btn-neutral w-full mx-auto transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+          type="button"
+          @click="$emit('registerPageEvent')"
+        >
+          Register
+        </button>
+      </div>
+      <div>
+        <button
+          class="btn btn-secondary w-full transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+          type="button"
+        >
+          Forget Password
+        </button>
+      </div>
     </div>
   </div>
 </template>

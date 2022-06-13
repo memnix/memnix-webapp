@@ -6,14 +6,14 @@
       as="div"
       class="relative flex items-center"
     >
-      <ListboxLabel class="sr-only">Theme</ListboxLabel>
+      <ListboxLabel class="sr-only">Lang</ListboxLabel>
       <ListboxButton
         type="button"
         title="Change Language"
         class="transition-colors duration-300"
       >
-        <span class="flex items-center justify-center">
-          <Icon-lucide-languages style="font-size: 1.5em" />
+        <span class="flex items-center justify-center text-secondary transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:animate-pulse">
+          <Icon-lucide-languages style="font-size: 2em" />
         </span>
       </ListboxButton>
       <ListboxOptions
@@ -25,10 +25,8 @@
           :value="lang.iso"
           :class="{
             'flex cursor-pointer items-center py-2 px-2 hover:scale-110': true,
-            'bg-base-300 text-accent ':
-              localeSetting === lang.iso,
-            'hover:bg-base-200 ':
-              localeSetting !== lang.iso,
+            'bg-base-300 text-secondary ': localeSetting === lang.iso,
+            'hover:bg-base-200 ': localeSetting !== lang.iso,
           }"
         >
           <span class="mr-2 text-sm">
@@ -44,7 +42,7 @@
     <select
       v-if="currentStyle === 'select-box'"
       v-model="localeSetting"
-      class="w-full rounded bg-transparent px-2 py-1 pr-3 "
+      class="w-full rounded bg-transparent px-2 py-1 pr-3"
     >
       <option
         v-for="lang in availableLocales"
