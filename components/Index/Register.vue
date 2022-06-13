@@ -3,8 +3,7 @@
     class="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 lg:drop-shadow-xl"
   >
     <div class="px-6 py-4">
-      <h2 class="text-center text-3xl font-bold">{{ $t('welcome_back') }}</h2>
-      <h3 class="mt-1 text-center text-xl font-medium">Register</h3>
+      <h2 class="text-center text-3xl font-medium">Create an account</h2>
 
       <form>
         <div class="mt-4 w-full">

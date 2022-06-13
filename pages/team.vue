@@ -1,11 +1,13 @@
 <template>
   <section class="bg-base-200">
     <div class="pb-5">
-      <div class="bg-base-200 lg:h-screen">
+      <div class="bg-base-200">
         <div class="container mx-auto px-5 py-24">
           <div class="mb-20 flex w-full flex-col text-center">
-            <h1 class="title-font mb-4 text-2xl font-medium tracking-widest">
-              OUR TEAM
+            <h1
+              class="mb-5 bg-gradient-to-r from-primary via-[#DF9594] via-[#CC7F97] via-[#AD6E9E] via-[#8163A2] to-secondary bg-clip-text text-5xl font-bold text-transparent hover:animate-pulse"
+            >
+              Our team
             </h1>
             <p class="mx-auto text-base leading-relaxed lg:w-2/3">
               Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
@@ -286,7 +288,9 @@
     </div>
     <div class="mx-auto bg-base-100 px-5 py-24">
       <div class="mb-20 flex w-full flex-col text-center">
-        <h1 class="title-font mb-4 text-2xl font-medium sm:text-3xl">
+        <h1
+          class="mb-5 bg-gradient-to-r from-primary via-[#DF9594] via-[#CC7F97] via-[#AD6E9E] via-[#8163A2] to-secondary bg-clip-text text-5xl font-bold text-transparent hover:animate-pulse"
+        >
           Our Contributors
         </h1>
         <p class="mx-auto text-base leading-relaxed lg:w-2/3">
