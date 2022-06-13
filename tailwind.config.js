@@ -27,6 +27,22 @@ module.exports = {
   ],
 
   daisyui: {
-    themes: ['light', 'dark'],
+    themes: [
+      {
+        mytheme: {
+          primary: '#E9AF98',
+          secondary: '#405CA0',
+          accent: '#AD6E9E',
+          neutral: '#40404A',
+          'base-100': '#F1F2F8',
+          'base-200': '#F2F2F2',
+          info: '#3A73D4',
+          success: '#72E9C1',
+          warning: '#F6D73C',
+          error: '#E83B55',
+        },
+      },
+      'dark',
+    ],
   },
 }

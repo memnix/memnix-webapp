@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 drop-shadow-md"
+    class="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 lg:drop-shadow-md"
   >
     <div class="px-6 py-4">
       <h2 class="text-center text-3xl font-bold">{{ $t('welcome_back') }}</h2>
@@ -9,7 +9,7 @@
         <div class="mt-4 w-full">
           <input
             aria-label="Email Address"
-            class="input input-bordered input-ghost input-accent w-full max-w-xs"
+            class="input input-bordered input-ghost input-neutral w-full"
             placeholder="Email"
             type="email"
           />
@@ -18,7 +18,7 @@
         <div class="mt-4 w-full">
           <input
             aria-label="Password"
-            class="input input-bordered input-ghost input-accent w-full max-w-xs"
+            class="input input-bordered input-ghost input-neutral w-full "
             placeholder="Password"
             type="password"
           />
@@ -26,7 +26,7 @@
 
         <div class="mt-4 flex w-full justify-center">
           <button
-            class="btn btn-accent w-full rounded transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+            class="btn btn-primary w-full transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
             type="button"
           >
             Login
@@ -35,10 +35,10 @@
       </form>
     </div>
     <div class="divider"></div>
-    <div class="grid grid-cols-2 items-center gap-4 justify-between my-2 px-4 text-center">
+    <div class="grid grid-cols-2 items-center gap-4 justify-between mt-2 px-6 mb-5 text-center">
       <div>
         <button
-          class="btn btn-neutral w-full mx-auto rounded transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+          class="btn btn-neutral w-full mx-auto transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
           type="button"
           @click="$emit('registerPageEvent')"
         >
@@ -47,7 +47,7 @@
       </div>
       <div>
         <button
-          class="btn btn-neutral  w-full rounded transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+          class="btn btn-secondary w-full transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
           type="button"
         >
           Forget Password

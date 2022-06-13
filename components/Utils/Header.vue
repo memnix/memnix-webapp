@@ -25,28 +25,24 @@
           <li>
             <NuxtLink
               to="/discover"
-              :class="route.name === 'discover' ? 'text-accent' : ''"
             >
               Discover
             </NuxtLink>
           </li>
           <li>
             <NuxtLink
-              :class="route.name === 'team' ? 'text-accent' : ''"
               to="/team"
               >Our team</NuxtLink
             >
           </li>
           <li>
             <NuxtLink
-              :class="route.name === 'faq' ? 'text-accent' : ''"
               to="/faq"
               >FAQ</NuxtLink
             >
           </li>
           <li>
             <NuxtLink
-              :class="route.name === 'discord' ? 'text-accent' : ''"
               to="/discord"
               >Discord</NuxtLink
             >
@@ -62,7 +58,6 @@
         <li>
           <NuxtLink
             to="/discover"
-            :class="route.name === 'discover' ? 'text-accent' : ''"
             class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent"
           >
             Discover
@@ -71,7 +66,6 @@
         <li>
           <NuxtLink
             class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent"
-            :class="route.name === 'team' ? 'text-accent' : ''"
             to="/team"
             >Our team</NuxtLink
           >
@@ -79,7 +73,6 @@
         <li>
           <NuxtLink
             class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent"
-            :class="route.name === 'faq' ? 'text-accent' : ''"
             to="/faq"
             >FAQ</NuxtLink
           >
@@ -87,7 +80,6 @@
         <li>
           <NuxtLink
             class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent"
-            :class="route.name === 'discord' ? 'text-accent' : ''"
             to="/discord"
             >Discord</NuxtLink
           >
