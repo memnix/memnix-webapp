@@ -45,6 +45,13 @@
 </template>
 
 <script lang="ts" setup>
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from '@headlessui/vue'
+import { ChevronUpIcon } from '@heroicons/vue/solid'
+
 definePageMeta({ layout: 'static' })
 </script>
 
