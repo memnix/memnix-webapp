@@ -25,7 +25,7 @@
 
         <div class="mt-4 flex w-full justify-center">
           <button
-            class="btn btn-primary w-full transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+            class="btn btn-primary w-full hoveranimation"
             type="button"
           >
             Login
@@ -37,7 +37,7 @@
     <div class="grid grid-cols-2 items-center gap-4 justify-between mt-2 px-6 mb-5 text-center">
       <div>
         <button
-          class="btn btn-neutral w-full mx-auto transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+          class="btn btn-neutral w-full mx-auto hoveranimation"
           type="button"
           @click="$emit('registerPageEvent')"
         >
@@ -46,7 +46,7 @@
       </div>
       <div>
         <button
-          class="btn btn-secondary w-full transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+          class="btn btn-secondary w-full hoveranimation"
           type="button"
         >
           Forget Password

@@ -53,7 +53,7 @@
         </div>
         <div class="mt-4 flex items-center justify-center">
           <button
-            class="btn btn-primary w-full transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+            class="btn btn-primary w-full hoveranimation"
             type="button"
           >
             Register
@@ -65,7 +65,7 @@
     <div class="flex items-center justify-center bg-base-200 py-4 text-center mb-2 px-6">
       <span class="mx-2 text-sm">Already have an account? </span>
       <button
-        class="btn-neutral btn mx-auto transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+        class="btn-neutral btn mx-auto hoveranimation"
         type="button"
         @click="$emit('loginPageEvent')"
       >

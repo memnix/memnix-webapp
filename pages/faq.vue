@@ -16,17 +16,17 @@
           <div class="mt-4 space-y-4 lg:mt-8">
             <a
               href="/discord"
-              class="block transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent hover:underline"
+              class="block hoveranimation hover:text-accent hover:underline"
               >Discord</a
             >
             <a
               href="#"
-              class="block transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent hover:underline"
+              class="block hoveranimation hover:text-accent hover:underline"
               >Twitter</a
             >
             <a
               href="#"
-              class="block transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent hover:underline"
+              class="block hoveranimation hover:text-accent hover:underline"
               >Github</a
             >
           </div>

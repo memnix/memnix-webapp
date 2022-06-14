@@ -13,11 +13,11 @@
           iste natus.
         </p>
         <div class="flex items-center">
-          <a href="#">
-            <button type="submit" class="btn btn-secondary">
+          <NuxtLink href="#">
+            <button  class="btn btn-secondary hoveranimation">
               Join our Discord
             </button>
-          </a>
+          </NuxtLink>
         </div>
       </div>
       <div

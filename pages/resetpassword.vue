@@ -38,7 +38,7 @@
             </div>
             <div class="mt-4 flex items-center justify-end">
               <button
-                class="btn btn-primary rounded transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                class="btn btn-primary hoveranimation"
                 type="button"
                 @click='step = 2'
               >
@@ -68,7 +68,7 @@
             </div>
             <div class="mt-4 flex items-center justify-end">
               <button
-                class="btn btn-primary rounded transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                class="btn btn-primary hoveranimation"
                 type="button"
                 @click='step++'
 
@@ -99,7 +99,7 @@
             </div>
             <div class="mt-4 flex items-center justify-end">
               <button
-                class="btn btn-primary rounded transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                class="btn btn-primary hoveranimation"
                 type="button"
                 @click='step++'
 

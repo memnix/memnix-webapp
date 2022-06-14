@@ -58,28 +58,28 @@
         <li>
           <NuxtLink
             to="/discover"
-            class="transition duration-300 ease-in-out  hover:-translate-y-1 hover:scale-110 hover:text-accent"
+            class="hoveranimation hover:text-accent"
           >
             Discover
           </NuxtLink>
         </li>
         <li>
           <NuxtLink
-            class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent"
+            class="hoveranimation hover:text-accent"
             to="/team"
             >Our team</NuxtLink
           >
         </li>
         <li>
           <NuxtLink
-            class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent"
+            class="hoveranimation hover:text-accent"
             to="/faq"
             >FAQ</NuxtLink
           >
         </li>
         <li>
           <NuxtLink
-            class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent"
+            class="hoveranimation hover:text-accent"
             to="/discord"
             >Discord</NuxtLink
           >

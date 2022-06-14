@@ -18,7 +18,7 @@
             <div class="flex w-full justify-center">
               <NuxtLink to="/discover" class="mx-auto">
                 <button
-                  class="btn btn-primary transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                  class="btn btn-primary hoveranimation"
                 >
                   Learn more
                 </button>
@@ -48,7 +48,7 @@
 
               <NuxtLink to="/discover">
                 <button
-                  class="btn btn-secondary transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                  class="btn btn-secondary hoveranimation"
                 >
                   Learn more
                 </button>

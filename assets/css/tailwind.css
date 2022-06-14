@@ -18,6 +18,9 @@
         font-family: 'Syne', 'Nunito', 'Helvetica Neue', 'Roboto', 'Lato', sans-serif;
     }
 
+    .hoveranimation {
+        @apply transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110
+    }
 }
 
 @layer components {

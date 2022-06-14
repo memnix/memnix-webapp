@@ -11,17 +11,17 @@
       <span class="inline-flex space-x-4 py-1">
         <NuxtLink v-show="twitter !== null" :to="twitter">
           <Icon-lucide-twitter
-            class="h-6 w-6 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+            class="h-6 w-6 hoveranimation"
           />
         </NuxtLink>
         <NuxtLink v-show="discord !== null" :to="discord">
           <Icon-ic-round-discord
-            class="h-6 w-6 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+            class="h-6 w-6 hoveranimation"
           />
         </NuxtLink>
         <NuxtLink v-show="github !== null" :to="github">
           <Icon-lucide-github
-            class="h-6 w-6 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+            class="h-6 w-6 hoveranimation"
           />
         </NuxtLink>
       </span>

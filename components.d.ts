@@ -6,18 +6,19 @@ import '@vue/runtime-core'
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     IconIcRoundDiscord: typeof import('~icons/ic/round-discord')['default']
-    IconLucideBook: typeof import('~icons/lucide/book')['default']
+    IconLucideBell: typeof import('~icons/lucide/bell')['default']
     IconLucideCode2: typeof import('~icons/lucide/code2')['default']
     IconLucideComponent: typeof import('~icons/lucide/component')['default']
     IconLucideGithub: typeof import('~icons/lucide/github')['default']
-    IconLucideHome: typeof import('~icons/lucide/home')['default']
     IconLucideLanguages: typeof import('~icons/lucide/languages')['default']
     IconLucideMessageCircle: typeof import('~icons/lucide/message-circle')['default']
-    IconLucidePlay: typeof import('~icons/lucide/play')['default']
+    IconLucidePencil: typeof import('~icons/lucide/pencil')['default']
     IconLucideTwitter: typeof import('~icons/lucide/twitter')['default']
     IconLucideUser: typeof import('~icons/lucide/user')['default']
     IconLucideUsers: typeof import('~icons/lucide/users')['default']
     IconLucideZap: typeof import('~icons/lucide/zap')['default']
+    IconMdiCardsOutline: typeof import('~icons/mdi/cards-outline')['default']
+    IconMdiHomeOutline: typeof import('~icons/mdi/home-outline')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
