@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full">
+  <div class="w-full m-14 bg-base-100 ">
     <div class="fixed inset-x-0 bottom-0 block bg-base-100 shadow-xl">
       <div
         class="flex h-12 flex-row items-center justify-between px-7 pb-2 md:h-16 md:px-20 lg:px-40 xl:px-56"
