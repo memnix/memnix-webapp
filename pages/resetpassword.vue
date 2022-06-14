@@ -31,16 +31,16 @@
             <div class="mt-4 w-full">
               <input
                 aria-label="Email Address"
-                class="input input-bordered input-ghost input-accent w-full max-w-xs"
+                class="input input-bordered input-ghost input-neutral w-full max-w-xs"
                 placeholder="Email"
                 type="email"
               />
             </div>
             <div class="mt-4 flex items-center justify-end">
               <button
-                class="btn btn-accent rounded transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                class="btn btn-primary rounded transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
                 type="button"
-                @click='step === 2'
+                @click='step = 2'
               >
                 Next
               </button>
@@ -61,14 +61,14 @@
             <div class="mt-4 w-full">
               <input
                 aria-label="Code"
-                class="input input-bordered input-ghost input-accent w-full max-w-xs"
+                class="input input-bordered input-ghost input-neutral w-full max-w-xs"
                 placeholder="Code"
                 type="number"
               />
             </div>
             <div class="mt-4 flex items-center justify-end">
               <button
-                class="btn btn-accent rounded transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                class="btn btn-primary rounded transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
                 type="button"
                 @click='step++'
 
@@ -92,14 +92,14 @@
             <div class="mt-4 w-full">
               <input
                 aria-label="Password"
-                class="input input-bordered input-ghost input-accent w-full max-w-xs"
+                class="input input-bordered input-ghost input-neutral w-full max-w-xs"
                 placeholder="Password"
                 type="password"
               />
             </div>
             <div class="mt-4 flex items-center justify-end">
               <button
-                class="btn btn-accent rounded transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                class="btn btn-primary rounded transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
                 type="button"
                 @click='step++'
 
@@ -126,7 +126,7 @@
 </template>
 
 <script setup lang="ts">
-let step = 1
+let step = ref(1)
 definePageMeta({ keepalive: true })
 
 </script>
