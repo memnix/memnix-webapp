@@ -1,220 +1,123 @@
 <template>
   <section class="bg-base-200">
     <div class="flex flex-col items-center justify-center bg-base-200 px-6">
-      <div class="w-full">
-        <h1 class="my-5">Daily decks</h1>
-        <div class="carousel carousel-center rounded-box space-x-4">
-          <div class="carousel-item flex w-1/4 flex-col">
-            <img
-              src="https://api.lorem.space/image/furniture?w=250&h=180&hash=8B7BCDC2"
-              class="rounded-box"
-            />
-            <div class="text-center">
-              <span class="text-xs">Python</span>
-            </div>
-          </div>
-          <div class="carousel-item flex w-1/4 flex-col">
-            <img
-              src="https://api.lorem.space/image/furniture?w=250&h=180&hash=8B7BCDC2"
-              class="rounded-box"
-            />
-            <div class="text-center">
-              <span class="text-xs">Python</span>
-            </div>
-          </div>
-          <div class="carousel-item flex w-1/4 flex-col">
-            <img
-              src="https://api.lorem.space/image/furniture?w=250&h=180&hash=8B7BCDC2"
-              class="rounded-box"
-            />
-            <div class="text-center">
-              <span class="text-xs">Python</span>
-            </div>
-          </div>
-          <div class="carousel-item flex w-1/4 flex-col">
-            <img
-              src="https://api.lorem.space/image/furniture?w=250&h=180&hash=8B7BCDC2"
-              class="rounded-box"
-            />
-            <div class="text-center">
-              <span class="text-xs">Python</span>
-            </div>
-          </div>
-          <div class="carousel-item flex w-1/4 flex-col">
-            <img
-              src="https://api.lorem.space/image/furniture?w=250&h=180&hash=8B7BCDC2"
-              class="rounded-box"
-            />
-            <div class="text-center">
-              <span class="text-xs">Python</span>
-            </div>
-          </div>
+      <div class="w-full mt-5">
+        <div class="flex flex-row items-center justify-between">
+          <h1 class="md:text-xl">Daily decks</h1>
+          <a href="" class="btn btn-primary btn-xs md:btn-sm">
+            <span class="text-white">View all</span>
+          </a>
         </div>
+        <CoreDeckCarousel :deckList='deckList' />
       </div>
-      <div class="w-full">
-        <h1 class="my-5">Daily decks</h1>
-        <div class="carousel carousel-center rounded-box space-x-4">
-          <div class="carousel-item flex w-1/4 flex-col">
-            <img
-              src="https://api.lorem.space/image/furniture?w=250&h=180&hash=8B7BCDC2"
-              class="rounded-box"
-            />
-            <div class="text-center">
-              <span class="text-xs">Python</span>
-            </div>
-          </div>
-          <div class="carousel-item flex w-1/4 flex-col">
-            <img
-              src="https://api.lorem.space/image/furniture?w=250&h=180&hash=8B7BCDC2"
-              class="rounded-box"
-            />
-            <div class="text-center">
-              <span class="text-xs">Python</span>
-            </div>
-          </div>
-          <div class="carousel-item flex w-1/4 flex-col">
-            <img
-              src="https://api.lorem.space/image/furniture?w=250&h=180&hash=8B7BCDC2"
-              class="rounded-box"
-            />
-            <div class="text-center">
-              <span class="text-xs">Python</span>
-            </div>
-          </div>
-          <div class="carousel-item flex w-1/4 flex-col">
-            <img
-              src="https://api.lorem.space/image/furniture?w=250&h=180&hash=8B7BCDC2"
-              class="rounded-box"
-            />
-            <div class="text-center">
-              <span class="text-xs">Python</span>
-            </div>
-          </div>
-          <div class="carousel-item flex w-1/4 flex-col">
-            <img
-              src="https://api.lorem.space/image/furniture?w=250&h=180&hash=8B7BCDC2"
-              class="rounded-box"
-            />
-            <div class="text-center">
-              <span class="text-xs">Python</span>
-            </div>
-          </div>
+
+    </div>
+    <div class="flex flex-col items-center justify-center bg-base-100 px-6">
+      <div class="w-full mt-5">
+        <div class="flex flex-row items-center justify-between">
+          <h1 class="md:text-xl">Trendings deck</h1>
+          <a href="" class="btn btn-primary btn-xs md:btn-sm">
+            <span class="text-white">View all</span>
+          </a>
         </div>
+        <CoreDeckCarousel :deckList='deckList' />
       </div>
-      <div class="w-full">
-        <h1 class="my-5">Daily decks</h1>
-        <div class="carousel carousel-center rounded-box space-x-4 overflow-auto ">
-          <div class="carousel-item flex w-1/4 flex-col ">
-            <img
-              src="https://api.lorem.space/image/furniture?w=250&h=180&hash=8B7BCDC2"
-              class="rounded-box"
-            />
-            <div class="text-center">
-              <span class="text-xs">Python</span>
-            </div>
-          </div>
-          <div class="carousel-item flex w-1/4 flex-col">
-            <img
-              src="https://api.lorem.space/image/furniture?w=250&h=180&hash=8B7BCDC2"
-              class="rounded-box"
-            />
-            <div class="text-center">
-              <span class="text-xs">Python</span>
-            </div>
-          </div>
-          <div class="carousel-item flex w-1/4 flex-col">
-            <img
-              src="https://api.lorem.space/image/furniture?w=250&h=180&hash=8B7BCDC2"
-              class="rounded-box"
-            />
-            <div class="text-center">
-              <span class="text-xs">Python</span>
-            </div>
-          </div>
-          <div class="carousel-item flex w-1/4 flex-col">
-            <img
-              src="https://api.lorem.space/image/furniture?w=250&h=180&hash=8B7BCDC2"
-              class="rounded-box"
-            />
-            <div class="text-center">
-              <span class="text-xs">Python</span>
-            </div>
-          </div>
-          <div class="carousel-item flex w-1/4 flex-col">
-            <img
-              src="https://api.lorem.space/image/furniture?w=250&h=180&hash=8B7BCDC2"
-              class="rounded-box"
-            />
-            <div class="text-center">
-              <span class="text-xs">Python</span>
-            </div>
-          </div>
+
+    </div>
+    <div class="flex flex-col items-center justify-center bg-base-200 px-6">
+      <div class="w-full mt-5">
+        <div class="flex flex-row items-center justify-between">
+          <h1 class="md:text-xl">My decks</h1>
+          <a href="" class="btn btn-primary btn-xs md:btn-sm">
+            <span class="text-white">View all</span>
+          </a>
         </div>
+        <CoreDeckCarousel :deckList='deckList' />
       </div>
-      <div class="w-full">
-        <h1 class="my-5">Daily decks</h1>
-        <div
-          class="flex w-full flex-row flex-nowrap justify-start space-x-5 overflow-auto"
-        >
-          <div class="flex w-1/5 flex-none flex-col">
-            <img
-              class="w-full object-cover shadow-xl"
-              src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-              alt="avatar"
-            />
-            <div class="text-center">
-              <span class="text-md">Python</span>
-            </div>
-          </div>
-          <div class="flex w-1/5 flex-none flex-col">
-            <img
-              class="w-full object-cover shadow-xl"
-              src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-              alt="avatar"
-            />
-            <div class="text-center">
-              <span class="text-md">Python</span>
-            </div>
-          </div>
-          <div class="flex w-1/5 flex-none flex-col">
-            <img
-              class="w-full object-cover shadow-xl"
-              src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-              alt="avatar"
-            />
-            <div class="text-center">
-              <span class="text-md">Python</span>
-            </div>
-          </div>
-          <div class="flex w-1/5 flex-none flex-col">
-            <img
-              class="w-full object-cover shadow-xl"
-              src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-              alt="avatar"
-            />
-            <div class="text-center">
-              <span class="text-md">Python</span>
-            </div>
-          </div>
-          <div class="flex w-1/5 flex-none flex-col">
-            <img
-              class="w-full object-cover shadow-xl"
-              src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-              alt="avatar"
-            />
-            <div class="text-center">
-              <span class="text-md">Python</span>
-            </div>
-          </div>
+
+    </div>
+    <div class="flex flex-col items-center justify-center bg-base-100 px-6">
+      <div class="w-full mt-5">
+        <div class="flex flex-row items-center justify-between">
+          <h1 class="md:text-xl">You might also like</h1>
+          <a href="" class="btn btn-primary btn-xs md:btn-sm">
+            <span class="text-white">View all</span>
+          </a>
         </div>
+        <CoreDeckCarousel :deckList='deckList' />
       </div>
+
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
-import BottomNavigation from '~/components/Utils/BottomNavigation.vue'
+
+import { Deck, DeckList } from '~/types'
 
 definePageMeta({ layout: 'connected' })
 const page = ref(0)
+
+const deckList = <DeckList>[
+  <Deck>{
+    deck_name: 'Python',
+    deck_banner:
+      'https://api.lorem.space/image/movie?w=512&h=512&hash=8B7BCDC2',
+  },
+  <Deck>{
+    deck_name: 'Unix',
+    deck_banner:
+      'https://api.lorem.space/image/movie?w=512&h=512&hash=500B67FB',
+  },
+  <Deck>{
+    deck_name: 'Java',
+    deck_banner:
+      'https://api.lorem.space/image/movie?w=512&h=512&hash=A89D0DE6',
+  },
+  <Deck>{
+    deck_name: 'Golang',
+    deck_banner:
+      'https://api.lorem.space/image/movie?w=512&h=512&hash=225E6693',
+  },
+  <Deck>{
+    deck_name: 'Rust',
+    deck_banner:
+      'https://api.lorem.space/image/movie?w=512&h=512&hash=7F5AE56A',
+  },
+  <Deck>{
+    deck_name: 'Lisp',
+    deck_banner:
+      'https://api.lorem.space/image/movie?w=512&h=512&hash=B0E33EF4',
+  },
+  <Deck>{
+    deck_name: 'Kotlin',
+    deck_banner:
+      'https://api.lorem.space/image/movie?w=512&h=512&hash=2D297A22',
+  },
+  {
+    deck_name: 'Python',
+    deck_banner:
+      'https://api.lorem.space/image/movie?w=512&h=512&hash=8B7BCDC2',
+  },
+  <Deck>{
+    deck_name: 'Unix',
+    deck_banner:
+      'https://api.lorem.space/image/movie?w=512&h=512&hash=500B67FB',
+  },
+  <Deck>{
+    deck_name: 'Java',
+    deck_banner:
+      'https://api.lorem.space/image/movie?w=512&h=512&hash=A89D0DE6',
+  },
+  <Deck>{
+    deck_name: 'Golang',
+    deck_banner:
+      'https://api.lorem.space/image/movie?w=512&h=512&hash=225E6693',
+  },
+  <Deck>{
+    deck_name: 'Rust',
+    deck_banner:
+      'https://api.lorem.space/image/movie?w=512&h=512&hash=7F5AE56A',
+  },
+]
 </script>
