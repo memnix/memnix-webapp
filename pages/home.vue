@@ -24,6 +24,48 @@
       </div>
 
     </div>
+    <div class="flex flex-col items-center justify-center bg-base-100 px-6">
+      <div class="w-full mt-5">
+        <div class="flex flex-row items-center justify-between">
+          <h1 class="md:text-xl">You might also like</h1>
+          <a href="" class="btn btn-primary btn-xs md:btn-sm">
+            <span class="text-white">View all</span>
+          </a>
+        </div>
+          <Carousel :items-to-show="5" :wrap-around="true" class="h-32 md:h-48 lg:h-72 ">
+            <Slide v-for="deck in deckList" :key="slide">
+              <div class="carousel__item">
+
+              <CoreDeck :deck='deck'/>
+              </div>
+            </Slide>
+
+            <template #addons>
+              <Navigation />
+            </template>
+          </Carousel>
+      </div>
+    </div>
+    <div class="flex flex-col items-center justify-center bg-base-100 px-6">
+      <div class="w-full mt-5">
+        <div class="flex flex-row items-center justify-between">
+          <h1 class="md:text-xl">You might also like</h1>
+          <a href="" class="btn btn-primary btn-xs md:btn-sm">
+            <span class="text-white">View all</span>
+          </a>
+        </div>
+        <Carousel :items-to-show="5" :wrap-around="true" class="h-32 md:h-48 lg:h-72 mx-6">
+          <Slide v-for="slide in 10" :key="slide">
+            <div class="carousel__item">{{ slide }}</div>
+          </Slide>
+
+          <template #addons>
+            <Navigation />
+          </template>
+        </Carousel>
+      </div>
+    </div>
+
     <div class="flex flex-col items-center justify-center bg-base-200 px-6">
       <div class="w-full mt-5">
         <div class="flex flex-row items-center justify-between">
@@ -46,13 +88,14 @@
         </div>
         <CoreDeckCarousel :deckList='deckList' />
       </div>
-
     </div>
+
   </section>
 </template>
 
 <script lang="ts" setup>
-
+import 'vue3-carousel/dist/carousel.css';
+import { Carousel, Slide, Navigation } from 'vue3-carousel';
 import { Deck, DeckList } from '~/types'
 
 definePageMeta({ layout: 'connected' })
