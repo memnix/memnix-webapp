@@ -6,6 +6,9 @@
       >
         Learn more about Memnix
       </h1>
+      <h2 class='text-2xl my-2'>
+        Revolutionize your learning experience with Memnix, an application that <a class='underline decoration-secondary decoration-4'>adapts to everyone's pace!</a>
+      </h2>
       <iframe
         class="mt-12 h-64 min-w-full overflow-hidden rounded-xl object-cover md:h-[600px] lg:h-[700px]"
         src="https://www.youtube-nocookie.com/embed/c9p9QecLhww"
@@ -17,17 +20,25 @@
       <div
         class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:gap-12"
       >
-        <UtilsFeatureBox title="The master illuminates." content="Totoro">
-          <Icon-lucide-component class="h-10 w-10" />
+        <UtilsFeatureBox title="A Personalized System" icon="heart">
+            <p class="text-sm lg:text-lg">
+              Create your own flash cards according to your  <a class='underline decoration-secondary decoration-2 lg:decoration-4'> own specific needs </a>or explore those in  <a class='underline decoration-accent decoration-2 lg:decoration-4'>our public database</a>
+            </p>
         </UtilsFeatureBox>
-        <UtilsFeatureBox>
-          <Icon-lucide-component class="h-10 w-10" />
+        <UtilsFeatureBox title="Take the memnix challenge" icon="trending">
+          <p class="text-sm lg:text-lg">
+            Seize the opportunity to learn by playing against yourself and to exceed your limits,  <a class='underline decoration-secondary decoration-2 lg:decoration-4'>intended for everyone and accessible for free</a>
+          </p>
         </UtilsFeatureBox>
-        <UtilsFeatureBox>
-          <Icon-lucide-component class="h-10 w-10" />
+        <UtilsFeatureBox title="Save time" icon="time">
+          <p class="text-sm lg:text-lg">
+            Don't worry about <a class='underline decoration-accent decoration-2 lg:decoration-4'>planning your studies</a>, Memnix will take care of everything and <a class='underline decoration-secondary decoration-2 lg:decoration-4'>optimize your revisions</a>
+          </p>
         </UtilsFeatureBox>
-        <UtilsFeatureBox>
-          <Icon-lucide-component class="h-10 w-10" />
+        <UtilsFeatureBox title="Accessible from anywhere" icon="accessible">
+          <p class="text-sm lg:text-lg">
+            <a class='underline decoration-secondary decoration-2 lg:decoration-4'>Wherever and whenever you need it</a>, Memnix is <a class='underline decoration-accent decoration-2 lg:decoration-4'>accessible</a> from any computer as long as you are connected to the Internet
+          </p>
         </UtilsFeatureBox>
       </div>
     </div>
