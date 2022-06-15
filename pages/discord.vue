@@ -1,5 +1,5 @@
 <template>
-  <section class="xl:h-screen bg-base-200">
+  <section class="bg-base-200 xl:h-screen">
     <div class="container mx-auto px-6 py-14">
       <div class="my-12 max-w-xl">
         <h1
@@ -14,14 +14,14 @@
         </p>
         <div class="flex items-center">
           <NuxtLink href="#">
-            <button  class="btn btn-secondary hoveranimation">
+            <button class="hoveranimation btn btn-secondary">
               Join our Discord
             </button>
           </NuxtLink>
         </div>
       </div>
       <div
-        class="mt-10 lg:mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 xl:gap-12"
+        class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:mt-16 xl:gap-12"
       >
         <UtilsFeatureBox>
           <Icon-lucide-zap class="h-10 w-10" />

@@ -1,8 +1,8 @@
 <template>
   <div id="app-layout">
     <main>
-      <HeaderConnected class='sticky top-0 z-10' />
-      <slot class='z-0'/>
+      <HeaderConnected class="sticky top-0 z-10" />
+      <slot class="z-0" />
       <UtilsBottomNavigation />
     </main>
   </div>
