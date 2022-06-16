@@ -11,7 +11,7 @@
     </div>
     <div class="navbar-center"></div>
     <div class="navbar-end">
-      <UtilsLangSwitcher class="mr-3" />
+      <UtilsThemeSwitcher />
       <UtilsLangSwitcher />
     </div>
   </div>
