@@ -17,7 +17,7 @@
         </span>
       </ListboxButton>
       <ListboxOptions
-        class="absolute top-full right-0 z-50 w-36 overflow-hidden rounded-lg bg-base-100 p-1 py-1 text-sm font-semibold shadow-lg"
+        class='absolute top-full right-0 z-50 w-36 overflow-hidden rounded-lg bg-base-200 p-1 py-1 text-sm font-semibold shadow-lg'
       >
         <ListboxOption
           v-for="lang in availableLocales"

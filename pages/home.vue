@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-base-200">
+  <section class='bg-base-100'>
     <div v-show="isMobile === true">
       <CoreDeckMobileSection
         :deckList="deckList"

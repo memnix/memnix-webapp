@@ -7,10 +7,14 @@
 </template>
 
 <script setup lang='ts'>
+import { themeChange } from 'theme-change'
 
 let theme = ref("memnix")
+
 onMounted(() => {
+  themeChange(false)
   theme.value = localStorage.getItem("theme")
+  console.log(theme.value)
 })
 
 </script>

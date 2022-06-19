@@ -1,5 +1,5 @@
 <template>
-  <section class="h-screen bg-base-200">
+  <section class='h-screen bg-base-100'>
     <div class="container mx-auto px-6 py-12">
       <h1
         class="mb-5 bg-gradient-to-r from-primary via-[#DF9594] via-[#CC7F97] via-[#AD6E9E] via-[#8163A2] to-secondary bg-clip-text text-center text-5xl font-bold text-transparent hover:animate-pulse"

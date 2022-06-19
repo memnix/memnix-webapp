@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar bg-base-100">
+  <div class='navbar bg-base-200'>
     <div class="navbar-start">
       <NuxtLink class="btn btn-ghost text-xl normal-case" to="/discover">
         <h1

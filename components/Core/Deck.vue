@@ -5,7 +5,6 @@
     >
       <img
         :src="deck.deck_banner"
-        loading="lazy"
         width="512px"
         height="512px"
       />
