@@ -11,6 +11,7 @@
             class="input input-bordered input-ghost input-neutral w-full"
             placeholder="Email"
             type="email"
+            v-model='email'
           />
         </div>
 
@@ -20,6 +21,7 @@
             class="input input-bordered input-ghost input-neutral w-full "
             placeholder="Password"
             type="password"
+            v-model="password"
           />
         </div>
 
@@ -27,6 +29,7 @@
           <button
             class="btn btn-primary w-full hoveranimation"
             type="button"
+            @click='loginRequest'
           >
             Login
           </button>
@@ -56,6 +59,19 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { login } from '~/api/api'
+
+let email = ref("")
+let password = ref("")
+
+const loginRequest = async function() {
+  let result = await login(email.value,password.value )
+  if (result) {
+    navigateTo("/home")
+  }
+}
+
+</script>
 
 <style scoped></style>
