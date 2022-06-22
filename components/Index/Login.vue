@@ -60,7 +60,7 @@
 </template>
 
 <script lang="ts" setup>
-import { login } from '~/api/api'
+import { login, user } from '~/api/api'
 
 let email = ref("")
 let password = ref("")
