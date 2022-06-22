@@ -50,11 +50,11 @@
 <script lang="ts" setup>
 import { Deck, DeckList } from '~/types'
 
-definePageMeta({ layout: 'connected' })
+definePageMeta({ layout: 'connected', middleware: ['auth'] })
 
 let isMobile = ref(false)
 
-onMounted(() => {
+onMounted(async () => {
   isMobile.value = screen.width <= 768
   window.addEventListener('resize', () => {
     isMobile.value = screen.width <= 768
