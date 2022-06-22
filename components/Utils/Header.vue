@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar bg-base-100">
+  <div class='navbar bg-base-200'>
     <div class="navbar-start">
       <div class="dropdown">
         <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -20,7 +20,7 @@
         </label>
         <ul
           tabindex="0"
-          class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
+          class='dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-200 p-2 shadow'
         >
           <li>
             <NuxtLink to="/discover"> Discover </NuxtLink>
@@ -40,7 +40,7 @@
         >Memnix</NuxtLink
       >
     </div>
-    <div class="navbar-center hidden text-xl lg:flex">
+    <div class='navbar-center hidden text-xl lg:flex'>
       <ul class="menu menu-horizontal p-0">
         <li>
           <NuxtLink to="/discover" class="hoveranimation hover:text-accent">

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-200 lg:drop-shadow-xl"
+    class='mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 lg:drop-shadow-xl'
   >
     <div class="px-6 py-4">
       <h2 class="text-center text-3xl font-medium">Create an account</h2>
@@ -62,7 +62,7 @@
       </form>
     </div>
     <div class="divider"></div>
-    <div class="flex items-center justify-center bg-base-200 py-4 text-center mb-2 px-6">
+    <div class='flex items-center justify-center bg-base-100 py-4 text-center mb-2 px-6'>
       <span class="mx-2 text-sm">Already have an account? </span>
       <button
         class="btn-neutral btn mx-auto hoveranimation"

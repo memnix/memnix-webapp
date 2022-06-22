@@ -1,14 +1,9 @@
 <template>
-  <div class="flex w-full flex-col justify-center">
+  <div class="hoveranimation flex w-full flex-col justify-center">
     <div
       class="rounded-box relative mx-auto h-24 w-24 object-cover md:h-40 md:w-40 lg:h-64 lg:w-64"
     >
-      <img
-        :src="deck.deck_banner"
-        loading="lazy"
-        width="512px"
-        height="512px"
-      />
+      <img :src="deck.deck_banner" width="512px" height="512px" />
 
       <span
         class="badge badge-sm badge-secondary absolute -top-2 -right-1 md:badge-md lg:badge-lg"

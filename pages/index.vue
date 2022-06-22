@@ -1,9 +1,9 @@
 <template>
-  <section class="bg-base-200 relative">
+  <section class='bg-base-100 relative'>
     <div class='absolute overflow-hidden bottom-0 left-0 h-20 w-20 invisible lg:visible lg:h-72 lg:w-72 z-0'>
       <img src='https://github.com/memnix/memnix/blob/main/assets/images/moutmout.png?raw=true' width='100%' height='100%'/>
     </div>
-    <div class="flex h-screen flex-wrap bg-base-100">
+    <div class='flex h-screen flex-wrap bg-base-200'>
       <div class="hero hidden lg:hero lg:w-1/2">
         <div class="hero-content">
           <div class="max-w-md">
@@ -27,7 +27,7 @@
           </div>
         </div>
       </div>
-      <div class="hero min-h-screen bg-base-200 lg:w-1/2">
+      <div class='hero min-h-screen bg-base-100 lg:w-1/2'>
         <div class="flex flex-col h-fit justify-center justify-between">
             <div class=" pb-8 pt-5 lg:hidden flex ml-3 items-center space-x-3">
               <div class=' h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 '>

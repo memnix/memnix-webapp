@@ -1,5 +1,5 @@
 <template>
-  <section class="h-screen bg-base-200">
+  <section class='h-screen bg-base-100'>
     <div
       class="container mx-auto flex h-full w-full flex-col place-content-center px-5 py-24"
     >
@@ -22,7 +22,7 @@
       </div>
       <div
         v-show="step === 1"
-        class="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 drop-shadow-md"
+        class='mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-200 drop-shadow-md'
       >
         <div class="px-6 py-4">
           <h2 class="text-center text-3xl font-bold">Enter your email</h2>
@@ -50,7 +50,7 @@
       </div>
       <div
         v-show="step === 2"
-        class="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 drop-shadow-md"
+        class='mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-200 drop-shadow-md'
       >
         <div class="px-6 py-4">
           <h2 class="text-center text-3xl font-bold">
@@ -81,7 +81,7 @@
       </div>
       <div
         v-show="step === 3"
-        class="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 drop-shadow-md"
+        class='mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-200 drop-shadow-md'
       >
         <div class="px-6 py-4">
           <h2 class="text-center text-3xl font-bold">
@@ -112,7 +112,7 @@
       </div>
       <div
         v-show="step === 4"
-        class="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 drop-shadow-md"
+        class='mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-200 drop-shadow-md'
       >
         <div class="px-6 py-4">
           <h2 class="text-center text-3xl font-bold">

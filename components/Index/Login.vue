@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-200 lg:drop-shadow-md"
+    class='mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 lg:drop-shadow-md'
   >
     <div class="px-6 py-4">
       <h2 class="text-center text-3xl font-medium">{{ $t('welcome_back') }}</h2>

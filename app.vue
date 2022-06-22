@@ -1,7 +1,7 @@
 <template>
   <Html :lang="locale" >
     <Body
-      class="transition-colors duration-300"
+      class="transition-colors duration-300 "
     >
       <NuxtLayout>
         <NuxtPage />
@@ -15,7 +15,6 @@ import { LanguageManager } from '~/utils/lang'
 import { themeChange } from 'theme-change'
 
 onMounted(() => {
-  themeChange(false)
 })
 
 const languageManager = LanguageManager()

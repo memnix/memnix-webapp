@@ -1,7 +1,7 @@
 <template>
-  <section class="bg-base-200">
+  <section class='bg-base-100'>
     <div class="pb-5">
-      <div class="bg-base-200">
+      <div class='bg-base-100'>
         <div class="container mx-auto px-5 py-24">
           <div class="mb-20 flex w-full flex-col text-center">
             <h1
@@ -56,7 +56,7 @@
         </div>
       </div>
     </div>
-    <div class="mx-auto bg-base-100 px-5 py-24">
+    <div class='mx-auto bg-base-200 px-5 py-24'>
       <div class="mb-20 flex w-full flex-col text-center">
         <h1
           class="mb-5 bg-gradient-to-r from-primary via-[#DF9594] via-[#CC7F97] via-[#AD6E9E] via-[#8163A2] to-secondary bg-clip-text text-5xl font-bold text-transparent hover:animate-pulse"
