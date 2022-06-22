@@ -6,9 +6,6 @@
     <div class="mt-6 w-full">
       <div class="flex flex-row items-center justify-between">
         <h1 class="md:text-xl">{{ title }}</h1>
-        <a href="" class="btn btn-primary btn-xs md:btn-sm">
-          <span class="text-white">View all</span>
-        </a>
       </div>
       <CoreDeckCarousel :deckList="deckList" />
     </div>
