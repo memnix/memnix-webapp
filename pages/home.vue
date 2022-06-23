@@ -1,8 +1,8 @@
 <template>
-  <section class="bg-base-100">
+  <section class="bg-base-100" v-if='loaded'>
     <div v-show="isMobile === true">
       <CoreDeckMobileSection
-        :deckList="deckList"
+        :deckList="todayDeckList"
         :white="true"
         title="Daily decks"
       />
@@ -24,7 +24,7 @@
     </div>
     <div v-show="!isMobile">
       <CoreDeckDesktopSection
-        :deckList="deckList"
+        :deckList="todayDeckList"
         :white="true"
         title="Daily decks"
         :daily="true"
@@ -46,21 +46,41 @@
       />
     </div>
   </section>
+  <section v-else>
+    <h1>Loading...</h1>
+  </section>
 </template>
 
 <script lang="ts" setup>
-import { Deck, DeckList } from '~/types'
+import { Deck, DeckList, TodayResponse } from '~/types'
+import { getDeck, todays } from '~/api/deck.api'
 
 definePageMeta({ layout: 'connected', middleware: ['auth'] })
 
 let isMobile = ref(false)
+let loaded = ref(false)
 
 onMounted(async () => {
+  const data: TodayResponse = await todays()
+  await handleData(data).then( () => loaded.value = true)
+
   isMobile.value = screen.width <= 768
   window.addEventListener('resize', () => {
     isMobile.value = screen.width <= 768
   })
 })
+
+const handleData = async function(todayResponse: TodayResponse) {
+  const data = todayResponse.data
+  for (let i = 0; i<data.count; i++) {
+    const deck = await getDeck(data.decks_responses[i].deck_id)
+    todayDeckList.push(<Deck>deck.data)
+  }
+
+}
+
+let todayDeckList = <DeckList>[]
+
 
 const deckList = <DeckList>[
   <Deck>{

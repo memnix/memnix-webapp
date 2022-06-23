@@ -1,15 +1,14 @@
 <template>
   <div class="text-center">
     <h3 class="my-3 text-xl md:text-2xl lg:text-3xl">
-      Quelle est la plus ancienne distribution Linux ?
+      {{ card.card_question }}
     </h3>
-    <div class="max-x-2xl flex justify-center">
+    <div class="max-w-2xl flex justify-center">
       <img
-        src="https://api.lorem.space/image/movie?w=512&h=512&hash=8B7BCDC2"
+        :src="card.card_image"
         class="rounded-box object-cover object-fill object-center shadow-lg"
         loading="lazy"
-        width="100%"
-        height="100%"
+
       />
     </div>
 
@@ -22,6 +21,20 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Card } from '~/types'
+
+const props = defineProps({
+  card: {
+    type: Object,
+    required: true,
+    default: () =>
+      <Card>{
+        ID: 0
+      },
+  },
+})
+
+</script>
 
 <style scoped></style>

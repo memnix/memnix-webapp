@@ -7,7 +7,9 @@
       <div class="flex flex-row items-center justify-between">
         <h1 class="md:text-xl">{{ title }}</h1>
       </div>
-      <CoreDeckDesktopCarousel :deckList="deckList" :daily='daily' />
+      <CoreDeckDesktopCarousel :deckList="deckList" :daily='daily' v-if='deckList.length >= 7' />
+      <CoreDeckCarousel :deckList="deckList" :daily='daily' v-else />
+
     </div>
   </div>
 </template>

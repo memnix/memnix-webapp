@@ -42,13 +42,17 @@ let numberOfItems = ref(7)
 
 const computeNumber = () => {
   const number = window.innerWidth / 256
-  if (number > 7.5) {
+  if (props.deckList.length < 7) {
+    numberOfItems.value = props.deckList.length
+}
+  else if (number > 7.5) {
     numberOfItems.value = 7.5
   } else if (number > 4) {
     numberOfItems.value = number - 1
   } else {
     numberOfItems.value = number
   }
+  console.log(number)
 }
 
 function setIsOpen(value) {
