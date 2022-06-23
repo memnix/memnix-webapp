@@ -67,6 +67,12 @@
 <script lang="ts" setup>
 definePageMeta({ middleware: ['guest'] })
 
+import { themeChange } from 'theme-change'
+
+onMounted(() => {
+  themeChange(false)
+})
+
 useHead({
   title: 'Memnix app',
   link: [

@@ -18,14 +18,18 @@ export async function login(email: string, password: string) {
 
 export async function user() {
   const token = useCookie('token')
+  if (token.value === '') {
+    console.log(token.value)
+    return false
+  }
   try {
-    const data = await $fetch('http://127.0.0.1:1813/v1/user', {
+    const data = await $fetch('http://127.0.0.1:1813/v1/user?refresh=true', {
       method: 'GET',
       headers: {
         Authorization: 'Bearer ' + token.value,
       },
     })
-    return data['Success']
+    return data['success']
   } catch (e: any) {
     return false
   }

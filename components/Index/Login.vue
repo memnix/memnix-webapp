@@ -68,7 +68,7 @@ let password = ref("")
 const loginRequest = async function() {
   let result = await login(email.value,password.value )
   if (result) {
-    navigateTo("/home")
+    return navigateTo("/home")
   }
 }
 
