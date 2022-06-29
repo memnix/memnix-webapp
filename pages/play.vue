@@ -22,6 +22,7 @@
 <script setup lang="ts">
 import { Card } from '~/types'
 import { themeChange } from 'theme-change'
+import { useTodayStore } from '~/stores/todays'
 
 onMounted(() => {
   const route = useRoute()

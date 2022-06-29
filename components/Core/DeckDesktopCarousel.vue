@@ -7,21 +7,40 @@
   >
     <Slide v-for="deck in deckList" :key="deck">
       <div class="z-5 py-4" v-if="daily">
+        <!--
         <NuxtLink :to="'/play?deck=' + deck.ID">
         <CoreDeck :deck="deck" />
         </NuxtLink>
+        -->
+        <CoreDeck :deck="deck"   @click="setIsOpenFull(true)"/>
       </div>
       <div class="z-5 py-4" v-else>
-        <CoreDeck :deck="deck"  @click="setIsOpen(true)" />
+        <CoreDeck :deck="deck" @click="setIsOpen(true)" />
       </div>
     </Slide>
     <template #addons>
       <Navigation class="mx-5" />
     </template>
   </Carousel>
-  <div class="modal modal-bottom sm:modal-middle" :class='isOpen ? "modal-open"	: ""'>
+  <div
+    class="modal modal-bottom sm:modal-middle"
+    :class="isOpenFull ? 'modal-open' : ''"
+  >
     <div class="modal-box">
-      <h3 class="font-bold text-lg">Subscribe to this deck ?</h3>
+      <h3 class="text-lg font-bold">Subscribe to this deck ?</h3>
+      <p class="py-4">You will be able to play it</p>
+      <div class="modal-action">
+        <label @click="setIsOpenFull(false)" class="btn">Yes</label>
+        <label @click="setIsOpenFull(false)" class="btn">No</label>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal modal-bottom sm:modal-middle"
+    :class="isOpen ? 'modal-open' : ''"
+  >
+    <div class="modal-box">
+      <h3 class="text-lg font-bold">Subscribe to this deck ?</h3>
       <p class="py-4">You will be able to play it</p>
       <div class="modal-action">
         <label @click="setIsOpen(false)" class="btn">Yes</label>
@@ -35,14 +54,14 @@
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
 
-
 const isOpen = ref(false)
+const isOpenFull = ref(false)
 
 let numberOfItems = ref(7)
 
 const computeNumber = () => {
   const number = window.innerWidth / 256
-   if (number > 7.5) {
+  if (number > 7.5) {
     numberOfItems.value = 7.5
   } else if (number > 4) {
     numberOfItems.value = number - 1
@@ -53,6 +72,11 @@ const computeNumber = () => {
 
 function setIsOpen(value) {
   isOpen.value = value
+
+}
+
+function setIsOpenFull(value) {
+  isOpenFull.value = value
 }
 
 onMounted(() => {
@@ -66,7 +90,6 @@ const props = defineProps({
   daily: {
     type: Boolean,
     default: false,
-    required: true,
   },
   deckList: {
     type: Array,

@@ -1,7 +1,7 @@
 <template>
   <Html :lang="locale" >
     <Body
-      class="transition-colors duration-300 "
+      class="transition-colors duration-300"
     >
       <NuxtLayout>
         <NuxtPage />

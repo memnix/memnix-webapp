@@ -52,8 +52,9 @@
 </template>
 
 <script lang="ts" setup>
-import { Deck, DeckList, TodayResponse } from '~/types'
+import { CardResponseList, Deck, DeckList, TodayResponse } from '~/types'
 import { getDeck, todays } from '~/api/deck.api'
+import { useTodayStore } from '~/stores/todays'
 
 definePageMeta({ layout: 'connected', middleware: ['auth'] })
 
@@ -72,9 +73,15 @@ onMounted(async () => {
 
 const handleData = async function (todayResponse: TodayResponse) {
   const data = todayResponse.data
+  const store = useTodayStore()
   for (let i = 0; i < data.count; i++) {
     const deck = await getDeck(data.decks_responses[i].deck_id)
+    store.setDeck(
+      data.decks_responses[i].deck_id,
+      data.decks_responses[i].cards
+    )
     todayDeckList.push(<Deck>deck.data)
+    store.index = 3
   }
 }
 
