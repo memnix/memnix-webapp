@@ -5,7 +5,7 @@
       v-for="value in deckList"
     >
       <div v-if="type === CarouselType.Today">
-        <CoreDeck :deck="value" @click="openModalPlayDeck" />
+        <CoreDeck :deck="value" @click="openModalPlayDeck(value.ID)" />
       </div>
       <div v-else-if="type === CarouselType.ToPlay">
         <NuxtLink :to="'/play?deck=' + value.ID">
@@ -17,7 +17,11 @@
       </div>
     </div>
   </div>
-  <ModalPlayDeck v-if="modalPlayDeck" :cardList='cardList' @closeModalPlayDeck='closeModalPlayDeck'/>
+  <ModalPlayDeck
+    v-if="modalPlayDeck"
+    :cardList="cardList"
+    @closeModalPlayDeck="closeModalPlayDeck"
+  />
 
   <div
     class="modal modal-bottom sm:modal-middle"
@@ -35,9 +39,14 @@
 </template>
 
 <script setup lang="ts">
-import { CardResponse, CardResponseList, CarouselType, LearningStage, Card, } from '~/types'
+import {
+  CardResponseList,
+  CarouselType,
+} from '~/types'
+import { useTodayStore } from '~/stores/todays'
 
 const isOpen = ref(false)
+
 function setIsOpen(value) {
   isOpen.value = value
 }
@@ -46,7 +55,11 @@ const modalPlayDeck = ref(false)
 function closeModalPlayDeck() {
   modalPlayDeck.value = false
 }
-function openModalPlayDeck() {
+function openModalPlayDeck(value) {
+  const store = useTodayStore()
+  store.setIndex(value)
+  cardList.value = store.getCurrentDeck
+  console.log(cardList.value)
   modalPlayDeck.value = true
 }
 
@@ -61,19 +74,7 @@ const props = defineProps({
   },
 })
 
-let cardList = <CardResponseList>[
-  <CardResponse>{
-    card: <Card>{
-      ID: 1,
-      card_question: 'What\'s the best linux distro ?',
-      card_image: 'https://api.lorem.space/image/movie?w=512&h=512&hash=500B67FB',
-    },
-    answers: ['toto', 'titi', 'tata', 'tutu'],
-    learning_stage: LearningStage.StageLearning
-  },
-]
-
-
+let cardList = ref(<CardResponseList>[])
 </script>
 
 <style scoped></style>

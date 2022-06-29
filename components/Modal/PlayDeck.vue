@@ -10,7 +10,7 @@
           <Icon-lucide-arrow-left />
         </button>
       </div>
-      <CoreCard :card="card" />
+      <CoreCard :card="card" :answers='answers' class='pt-10'/>
       <progress
         class="progress progress-primary max-w-xl"
         value="40"
@@ -32,7 +32,9 @@ const props = defineProps({
 })
 
 let cardResponse = <CardResponse>props.cardList[0]
-let card = cardResponse.card
+let card = cardResponse.Card
+let answers = cardResponse.Answers
+
 
 </script>
 

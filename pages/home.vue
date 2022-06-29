@@ -95,7 +95,6 @@ const handleData = async function (todayResponse: TodayResponse) {
       data.decks_responses[i].cards
     )
     todayDeckList.push(<Deck>deck.data)
-    store.index = 3
   }
 }
 

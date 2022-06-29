@@ -7,7 +7,7 @@
   >
     <Slide v-for="deck in deckList" :key="deck">
       <div class="z-5 py-4" v-if="type === CarouselType.Today">
-        <CoreDeck :deck="deck" @click="openModalPlayDeck" />
+        <CoreDeck :deck="deck" @click="openModalPlayDeck(deck.ID)" />
       </div>
       <div class="z-5 py-4" v-else-if="type === CarouselType.ToPlay">
         <NuxtLink :to="'/play?deck=' + deck.ID">
@@ -45,13 +45,8 @@
 <script setup lang="ts">
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
-import {
-  Card,
-  CardResponse,
-  CardResponseList,
-  CarouselType,
-  LearningStage,
-} from '~/types'
+import { CardResponseList, CarouselType } from '~/types'
+import { useTodayStore } from '~/stores/todays'
 const isOpen = ref(false)
 
 let numberOfItems = ref(7)
@@ -75,7 +70,10 @@ const modalPlayDeck = ref(false)
 function closeModalPlayDeck() {
   modalPlayDeck.value = false
 }
-function openModalPlayDeck() {
+function openModalPlayDeck(value) {
+  const store = useTodayStore()
+  store.setIndex(value)
+  cardList.value = store.getCurrentDeck
   modalPlayDeck.value = true
 }
 
@@ -97,18 +95,7 @@ const props = defineProps({
   },
 })
 
-let cardList = <CardResponseList>[
-  <CardResponse>{
-    card: <Card>{
-      ID: 1,
-      card_question: "What's the best linux distro ?",
-      card_image:
-        'https://api.lorem.space/image/movie?w=512&h=512&hash=500B67FB',
-    },
-    answers: ['toto', 'titi', 'tata', 'tutu'],
-    learning_stage: LearningStage.StageLearning,
-  },
-]
+let cardList = ref(<CardResponseList>[])
 </script>
 
 <style scoped></style>

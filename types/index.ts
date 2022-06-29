@@ -45,8 +45,8 @@ export interface DeckResponse {
 }
 
 export interface CardResponse {
-  card: Card
-  answers: Array<string>
+  Card: Card
+  Answers: Array<string>
   learning_stage: LearningStage
 }
 

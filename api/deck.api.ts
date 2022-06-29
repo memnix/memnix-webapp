@@ -4,7 +4,7 @@ export async function todays() {
   const token = useCookie('token')
 
   const data: TodayResponse = await $fetch<TodayResponse>(
-    'http://127.0.0.1:1813/v1/cards/today',
+    'http://127.0.0.1:1813/v1/cards/today?refresh=true',
     {
       method: 'GET',
       headers: {

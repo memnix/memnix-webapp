@@ -12,10 +12,22 @@ export const useTodayStore = defineStore('today', {
     getDeck: (state) => {
       return (deck: number) => state.todayMap[deck]
     },
+
+    getCurrentDeck: (state) => {
+      return state.todayMap[state.index]
+    },
+
+    getIndex: (state) => {
+      return state.index
+    },
   },
   actions: {
     setDeck(deck: number, cardResponseList: CardResponseList) {
       this.todayMap[deck] = cardResponseList
+    },
+
+    setIndex(index: number) {
+      this.index = index
     },
   },
 })
