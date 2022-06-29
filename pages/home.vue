@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-base-100" v-if='loaded'>
+  <section class="bg-base-100" v-if="loaded">
     <div v-show="isMobile === true">
       <CoreDeckMobileSection
         :deckList="todayDeckList"
@@ -62,7 +62,7 @@ let loaded = ref(false)
 
 onMounted(async () => {
   const data: TodayResponse = await todays()
-  await handleData(data).then( () => loaded.value = true)
+  await handleData(data).then(() => (loaded.value = true))
 
   isMobile.value = screen.width <= 768
   window.addEventListener('resize', () => {
@@ -70,17 +70,15 @@ onMounted(async () => {
   })
 })
 
-const handleData = async function(todayResponse: TodayResponse) {
+const handleData = async function (todayResponse: TodayResponse) {
   const data = todayResponse.data
-  for (let i = 0; i<data.count; i++) {
+  for (let i = 0; i < data.count; i++) {
     const deck = await getDeck(data.decks_responses[i].deck_id)
     todayDeckList.push(<Deck>deck.data)
   }
-
 }
 
 let todayDeckList = <DeckList>[]
-
 
 const deckList = <DeckList>[
   <Deck>{
