@@ -7,8 +7,8 @@
       <div class="flex flex-row items-center justify-between">
         <h1 class="md:text-xl">{{ title }}</h1>
       </div>
-      <CoreDeckDesktopCarousel :deckList="deckList" :daily='daily' v-if='deckList.length >= 7' />
-      <CoreDeckCarousel :deckList="deckList" :daily='daily' v-else />
+      <CoreDeckDesktopCarousel :deckList="deckList" :type='type' v-if='deckList.length >= 7' />
+      <CoreDeckCarousel :deckList="deckList" :type='type' v-else />
 
     </div>
   </div>
@@ -16,9 +16,9 @@
 
 <script setup lang="ts">
 const props = defineProps({
-  daily: {
-    type: Boolean,
-    default: false,
+  type: {
+    type: Number,
+    required: true,
   },
   deckList: {
     type: Array,

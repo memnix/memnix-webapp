@@ -5,21 +5,29 @@
         :deckList="todayDeckList"
         :white="true"
         title="Daily decks"
+        :type="CarouselType.Today"
+
       />
       <CoreDeckMobileSection
         :deckList="deckList"
         :white="false"
         title="Featured decks"
+        :type="CarouselType.ToSubscribe"
+
       />
       <CoreDeckMobileSection
         :deckList="deckList"
         :white="true"
         title="My decks"
+        :type="CarouselType.ToPlay"
+
       />
       <CoreDeckMobileSection
         :deckList="deckList"
         :white="false"
         title="You might like"
+        :type="CarouselType.ToSubscribe"
+
       />
     </div>
     <div v-show="!isMobile">
@@ -27,22 +35,28 @@
         :deckList="todayDeckList"
         :white="true"
         title="Daily decks"
-        :daily="true"
+        :type="CarouselType.Today"
       />
       <CoreDeckDesktopSection
         :deckList="deckList"
         :white="false"
         title="Featured decks"
+        :type="CarouselType.ToSubscribe"
+
       />
       <CoreDeckDesktopSection
         :deckList="deckList"
         :white="true"
         title="My decks"
+        :type="CarouselType.ToPlay"
+
       />
       <CoreDeckDesktopSection
         :deckList="deckList"
         :white="false"
         title="You might like"
+        :type="CarouselType.ToSubscribe"
+
       />
     </div>
   </section>
@@ -52,7 +66,7 @@
 </template>
 
 <script lang="ts" setup>
-import { CardResponseList, Deck, DeckList, TodayResponse } from '~/types'
+import { CarouselType, Deck, DeckList, TodayResponse } from '~/types'
 import { getDeck, todays } from '~/api/deck.api'
 import { useTodayStore } from '~/stores/todays'
 

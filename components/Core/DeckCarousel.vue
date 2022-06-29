@@ -4,39 +4,21 @@
       class="carousel-item relative h-32 w-28 md:h-48 md:w-44 lg:h-72 lg:w-72"
       v-for="value in deckList"
     >
-      <div v-if="daily">
-        <!--        
+      <div v-if="type === CarouselType.Today">
+        <CoreDeck :deck="value" @click="openModalPlayDeck" />
+      </div>
+      <div v-else-if="type === CarouselType.ToPlay">
         <NuxtLink :to="'/play?deck=' + value.ID">
           <CoreDeck :deck="value" />
         </NuxtLink>
-        -->
-        <CoreDeck :deck="value" @click="setIsOpenFull(true)" />
       </div>
       <div v-else>
         <CoreDeck :deck="value" @click="setIsOpen(true)" />
       </div>
     </div>
   </div>
-  <div
-    class="modal h-screen"
-    :class="isOpenFull ? 'modal-open' : ''"
-  >
-    <div class="h-screen w-screen modal-box max-h-screen !max-w-none	">
-        <div class="flex flex-col items-center px-5 pt-2 md:pt-5 lg:px-20">
-          <div class="hoveranimation absolute left-0 top-[0.5rem]">
-            <button class="btn btn-ghost text-xl md:text-2xl lg:text-3xl" @click="setIsOpenFull(false)">
-            <Icon-lucide-arrow-left  />
-            </button>
-          </div>
-            <CoreCard :card="card" />
-          <progress
-            class="progress progress-primary max-w-xl"
-            value="40"
-            max="100"
-          ></progress>
-        </div>
-    </div>
-  </div>
+  <ModalPlayDeck v-if="modalPlayDeck" :cardList='cardList' @closeModalPlayDeck='closeModalPlayDeck'/>
+
   <div
     class="modal modal-bottom sm:modal-middle"
     :class="isOpen ? 'modal-open' : ''"
@@ -53,16 +35,19 @@
 </template>
 
 <script setup lang="ts">
-import { Card } from '~/types'
+import { CardResponse, CardResponseList, CarouselType, LearningStage, Card, } from '~/types'
 
 const isOpen = ref(false)
 function setIsOpen(value) {
   isOpen.value = value
 }
 
-const isOpenFull = ref(false)
-function setIsOpenFull(value) {
-  isOpenFull.value = value
+const modalPlayDeck = ref(false)
+function closeModalPlayDeck() {
+  modalPlayDeck.value = false
+}
+function openModalPlayDeck() {
+  modalPlayDeck.value = true
 }
 
 const props = defineProps({
@@ -70,18 +55,24 @@ const props = defineProps({
     type: Array,
     required: true,
   },
-  daily: {
-    type: Boolean,
-    default: false,
+  type: {
+    type: Number,
     required: true,
   },
 })
 
-let card = <Card>{
-  ID: 1,
-  card_question: "What's the best linux distro ?",
-  card_image: 'https://api.lorem.space/image/movie?w=512&h=512&hash=500B67FB',
-}
+let cardList = <CardResponseList>[
+  <CardResponse>{
+    card: <Card>{
+      ID: 1,
+      card_question: 'What\'s the best linux distro ?',
+      card_image: 'https://api.lorem.space/image/movie?w=512&h=512&hash=500B67FB',
+    },
+    answers: ['toto', 'titi', 'tata', 'tutu'],
+    learning_stage: LearningStage.StageLearning
+  },
+]
+
 
 </script>
 

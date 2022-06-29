@@ -7,7 +7,7 @@
       <div class="flex flex-row items-center justify-between">
         <h1 class="md:text-xl">{{ title }}</h1>
       </div>
-      <CoreDeckCarousel :deckList="deckList" />
+      <CoreDeckCarousel :deckList="deckList" :type='type'/>
     </div>
   </div>
 </template>
@@ -26,6 +26,10 @@ const props = defineProps({
     type: Boolean,
     required: true,
     default: true,
+  },
+  type: {
+    type: Number,
+    required: true,
   },
 })
 </script>

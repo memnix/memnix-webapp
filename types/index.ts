@@ -4,6 +4,12 @@ export enum DeckStatus {
   Published,
 }
 
+export enum CarouselType {
+  Today = 0,
+  ToPlay,
+  ToSubscribe,
+}
+
 export enum LearningStage {
   StageNeverSeen = 0,
   StageToLearn,
