@@ -31,7 +31,7 @@ export interface TodayResponse {
 
 export interface HTTPResponse {
   success: boolean
-  data: Object | Deck
+  data: Object | Deck | any
   message: string
   count: number
 }

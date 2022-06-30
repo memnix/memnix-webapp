@@ -29,5 +29,13 @@ export const useTodayStore = defineStore('today', {
     setIndex(index: number) {
       this.index = index
     },
+
+    deleteCard(deck: number, card: number) {
+      this.todayMap[deck].splice(card, 1)
+    },
+
+    deleteDeck(deck: number) {
+      delete this.todayMap[deck]
+    },
   },
 })

@@ -73,7 +73,6 @@ function closeModalPlayDeck() {
 function openModalPlayDeck(value) {
   const store = useTodayStore()
   store.setIndex(value)
-  cardList.value = store.getCurrentDeck
   modalPlayDeck.value = true
 }
 
