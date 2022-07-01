@@ -15,7 +15,7 @@
     <div
       class="grid max-w-2xl grid-cols-2 grid-rows-2 gap-4 pt-5 pb-10"
       v-if="
-        answers.length === 4 && card.card_image !== '' && card.card_type === 2
+        answers?.length === 4 && card.card_image !== '' && card.card_type === 2
       "
     >
       <div v-for="ans in answers">
@@ -40,7 +40,7 @@
     </div>
     <div
       class="mx-auto flex max-w-2xl flex-col justify-center space-y-4 py-10 md:space-y-6"
-      v-else-if="answers.length === 4 && card.card_type === 2"
+      v-else-if="answers?.length === 4 && card.card_type === 2"
     >
       <div v-for="ans in answers">
         <div
@@ -64,7 +64,7 @@
     </div>
     <div v-else>
       <div class="flex w-full space-x-3 pt-10 pb-5">
-        <form @submit="formAnswer" class='w-full'>
+        <form @submit.prevent="formAnswer" class='w-full'>
           <input
             aria-label="Answer"
             class="input-neutral input input-bordered input-ghost w-full"
@@ -119,6 +119,7 @@ async function postAnswer() {
   showingResult.value = true
   if (result.success) {
     setTimeout(function () {
+      answer.value = ""
       emit('nextCardEvent', result.data.validate)
       showingResult.value = false
     }, 2000)

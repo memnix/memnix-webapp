@@ -29,9 +29,17 @@ export interface TodayResponse {
   count: number
 }
 
+export interface TrainingCards {
+  Answers: string[]
+  Card: Card
+  learning_stage: LearningStage
+}
+
+export interface TrainingCardsList extends Array<TrainingCards> {}
+
 export interface HTTPResponse {
   success: boolean
-  data: Object | Deck | any
+  data: Object | Deck | TrainingCardsList | any
   message: string
   count: number
 }
