@@ -64,7 +64,7 @@
     </div>
     <div v-else>
       <div class="flex w-full space-x-3 pt-10 pb-5">
-        <form @submit="formAnswer">
+        <form @submit="formAnswer" class='w-full'>
           <input
             aria-label="Answer"
             class="input-neutral input input-bordered input-ghost w-full"
