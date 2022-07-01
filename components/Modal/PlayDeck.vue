@@ -36,6 +36,7 @@ let card = ref(<Card>null)
 let answers = ref(<string[]>[])
 let card_index = 0
 let progress = ref(0)
+const emit = defineEmits(['closeModalPlayDeck'])
 
 const selectCard = function () {
   if (card_index >= cardList.length) {
@@ -43,6 +44,7 @@ const selectCard = function () {
   }
   if (cardList.length === 0) {
     store.deleteDeck(store.getIndex)
+    emit('closeModalPlayDeck')
   }
   const cardResponse = <CardResponse>cardList[card_index]
   card.value = cardResponse.Card
@@ -62,7 +64,6 @@ const nextCardEvent = function (validate: boolean) {
     card_index++
   }
   selectCard()
-
 }
 </script>
 

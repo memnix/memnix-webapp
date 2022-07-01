@@ -20,8 +20,19 @@
     >
       <div v-for="ans in answers">
         <div
-          class="hoveranimation btn btn-primary w-full"
+          class="hoveranimation btn btn-primary w-full normal-case"
           @click="buttonAnswer(ans)"
+          :class="
+            showingResult
+              ? ans === answer
+                ? ans === card.card_answer
+                  ? 'btn-disabled bg-success text-success-content'
+                  : 'btn-disabled bg-error text-error-content'
+                : ans === card.card_answer
+                ? 'btn-disabled bg-success text-success-content'
+                : 'btn-disabled'
+              : 'hoveranimation'
+          "
         >
           {{ ans }}
         </div>
@@ -33,7 +44,7 @@
     >
       <div v-for="ans in answers">
         <div
-          class=" btn btn-primary w-full"
+          class="btn btn-primary w-full normal-case"
           @click="buttonAnswer(ans)"
           :class="
             showingResult
@@ -110,7 +121,7 @@ async function postAnswer() {
     setTimeout(function () {
       emit('nextCardEvent', result.data.validate)
       showingResult.value = false
-    }, 5000)
+    }, 2000)
   }
 }
 </script>
