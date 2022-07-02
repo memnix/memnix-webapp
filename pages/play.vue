@@ -43,7 +43,7 @@ let rate = 0
 
 const selectCard = function () {
   if (card_index >= cardList.length || cardList.length === 0) {
-    return navigateTo('/home')
+     return navigateTo('/home')
   }
 
   const cardResponse = <CardResponse>cardList[card_index]

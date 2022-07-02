@@ -7,10 +7,10 @@
   >
     <Slide v-for="deck in deckList" :key="deck">
       <div class="z-5 py-4" v-if="type === CarouselType.Today">
-        <CoreDeck :deck="deck" @click="openModalPlayDeck(deck.ID)" />
+        <CoreDeck :deck="deck" @click="openModalPlayDeck(deck.ID)" :number_badge='store.getNumberOfCard(deck.ID)'/>
       </div>
       <div class="z-5 py-4" v-else-if="type === CarouselType.ToPlay">
-        <NuxtLink :to="'/play?deck=' + deck.ID">
+        <NuxtLink :to="'/play?deck=' + deck.Deck.ID">
           <CoreDeck :deck="deck.Deck" />
         </NuxtLink>
       </div>
@@ -50,6 +50,7 @@ import { useTodayStore } from '~/stores/todays'
 const isOpen = ref(false)
 
 let numberOfItems = ref(7)
+const store = useTodayStore()
 
 const computeNumber = () => {
   const number = window.innerWidth / 256
@@ -71,7 +72,6 @@ function closeModalPlayDeck() {
   modalPlayDeck.value = false
 }
 function openModalPlayDeck(value) {
-  const store = useTodayStore()
   store.setIndex(value)
   modalPlayDeck.value = true
 }

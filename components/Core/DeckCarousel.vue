@@ -1,14 +1,18 @@
 <template>
-  <div class="carousel-center carousel rounded-box space-x-1 pt-4">
+  <div class="carousel carousel-center rounded-box space-x-1 pt-4">
     <div
       class="carousel-item relative h-32 w-28 md:h-48 md:w-44 lg:h-72 lg:w-72"
       v-for="value in deckList"
     >
       <div v-if="type === CarouselType.Today">
-        <CoreDeck :deck="value" @click="openModalPlayDeck(value.ID)" />
+        <CoreDeck
+          :deck="value"
+          @click="openModalPlayDeck(value.ID)"
+          :number_badge="store.getNumberOfCard(value.ID)"
+        />
       </div>
       <div v-else-if="type === CarouselType.ToPlay">
-        <NuxtLink :to="'/play?deck=' + value.ID">
+        <NuxtLink :to="'/play?deck=' + value.Deck.ID">
           <CoreDeck :deck="value.Deck" />
         </NuxtLink>
       </div>
@@ -39,13 +43,12 @@
 </template>
 
 <script setup lang="ts">
-import {
-  CardResponseList,
-  CarouselType,
-} from '~/types'
+import { CardResponseList, CarouselType } from '~/types'
 import { useTodayStore } from '~/stores/todays'
 
 const isOpen = ref(false)
+const store = useTodayStore()
+
 
 function setIsOpen(value) {
   isOpen.value = value

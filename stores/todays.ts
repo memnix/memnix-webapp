@@ -13,6 +13,10 @@ export const useTodayStore = defineStore('today', {
       return (deck: number) => state.todayMap[deck]
     },
 
+    getNumberOfCard: (state) => {
+      return (deck: number) => state.todayMap[deck].length
+    },
+
     getCurrentDeck: (state) => {
       return state.todayMap[state.index]
     },

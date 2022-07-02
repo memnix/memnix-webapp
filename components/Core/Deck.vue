@@ -1,13 +1,18 @@
 <template>
-  <div class="hoveranimation flex w-full flex-col justify-center hover:cursor-pointer">
-    <div
-      class="rounded-box relative  mx-auto"
-    >
-      <img :src="deck.deck_banner" alt='deck image url' class='h-24 w-24 md:h-40 md:w-40 lg:h-64 lg:w-64 object-cover'/>
+  <div
+    class="hoveranimation flex w-full flex-col justify-center hover:cursor-pointer"
+  >
+    <div class="rounded-box relative mx-auto">
+      <img
+        :src="deck.deck_banner"
+        alt="deck image url"
+        class="h-24 w-24 object-cover md:h-40 md:w-40 lg:h-64 lg:w-64"
+      />
 
-      <span v-if='numberBadge !== 0'
+      <span
+        v-if="number_badge !== 0"
         class="badge badge-sm badge-secondary absolute -top-2 -right-1 md:badge-md lg:badge-lg"
-        >99+</span
+        >{{number_badge}}</span
       >
     </div>
 
@@ -23,14 +28,12 @@ const props = defineProps({
     type: Object,
     required: true,
   },
-  numberBadge: {
+  number_badge: {
     type: Number,
     required: false,
-    default: 0
-  }
+    default: 0,
+  },
 })
-
-
 </script>
 
 <style scoped></style>
