@@ -35,11 +35,23 @@ export interface TrainingCards {
   learning_stage: LearningStage
 }
 
+export interface SubDeck {
+  Deck: Deck
+  Owner: object
+  card_count: number
+  deck_id: number
+  owner_id: number
+  permission: number
+  settings_today: boolean
+}
+
+export interface SubDeckList extends Array<SubDeck> {}
+
 export interface TrainingCardsList extends Array<TrainingCards> {}
 
 export interface HTTPResponse {
   success: boolean
-  data: Object | Deck | TrainingCardsList | any
+  data: Object | Deck | TrainingCardsList | SubDeckList | any
   message: string
   count: number
 }

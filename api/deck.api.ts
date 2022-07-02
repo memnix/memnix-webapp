@@ -29,6 +29,20 @@ export async function getTrainingCards(deck) {
   ).catch((error: any) => error.data)
   return data
 }
+export async function getSubDeck() {
+  const token = useCookie('token')
+
+  const data: HTTPResponse = await $fetch<HTTPResponse>(
+    'http://127.0.0.1:1813/v1/decks/sub',
+    {
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + token.value,
+      },
+    }
+  ).catch((error: any) => error.data)
+  return data
+}
 
 export async function getDeck(id: number) {
   const token = useCookie('token')

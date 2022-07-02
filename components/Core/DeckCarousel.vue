@@ -9,7 +9,7 @@
       </div>
       <div v-else-if="type === CarouselType.ToPlay">
         <NuxtLink :to="'/play?deck=' + value.ID">
-          <CoreDeck :deck="value" />
+          <CoreDeck :deck="value.Deck" />
         </NuxtLink>
       </div>
       <div v-else>

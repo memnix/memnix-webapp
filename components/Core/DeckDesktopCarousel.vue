@@ -11,7 +11,7 @@
       </div>
       <div class="z-5 py-4" v-else-if="type === CarouselType.ToPlay">
         <NuxtLink :to="'/play?deck=' + deck.ID">
-          <CoreDeck :deck="deck" />
+          <CoreDeck :deck="deck.Deck" />
         </NuxtLink>
       </div>
       <div class="z-5 py-4" v-else>
