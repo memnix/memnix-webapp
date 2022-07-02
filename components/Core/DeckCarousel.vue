@@ -13,7 +13,7 @@
         </NuxtLink>
       </div>
       <div v-else>
-        <CoreDeck :deck="value" @click="setIsOpen(true)" />
+        <CoreDeck :deck="value.Deck" @click="setIsOpen(true)" />
       </div>
     </div>
   </div>

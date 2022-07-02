@@ -15,7 +15,7 @@
         </NuxtLink>
       </div>
       <div class="z-5 py-4" v-else>
-        <CoreDeck :deck="deck" @click="setIsOpen(true)" />
+        <CoreDeck :deck="deck.Deck" @click="setIsOpen(true)" />
       </div>
     </Slide>
     <template #addons>

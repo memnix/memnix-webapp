@@ -9,7 +9,7 @@
 
       />
       <CoreDeckMobileSection
-        :deckList="deckList"
+        :deckList="availableDeckList"
         :white="false"
         title="Featured decks"
         :type="CarouselType.ToSubscribe"
@@ -23,7 +23,7 @@
 
       />
       <CoreDeckMobileSection
-        :deckList="deckList"
+        :deckList="availableDeckList"
         :white="false"
         title="You might like"
         :type="CarouselType.ToSubscribe"
@@ -38,7 +38,7 @@
         :type="CarouselType.Today"
       />
       <CoreDeckDesktopSection
-        :deckList="deckList"
+        :deckList="availableDeckList"
         :white="false"
         title="Featured decks"
         :type="CarouselType.ToSubscribe"
@@ -52,7 +52,7 @@
 
       />
       <CoreDeckDesktopSection
-        :deckList="deckList"
+        :deckList="availableDeckList"
         :white="false"
         title="You might like"
         :type="CarouselType.ToSubscribe"
@@ -67,21 +67,26 @@
 
 <script lang="ts" setup>
 import { CarouselType, Deck, DeckList, SubDeckList, TodayResponse } from '~/types'
-import { getDeck, getSubDeck, todays } from '~/api/deck.api'
+import { getAvailableDeck, getDeck, getSubDeck, todays } from '~/api/deck.api'
 import { useTodayStore } from '~/stores/todays'
 
 definePageMeta({ layout: 'connected', middleware: ['auth'] })
 
 let isMobile = ref(false)
 let loaded = ref(false)
-let myDecksList = ref([])
+let myDecksList = ref(<SubDeckList>[])
 let todayDeckList = ref(<DeckList>[])
+let availableDeckList = ref(<SubDeckList>[])
 
 
 onMounted(async () => {
   const data: TodayResponse = await todays()
 
   myDecksList.value = await getSubDeck().then((res) => {
+    return <SubDeckList>res.data || []
+  })
+
+  availableDeckList.value = await getAvailableDeck().then((res) => {
     return <SubDeckList>res.data || []
   })
 
