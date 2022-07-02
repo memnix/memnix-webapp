@@ -1,9 +1,9 @@
 <template>
   <div class="hoveranimation flex w-full flex-col justify-center hover:cursor-pointer">
     <div
-      class="rounded-box relative object-fill mx-auto h-24 w-24  md:h-40 md:w-40 lg:h-64 lg:w-64"
+      class="rounded-box relative  mx-auto"
     >
-      <img :src="deck.deck_banner" alt='deck image url' />
+      <img :src="deck.deck_banner" alt='deck image url' class='h-24 w-24 md:h-40 md:w-40 lg:h-64 lg:w-64 object-cover'/>
 
       <span v-if='numberBadge !== 0'
         class="badge badge-sm badge-secondary absolute -top-2 -right-1 md:badge-md lg:badge-lg"
