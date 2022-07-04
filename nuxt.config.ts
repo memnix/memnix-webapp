@@ -35,6 +35,17 @@ export default defineNuxtConfig({
 
   components: true,
 
+  nitro: {
+    minify: true,
+    serveStatic: true,
+    routes: {
+      '/discover': { swr: true },
+      '/discord': { swr: true },
+      '/faq': { swr: true },
+      '/team': { swr: true },
+    },
+  },
+
   vite: {
     plugins: [
       UnpluginComponentsVite({
