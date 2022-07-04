@@ -1,5 +1,5 @@
 <template>
-  <div class="carousel carousel-center rounded-box space-x-1 pt-4">
+  <div class="carousel-center carousel rounded-box space-x-1 pt-4">
     <div
       class="carousel-item relative h-32 w-28 md:h-48 md:w-44 lg:h-72 lg:w-72"
       v-for="value in deckList"
@@ -35,8 +35,9 @@
       <h3 class="text-lg font-bold">Subscribe to this deck ?</h3>
       <p class="py-4">You will be able to play it</p>
       <div class="modal-action">
-        <label @click="setIsOpen(false)" class="btn">Yes</label>
         <label @click="setIsOpen(false)" class="btn">No</label>
+        <label @click="setIsOpen(false)" class="btn">Yes</label>
+
       </div>
     </div>
   </div>
@@ -48,14 +49,16 @@ import { useTodayStore } from '~/stores/todays'
 
 const isOpen = ref(false)
 const store = useTodayStore()
-
+const emit = defineEmits(['refreshToday'])
 
 function setIsOpen(value) {
   isOpen.value = value
 }
 
 const modalPlayDeck = ref(false)
+
 function closeModalPlayDeck() {
+  emit('refreshToday')
   modalPlayDeck.value = false
 }
 function openModalPlayDeck(value) {

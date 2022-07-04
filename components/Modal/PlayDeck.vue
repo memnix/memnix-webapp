@@ -39,13 +39,14 @@ let progress = ref(0)
 const emit = defineEmits(['closeModalPlayDeck'])
 
 const selectCard = function () {
+  if (cardList === null || cardList.length === 0) {
+    emit('closeModalPlayDeck')
+    return
+  }
   if (card_index >= cardList.length) {
     card_index = 0
   }
-  if (cardList.length === 0) {
-    store.deleteDeck(store.getIndex)
-    emit('closeModalPlayDeck')
-  }
+
   const cardResponse = <CardResponse>cardList[card_index]
   card.value = cardResponse.Card
   answers.value = cardResponse.Answers
@@ -59,7 +60,13 @@ selectCard()
 const nextCardEvent = function (validate: boolean) {
   if (validate) {
     progress.value += rate
-    cardList.splice(card_index, 1)
+    if (cardList.length === 1) {
+      store.deleteDeck(store.getIndex)
+      emit('closeModalPlayDeck')
+      return
+    } else {
+      cardList.splice(card_index, 1)
+    }
   } else {
     card_index++
   }

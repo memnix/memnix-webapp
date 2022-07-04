@@ -48,6 +48,8 @@ import { Carousel, Slide, Navigation } from 'vue3-carousel'
 import { CardResponseList, CarouselType } from '~/types'
 import { useTodayStore } from '~/stores/todays'
 const isOpen = ref(false)
+const emit = defineEmits(['refreshToday'])
+
 
 let numberOfItems = ref(7)
 const store = useTodayStore()
@@ -68,9 +70,12 @@ function setIsOpen(value) {
 }
 
 const modalPlayDeck = ref(false)
+
 function closeModalPlayDeck() {
+  emit('refreshToday')
   modalPlayDeck.value = false
 }
+
 function openModalPlayDeck(value) {
   store.setIndex(value)
   modalPlayDeck.value = true

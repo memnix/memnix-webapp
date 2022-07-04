@@ -64,7 +64,7 @@
     </div>
     <div v-else>
       <div class="flex w-full space-x-3 pt-10 pb-5">
-        <form @submit.prevent="formAnswer" class='w-full'>
+        <form @submit.prevent="formAnswer" class="w-full">
           <input
             aria-label="Answer"
             class="input-neutral input input-bordered input-ghost w-full"
@@ -80,6 +80,23 @@
         >
           <Icon-lucide-arrow-right />
         </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal modal-bottom sm:modal-middle"
+    :class="isOpen ? 'modal-open' : ''"
+  >
+    <div class="modal-box">
+      <div v-if="isCorrect">
+        <h3 class="text-lg font-bold">Success !</h3>
+        <p class="py-4">Keep going !</p>
+      </div>
+      <div v-else>
+        <h3 class="text-lg font-bold">Error !</h3>
+        <p class="py-4">
+          The right answer was : <b>{{ card.card_answer }}</b>
+        </p>
       </div>
     </div>
   </div>
@@ -100,8 +117,10 @@ const props = defineProps({
   },
 })
 
+const isOpen = ref(false)
 let answer = ref('')
 let showingResult = ref(false)
+let isCorrect = ref(false)
 const emit = defineEmits(['nextCardEvent'])
 
 const buttonAnswer = function (button_answer: string) {
@@ -110,18 +129,28 @@ const buttonAnswer = function (button_answer: string) {
 }
 const formAnswer = function () {
   if (answer.value !== '') {
-    postAnswer()
+    postAnswer(true)
   }
 }
 
-async function postAnswer() {
+function setIsOpen(value) {
+  isOpen.value = value
+}
+
+async function postAnswer(isText: boolean = false) {
   let result = await postResponse(props.card.ID, answer.value, false)
   showingResult.value = true
+  if (isText) {
+    setIsOpen(true)
+    isCorrect.value = result.data.validate
+  }
   if (result.success) {
     setTimeout(function () {
-      answer.value = ""
+      answer.value = ''
       emit('nextCardEvent', result.data.validate)
       showingResult.value = false
+      isCorrect.value = false
+      setIsOpen(false)
     }, 2000)
   }
 }

@@ -14,7 +14,7 @@ export const useTodayStore = defineStore('today', {
     },
 
     getNumberOfCard: (state) => {
-      return (deck: number) => state.todayMap[deck].length
+      return (deck: number) => state.todayMap[deck]?.length
     },
 
     getCurrentDeck: (state) => {
