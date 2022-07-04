@@ -1,4 +1,5 @@
 <template>
+  <div>
   <div class="text-center">
     <h3 class="my-3 text-3xl md:text-4xl">
       {{ card.card_question }}
@@ -90,15 +91,16 @@
     <div class="modal-box">
       <div v-if="isCorrect">
         <h3 class="text-lg font-bold">Success !</h3>
-        <p class="py-4">Keep going !</p>
+        <div class="py-4">Keep going !</div>
       </div>
       <div v-else>
         <h3 class="text-lg font-bold">Error !</h3>
-        <p class="py-4">
+        <div class="py-4">
           The right answer was : <b>{{ card.card_answer }}</b>
-        </p>
+        </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 

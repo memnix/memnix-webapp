@@ -9,11 +9,11 @@
             >
               Our team
             </h1>
-            <p class="mx-auto text-base leading-relaxed lg:w-2/3">
+            <div class="mx-auto text-base leading-relaxed lg:w-2/3">
               Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
               gentrify, subway tile poke farm-to-table. Franzen you probably
               haven't heard of them.
-            </p>
+            </div>
           </div>
           <div class="flex flex-wrap justify-center">
             <TeamStaff
@@ -45,11 +45,11 @@
         >
           Our Contributors
         </h1>
-        <p class="mx-auto text-base leading-relaxed lg:w-2/3">
+        <div class="mx-auto text-base leading-relaxed lg:w-2/3">
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
           gentrify, subway tile poke farm-to-table. Franzen you probably haven't
           heard of them.
-        </p>
+        </div>
       </div>
       <div class="my-3 flex justify-center space-x-2">
         <UtilsTeamContrib

@@ -21,24 +21,24 @@
         class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:gap-12"
       >
         <UtilsFeatureBox title="A Personalized System" icon="heart">
-            <p class="text-sm lg:text-lg">
+            <div class="text-sm lg:text-lg">
               Create your own flash cards according to your  <a class='underline decoration-secondary decoration-2 lg:decoration-4'> own specific needs </a>or explore those in  <a class='underline decoration-accent decoration-2 lg:decoration-4'>our public database</a>
-            </p>
+            </div>
         </UtilsFeatureBox>
         <UtilsFeatureBox title="Take the memnix challenge" icon="trending">
-          <p class="text-sm lg:text-lg">
+          <div class="text-sm lg:text-lg">
             Seize the opportunity to learn by playing against yourself and to exceed your limits,  <a class='underline decoration-secondary decoration-2 lg:decoration-4'>intended for everyone and accessible for free</a>
-          </p>
+          </div>
         </UtilsFeatureBox>
         <UtilsFeatureBox title="Save time" icon="time">
-          <p class="text-sm lg:text-lg">
+          <div class="text-sm lg:text-lg">
             Don't worry about <a class='underline decoration-accent decoration-2 lg:decoration-4'>planning your studies</a>, Memnix will take care of everything and <a class='underline decoration-secondary decoration-2 lg:decoration-4'>optimize your revisions</a>
-          </p>
+          </div>
         </UtilsFeatureBox>
         <UtilsFeatureBox title="Accessible from anywhere" icon="accessible">
-          <p class="text-sm lg:text-lg">
+          <div class="text-sm lg:text-lg">
             <a class='underline decoration-secondary decoration-2 lg:decoration-4'>Wherever and whenever you need it</a>, Memnix is <a class='underline decoration-accent decoration-2 lg:decoration-4'>accessible</a> from any computer as long as you are connected to the Internet
-          </p>
+          </div>
         </UtilsFeatureBox>
       </div>
     </div>
