@@ -9,7 +9,7 @@
 
       <div class="mt-8 lg:-mx-12 lg:flex xl:mt-16">
         <div class="lg:mx-12">
-          <h1 class="text-xl font-semibold text-gray-800 dark:text-white">
+          <h1 class="text-xl font-semibold">
             Need further help?
           </h1>
 
