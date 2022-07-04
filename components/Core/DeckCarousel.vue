@@ -65,7 +65,7 @@ function openModalPlayDeck(value) {
   const store = useTodayStore()
   store.setIndex(value)
   cardList.value = store.getCurrentDeck
-  console.log(cardList.value)
+  
   modalPlayDeck.value = true
 }
 
