@@ -68,7 +68,6 @@
 
 <script lang="ts" setup>
 import {
-  CardResponseList,
   CarouselType,
   Deck,
   DeckList,
