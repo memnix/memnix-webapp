@@ -7,16 +7,29 @@
       <div class="flex flex-row items-center justify-between">
         <h1 class="md:text-xl">{{ title }}</h1>
       </div>
-      <CoreDeckDesktopCarousel :deckList="deckList" :daily='daily' />
+      <CoreDeckDesktopCarousel
+        :deckList="deckList"
+        :type="type"
+        v-if="deckList.length >= 7"
+        @refreshToday="emit('refreshToday')"
+      />
+      <CoreDeckCarousel
+        :deckList="deckList"
+        :type="type"
+        v-else
+        @refreshToday="emit('refreshToday')"
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+const emit = defineEmits(['refreshToday'])
+
 const props = defineProps({
-  daily: {
-    type: Boolean,
-    default: false,
+  type: {
+    type: Number,
+    required: true,
   },
   deckList: {
     type: Array,

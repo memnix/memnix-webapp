@@ -61,6 +61,8 @@ module.exports = {
           warning: '#F6D73C',
           error: '#E83B55',
           'primary-content': '#4d1600',
+          'success-content': '#102742',
+          'error-content': '#000000',
         },
       },
       {
@@ -76,6 +78,8 @@ module.exports = {
           warning: '#F6D73C',
           error: '#E83B55',
           'primary-content': '#4d1600',
+          'success-content': '#102742',
+          'error-content': '#000000',
         },
       },
     ],

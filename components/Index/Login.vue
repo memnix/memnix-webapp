@@ -60,7 +60,7 @@
 </template>
 
 <script lang="ts" setup>
-import { login } from '~/api/api'
+import { login, user } from '~/api/api'
 
 let email = ref("")
 let password = ref("")
@@ -68,7 +68,7 @@ let password = ref("")
 const loginRequest = async function() {
   let result = await login(email.value,password.value )
   if (result) {
-    navigateTo("/home")
+    return navigateTo("/home")
   }
 }
 

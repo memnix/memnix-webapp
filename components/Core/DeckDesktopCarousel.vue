@@ -6,22 +6,33 @@
     class="h40 rounded-box z-0 py-2 md:h-64 lg:h-80"
   >
     <Slide v-for="deck in deckList" :key="deck">
-      <div class="z-5 py-4" v-if="daily">
-        <NuxtLink :to="'/play?deck=' + deck.ID">
-        <CoreDeck :deck="deck" />
+      <div class="z-5 py-4" v-if="type === CarouselType.Today">
+        <CoreDeck :deck="deck" @click="openModalPlayDeck(deck.ID)" :number_badge='store.getNumberOfCard(deck.ID)'/>
+      </div>
+      <div class="z-5 py-4" v-else-if="type === CarouselType.ToPlay">
+        <NuxtLink :to="'/play?deck=' + deck.Deck.ID">
+          <CoreDeck :deck="deck.Deck" />
         </NuxtLink>
       </div>
       <div class="z-5 py-4" v-else>
-        <CoreDeck :deck="deck"  @click="setIsOpen(true)" />
+        <CoreDeck :deck="deck.Deck" @click="setIsOpen(true)" />
       </div>
     </Slide>
     <template #addons>
       <Navigation class="mx-5" />
     </template>
   </Carousel>
-  <div class="modal modal-bottom sm:modal-middle" :class='isOpen ? "modal-open"	: ""'>
+  <ModalPlayDeck
+    v-if="modalPlayDeck"
+    :cardList="cardList"
+    @closeModalPlayDeck="closeModalPlayDeck"
+  />
+  <div
+    class="modal modal-bottom sm:modal-middle"
+    :class="isOpen ? 'modal-open' : ''"
+  >
     <div class="modal-box">
-      <h3 class="font-bold text-lg">Subscribe to this deck ?</h3>
+      <h3 class="text-lg font-bold">Subscribe to this deck ?</h3>
       <p class="py-4">You will be able to play it</p>
       <div class="modal-action">
         <label @click="setIsOpen(false)" class="btn">Yes</label>
@@ -34,11 +45,14 @@
 <script setup lang="ts">
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
-
-
+import { CardResponseList, CarouselType } from '~/types'
+import { useTodayStore } from '~/stores/todays'
 const isOpen = ref(false)
+const emit = defineEmits(['refreshToday'])
+
 
 let numberOfItems = ref(7)
+const store = useTodayStore()
 
 const computeNumber = () => {
   const number = window.innerWidth / 256
@@ -55,6 +69,18 @@ function setIsOpen(value) {
   isOpen.value = value
 }
 
+const modalPlayDeck = ref(false)
+
+function closeModalPlayDeck() {
+  emit('refreshToday')
+  modalPlayDeck.value = false
+}
+
+function openModalPlayDeck(value) {
+  store.setIndex(value)
+  modalPlayDeck.value = true
+}
+
 onMounted(() => {
   computeNumber()
   window.addEventListener('resize', () => {
@@ -63,9 +89,8 @@ onMounted(() => {
 })
 
 const props = defineProps({
-  daily: {
-    type: Boolean,
-    default: false,
+  type: {
+    type: Number,
     required: true,
   },
   deckList: {
@@ -73,6 +98,8 @@ const props = defineProps({
     required: true,
   },
 })
+
+let cardList = ref(<CardResponseList>[])
 </script>
 
 <style scoped></style>

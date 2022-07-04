@@ -7,12 +7,18 @@
       <div class="flex flex-row items-center justify-between">
         <h1 class="md:text-xl">{{ title }}</h1>
       </div>
-      <CoreDeckCarousel :deckList="deckList" />
+      <CoreDeckCarousel
+        :deckList="deckList"
+        :type="type"
+        @refreshToday="emit('refreshToday')"
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+const emit = defineEmits(['refreshToday'])
+
 const props = defineProps({
   deckList: {
     type: Array,
@@ -26,6 +32,10 @@ const props = defineProps({
     type: Boolean,
     required: true,
     default: true,
+  },
+  type: {
+    type: Number,
+    required: true,
   },
 })
 </script>
