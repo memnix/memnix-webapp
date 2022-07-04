@@ -89,7 +89,6 @@ let availableDeckList = ref(<SubDeckList>[])
 async function refreshToday() {
   loaded.value = false
   const data: TodayResponse = await todays()
-  const store = useTodayStore()
   todayDeckList.value = []
   await handleData(data).then(() => {
     loaded.value = true
