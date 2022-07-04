@@ -15,42 +15,24 @@
               haven't heard of them.
             </p>
           </div>
-          <div class="-m-4 flex flex-wrap">
+          <div class="flex flex-wrap justify-center">
             <TeamStaff
-              class="p-4 lg:w-1/2"
+              class="p-4 w-full md:w-1/2 lg:w-1/3"
               image="https://dummyimage.com/200x200"
-              name="Atticus Finch"
-              job="UI Developer"
-              discord="o"
-              github="sds"
-              twitter="sdfsd"
+              name="Corentin GS"
+              job="Main Developer"
+              discord="282233191916634113"
+              github="corentings"
+              twitter="corentin_gs"
             />
             <TeamStaff
-              class="p-4 lg:w-1/2"
+              class="p-4 w-full md:w-1/2 lg:w-1/3"
               image="https://dummyimage.com/200x200"
-              name="Atticus Finch"
-              job="UI Developer"
-              discord="o"
-              github="sds"
-              twitter="sdfsd"
-            />
-            <TeamStaff
-              class="p-4 lg:w-1/2"
-              image="https://dummyimage.com/200x200"
-              name="Atticus Finch"
-              job="UI Developer"
-              discord="o"
-              github="sds"
-              twitter="sdfsd"
-            />
-            <TeamStaff
-              class="p-4 lg:w-1/2"
-              image="https://dummyimage.com/200x200"
-              name="Atticus Finch"
-              job="UI Developer"
-              discord="o"
-              github="sds"
-              twitter="sdfsd"
+              name="Corentin GS"
+              job="Main Developer"
+              discord="282233191916634113"
+              github="corentings"
+              twitter="corentin_gs"
             />
           </div>
         </div>
@@ -69,42 +51,19 @@
           heard of them.
         </p>
       </div>
-      <div class="my-3 flex justify-between space-x-2">
+      <div class="my-3 flex justify-center space-x-2">
         <UtilsTeamContrib
           class="py-2 md:w-1/2 lg:w-1/3"
           image="https://dummyimage.com/200x200"
-          name="Atticus Finch"
-          job="UI Developer"
-          discord="o"
-          github="sds"
-          twitter="sdfsd"
+          name="Chris"
+          job="Translator"
         />
         <UtilsTeamContrib
           class="py-2 md:w-1/2 lg:w-1/3"
           image="https://dummyimage.com/200x200"
-          name="Atticus Finch"
-          job="UI Developer"
-          discord="o"
-          github="sds"
-          twitter="sdfsd"
-        />
-        <UtilsTeamContrib
-          class="py-2 md:w-1/2 lg:w-1/3"
-          image="https://dummyimage.com/200x200"
-          name="Atticus Finch"
-          job="UI Developer"
-          discord="o"
-          github="sds"
-          twitter="sdfsd"
-        />
-        <UtilsTeamContrib
-          class="py-2 md:w-1/2 lg:w-1/3"
-          image="https://dummyimage.com/200x200"
-          name="Atticus Finch"
-          job="UI Developer"
-          discord="o"
-          github="sds"
-          twitter="sdfsd"
+          name="vlad"
+          job="Translator"
+
         />
       </div>
     </div>

@@ -8,17 +8,17 @@
       :src="image"
     />
     <div class="flex-grow sm:pl-8">
-      <h2 class="text-lg font-medium">{{ name }}</h2>
+      <h2 class="text-2xl font-medium">{{ name }}</h2>
       <h3 class="mb-3">{{ job }}</h3>
 
       <span class="inline-flex space-x-4">
-        <NuxtLink v-show="twitter !== null" :to="twitter">
+        <NuxtLink v-show="twitter !== null" :to="'https://twitter.com/' + twitter" target="_blank">
           <Icon-lucide-twitter class="h-6 w-6 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
         </NuxtLink>
-        <NuxtLink v-show="discord !== null" :to="discord">
+        <NuxtLink v-show="discord !== null" :to="'https://discordapp.com/users/' + discord" target="_blank">
           <Icon-ic-round-discord class="h-6 w-6 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
         </NuxtLink>
-        <NuxtLink v-show="github !== null" :to="github">
+        <NuxtLink v-show="github !== null" :to="'https://github.com/' + github" target="_blank">
           <Icon-lucide-github class="h-6 w-6 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
         </NuxtLink>
       </span>

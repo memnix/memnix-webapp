@@ -14,30 +14,29 @@
           </h1>
 
           <div class="mt-4 space-y-4 lg:mt-8">
-            <a
-              href="/discord"
+            <NuxtLink
+              to="/discord"
               class="block hoveranimation hover:text-accent hover:underline"
-              >Discord</a
+              >Discord</NuxtLink
             >
-            <a
-              href="#"
+            <NuxtLink
+              to="https://twitter.com/memnixapp"
+              target="_blank"
               class="block hoveranimation hover:text-accent hover:underline"
-              >Twitter</a
+              >Twitter</NuxtLink
             >
-            <a
-              href="#"
+            <NuxtLink
+              to="https://github.com/memnix"
+              target="_blank"
               class="block hoveranimation hover:text-accent hover:underline"
-              >Github</a
+              >Github</NuxtLink
             >
           </div>
         </div>
 
         <div class="mt-8 flex-1 lg:mx-12 lg:mt-0">
-          <FaqContent title="Totoro" content="Chihiro" />
-          <FaqContent class="my-8" title="Totoro" content="Chihiro" />
-          <FaqContent class="my-8" title="Totoro" content="Chihiro" />
-          <FaqContent class="my-8" title="Totoro" content="Chihiro" />
-          <FaqContent class="my-8" title="Totoro" content="Chihiro" />
+          <FaqContent title="Who is behind Memnix ?" content="Memnix is an open source project created by CorentinGS (aka The Little Prince)." />
+          <FaqContent class="my-8" title="Is Memnix free ?" content="As for now Memnix is totally free !" />
         </div>
       </div>
     </div>
