@@ -51,7 +51,7 @@ export interface TrainingCardsList extends Array<TrainingCards> {}
 
 export interface HTTPResponse {
   success: boolean
-  data: Object | Deck | TrainingCardsList | SubDeckList | any
+  data: Record<string, unknown> | Deck | TrainingCardsList | SubDeckList | any
   message: string
   count: number
 }

@@ -18,7 +18,7 @@
         answers?.length === 4 && card.card_image !== '' && card.card_type === 2
       "
     >
-      <div v-for="ans in answers">
+      <div v-for="ans in answers" :key='ans'>
         <div
           class="hoveranimation btn btn-primary w-full normal-case"
           @click="buttonAnswer(ans)"
@@ -42,7 +42,7 @@
       class="mx-auto flex max-w-2xl flex-col justify-center space-y-4 py-10 md:space-y-6"
       v-else-if="answers?.length === 4 && card.card_type === 2"
     >
-      <div v-for="ans in answers">
+      <div v-for="ans in answers" :key='ans'>
         <div
           class="btn btn-primary w-full normal-case"
           @click="buttonAnswer(ans)"

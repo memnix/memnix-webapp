@@ -1,4 +1,4 @@
-import { DeckResponseList, HTTPResponse, TodayResponse } from '~/types'
+import { HTTPResponse, TodayResponse } from '~/types'
 
 export async function todays() {
   const token = useCookie('token')
@@ -62,7 +62,7 @@ export async function getAvailableDeck() {
 export async function getDeck(id: number) {
   const token = useCookie('token')
   const data: HTTPResponse = await $fetch<HTTPResponse>(
-    'http://127.0.0.1:1813/v1/decks/' + id,
+    'http://127.0.0.1:1813/v1/decks/' + id.toString(),
     {
       method: 'GET',
       headers: {
