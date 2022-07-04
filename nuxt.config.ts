@@ -1,5 +1,6 @@
 import { defineNuxtConfig } from 'nuxt'
 import UnpluginComponentsVite from 'unplugin-vue-components/vite'
+import compress from 'vite-plugin-compress'
 import IconsResolver from 'unplugin-icons/resolver'
 
 export default defineNuxtConfig({
@@ -35,8 +36,14 @@ export default defineNuxtConfig({
 
   components: true,
 
+  nitro: {
+    minify: true,
+    serveStatic: true,
+  },
+
   vite: {
     plugins: [
+      compress(),
       UnpluginComponentsVite({
         dts: true,
         resolvers: [

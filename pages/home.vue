@@ -1,18 +1,128 @@
 <template>
-  <section class="bg-base-200">
-    <div class="flex h-screen flex-col items-center justify-center bg-base-200">
-      <div
-        class="my-auto flex w-full flex-row flex-nowrap overflow-auto bg-base-100"
-      >
-        <div class="mx-5" v-for="n in 50">{{ n }}</div>
-      </div>
-      <div class="my-auto">02</div>
-      <div class="my-auto">03</div>
+  <section class="bg-base-100" v-if="loaded">
+    <div v-show="isMobile === true">
+      <CoreDeckMobileSection
+        :deckList="todayDeckList"
+        :white="true"
+        title="Daily decks"
+        :type="CarouselType.Today"
+        @refreshToday="refreshToday"
+      />
+      <CoreDeckMobileSection
+        :deckList="availableDeckList"
+        :white="false"
+        title="Featured decks"
+        :type="CarouselType.ToSubscribe"
+        @refreshToday="refreshToday"
+      />
+      <CoreDeckMobileSection
+        :deckList="myDecksList"
+        :white="true"
+        title="My decks"
+        :type="CarouselType.ToPlay"
+        @refreshToday="refreshToday"
+      />
+      <CoreDeckMobileSection
+        :deckList="availableDeckList"
+        :white="false"
+        title="You might like"
+        :type="CarouselType.ToSubscribe"
+        @refreshToday="refreshToday"
+      />
     </div>
+    <div v-show="!isMobile">
+      <CoreDeckDesktopSection
+        :deckList="todayDeckList"
+        :white="true"
+        title="Daily decks"
+        :type="CarouselType.Today"
+        @refreshToday="refreshToday"
+      />
+      <CoreDeckDesktopSection
+        :deckList="availableDeckList"
+        :white="false"
+        title="Featured decks"
+        :type="CarouselType.ToSubscribe"
+        @refreshToday="refreshToday"
+      />
+      <CoreDeckDesktopSection
+        :deckList="myDecksList"
+        :white="true"
+        title="My decks"
+        :type="CarouselType.ToPlay"
+        @refreshToday="refreshToday"
+      />
+      <CoreDeckDesktopSection
+        :deckList="availableDeckList"
+        :white="false"
+        title="You might like"
+        :type="CarouselType.ToSubscribe"
+        @refreshToday="refreshToday"
+      />
+    </div>
+  </section>
+  <section v-else>
+    <h1>Loading...</h1>
   </section>
 </template>
 
 <script lang="ts" setup>
-definePageMeta({ layout: 'connected' })
-const page = ref(0)
+import {
+  CarouselType,
+  Deck,
+  DeckList,
+  SubDeckList,
+  TodayResponse,
+} from '~/types'
+import { getAvailableDeck, getDeck, getSubDeck, todays } from '~/api/deck.api'
+import { useTodayStore } from '~/stores/todays'
+
+definePageMeta({ layout: 'connected', middleware: ['auth'] })
+
+let isMobile = ref(false)
+let loaded = ref(false)
+let myDecksList = ref(<SubDeckList>[])
+let todayDeckList = ref(<DeckList>[])
+let availableDeckList = ref(<SubDeckList>[])
+
+async function refreshToday() {
+  loaded.value = false
+  const data: TodayResponse = await todays()
+  todayDeckList.value = []
+  await handleData(data).then(() => {
+    loaded.value = true
+  })
+}
+
+onMounted(async () => {
+  const data: TodayResponse = await todays()
+
+  myDecksList.value = await getSubDeck().then((res) => {
+    return <SubDeckList>res.data || []
+  })
+
+  availableDeckList.value = await getAvailableDeck().then((res) => {
+    return <SubDeckList>res.data || []
+  })
+
+  await handleData(data).then(() => (loaded.value = true))
+
+  isMobile.value = screen.width <= 768
+  window.addEventListener('resize', () => {
+    isMobile.value = screen.width <= 768
+  })
+})
+
+const handleData = async function (todayResponse: TodayResponse) {
+  const data = todayResponse.data
+  const store = useTodayStore()
+  for (let i = 0; i < data.count; i++) {
+    const deck = await getDeck(data.decks_responses[i].deck_id)
+    store.setDeck(
+      data.decks_responses[i].deck_id,
+      data.decks_responses[i].cards
+    )
+    todayDeckList.value.push(<Deck>deck.data)
+  }
+}
 </script>

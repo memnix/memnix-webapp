@@ -28,6 +28,9 @@
     "daisyui": "^2.15.2",
     "pinia": "^2.0.13",
     "prettier": "^2.6.2",
-    "prettier-plugin-tailwindcss": "^0.1.11"
+    "prettier-plugin-tailwindcss": "^0.1.11",
+    "theme-change": "^2.0.2",
+    "vite-plugin-compress": "^2.1.1",
+    "vue3-carousel": "^0.1.40"
   }
 }

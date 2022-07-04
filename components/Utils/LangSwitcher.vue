@@ -12,12 +12,12 @@
         title="Change Language"
         class="transition-colors duration-300"
       >
-        <span class="flex items-center justify-center text-secondary transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:animate-pulse">
+        <span class="flex items-center justify-center text-secondary hoveranimation hover:animate-pulse">
           <Icon-lucide-languages style="font-size: 2em" />
         </span>
       </ListboxButton>
       <ListboxOptions
-        class="absolute top-full right-0 z-50 w-36 overflow-hidden rounded-lg bg-base-100 p-1 py-1 text-sm font-semibold shadow-lg"
+        class='absolute top-full right-0 z-50 w-36 overflow-hidden rounded-lg bg-base-200 p-1 py-1 text-sm font-semibold shadow-lg'
       >
         <ListboxOption
           v-for="lang in availableLocales"

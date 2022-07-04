@@ -1,5 +1,5 @@
 <template>
-  <section class="xl:h-screen bg-base-200">
+  <section class='bg-base-100 xl:h-screen'>
     <div class="container mx-auto px-6 py-14">
       <div class="my-12 max-w-xl">
         <h1
@@ -7,33 +7,73 @@
         >
           Memnix's Discord
         </h1>
-        <p class="mb-6">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque rem aperiam, eaque ipsa quae. Sed ut unde omnis
-          iste natus.
-        </p>
+        <h2 class="mb-6 text-2xl">
+          Join the Memnix discord to meet developers and contributors, take part
+          in the project and be part of a friendly community
+          <a class="underline decoration-secondary decoration-4"
+            >be part of a friendly community</a
+          >
+        </h2>
         <div class="flex items-center">
-          <a href="#">
-            <button type="submit" class="btn btn-secondary">
+          <NuxtLink href="#">
+            <button class="hoveranimation btn btn-secondary">
               Join our Discord
             </button>
-          </a>
+          </NuxtLink>
         </div>
       </div>
       <div
-        class="mt-10 lg:mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 xl:gap-12"
+        class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:mt-16 xl:gap-12"
       >
-        <UtilsFeatureBox>
-          <Icon-lucide-zap class="h-10 w-10" />
+        <UtilsFeatureBox title="Meet our team" icon="message">
+          <p class="text-sm lg:text-lg">
+            Meet
+            <a
+              class="underline decoration-secondary decoration-2 lg:decoration-4"
+              >the team of contributors
+            </a>
+            behind Memnix and chat about the project
+            <a class="underline decoration-accent decoration-2 lg:decoration-4"
+              >to suggest improvements</a
+            >
+            or share your opinion
+          </p>
         </UtilsFeatureBox>
-        <UtilsFeatureBox>
-          <Icon-lucide-message-circle class="h-10 w-10" />
+        <UtilsFeatureBox title="Unique benefits" icon="crown">
+          <p class="text-sm lg:text-lg">
+            Enjoy
+            <a
+              class="underline decoration-secondary decoration-2 lg:decoration-4"
+              >new features in beta</a
+            >, contests to try to win perks and
+            <a class="underline decoration-accent decoration-2 lg:decoration-4"
+              >unique events</a
+            >
+          </p>
         </UtilsFeatureBox>
-        <UtilsFeatureBox>
-          <Icon-lucide-code-2 class="h-10 w-10" />
+        <UtilsFeatureBox title="Contribute to the project" icon="code">
+          <p class="text-sm lg:text-lg">
+            <a
+              class="underline decoration-secondary decoration-2 lg:decoration-4"
+              >Contribute</a
+            >
+            to the project by proposing translations and new features or by
+            coding, designing and creating decks
+          </p>
         </UtilsFeatureBox>
-        <UtilsFeatureBox>
-          <Icon-lucide-users class="h-10 w-10" />
+        <UtilsFeatureBox title="A nice community" icon="users">
+          <p class="text-sm lg:text-lg">
+            Memnix is based on a
+            <a
+              class="underline decoration-secondary decoration-2 lg:decoration-4"
+              >real community</a
+            >
+            of helpers whose goal is to
+            <a class="underline decoration-accent decoration-2 lg:decoration-4"
+              >ease learning</a
+            >
+            for everyone
+          </p>
         </UtilsFeatureBox>
       </div>
     </div>

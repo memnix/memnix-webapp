@@ -32,6 +32,7 @@ export function LanguageManager() {
       return 'en'
     }
   }
+  // getUserLocale setting
   const getUserLocale = (): string =>
     localeUserSetting.value || getSystemLocale()
 

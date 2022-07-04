@@ -49,17 +49,20 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        mytheme: {
+        memnix: {
           primary: '#E9AF98',
           secondary: '#405CA0',
           accent: '#AD6E9E',
           neutral: '#40404A',
-          'base-200': '#FCFCFC',
-          'base-100': '#f1f1f1',
+          'base-200': '#f1f1f1',
+          'base-100': '#FCFCFC',
           info: '#3A73D4',
           success: '#72E9C1',
           warning: '#F6D73C',
           error: '#E83B55',
+          'primary-content': '#4d1600',
+          'success-content': '#102742',
+          'error-content': '#000000',
         },
       },
       {
@@ -74,9 +77,11 @@ module.exports = {
           success: '#72E9C1',
           warning: '#F6D73C',
           error: '#E83B55',
+          'primary-content': '#4d1600',
+          'success-content': '#102742',
+          'error-content': '#000000',
         },
       },
-      'dark',
     ],
   },
 }

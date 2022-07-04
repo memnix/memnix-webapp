@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar bg-base-100">
+  <div class='navbar bg-base-200'>
     <div class="navbar-start">
       <div class="dropdown">
         <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -20,32 +20,19 @@
         </label>
         <ul
           tabindex="0"
-          class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
+          class='dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-200 p-2 shadow'
         >
           <li>
-            <NuxtLink
-              to="/discover"
-            >
-              Discover
-            </NuxtLink>
+            <NuxtLink to="/discover"> Discover </NuxtLink>
           </li>
           <li>
-            <NuxtLink
-              to="/team"
-              >Our team</NuxtLink
-            >
+            <NuxtLink to="/team">Our team</NuxtLink>
           </li>
           <li>
-            <NuxtLink
-              to="/faq"
-              >FAQ</NuxtLink
-            >
+            <NuxtLink to="/faq">FAQ</NuxtLink>
           </li>
           <li>
-            <NuxtLink
-              to="/discord"
-              >Discord</NuxtLink
-            >
+            <NuxtLink to="/discord">Discord</NuxtLink>
           </li>
         </ul>
       </div>
@@ -53,34 +40,25 @@
         >Memnix</NuxtLink
       >
     </div>
-    <div class="navbar-center hidden  text-xl lg:flex">
+    <div class='navbar-center hidden text-xl lg:flex'>
       <ul class="menu menu-horizontal p-0">
         <li>
-          <NuxtLink
-            to="/discover"
-            class="transition duration-300 ease-in-out  hover:-translate-y-1 hover:scale-110 hover:text-accent"
-          >
+          <NuxtLink to="/discover" class="hoveranimation hover:text-accent">
             Discover
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink
-            class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent"
-            to="/team"
+          <NuxtLink class="hoveranimation hover:text-accent" to="/team"
             >Our team</NuxtLink
           >
         </li>
         <li>
-          <NuxtLink
-            class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent"
-            to="/faq"
+          <NuxtLink class="hoveranimation hover:text-accent" to="/faq"
             >FAQ</NuxtLink
           >
         </li>
         <li>
-          <NuxtLink
-            class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-accent"
-            to="/discord"
+          <NuxtLink class="hoveranimation hover:text-accent" to="/discord"
             >Discord</NuxtLink
           >
         </li>
@@ -88,12 +66,13 @@
     </div>
     <div class="navbar-end">
       <UtilsLangSwitcher />
-      <NuxtLink to='/#auth'>
-      <button
-        class="btn btn-primary mx-5 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:animate-pulse"
-      >
-        Login
-      </button>
+      <UtilsThemeSwitcher class="mx-5" />
+      <NuxtLink to="/#auth" class="hidden md:block">
+        <button
+          class="btn btn-primary mx-5 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:animate-pulse"
+        >
+          Login
+        </button>
       </NuxtLink>
     </div>
   </div>
