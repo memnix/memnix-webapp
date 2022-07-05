@@ -19,7 +19,10 @@
         </NuxtLink>
       </div>
       <div class="z-5 py-4" v-else>
-        <CoreDeck :deck="deck.Deck" @click="openModalSubConfirmation(deck.Deck)" />
+        <CoreDeck
+          :deck="deck.Deck"
+          @click="openModalSubConfirmation(deck.Deck)"
+        />
       </div>
     </Slide>
     <template #addons>
