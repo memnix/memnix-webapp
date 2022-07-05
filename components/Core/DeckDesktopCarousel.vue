@@ -7,7 +7,11 @@
   >
     <Slide v-for="deck in deckList" :key="deck">
       <div class="z-5 py-4" v-if="type === CarouselType.Today">
-        <CoreDeck :deck="deck" @click="openModalPlayDeck(deck.ID)" :number_badge='store.getNumberOfCard(deck.ID)'/>
+        <CoreDeck
+          :deck="deck"
+          @click="openModalPlayDeck(deck.ID)"
+          :number_badge="store.getNumberOfCard(deck.ID)"
+        />
       </div>
       <div class="z-5 py-4" v-else-if="type === CarouselType.ToPlay">
         <NuxtLink :to="'/play?deck=' + deck.Deck.ID">
@@ -15,7 +19,7 @@
         </NuxtLink>
       </div>
       <div class="z-5 py-4" v-else>
-        <CoreDeck :deck="deck.Deck" @click="setIsOpen(true)" />
+        <CoreDeck :deck="deck.Deck" @click="openModalSubConfirmation(deck.Deck)" />
       </div>
     </Slide>
     <template #addons>
@@ -27,19 +31,11 @@
     :cardList="cardList"
     @closeModalPlayDeck="closeModalPlayDeck"
   />
-  <div
-    class="modal modal-bottom sm:modal-middle"
-    :class="isOpen ? 'modal-open' : ''"
-  >
-    <div class="modal-box">
-      <h3 class="text-lg font-bold">Subscribe to this deck ?</h3>
-      <p class="py-4">You will be able to play it</p>
-      <div class="modal-action">
-        <label @click="setIsOpen(false)" class="btn">Yes</label>
-        <label @click="setIsOpen(false)" class="btn">No</label>
-      </div>
-    </div>
-  </div>
+  <ModalSubConfirmation
+    v-if="modalSubConfirmation"
+    :deck="selectedDeck"
+    @closeModalSubConfirmation="closeModalSubConfirmation"
+  />
 </template>
 
 <script setup lang="ts">
@@ -47,12 +43,24 @@ import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
 import { CardResponseList, CarouselType } from '~/types'
 import { useTodayStore } from '~/stores/todays'
+
 const isOpen = ref(false)
 const emit = defineEmits(['refreshToday'])
-
+const modalSubConfirmation = ref(false)
+const selectedDeck = ref({})
 
 let numberOfItems = ref(7)
 const store = useTodayStore()
+
+function openModalSubConfirmation(deck) {
+  selectedDeck.value = deck
+  modalSubConfirmation.value = true
+}
+
+function closeModalSubConfirmation() {
+  selectedDeck.value = {}
+  modalSubConfirmation.value = false
+}
 
 const computeNumber = () => {
   const number = window.innerWidth / 256

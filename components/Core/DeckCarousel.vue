@@ -17,7 +17,7 @@
         </NuxtLink>
       </div>
       <div v-else>
-        <CoreDeck :deck="value.Deck" @click="setIsOpen(true)" />
+        <CoreDeck :deck="value.Deck" @click="openModalSubConfirmation(value.Deck)" />
       </div>
     </div>
   </div>
@@ -27,32 +27,30 @@
     @closeModalPlayDeck="closeModalPlayDeck"
   />
 
-  <div
-    class="modal modal-bottom sm:modal-middle"
-    :class="isOpen ? 'modal-open' : ''"
-  >
-    <div class="modal-box">
-      <h3 class="text-lg font-bold">Subscribe to this deck ?</h3>
-      <p class="py-4">You will be able to play it</p>
-      <div class="modal-action">
-        <label @click="setIsOpen(false)" class="btn">No</label>
-        <label @click="setIsOpen(false)" class="btn">Yes</label>
-
-      </div>
-    </div>
-  </div>
+  <ModalSubConfirmation
+    v-if="modalSubConfirmation"
+    :deck='selectedDeck'
+    @closeModalSubConfirmation="closeModalSubConfirmation"/>
 </template>
 
 <script setup lang="ts">
 import { CardResponseList, CarouselType } from '~/types'
 import { useTodayStore } from '~/stores/todays'
 
-const isOpen = ref(false)
+const modalSubConfirmation = ref(false)
+const selectedDeck = ref({})
 const store = useTodayStore()
 const emit = defineEmits(['refreshToday'])
 
-function setIsOpen(value) {
-  isOpen.value = value
+
+function openModalSubConfirmation(deck) {
+  selectedDeck.value = deck
+  modalSubConfirmation.value = true
+}
+
+function closeModalSubConfirmation() {
+  selectedDeck.value = {}
+  modalSubConfirmation.value = false
 }
 
 const modalPlayDeck = ref(false)
