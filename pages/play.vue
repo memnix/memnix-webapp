@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import { Card, CardResponse, TrainingCardsList } from '~/types'
 import { themeChange } from 'theme-change'
-import { getTrainingCards } from '~/api/deck.api'
+import { getTrainingCards } from '~/api/card.api'
 
 const route = useRoute()
 let cardList

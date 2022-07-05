@@ -74,7 +74,8 @@ import {
   SubDeckList,
   TodayResponse,
 } from '~/types'
-import { getAvailableDeck, getDeck, getSubDeck, todays } from '~/api/deck.api'
+import { getAvailableDeck, getDeck, getSubDeck } from '~/api/deck.api'
+import {todays} from '~/api/card.api'
 import { useTodayStore } from '~/stores/todays'
 
 definePageMeta({ layout: 'connected', middleware: ['auth'] })

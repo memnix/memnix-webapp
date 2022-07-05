@@ -105,7 +105,7 @@
 </template>
 
 <script setup lang="ts">
-import { postResponse } from '~/api/deck.api'
+import { postResponse } from '~/api/card.api'
 
 const props = defineProps({
   card: {

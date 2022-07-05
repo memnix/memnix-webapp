@@ -7,6 +7,7 @@
         src="https://github.com/memnix/memnix/blob/main/assets/images/moutmout.png?raw=true"
         width="100%"
         height="100%"
+        alt="moutmout"
       />
     </div>
     <div class="flex h-screen flex-wrap bg-base-200">
@@ -37,6 +38,7 @@
             <div class="h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28">
               <img
                 src="https://github.com/memnix/memnix/blob/main/assets/images/moutmout.png?raw=true"
+                alt='moutmout'
               />
             </div>
             <h1

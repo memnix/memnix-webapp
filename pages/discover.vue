@@ -12,7 +12,6 @@
       <iframe
         class="mt-12 h-64 min-w-full overflow-hidden rounded-xl object-cover md:h-[600px] lg:h-[700px]"
         src="https://www.youtube-nocookie.com/embed/c9p9QecLhww"
-        frameborder="0"
         title="Memnix app"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen=""
