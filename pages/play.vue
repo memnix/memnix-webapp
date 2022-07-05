@@ -31,6 +31,7 @@
 import { Card, CardResponse, TrainingCardsList } from '~/types'
 import { themeChange } from 'theme-change'
 import { getTrainingCards } from '~/api/card.api'
+import { useApiStore } from '~/stores/api'
 
 const route = useRoute()
 let cardList
@@ -43,6 +44,7 @@ let rate = 0
 
 const selectCard = function () {
   if (card_index >= cardList.length || cardList.length === 0) {
+
      return navigateTo('/home')
   }
 
@@ -70,6 +72,8 @@ const nextCardEvent = function (validate: boolean) {
 }
 
 onMounted(() => {
+  const apiStore = useApiStore()
+  apiStore.refreshToday = true
   themeChange(false)
   loadCards()
 })

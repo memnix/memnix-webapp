@@ -1,11 +1,11 @@
 import { HTTPResponse } from '~/types'
 import { baseUrl } from '~/api/api'
 
-export async function getSubDeck(refresh: boolean = false) {
+export async function getSubDeck() {
   const token = useCookie('token')
 
   const data: HTTPResponse = await $fetch<HTTPResponse>(
-    `/decks/sub${refresh ? '?refresh=true' : ''}`,
+    `/decks/sub?refresh=true`,
     {
       method: 'GET',
       baseURL: baseUrl,
@@ -17,11 +17,11 @@ export async function getSubDeck(refresh: boolean = false) {
   return data
 }
 
-export async function getAvailableDeck(refresh: boolean = false) {
+export async function getAvailableDeck() {
   const token = useCookie('token')
 
   const data: HTTPResponse = await $fetch<HTTPResponse>(
-    `/decks/available${refresh ? '?refresh=true' : ''}`,
+    `/decks/available?refresh=true`,
     {
       method: 'GET',
       baseURL: baseUrl,

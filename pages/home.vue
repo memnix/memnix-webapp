@@ -75,8 +75,9 @@ import {
   TodayResponse,
 } from '~/types'
 import { getAvailableDeck, getDeck, getSubDeck } from '~/api/deck.api'
-import {todays} from '~/api/card.api'
+import { todays } from '~/api/card.api'
 import { useTodayStore } from '~/stores/todays'
+import { useApiStore } from '~/stores/api'
 
 definePageMeta({ layout: 'connected', middleware: ['auth'] })
 
@@ -87,22 +88,51 @@ let todayDeckList = ref(<DeckList>[])
 let availableDeckList = ref(<SubDeckList>[])
 
 async function refreshToday() {
+  const apiStore = useApiStore()
+
   loaded.value = false
-  const data: TodayResponse = await todays()
-  todayDeckList.value = []
-  await handleData(data).then(() => {
-    loaded.value = true
-  })
+  if (apiStore.refreshMyDecks) {
+    myDecksList.value = await getSubDeck().then((res) => {
+      apiStore.refreshMyDecks = false
+      return <SubDeckList>res.data || []
+    })
+  }
+
+  if (apiStore.refreshAvailableDecks) {
+    availableDeckList.value = await getAvailableDeck().then((res) => {
+      apiStore.refreshAvailableDecks = false
+      return <SubDeckList>res.data || []
+    })
+  }
+
+  if (apiStore.refreshToday) {
+    const data: TodayResponse = await todays()
+    todayDeckList.value = []
+    await handleData(data).then(() => {
+      loaded.value = true
+      apiStore.refreshToday = false
+    })
+  }
+
+  loaded.value = true
 }
 
 onMounted(async () => {
+  const apiStore = useApiStore()
+
   const data: TodayResponse = await todays()
 
   myDecksList.value = await getSubDeck().then((res) => {
+    if (apiStore.refreshMyDecks) {
+      apiStore.refreshMyDecks = false
+    }
     return <SubDeckList>res.data || []
   })
 
   availableDeckList.value = await getAvailableDeck().then((res) => {
+    if (apiStore.refreshAvailableDecks) {
+      apiStore.refreshAvailableDecks = false
+    }
     return <SubDeckList>res.data || []
   })
 
