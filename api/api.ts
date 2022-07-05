@@ -1,7 +1,10 @@
+export const baseUrl = 'http://127.0.0.1:1813/v1'
+
 export async function login(email: string, password: string) {
   try {
-    const data = await $fetch('http://127.0.0.1:1813/v1/login', {
+    const data = await $fetch('/login', {
       method: 'POST',
+      baseURL: baseUrl,
       body: {
         email: email,
         password: password,
@@ -19,12 +22,12 @@ export async function login(email: string, password: string) {
 export async function user() {
   const token = useCookie('token')
   if (token.value === '') {
-    
     return false
   }
   try {
-    const data = await $fetch('http://127.0.0.1:1813/v1/user?refresh=true', {
+    const data = await $fetch('/user?refresh=true', {
       method: 'GET',
+      baseURL: baseUrl,
       headers: {
         Authorization: 'Bearer ' + token.value,
       },
