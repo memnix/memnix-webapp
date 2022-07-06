@@ -86,26 +86,27 @@
         </div>
       </div>
     </div>
-    <TransitionRoot
-      :show="isOpen"
-      enter="transition-opacity transition-transform duration-500 ease-in-out"
-      enter-from="opacity-0 scale-50"
-      enter-to="opacity-100 scale-100"
-      class="modal modal-open modal-bottom sm:modal-middle"
-    >
-      <div class="modal-box">
-        <div v-if="isCorrect">
+    <div>
+      <TransitionRoot
+        :show="showingResult"
+        enter="transition-opacity transition-transform duration-500 ease-in-out"
+        enter-from="opacity-0 scale-50"
+        enter-to="opacity-100 scale-100"
+        class="modal modal-open modal-bottom sm:modal-middle"
+      >
+        <div class="modal-box border-4 border-success" v-if="isCorrect">
           <h3 class="text-lg font-bold">Success !</h3>
           <div class="py-4">Keep going !</div>
         </div>
-        <div v-else>
+
+        <div class="modal-box border-4 border-error" v-else>
           <h3 class="text-lg font-bold">Error !</h3>
           <div class="py-4">
-            The right answer was : <b>{{ card.card_answer }}</b>
+            The right answer was : <b>{{ correctAnswer }}</b>
           </div>
         </div>
-      </div>
-    </TransitionRoot>
+      </TransitionRoot>
+    </div>
   </div>
 </template>
 
@@ -125,10 +126,10 @@ const props = defineProps({
   },
 })
 
-const isOpen = ref(false)
 let answer = ref('')
 let showingResult = ref(false)
 let isCorrect = ref(false)
+let correctAnswer = ref('')
 const emit = defineEmits(['nextCardEvent'])
 
 const buttonAnswer = function (button_answer: string) {
@@ -141,24 +142,16 @@ const formAnswer = function () {
   }
 }
 
-function setIsOpen(value) {
-  isOpen.value = value
-}
-
 async function postAnswer(isText: boolean = false) {
   let result = await postResponse(props.card.ID, answer.value, false)
+  correctAnswer.value = props.card.card_answer
   showingResult.value = true
-  if (isText) {
-    setIsOpen(true)
-    isCorrect.value = result.data.validate
-  }
+  isCorrect.value = result.data.validate
   if (result.success) {
     setTimeout(function () {
-      answer.value = ''
       emit('nextCardEvent', result.data.validate)
+      answer.value = ''
       showingResult.value = false
-      isCorrect.value = false
-      setIsOpen(false)
     }, 2000)
   }
 }
