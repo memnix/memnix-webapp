@@ -95,13 +95,13 @@
         class="modal modal-open modal-bottom sm:modal-middle"
       >
         <div class="modal-box bg-transparent border-4 border-success" v-if="isCorrect">
-          <h3 class="text-xl md:text-2xl lg:text-3xl font-bold">Success !</h3>
-          <div class="py-4 text-lg md:text-xl lg:text-2xl">Keep going !</div>
+          <h3 class="text-lg md:text-xl lg:text-2xl font-bold">Success !</h3>
+          <div class="py-4 text-md md:text-lg lg:text-xl">Keep going !</div>
         </div>
 
         <div class="modal-box bg-transparent border-4 border-error" v-else>
-          <h3 class="text-xl md:text-2xl lg:text-3xl font-bold">Error !</h3>
-          <div class="py-4 text-lg md:text-xl lg:text-2xl">
+          <h3 class="text-lg md:text-xl lg:text-2xl font-bold">Error !</h3>
+          <div class="py-4 text-md md:text-lg lg:text-xl">
             The right answer was : <span class='underline decoration-4 decoration-solid font-bold decoration-primary'>{{ correctAnswer }}</span>
           </div>
         </div>
