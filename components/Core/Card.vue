@@ -92,14 +92,14 @@
         enter="transition-opacity transition-transform duration-500 ease-in-out"
         enter-from="opacity-0 scale-50"
         enter-to="opacity-100 scale-100"
-        class="modal modal-open modal-bottom sm:modal-middle"
+        class="modal modal-open modal-middle bg-opacity-0"
       >
-        <div class="modal-box bg-transparent border-4 border-success" v-if="isCorrect">
+        <div class="modal-box border-4 border-success" v-if="isCorrect">
           <h3 class="text-lg md:text-xl lg:text-2xl font-bold">Success !</h3>
           <div class="py-4 text-md md:text-lg lg:text-xl">Keep going !</div>
         </div>
 
-        <div class="modal-box bg-transparent border-4 border-error" v-else>
+        <div class="modal-box border-4 border-error" v-else>
           <h3 class="text-lg md:text-xl lg:text-2xl font-bold">Error !</h3>
           <div class="py-4 text-md md:text-lg lg:text-xl">
             The right answer was : <span class='underline decoration-4 decoration-solid font-bold decoration-primary'>{{ correctAnswer }}</span>
