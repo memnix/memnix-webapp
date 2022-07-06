@@ -4,10 +4,14 @@
       <h3 class="text-lg font-bold">Subscribe to this deck ?</h3>
       <p class="py-4">You will be able to play it</p>
       <div class="modal-action">
-        <label @click="$emit('closeModalSubConfirmation')" class="btn btn-neutral hoveranimation"
+        <label
+          @click="$emit('closeModalSubConfirmation')"
+          class="btn-neutral hoveranimation btn"
           >No</label
         >
-        <label @click="subToDeckEvent" class="btn btn-secondary hoveranimation">Yes</label>
+        <label @click="subToDeckEvent" class="hoveranimation btn btn-secondary"
+          >Yes</label
+        >
       </div>
     </div>
   </div>
