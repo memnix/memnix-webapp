@@ -94,15 +94,15 @@
         enter-to="opacity-100 scale-100"
         class="modal modal-open modal-bottom sm:modal-middle"
       >
-        <div class="modal-box border-4 border-success" v-if="isCorrect">
-          <h3 class="text-lg font-bold">Success !</h3>
-          <div class="py-4">Keep going !</div>
+        <div class="modal-box bg-transparent border-4 border-success" v-if="isCorrect">
+          <h3 class="text-xl md:text-2xl lg:text-3xl font-bold">Success !</h3>
+          <div class="py-4 text-lg md:text-xl lg:text-2xl">Keep going !</div>
         </div>
 
-        <div class="modal-box border-4 border-error" v-else>
-          <h3 class="text-lg font-bold">Error !</h3>
-          <div class="py-4">
-            The right answer was : <b>{{ correctAnswer }}</b>
+        <div class="modal-box bg-transparent border-4 border-error" v-else>
+          <h3 class="text-xl md:text-2xl lg:text-3xl font-bold">Error !</h3>
+          <div class="py-4 text-lg md:text-xl lg:text-2xl">
+            The right answer was : <span class='underline decoration-4 decoration-solid font-bold decoration-primary'>{{ correctAnswer }}</span>
           </div>
         </div>
       </TransitionRoot>
