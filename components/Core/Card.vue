@@ -66,6 +66,10 @@
         </div>
       </div>
       <div v-else>
+        <div class='flex w-full space-x-3 pt-10 pb-5 justify-center' v-show='card.card_case || card.card_spaces'>
+          <div class='badge badge-lg badge-accent' v-if='card.card_case'><Icon-lucide-alert-circle class='mr-2'/>  Case Sensitive</div>
+          <div class='badge badge-lg badge-warning' v-if='card.card_spaces'><Icon-lucide-alert-octagon class='mr-2'/>Space sensitive</div>
+        </div>
         <div class="flex w-full space-x-3 pt-10 pb-5">
           <form @submit.prevent="formAnswer" class="w-full">
             <input

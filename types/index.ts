@@ -96,6 +96,7 @@ export interface Card {
   card_image: string
   card_question: string
   card_type: number
+  card_spaces: boolean
   mcq: {
     Int32: number
     Valid: true
