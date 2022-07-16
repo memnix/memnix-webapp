@@ -19,6 +19,28 @@ export async function login(email: string, password: string) {
   }
 }
 
+export async function register(
+  email: string,
+  password: string,
+  username: string
+) {
+  try {
+    const data = await $fetch('/register', {
+      method: 'POST',
+      baseURL: baseUrl,
+      body: {
+        email: email,
+        password: password,
+        username: username,
+      },
+    })
+
+    return true
+  } catch (e: any) {
+    return false
+  }
+}
+
 export async function user() {
   const token = useCookie('token')
   if (token.value === '') {
@@ -30,6 +52,42 @@ export async function user() {
       baseURL: baseUrl,
       headers: {
         Authorization: 'Bearer ' + token.value,
+      },
+    })
+    return data['success']
+  } catch (e: any) {
+    return false
+  }
+}
+
+export async function resetPassword(email: string) {
+  try {
+    const data = await $fetch('/users/resetpassword', {
+      method: 'POST',
+      baseURL: baseUrl,
+      body: {
+        email: email,
+      },
+    })
+    return true
+  } catch (e: any) {
+    return false
+  }
+}
+
+export async function resetPasswordConfirmation(
+  email: string,
+  code: string,
+  password: string
+) {
+  try {
+    const data = await $fetch('/users/confirmpassword', {
+      method: 'POST',
+      baseURL: baseUrl,
+      body: {
+        email: email,
+        code: code,
+        password: password,
       },
     })
     return data['success']

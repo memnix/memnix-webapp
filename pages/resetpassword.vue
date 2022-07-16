@@ -1,5 +1,14 @@
 <template>
   <section class='h-screen bg-base-100'>
+    <div class="hoveranimation absolute left-0 top-[0.5rem]">
+      <NuxtLink to="/">
+      <button
+        class="btn btn-ghost text-xl md:text-2xl lg:text-3xl"
+      >
+        <Icon-lucide-arrow-left />
+      </button>
+      </NuxtLink>
+    </div>
     <div
       class="container mx-auto flex h-full w-full flex-col place-content-center px-5 py-24"
     >
@@ -14,15 +23,14 @@
           <li class="step" :class="step >= 2 ? 'step-primary' : ''">
             Validate
           </li>
-          <li class="step" :class="step >= 3 ? 'step-primary' : ''">
-            Password
+          <li class="step" :class="step >= 4 ? 'step-primary' : ''">
+            Done
           </li>
-          <li class="step" :class="step >= 4 ? 'step-primary' : ''">Done</li>
         </ul>
       </div>
       <div
         v-show="step === 1"
-        class='mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-200 drop-shadow-md'
+        class='mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 drop-shadow-md'
       >
         <div class="px-6 py-4">
           <h2 class="text-center text-3xl font-bold">Enter your email</h2>
@@ -34,13 +42,14 @@
                 class="input input-bordered input-ghost input-neutral w-full max-w-xs"
                 placeholder="Email"
                 type="email"
+                v-model='email'
               />
             </div>
             <div class="mt-4 flex items-center justify-end">
               <button
                 class="btn btn-primary hoveranimation"
                 type="button"
-                @click='step = 2'
+                @click='resetPasswordRequest'
               >
                 Next
               </button>
@@ -50,7 +59,7 @@
       </div>
       <div
         v-show="step === 2"
-        class='mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-200 drop-shadow-md'
+        class='mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 drop-shadow-md'
       >
         <div class="px-6 py-4">
           <h2 class="text-center text-3xl font-bold">
@@ -63,7 +72,17 @@
                 aria-label="Code"
                 class="input input-bordered input-ghost input-neutral w-full max-w-xs"
                 placeholder="Code"
-                type="number"
+                type="text"
+                v-model='code'
+              />
+            </div>
+            <div class="mt-4 w-full">
+              <input
+                aria-label="Password"
+                class="input input-bordered input-ghost input-neutral w-full max-w-xs"
+                placeholder="Password"
+                type="password"
+                v-model="password"
               />
             </div>
             <div class="mt-4 flex items-center justify-end">
@@ -81,38 +100,7 @@
       </div>
       <div
         v-show="step === 3"
-        class='mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-200 drop-shadow-md'
-      >
-        <div class="px-6 py-4">
-          <h2 class="text-center text-3xl font-bold">
-            Enter your new password
-          </h2>
-          <h3 class="mt-1 text-center text-xl font-medium">Password reset</h3>
-          <form>
-            <div class="mt-4 w-full">
-              <input
-                aria-label="Password"
-                class="input input-bordered input-ghost input-neutral w-full max-w-xs"
-                placeholder="Password"
-                type="password"
-              />
-            </div>
-            <div class="mt-4 flex items-center justify-end">
-              <button
-                class="btn btn-primary hoveranimation"
-                type="button"
-                @click='step++'
-
-              >
-                Next
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div
-        v-show="step === 4"
-        class='mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-200 drop-shadow-md'
+        class='mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 drop-shadow-md'
       >
         <div class="px-6 py-4">
           <h2 class="text-center text-3xl font-bold">
@@ -126,8 +114,45 @@
 </template>
 
 <script setup lang="ts">
+import { themeChange } from 'theme-change'
+import { resetPassword, resetPasswordConfirmation } from '~/api/api'
+
+
 let step = ref(1)
-definePageMeta({ keepalive: true })
+
+let email = ref('')
+let code = ref('')
+let password = ref('')
+
+definePageMeta({ keepalive: true,  middleware: ['guest']  })
+
+onMounted(() => {
+  themeChange(false)
+})
+
+const resetPasswordRequest = async function() {
+  let result = await resetPassword(email.value)
+  console.log(result)
+  if (result) {
+    step.value = 2
+  } else {
+    alert("error")
+  }
+}
+
+const resetPasswordConfirmationRequest = async function() {
+  let result = await resetPasswordConfirmation(email.value, code.value, password.value)
+  console.log(result)
+  if (result) {
+    step.value = 3
+  } else {
+    alert("error")
+  }
+
+  email.value = ''
+  code.value = ''
+  password.value = ''
+}
 
 </script>
 
