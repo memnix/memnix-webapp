@@ -46,6 +46,14 @@
               />
             </div>
             <div class="mt-4 flex items-center justify-end">
+
+              <button
+                class="btn btn-outline btn-accent hoveranimation mx-2"
+                type="button"
+                @click='step = 2'
+              >
+                I already have a code
+              </button>
               <button
                 class="btn btn-primary hoveranimation"
                 type="button"
@@ -85,11 +93,20 @@
                 v-model="password"
               />
             </div>
+            <div class="mt-4 w-full">
+              <input
+                aria-label="Password"
+                class="input input-bordered input-ghost input-neutral w-full max-w-xs"
+                placeholder="Repeat password"
+                type="password"
+                v-model="repeatpassword"
+              />
+            </div>
             <div class="mt-4 flex items-center justify-end">
               <button
                 class="btn btn-primary hoveranimation"
                 type="button"
-                @click='step++'
+                @click='resetPasswordConfirmationRequest'
 
               >
                 Next
@@ -123,6 +140,7 @@ let step = ref(1)
 let email = ref('')
 let code = ref('')
 let password = ref('')
+let repeatpassword = ref('')
 
 definePageMeta({ keepalive: true,  middleware: ['guest']  })
 
@@ -141,17 +159,19 @@ const resetPasswordRequest = async function() {
 }
 
 const resetPasswordConfirmationRequest = async function() {
+  if (password.value !== repeatpassword.value) {
+    alert("Passwords don't match")
+    return
+  }
   let result = await resetPasswordConfirmation(email.value, code.value, password.value)
-  console.log(result)
   if (result) {
     step.value = 3
+    return navigateTo("/")
   } else {
     alert("error")
   }
 
-  email.value = ''
-  code.value = ''
-  password.value = ''
+
 }
 
 </script>
