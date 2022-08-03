@@ -4,10 +4,10 @@
       <h1
         class="bg-gradient-to-r from-primary via-[#DF9594] via-[#CC7F97] via-[#AD6E9E] via-[#8163A2] to-secondary bg-clip-text text-5xl font-bold text-transparent hover:animate-pulse"
       >
-        Learn more about Memnix
+        {{ $t('learn_more_memnix') }}
       </h1>
       <h2 class='text-2xl my-2'>
-        Revolutionize your learning experience with Memnix, an application that <a class='underline decoration-secondary decoration-4'>adapts to everyone's pace!</a>
+        {{ $t('revolutionize_learning') }} <a class='underline decoration-secondary decoration-4'> {{ $t('adapts_to_everyone_pace') }}</a>
       </h2>
       <iframe
         class="mt-12 h-64 min-w-full overflow-hidden rounded-xl object-cover md:h-[600px] lg:h-[700px]"
