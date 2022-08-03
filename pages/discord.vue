@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-base-200 xl:h-screen">
+  <section class='bg-base-100 xl:h-screen'>
     <div class="container mx-auto px-6 py-14">
       <div class="my-12 max-w-xl">
         <h1

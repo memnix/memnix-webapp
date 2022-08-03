@@ -7,15 +7,15 @@
 
 @layer base {
     html {
-        font-family: 'Nunito', 'Helvetica Neue', 'Roboto', 'Lato', sans-serif;
+        font-family: 'Nunito Sans', 'Helvetica Neue', 'Roboto', 'Lato', sans-serif;
     }
 
     h1 {
-        font-family: 'Syne', 'Nunito', 'Helvetica Neue', 'Roboto', 'Lato', sans-serif;
+        font-family: 'Syne', 'Nunito Sans', 'Helvetica Neue', 'Roboto', 'Lato', sans-serif;
     }
 
     h2 {
-        font-family: 'Syne', 'Nunito', 'Helvetica Neue', 'Roboto', 'Lato', sans-serif;
+        font-family: 'Syne', 'Nunito Sans', 'Helvetica Neue', 'Roboto', 'Lato', sans-serif;
     }
 
     .hoveranimation {
@@ -26,5 +26,17 @@
 @layer components {
     .btn {
         @apply rounded-lg
+    }
+}
+
+@layer utilities {
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
     }
 }

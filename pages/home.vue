@@ -1,126 +1,179 @@
 <template>
-  <section class="bg-base-200">
+  <section class="bg-base-100" v-if="loaded">
     <div v-show="isMobile === true">
       <CoreDeckMobileSection
-        :deckList="deckList"
+        :deckList="todayDeckList"
         :white="true"
         title="Daily decks"
+        :type="CarouselType.Today"
+        @refreshToday="refreshToday"
       />
       <CoreDeckMobileSection
-        :deckList="deckList"
+        :deckList="availableDeckList"
         :white="false"
         title="Featured decks"
+        :type="CarouselType.ToSubscribe"
+        @refreshToday="refreshToday"
       />
       <CoreDeckMobileSection
-        :deckList="deckList"
+        :deckList="myDecksList"
         :white="true"
         title="My decks"
+        :type="CarouselType.ToPlay"
+        @refreshToday="refreshToday"
       />
       <CoreDeckMobileSection
-        :deckList="deckList"
+        :deckList="availableDeckList"
         :white="false"
         title="You might like"
+        :type="CarouselType.ToSubscribe"
+        @refreshToday="refreshToday"
       />
     </div>
+
     <div v-show="!isMobile">
       <CoreDeckDesktopSection
-        :deckList="deckList"
+        :deckList="todayDeckList"
         :white="true"
         title="Daily decks"
+        :type="CarouselType.Today"
+        @refreshToday="refreshToday"
       />
       <CoreDeckDesktopSection
-        :deckList="deckList"
+        :deckList="availableDeckList"
         :white="false"
         title="Featured decks"
+        :type="CarouselType.ToSubscribe"
+        @refreshToday="refreshToday"
       />
       <CoreDeckDesktopSection
-        :deckList="deckList"
+        :deckList="myDecksList"
         :white="true"
         title="My decks"
+        :type="CarouselType.ToPlay"
+        @refreshToday="refreshToday"
       />
       <CoreDeckDesktopSection
-        :deckList="deckList"
+        :deckList="availableDeckList"
         :white="false"
         title="You might like"
+        :type="CarouselType.ToSubscribe"
+        @refreshToday="refreshToday"
       />
     </div>
+
+  </section>
+  <section v-else>
+    <CoreSkeletonSection />
+    <CoreSkeletonSection />
+    <CoreSkeletonSection />
   </section>
 </template>
 
 <script lang="ts" setup>
-import { Deck, DeckList } from '~/types'
+import {
+  CarouselType,
+  Deck,
+  DeckList,
+  SubDeckList,
+  TodayResponse,
+} from '~/types'
+import { getAvailableDeck, getDeck, getSubDeck } from '~/api/deck.api'
+import { todays } from '~/api/card.api'
+import { useTodayStore } from '~/stores/todays'
+import { useApiStore } from '~/stores/api'
 
-definePageMeta({ layout: 'connected' })
+definePageMeta({ layout: 'connected', middleware: ['auth'] })
 
 let isMobile = ref(false)
+let loaded = ref(false)
+let myDecksList = ref(<SubDeckList>[])
+let todayDeckList = ref(<DeckList>[])
+let availableDeckList = ref(<SubDeckList>[])
 
-onMounted(() => {
+
+
+async function refreshToday() {
+  const apiStore = useApiStore()
+
+  loaded.value = false
+  if (apiStore.refreshMyDecks) {
+    myDecksList.value = await getSubDeck().then((res) => {
+      apiStore.refreshMyDecks = false
+      return <SubDeckList>res.data || []
+    })
+  }
+
+  if (apiStore.refreshAvailableDecks) {
+    availableDeckList.value = await getAvailableDeck().then((res) => {
+      apiStore.refreshAvailableDecks = false
+      return <SubDeckList>res.data || []
+    })
+  }
+
+  if (apiStore.refreshToday) {
+    const data: TodayResponse = await todays()
+    todayDeckList.value = []
+    await handleData(data).then(() => {
+      loaded.value = true
+      apiStore.refreshToday = false
+    })
+  }
+
+  loaded.value = true
+}
+
+onMounted(async () => {
+  const apiStore = useApiStore()
+
+  const data: TodayResponse = await todays()
+
+  myDecksList.value = await getSubDeck().then((res) => {
+    if (apiStore.refreshMyDecks) {
+      apiStore.refreshMyDecks = false
+    }
+    return <SubDeckList>res.data || []
+  })
+
+  availableDeckList.value = await getAvailableDeck().then((res) => {
+    if (apiStore.refreshAvailableDecks) {
+      apiStore.refreshAvailableDecks = false
+    }
+    return <SubDeckList>res.data || []
+  })
+
+  await handleData(data).then(() => (loaded.value = true))
+
   isMobile.value = screen.width <= 768
   window.addEventListener('resize', () => {
     isMobile.value = screen.width <= 768
   })
 })
 
-const deckList = <DeckList>[
-  <Deck>{
-    deck_name: 'Python',
-    deck_banner:
-      'https://api.lorem.space/image/movie?w=512&h=512&hash=8B7BCDC2',
-  },
-  <Deck>{
-    deck_name: 'Unix',
-    deck_banner:
-      'https://api.lorem.space/image/movie?w=512&h=512&hash=500B67FB',
-  },
-  <Deck>{
-    deck_name: 'Java',
-    deck_banner:
-      'https://api.lorem.space/image/movie?w=512&h=512&hash=A89D0DE6',
-  },
-  <Deck>{
-    deck_name: 'Golang',
-    deck_banner:
-      'https://api.lorem.space/image/movie?w=512&h=512&hash=225E6693',
-  },
-  <Deck>{
-    deck_name: 'Rust',
-    deck_banner:
-      'https://api.lorem.space/image/movie?w=512&h=512&hash=7F5AE56A',
-  },
-  <Deck>{
-    deck_name: 'Lisp',
-    deck_banner:
-      'https://api.lorem.space/image/movie?w=512&h=512&hash=B0E33EF4',
-  },
-  <Deck>{
-    deck_name: 'Kotlin',
-    deck_banner:
-      'https://api.lorem.space/image/movie?w=512&h=512&hash=2D297A22',
-  },
-  {
-    deck_name: 'Python',
-    deck_banner:
-      'https://api.lorem.space/image/movie?w=512&h=512&hash=8B7BCDC2',
-  },
-  <Deck>{
-    deck_name: 'Unix',
-    deck_banner:
-      'https://api.lorem.space/image/movie?w=512&h=512&hash=500B67FB',
-  },
-  <Deck>{
-    deck_name: 'Java',
-    deck_banner:
-      'https://api.lorem.space/image/movie?w=512&h=512&hash=A89D0DE6',
-  },
-  <Deck>{
-    deck_name: 'Golang',
-    deck_banner:
-      'https://api.lorem.space/image/movie?w=512&h=512&hash=225E6693',
-  },
-  <Deck>{
-    deck_name: 'Rust',
-    deck_banner:
-      'https://api.lorem.space/image/movie?w=512&h=512&hash=7F5AE56A',
-  },
-]
+const handleData = async function (todayResponse: TodayResponse) {
+  const data = todayResponse.data
+  const store = useTodayStore()
+  for (let i = 0; i < data.count; i++) {
+    const deck = await getDeck(data.decks_responses[i].deck_id)
+    store.setDeck(
+      data.decks_responses[i].deck_id,
+      data.decks_responses[i].cards
+    )
+    todayDeckList.value.push(<Deck>deck.data)
+  }
+}
 </script>
+
+<style>
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+</style>

@@ -6,17 +6,31 @@
     <div class="mt-6 w-full">
       <div class="flex flex-row items-center justify-between">
         <h1 class="md:text-xl">{{ title }}</h1>
-        <a href="" class="btn btn-primary btn-xs md:btn-sm">
-          <span class="text-white">View all</span>
-        </a>
       </div>
-      <CoreDeckDesktopCarousel :deckList="deckList" />
+      <CoreDeckDesktopCarousel
+        :deckList="deckList"
+        :type="type"
+        v-if="deckList.length >= 7"
+        @refreshToday="emit('refreshToday')"
+      />
+      <CoreDeckCarousel
+        :deckList="deckList"
+        :type="type"
+        v-else
+        @refreshToday="emit('refreshToday')"
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+const emit = defineEmits(['refreshToday'])
+
 const props = defineProps({
+  type: {
+    type: Number,
+    required: true,
+  },
   deckList: {
     type: Array,
     required: true,

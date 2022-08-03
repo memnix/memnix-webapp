@@ -15,7 +15,6 @@ import { LanguageManager } from '~/utils/lang'
 import { themeChange } from 'theme-change'
 
 onMounted(() => {
-  themeChange(false)
 })
 
 const languageManager = LanguageManager()

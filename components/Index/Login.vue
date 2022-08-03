@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-200 lg:drop-shadow-md"
+    class='mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 lg:drop-shadow-md'
   >
     <div class="px-6 py-4">
       <h2 class="text-center text-3xl font-medium">{{ $t('welcome_back') }}</h2>
@@ -11,6 +11,7 @@
             class="input input-bordered input-ghost input-neutral w-full"
             placeholder="Email"
             type="email"
+            v-model='email'
           />
         </div>
 
@@ -20,6 +21,7 @@
             class="input input-bordered input-ghost input-neutral w-full "
             placeholder="Password"
             type="password"
+            v-model="password"
           />
         </div>
 
@@ -27,6 +29,7 @@
           <button
             class="btn btn-primary w-full hoveranimation"
             type="button"
+            @click='loginRequest'
           >
             {{ $t('login') }}
           </button>
@@ -45,17 +48,32 @@
         </button>
       </div>
       <div>
+        <NuxtLink to='/resetpassword'>
         <button
           class="btn btn-secondary w-full hoveranimation"
           type="button"
         >
           {{ $t('forget_password') }}
         </button>
+        </NuxtLink>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { login } from '~/api/api'
+
+let email = ref("")
+let password = ref("")
+
+const loginRequest = async function() {
+  let result = await login(email.value,password.value )
+  if (result) {
+    return navigateTo("/home")
+  }
+}
+
+</script>
 
 <style scoped></style>

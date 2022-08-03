@@ -14,6 +14,12 @@ import HeaderConnected from '~/components/Utils/HeaderConnected.vue'
 definePageMeta({
   layout: 'connected',
 })
+
+useHead({
+  bodyAttrs: {
+    class: 'no-scrollbar'
+  }
+})
 </script>
 
 <style scoped></style>
