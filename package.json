@@ -36,6 +36,7 @@
   "overrides": {
     "semver-regex": "^3.1.4",
     "svgo": "^2.8.0",
-    "got": "11.8.5"
+    "got": "11.8.5",
+    "parse-path": "^5.0.0"
   }
 }
