@@ -1,3 +1,5 @@
+import { useApiStore } from '~/stores/api'
+
 export const baseUrl = 'http://127.0.0.1:1813/v1'
 
 export async function login(email: string, password: string) {
@@ -42,6 +44,8 @@ export async function register(
 }
 
 export async function user() {
+  const apiStore = useApiStore()
+
   const token = useCookie('token')
   if (token.value === '') {
     return false
@@ -54,9 +58,29 @@ export async function user() {
         Authorization: 'Bearer ' + token.value,
       },
     })
+    apiStore.user = data['user']
     return data['success']
   } catch (e: any) {
     return false
+  }
+}
+
+export async function getUser() {
+  const token = useCookie('token')
+  if (token.value === '') {
+    return {}
+  }
+  try {
+    const data = await $fetch('/user', {
+      method: 'GET',
+      baseURL: baseUrl,
+      headers: {
+        Authorization: 'Bearer ' + token.value,
+      },
+    })
+    return data['user']
+  } catch (e: any) {
+    return {}
   }
 }
 

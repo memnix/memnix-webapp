@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { User } from '~/types'
 
 export const useApiStore = defineStore('api', {
   state: () => {
@@ -6,6 +7,7 @@ export const useApiStore = defineStore('api', {
       refreshToday: false,
       refreshMyDecks: false,
       refreshAvailableDecks: false,
+      user: <User>{},
     }
   },
 })

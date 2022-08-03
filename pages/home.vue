@@ -61,6 +61,7 @@
         @refreshToday="refreshToday"
       />
     </div>
+
   </section>
   <section v-else>
     <CoreSkeletonSection />
@@ -89,6 +90,8 @@ let loaded = ref(false)
 let myDecksList = ref(<SubDeckList>[])
 let todayDeckList = ref(<DeckList>[])
 let availableDeckList = ref(<SubDeckList>[])
+
+
 
 async function refreshToday() {
   const apiStore = useApiStore()

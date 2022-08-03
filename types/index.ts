@@ -102,3 +102,12 @@ export interface Card {
     Valid: true
   }
 }
+
+export interface User {
+  ID: number
+  email: string
+  user_avatar: string
+  user_name: string
+  user_bio: string
+  user_permissions: number
+}
