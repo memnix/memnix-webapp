@@ -19,7 +19,10 @@
         </NuxtLink>
       </div>
       <div class="z-5 py-4" v-else>
-        <CoreDeck :deck="deck.Deck" @click="openModalSubConfirmation(deck.Deck)" />
+        <CoreDeck
+          :deck="deck.Deck"
+          @click="openModalSubConfirmation(deck.Deck)"
+        />
       </div>
     </Slide>
     <template #addons>
@@ -43,6 +46,7 @@ import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
 import { CardResponseList, CarouselType } from '~/types'
 import { useTodayStore } from '~/stores/todays'
+import { useApiStore } from '~/stores/api'
 
 const isOpen = ref(false)
 const emit = defineEmits(['refreshToday'])
@@ -60,6 +64,7 @@ function openModalSubConfirmation(deck) {
 function closeModalSubConfirmation() {
   selectedDeck.value = {}
   modalSubConfirmation.value = false
+  emit('refreshToday')
 }
 
 const computeNumber = () => {
@@ -80,6 +85,8 @@ function setIsOpen(value) {
 const modalPlayDeck = ref(false)
 
 function closeModalPlayDeck() {
+  const apiStore = useApiStore()
+  apiStore.refreshToday = true
   emit('refreshToday')
   modalPlayDeck.value = false
 }

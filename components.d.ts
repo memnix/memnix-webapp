@@ -8,10 +8,13 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     IconIcRoundDiscord: typeof import('~icons/ic/round-discord')['default']
+    IconLucideAlertCircle: typeof import('~icons/lucide/alert-circle')['default']
+    IconLucideAlertOctagon: typeof import('~icons/lucide/alert-octagon')['default']
     IconLucideArrowLeft: typeof import('~icons/lucide/arrow-left')['default']
     IconLucideArrowRight: typeof import('~icons/lucide/arrow-right')['default']
     IconLucideBell: typeof import('~icons/lucide/bell')['default']
     IconLucideCode2: typeof import('~icons/lucide/code2')['default']
+    IconLucideCross: typeof import('~icons/lucide/cross')['default']
     IconLucideCrown: typeof import('~icons/lucide/crown')['default']
     IconLucideGithub: typeof import('~icons/lucide/github')['default']
     IconLucideHeart: typeof import('~icons/lucide/heart')['default']
@@ -26,6 +29,8 @@ declare module '@vue/runtime-core' {
     IconLucideTwitter: typeof import('~icons/lucide/twitter')['default']
     IconLucideUser: typeof import('~icons/lucide/user')['default']
     IconLucideUsers: typeof import('~icons/lucide/users')['default']
+    IconLucideX: typeof import('~icons/lucide/x')['default']
+    IconLucideXCircle: typeof import('~icons/lucide/x-circle')['default']
     IconMdiCardsOutline: typeof import('~icons/mdi/cards-outline')['default']
     IconMdiHomeOutline: typeof import('~icons/mdi/home-outline')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

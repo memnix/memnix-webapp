@@ -96,8 +96,18 @@ export interface Card {
   card_image: string
   card_question: string
   card_type: number
+  card_spaces: boolean
   mcq: {
     Int32: number
     Valid: true
   }
+}
+
+export interface User {
+  ID: number
+  email: string
+  user_avatar: string
+  user_name: string
+  user_bio: string
+  user_permissions: number
 }

@@ -48,19 +48,21 @@
         </button>
       </div>
       <div>
+        <NuxtLink to='/resetpassword'>
         <button
           class="btn btn-secondary w-full hoveranimation"
           type="button"
         >
           Forget Password
         </button>
+        </NuxtLink>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { login, user } from '~/api/api'
+import { login } from '~/api/api'
 
 let email = ref("")
 let password = ref("")

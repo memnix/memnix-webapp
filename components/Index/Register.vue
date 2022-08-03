@@ -12,6 +12,7 @@
             class="input input-bordered input-ghost input-neutral w-full max-w-xs"
             placeholder="Username"
             type="text"
+            v-model='username'
           />
         </div>
         <div class="mt-4 w-full">
@@ -20,6 +21,7 @@
             class="input input-bordered input-ghost input-neutral w-full max-w-xs"
             placeholder="Email"
             type="email"
+            v-model='email'
           />
         </div>
 
@@ -29,6 +31,7 @@
             class="input input-bordered input-ghost input-neutral w-full max-w-xs"
             placeholder="Password"
             type="password"
+            v-model="password"
           />
         </div>
         <div class="mt-4 w-full">
@@ -37,6 +40,7 @@
             class="input input-bordered input-ghost input-neutral w-full max-w-xs"
             placeholder="Password"
             type="password"
+            v-model="passwordConfirm"
           />
         </div>
         <div class="mx-auto mt-4">
@@ -46,6 +50,7 @@
                 type="checkbox"
                 checked="checked"
                 class="checkbox checkbox-primary"
+                v-model="tos"
               />
             </label>
             <span class="label-text my-auto">Accept TOS</span>
@@ -55,6 +60,7 @@
           <button
             class="btn btn-primary w-full hoveranimation"
             type="button"
+            @click='registerRequest'
           >
             Register
           </button>
@@ -75,6 +81,27 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { login, register } from '~/api/api'
+
+let email = ref("")
+let password = ref("")
+let username = ref("")
+let passwordConfirm = ref("")
+let tos = ref(false)
+
+const registerRequest = async function() {
+  let result = await register(email.value,password.value,username.value)
+  if (result) {
+    let loginResult = await login(email.value,password.value )
+    if (loginResult) {
+      return navigateTo("/home")
+    } else {
+      return navigateTo("/")
+    }
+  }
+}
+
+</script>
 
 <style scoped></style>

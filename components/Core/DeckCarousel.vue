@@ -36,6 +36,7 @@
 <script setup lang="ts">
 import { CardResponseList, CarouselType } from '~/types'
 import { useTodayStore } from '~/stores/todays'
+import { useApiStore } from '~/stores/api'
 
 const modalSubConfirmation = ref(false)
 const selectedDeck = ref({})
@@ -49,6 +50,7 @@ function openModalSubConfirmation(deck) {
 }
 
 function closeModalSubConfirmation() {
+  emit('refreshToday')
   selectedDeck.value = {}
   modalSubConfirmation.value = false
 }
@@ -56,6 +58,8 @@ function closeModalSubConfirmation() {
 const modalPlayDeck = ref(false)
 
 function closeModalPlayDeck() {
+  const apiStore = useApiStore()
+  apiStore.refreshToday = true
   emit('refreshToday')
   modalPlayDeck.value = false
 }

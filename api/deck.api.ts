@@ -1,12 +1,14 @@
 import { HTTPResponse } from '~/types'
+import { baseUrl } from '~/api/api'
 
 export async function getSubDeck() {
   const token = useCookie('token')
 
   const data: HTTPResponse = await $fetch<HTTPResponse>(
-    'http://127.0.0.1:1813/v1/decks/sub',
+    `/decks/sub?refresh=true`,
     {
       method: 'GET',
+      baseURL: baseUrl,
       headers: {
         Authorization: 'Bearer ' + token.value,
       },
@@ -19,9 +21,10 @@ export async function getAvailableDeck() {
   const token = useCookie('token')
 
   const data: HTTPResponse = await $fetch<HTTPResponse>(
-    'http://127.0.0.1:1813/v1/decks/available',
+    `/decks/available?refresh=true`,
     {
       method: 'GET',
+      baseURL: baseUrl,
       headers: {
         Authorization: 'Bearer ' + token.value,
       },
@@ -33,9 +36,10 @@ export async function getAvailableDeck() {
 export async function getDeck(id: number) {
   const token = useCookie('token')
   const data: HTTPResponse = await $fetch<HTTPResponse>(
-    'http://127.0.0.1:1813/v1/decks/' + id.toString(),
+    '/decks/' + id.toString(),
     {
       method: 'GET',
+      baseURL: baseUrl,
       headers: {
         Authorization: 'Bearer ' + token.value,
       },
@@ -47,9 +51,10 @@ export async function getDeck(id: number) {
 export async function subToDeck(id: number) {
   const token = useCookie('token')
   const data: HTTPResponse = await $fetch<HTTPResponse>(
-    'http://127.0.0.1:1813/v1/decks/' + id.toString() + '/subscribe',
+    '/decks/' + id.toString() + '/subscribe',
     {
       method: 'POST',
+      baseURL: baseUrl,
       headers: {
         Authorization: 'Bearer ' + token.value,
       },
@@ -61,9 +66,10 @@ export async function subToDeck(id: number) {
 export async function unsubToDeck(id: number) {
   const token = useCookie('token')
   const data: HTTPResponse = await $fetch<HTTPResponse>(
-    'http://127.0.0.1:1813/v1/decks/' + id.toString() + '/unsubscribe',
+    '/decks/' + id.toString() + '/unsubscribe',
     {
       method: 'POST',
+      baseURL: baseUrl,
       headers: {
         Authorization: 'Bearer ' + token.value,
       },

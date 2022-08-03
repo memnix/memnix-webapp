@@ -40,6 +40,7 @@ const emit = defineEmits(['closeModalPlayDeck'])
 
 const selectCard = function () {
   if (cardList === null || cardList.length === 0) {
+    store.deleteDeck(store.getIndex)
     emit('closeModalPlayDeck')
     return
   }
