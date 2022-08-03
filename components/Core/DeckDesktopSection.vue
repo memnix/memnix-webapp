@@ -24,15 +24,18 @@
 </template>
 
 <script setup lang="ts">
+import { CarouselType, DeckList, SubDeckList } from '~/types'
+import { PropType } from '@vue/runtime-core'
+
 const emit = defineEmits(['refreshToday'])
 
 const props = defineProps({
   type: {
-    type: Number,
+    type: Number as PropType<CarouselType>,
     required: true,
   },
   deckList: {
-    type: Array,
+    type: Array as PropType<DeckList | SubDeckList>,
     required: true,
   },
   title: {

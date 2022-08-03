@@ -20,12 +20,14 @@
 <script setup lang="ts">
 import { subToDeck } from '~/api/deck.api'
 import { useApiStore } from '~/stores/api'
+import { Deck } from '~/types'
+import { PropType } from '@vue/runtime-core'
 
 const emit = defineEmits(['closeModalSubConfirmation'])
 
 const props = defineProps({
   deck: {
-    type: Object,
+    type: Object as PropType<Deck>,
     required: true,
   },
 })

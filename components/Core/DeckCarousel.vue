@@ -2,7 +2,7 @@
   <div class="carousel-center carousel rounded-box space-x-1 pt-4">
     <div
       class="carousel-item relative h-32 w-28 md:h-48 md:w-44 lg:h-72 lg:w-72"
-      v-for="value in deckList" :key="value.id"
+      v-for="value in deckList" :key="value.ID"
     >
       <div v-if="type === CarouselType.Today">
         <CoreDeck
@@ -34,9 +34,10 @@
 </template>
 
 <script setup lang="ts">
-import { CardResponseList, CarouselType } from '~/types'
+import { CardResponseList, CarouselType, DeckList, SubDeckList } from '~/types'
 import { useTodayStore } from '~/stores/todays'
 import { useApiStore } from '~/stores/api'
+import { PropType } from '@vue/runtime-core'
 
 const modalSubConfirmation = ref(false)
 const selectedDeck = ref({})
@@ -73,11 +74,11 @@ function openModalPlayDeck(value) {
 
 const props = defineProps({
   deckList: {
-    type: Array,
+    type: Array as PropType<DeckList | SubDeckList> ,
     required: true,
   },
   type: {
-    type: Number,
+    type: Number as PropType<CarouselType>,
     required: true,
   },
 })
