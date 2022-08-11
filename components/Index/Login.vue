@@ -31,7 +31,7 @@
             type="button"
             @click='loginRequest'
           >
-            Login
+            {{ $t('login') }}
           </button>
         </div>
       </form>
@@ -44,7 +44,7 @@
           type="button"
           @click="$emit('registerPageEvent')"
         >
-          Register
+          {{ $t('register') }}
         </button>
       </div>
       <div>
@@ -53,7 +53,7 @@
           class="btn btn-secondary w-full hoveranimation"
           type="button"
         >
-          Forget Password
+          {{ $t('forget_password') }}
         </button>
         </NuxtLink>
       </div>
