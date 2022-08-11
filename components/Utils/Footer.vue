@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer items-center bg-base-200 p-4 text-neutral-content">
+  <footer class="footer items-center bg-base-200 p-4">
     <div class="grid-flow-col items-center">
       <div
         class="h-10 w-10 "
