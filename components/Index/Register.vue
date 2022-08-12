@@ -2,77 +2,87 @@
   <div
     class='mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 lg:drop-shadow-xl'
   >
-    <div class="px-6 py-4">
-      <h2 class="text-center text-3xl font-medium">Create an account</h2>
+    <div class='px-6 py-4'>
+      <h2 class='text-center text-3xl font-medium'>Create an account</h2>
 
-      <form>
-        <div class="mt-4 w-full">
+      <form @submit.prevent='submitRegisterRequest'>
+        <div class='mt-4 w-full'>
           <input
-            aria-label="Username"
-            class="input input-bordered input-ghost input-neutral w-full max-w-xs"
-            placeholder="Username"
-            type="text"
-            v-model='username'
+            aria-label='Username'
+            class='input input-bordered input-ghost input-neutral w-full max-w-xs'
+            :class='v$.username.$error ? "input-error" : ""'
+            placeholder='Username'
+            type='text'
+            v-model='state.username'
+            @blur='v$.$touch()'
           />
         </div>
-        <div class="mt-4 w-full">
+        <div class='mt-4 w-full'>
           <input
-            aria-label="Email Address"
-            class="input input-bordered input-ghost input-neutral w-full max-w-xs"
-            placeholder="Email"
-            type="email"
-            v-model='email'
+            aria-label='Email Address'
+            class='input input-bordered input-ghost input-neutral w-full max-w-xs'
+            placeholder='Email'
+            type='email'
+            v-model='state.email'
+            :class='v$.email.$error ? "input-error" : ""'
+            @blur='v$.$touch()'
           />
         </div>
 
-        <div class="mt-4 w-full">
+        <div class='mt-4 w-full'>
           <input
-            aria-label="Password"
-            class="input input-bordered input-ghost input-neutral w-full max-w-xs"
-            placeholder="Password"
-            type="password"
-            v-model="password"
+            aria-label='Password'
+            class='input input-bordered input-ghost input-neutral w-full max-w-xs'
+            placeholder='Password'
+            type='password'
+            v-model='state.password'
+            :class='v$.password.$error ? "input-error" : ""'
+            @blur='v$.$touch()'
           />
         </div>
-        <div class="mt-4 w-full">
+        <div class='mt-4 w-full'>
           <input
-            aria-label="Password"
-            class="input input-bordered input-ghost input-neutral w-full max-w-xs"
-            placeholder="Password"
-            type="password"
-            v-model="passwordConfirm"
+            aria-label='Password'
+            class='input input-bordered input-ghost input-neutral w-full max-w-xs'
+            placeholder='Password'
+            type='password'
+            v-model='state.passwordConfirm'
+            :class='v$.passwordConfirm.$error ? "input-error" : ""'
+            @blur='v$.$touch()'
           />
         </div>
-        <div class="mx-auto mt-4">
-          <div class="flex flex-nowrap">
-            <label class="label cursor-pointer">
+        <div class='mx-auto mt-4'>
+          <div class='flex flex-nowrap'>
+            <label class='label cursor-pointer'>
               <input
-                type="checkbox"
-                checked="checked"
-                class="checkbox checkbox-primary"
-                v-model="tos"
+                type='checkbox'
+                checked='checked'
+                class='checkbox'
+                :class='v$.tos.$error ? "checkbox-error" : "checkbox-primary"'
+                v-model='state.tos'
+                @blur='v$.$touch()'
               />
             </label>
-            <span class="label-text my-auto">Accept TOS</span>
+            <span class='label-text my-auto'>Accept TOS</span>
           </div>
         </div>
-        <div class="mt-4 flex items-center justify-center">
+        <div class='mt-4 flex items-center justify-center'>
           <button
-            class="btn btn-primary w-full hoveranimation"
-            type="button"
-            @click='registerRequest'
+            class='btn btn-primary w-full hoveranimation'
+            type='submit'
+            @click='submitRegisterRequest'
           >
             Register
           </button>
         </div>
       </form>
     </div>
-    <div class="divider"></div>
+    <div class='divider'></div>
     <div class='flex items-center justify-center bg-base-100 py-4 text-center mb-2 px-6'>
-      <span class="mx-2 text-sm">Already have an account? </span>
+      <span class='mx-2 text-sm'>Already have an account? </span>
       <button
-        class="btn-neutral btn mx-auto hoveranimation"
-        type="button"
+        class='btn-neutral btn mx-auto hoveranimation'
+        type='button'
         @click="$emit('loginPageEvent')"
       >
         Login
@@ -81,23 +91,64 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang='ts' setup>
 import { login, register } from '~/api/api'
+import { email, maxLength, minLength, required, sameAs } from '@vuelidate/validators'
+import useVuelidate from '@vuelidate/core'
 
-let email = ref("")
-let password = ref("")
-let username = ref("")
-let passwordConfirm = ref("")
-let tos = ref(false)
+const state = reactive({
+  email: '',
+  password: '',
+  username: '',
+  passwordConfirm: '',
+  tos: false
+})
+
+const rules = {
+  email: {
+    required, email
+  },
+  password: {
+    required,
+    minLength: minLength(8),
+    maxLength: maxLength(50)
+  },
+  passwordConfirm: {
+    required,
+    sameAs: sameAs(state.password)
+  },
+  username: {
+    required,
+    minLength: minLength(4),
+    maxLength: maxLength(15)
+  },
+  tos: {
+    required
+  }
+}
+
+const v$ = useVuelidate(rules, state)
+
+const submitRegisterRequest = async () => {
+  const result = await v$.value.$validate()
+  if (!result) {
+    // notify user form is invalid
+    console.log('error')
+    console.log(v$.value.$errors)
+    return
+  }
+
+  await registerRequest()
+}
 
 const registerRequest = async function() {
-  let result = await register(email.value,password.value,username.value)
+  let result = await register(state.email, state.password, state.username)
   if (result) {
-    let loginResult = await login(email.value,password.value )
+    let loginResult = await login(state.email, state.password)
     if (loginResult) {
-      return navigateTo("/home")
+      return navigateTo('/home')
     } else {
-      return navigateTo("/")
+      return navigateTo('/')
     }
   }
 }

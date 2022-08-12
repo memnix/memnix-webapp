@@ -44,9 +44,10 @@
 <script setup lang="ts">
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
-import { CardResponseList, CarouselType } from '~/types'
+import { CardResponseList, CarouselType, DeckList, SubDeckList } from '~/types'
 import { useTodayStore } from '~/stores/todays'
 import { useApiStore } from '~/stores/api'
+import { PropType } from '@vue/runtime-core'
 
 const isOpen = ref(false)
 const emit = defineEmits(['refreshToday'])
@@ -105,11 +106,11 @@ onMounted(() => {
 
 const props = defineProps({
   type: {
-    type: Number,
+    type: Number as PropType<CarouselType>,
     required: true,
   },
   deckList: {
-    type: Array,
+    type: Array as PropType<DeckList | SubDeckList>,
     required: true,
   },
 })

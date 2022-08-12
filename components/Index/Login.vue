@@ -4,14 +4,16 @@
   >
     <div class="px-6 py-4">
       <h2 class="text-center text-3xl font-medium">{{ $t('welcome_back') }}</h2>
-      <form>
+      <form @submit.prevent='submitLoginRequest'>
         <div class="mt-4 w-full">
           <input
             aria-label="Email Address"
             class="input input-bordered input-ghost input-neutral w-full"
+            :class='v$.email.$error ? "input-error" : ""'
             placeholder="Email"
             type="email"
-            v-model='email'
+            v-model='state.email'
+            @blur='v$.$touch()'
           />
         </div>
 
@@ -19,19 +21,22 @@
           <input
             aria-label="Password"
             class="input input-bordered input-ghost input-neutral w-full "
+            :class='v$.password.$error ? "input-error" : ""'
             placeholder="Password"
             type="password"
-            v-model="password"
+            v-model="state.password"
+            @blur='v$.$touch()'
+
           />
         </div>
 
         <div class="mt-4 flex w-full justify-center">
           <button
             class="btn btn-primary w-full hoveranimation"
-            type="button"
-            @click='loginRequest'
+            type="submit"
+            @click='submitLoginRequest'
           >
-            Login
+            {{ $t('login') }}
           </button>
         </div>
       </form>
@@ -44,7 +49,7 @@
           type="button"
           @click="$emit('registerPageEvent')"
         >
-          Register
+          {{ $t('register') }}
         </button>
       </div>
       <div>
@@ -53,7 +58,7 @@
           class="btn btn-secondary w-full hoveranimation"
           type="button"
         >
-          Forget Password
+          {{ $t('forget_password') }}
         </button>
         </NuxtLink>
       </div>
@@ -63,12 +68,40 @@
 
 <script lang="ts" setup>
 import { login } from '~/api/api'
+import useVuelidate from '@vuelidate/core'
+import { email, required } from '@vuelidate/validators'
 
-let email = ref("")
-let password = ref("")
+const state = reactive({
+  email: "",
+  password: "",
+})
+
+const rules = {
+  email: {
+    required, email
+  },
+  password: {
+    required
+  },
+}
+
+const v$ = useVuelidate(rules, state)
+
+const submitLoginRequest = async () => {
+  const result = await v$.value.$validate()
+  if (!result) {
+    // notify user form is invalid
+    console.log("error")
+    console.log(v$.value.$errors)
+    return
+  }
+
+  await loginRequest()
+}
+
 
 const loginRequest = async function() {
-  let result = await login(email.value,password.value )
+  let result = await login(state.email,state.password )
   if (result) {
     return navigateTo("/home")
   }

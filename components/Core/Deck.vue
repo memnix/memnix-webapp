@@ -23,9 +23,12 @@
 </template>
 
 <script setup lang="ts">
+import { PropType } from '@vue/runtime-core'
+import { Deck } from '~/types'
+
 const props = defineProps({
   deck: {
-    type: Object,
+    type: Object as PropType<Deck>,
     required: true,
   },
   number_badge: {

@@ -117,10 +117,12 @@
 <script setup lang="ts">
 import { postResponse } from '~/api/card.api'
 import { TransitionRoot } from '@headlessui/vue'
+import { Card } from '~/types'
+import { PropType } from '@vue/runtime-core'
 
 const props = defineProps({
   card: {
-    type: Object,
+    type: Object as PropType<Card>,
     required: true,
   },
   answers: {
