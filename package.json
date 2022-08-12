@@ -8,14 +8,14 @@
   },
   "devDependencies": {
     "@headlessui/vue": "^1.6.7",
-    "@iconify/json": "^2.1.87",
+    "@iconify/json": "^2.1.90",
     "@intlify/nuxt3": "^0.2.3",
     "@nuxtjs/tailwindcss": "^5.3.1",
     "nuxt": "3.0.0-rc.1",
     "sass": "1.52.3",
     "sass-loader": "13.0.0",
     "unplugin-icons": "0.14.8",
-    "unplugin-vue-components": "^0.21.2"
+    "unplugin-vue-components": "^0.22.4"
   },
   "dependencies": {
     "@heroicons/vue": "1.0.6",
@@ -24,10 +24,10 @@
     "@tailwindcss/aspect-ratio": "0.4.0",
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/line-clamp": "0.4.0",
-    "@tailwindcss/typography": "0.5.2",
+    "@tailwindcss/typography": "0.5.4",
     "@vuelidate/core": "^2.0.0-alpha.44",
     "@vuelidate/validators": "^2.0.0-alpha.31",
-    "daisyui": "^2.20.0",
+    "daisyui": "^2.22.0",
     "pinia": "^2.0.13",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
@@ -39,6 +39,7 @@
     "semver-regex": "^3.1.4",
     "svgo": "^2.8.0",
     "got": "11.8.5",
-    "parse-path": "^5.0.0"
+    "parse-path": "^5.0.0",
+    "node-fetch": "^3.2.10"
   }
 }
