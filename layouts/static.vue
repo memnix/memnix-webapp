@@ -1,5 +1,5 @@
 <template>
-  <div id="app-layout">
+  <div id='app-layout'>
     <main>
       <UtilsHeader />
       <slot />
@@ -8,14 +8,14 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang='ts' setup>
 
 useHead({
     link:
       [
         {
           rel: 'preconnect',
-          href: 'https://www.youtube.com/',
+          href: 'https://www.youtube.com/'
         },
         {
           rel: 'preconnect',
@@ -26,7 +26,7 @@ useHead({
 )
 
 definePageMeta({
-  layout: 'static',
+  layout: 'static'
 })
 </script>
 

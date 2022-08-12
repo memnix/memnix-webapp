@@ -1,24 +1,24 @@
 <template>
-  <div class="max-h-screen" v-if="loaded">
-    <div class="flex flex-col items-center px-5 pt-2 md:pt-5 lg:px-20">
-      <div class="hoveranimation absolute left-0 top-[0.5rem]">
+  <div v-if='loaded' class='max-h-screen'>
+    <div class='flex flex-col items-center px-5 pt-2 md:pt-5 lg:px-20'>
+      <div class='hoveranimation absolute left-0 top-[0.5rem]'>
         <NuxtLink
-          class="btn btn-ghost text-xl md:text-2xl lg:text-3xl"
-          to="/home"
+          class='btn btn-ghost text-xl md:text-2xl lg:text-3xl'
+          to='/home'
         >
           <Icon-lucide-arrow-left />
         </NuxtLink>
       </div>
       <CoreCard
-        :card="card"
-        :answers="answers"
-        class="sm:pt-10 md:pt-4 lg:pt-3"
-        @nextCardEvent="nextCardEvent"
+        :answers='answers'
+        :card='card'
+        class='sm:pt-10 md:pt-4 lg:pt-3'
+        @nextCardEvent='nextCardEvent'
       />
       <progress
-        class="progress progress-primary max-w-xl"
-        :value="progress"
-        max="100"
+        :value='progress'
+        class='progress progress-primary max-w-xl'
+        max='100'
       ></progress>
     </div>
   </div>
@@ -27,7 +27,7 @@
   </section>
 </template>
 
-<script setup lang="ts">
+<script lang='ts' setup>
 import { Card, CardResponse, TrainingCardsList } from '~/types'
 import { themeChange } from 'theme-change'
 import { getTrainingCards } from '~/api/card.api'
@@ -42,10 +42,10 @@ let card = ref(<Card>null)
 let loaded = ref(false)
 let rate = 0
 
-const selectCard = function () {
+const selectCard = function() {
   if (card_index >= cardList.length || cardList.length === 0) {
 
-     return navigateTo('/home')
+    return navigateTo('/home')
   }
 
   const cardResponse = <CardResponse>cardList[card_index]
@@ -53,7 +53,7 @@ const selectCard = function () {
   answers.value = cardResponse.Answers === null ? [] : cardResponse.Answers
 }
 
-const loadCards = async function () {
+const loadCards = async function() {
   cardList = await getTrainingCards(route.query['deck']).then((res) => {
     rate = 100 / res.count
     return <TrainingCardsList>res.data || []
@@ -62,7 +62,7 @@ const loadCards = async function () {
   loaded.value = true
 }
 
-const nextCardEvent = function (validate: boolean) {
+const nextCardEvent = function(validate: boolean) {
   if (validate) {
     progress.value += rate
   }

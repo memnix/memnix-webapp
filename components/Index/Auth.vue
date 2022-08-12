@@ -1,13 +1,13 @@
 <template>
-  <div v-if="page === 0">
-    <IndexLogin @register-page-event="registerPageEvent" />
+  <div v-if='page === 0'>
+    <IndexLogin @register-page-event='registerPageEvent' />
   </div>
-  <div v-else-if="page === 1">
-    <IndexRegister @login-page-event="loginPageEvent" />
+  <div v-else-if='page === 1'>
+    <IndexRegister @login-page-event='loginPageEvent' />
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang='ts' setup>
 const page = ref(0)
 
 const registerPageEvent = () => {
