@@ -150,7 +150,7 @@ onMounted(() => {
 
 const resetPasswordRequest = async function() {
   let result = await resetPassword(email.value)
-  console.log(result)
+  
   if (result) {
     step.value = 2
   } else {
