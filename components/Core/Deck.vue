@@ -18,7 +18,7 @@
         v-if='deck.ID === 13'
         class='tooltip absolute -bottom-1 -right-3 badge badge-sm badge-success md:badge-md lg:badge-lg text-success-content '
         data-tip='verified'>
-                  <Icon-lucide-verified />
+          <Icon-lucide-verified />
         </span>
     </div>
 
@@ -28,7 +28,7 @@
   </div>
 </template>
 
-<script setup lang='ts'>
+<script lang='ts' setup>
 import { PropType } from '@vue/runtime-core'
 import { Deck } from '~/types'
 
