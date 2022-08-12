@@ -8,46 +8,46 @@
       <form @submit.prevent='submitRegisterRequest'>
         <div class='mt-4 w-full'>
           <input
+            v-model='state.username'
+            :class='v$.username.$error ? "input-error" : ""'
             aria-label='Username'
             class='input input-bordered input-ghost input-neutral w-full max-w-xs'
-            :class='v$.username.$error ? "input-error" : ""'
             placeholder='Username'
             type='text'
-            v-model='state.username'
             @blur='v$.$touch()'
           />
         </div>
         <div class='mt-4 w-full'>
           <input
+            v-model='state.email'
+            :class='v$.email.$error ? "input-error" : ""'
             aria-label='Email Address'
             class='input input-bordered input-ghost input-neutral w-full max-w-xs'
             placeholder='Email'
             type='email'
-            v-model='state.email'
-            :class='v$.email.$error ? "input-error" : ""'
             @blur='v$.$touch()'
           />
         </div>
 
         <div class='mt-4 w-full'>
           <input
+            v-model='state.password'
+            :class='v$.password.$error ? "input-error" : ""'
             aria-label='Password'
             class='input input-bordered input-ghost input-neutral w-full max-w-xs'
             placeholder='Password'
             type='password'
-            v-model='state.password'
-            :class='v$.password.$error ? "input-error" : ""'
             @blur='v$.$touch()'
           />
         </div>
         <div class='mt-4 w-full'>
           <input
+            v-model='state.passwordConfirm'
+            :class='v$.passwordConfirm.$error ? "input-error" : ""'
             aria-label='Password'
             class='input input-bordered input-ghost input-neutral w-full max-w-xs'
             placeholder='Password'
             type='password'
-            v-model='state.passwordConfirm'
-            :class='v$.passwordConfirm.$error ? "input-error" : ""'
             @blur='v$.$touch()'
           />
         </div>
@@ -55,11 +55,11 @@
           <div class='flex flex-nowrap'>
             <label class='label cursor-pointer'>
               <input
-                type='checkbox'
+                v-model='state.tos'
+                :class='v$.tos.$error ? "checkbox-error" : "checkbox-primary"'
                 checked='checked'
                 class='checkbox'
-                :class='v$.tos.$error ? "checkbox-error" : "checkbox-primary"'
-                v-model='state.tos'
+                type='checkbox'
                 @blur='v$.$touch()'
               />
             </label>

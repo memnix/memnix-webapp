@@ -29,6 +29,7 @@ declare module '@vue/runtime-core' {
     IconLucideTwitter: typeof import('~icons/lucide/twitter')['default']
     IconLucideUser: typeof import('~icons/lucide/user')['default']
     IconLucideUsers: typeof import('~icons/lucide/users')['default']
+    IconLucideVerified: typeof import('~icons/lucide/verified')['default']
     IconLucideX: typeof import('~icons/lucide/x')['default']
     IconLucideYoutube: typeof import('~icons/lucide/youtube')['default']
     IconMdiCardsOutline: typeof import('~icons/mdi/cards-outline')['default']

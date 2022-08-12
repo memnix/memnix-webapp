@@ -5,7 +5,7 @@ export const useTodayStore = defineStore('today', {
   state: () => {
     return {
       todayMap: <{ [id: number]: CardResponseList }>{},
-      index: 0,
+      index: 0
     }
   },
   getters: {
@@ -23,7 +23,7 @@ export const useTodayStore = defineStore('today', {
 
     getIndex: (state) => {
       return state.index
-    },
+    }
   },
   actions: {
     setDeck(deck: number, cardResponseList: CardResponseList) {
@@ -40,6 +40,6 @@ export const useTodayStore = defineStore('today', {
 
     deleteDeck(deck: number) {
       delete this.todayMap[deck]
-    },
-  },
+    }
+  }
 })

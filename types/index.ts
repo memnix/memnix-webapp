@@ -45,9 +45,11 @@ export interface SubDeck {
   settings_today: boolean
 }
 
-export interface SubDeckList extends Array<SubDeck> {}
+export interface SubDeckList extends Array<SubDeck> {
+}
 
-export interface TrainingCardsList extends Array<TrainingCards> {}
+export interface TrainingCardsList extends Array<TrainingCards> {
+}
 
 export interface HTTPResponse {
   success: boolean
@@ -56,7 +58,8 @@ export interface HTTPResponse {
   count: number
 }
 
-export interface DeckResponseList extends Array<DeckResponse> {}
+export interface DeckResponseList extends Array<DeckResponse> {
+}
 
 export interface DeckResponse {
   deck_id: number
@@ -84,9 +87,11 @@ export interface Deck {
   deck_share: boolean
 }
 
-export interface DeckList extends Array<Deck> {}
+export interface DeckList extends Array<Deck> {
+}
 
-export interface CardResponseList extends Array<CardResponse> {}
+export interface CardResponseList extends Array<CardResponse> {
+}
 
 export interface Card {
   ID: number

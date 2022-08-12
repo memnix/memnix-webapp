@@ -7,7 +7,7 @@ export const useApiStore = defineStore('api', {
       refreshToday: false,
       refreshMyDecks: false,
       refreshAvailableDecks: false,
-      user: <User>{},
+      user: <User>{}
     }
-  },
+  }
 })
