@@ -1,34 +1,34 @@
 <template>
-  <div class="modal modal-open modal-bottom sm:modal-middle">
-    <div class="modal-box border-2 border-secondary">
-      <div class="hoveranimation absolute right-1 top-[0.5rem]">
+  <div class='modal modal-open modal-bottom sm:modal-middle'>
+    <div class='modal-box border-2 border-secondary'>
+      <div class='hoveranimation absolute right-1 top-[0.5rem]'>
         <button
-          class="btn btn-ghost text-xl md:text-2xl lg:text-3xl"
+          class='btn btn-ghost text-xl md:text-2xl lg:text-3xl'
           @click="$emit('closeModalProfile')"
         >
           <Icon-lucide-x />
         </button>
       </div>
-      <div class="flex items-center">
-        <div class="avatar">
-          <div class="w-16 rounded-full">
-            <img :src="avatarUrl" alt="User Avatar" />
+      <div class='flex items-center'>
+        <div class='avatar'>
+          <div class='w-16 rounded-full'>
+            <img :src='avatarUrl' alt='User Avatar' />
           </div>
         </div>
-        <h2 class="ml-3 text-xl font-medium text-white">
+        <h2 class='ml-3 text-xl font-medium text-white'>
           {{ user.user_name }}
         </h2>
       </div>
-      <div class="modal-action">
-        <label @click="$emit('logout')" class="btn-error hoveranimation btn"
-          >Logout</label
+      <div class='modal-action'>
+        <label class='btn-error hoveranimation btn' @click="$emit('logout')"
+        >Logout</label
         >
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang='ts' setup>
 import { User } from '~/types'
 import { useApiStore } from '~/stores/api'
 import { getUser } from '~/api/api'
@@ -48,7 +48,7 @@ onMounted(async () => {
   getAvatarUrl()
 })
 
-const getAvatarUrl = function () {
+const getAvatarUrl = function() {
   if (user.value.user_avatar != '') {
     avatarUrl.value = user.value.user_avatar
   } else if (user.value.user_name != '') {

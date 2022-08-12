@@ -1,33 +1,35 @@
 <template>
-  <div class="modal modal-open modal-bottom sm:modal-middle ">
-    <div class="modal-box border-2 border-secondary">
-      <h3 class="text-lg md:text-xl lg:text-2xl font-bold">Subscribe to this deck ?</h3>
-      <p class="py-4 text-md md:text-lg lg:text-xl">You will be able to play it</p>
-      <div class="modal-action">
+  <div class='modal modal-open modal-bottom sm:modal-middle '>
+    <div class='modal-box border-2 border-secondary'>
+      <h3 class='text-lg md:text-xl lg:text-2xl font-bold'>Subscribe to this deck ?</h3>
+      <p class='py-4 text-md md:text-lg lg:text-xl'>You will be able to play it</p>
+      <div class='modal-action'>
         <label
+          class='btn-neutral hoveranimation btn'
           @click="$emit('closeModalSubConfirmation')"
-          class="btn-neutral hoveranimation btn"
-          >No</label
+        >No</label
         >
-        <label @click="subToDeckEvent" class="hoveranimation btn btn-secondary"
-          >Yes</label
+        <label class='hoveranimation btn btn-secondary' @click='subToDeckEvent'
+        >Yes</label
         >
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang='ts' setup>
 import { subToDeck } from '~/api/deck.api'
 import { useApiStore } from '~/stores/api'
+import { Deck } from '~/types'
+import { PropType } from '@vue/runtime-core'
 
 const emit = defineEmits(['closeModalSubConfirmation'])
 
 const props = defineProps({
   deck: {
-    type: Object,
-    required: true,
-  },
+    type: Object as PropType<Deck>,
+    required: true
+  }
 })
 
 async function subToDeckEvent() {
