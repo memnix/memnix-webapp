@@ -91,8 +91,8 @@ const submitLoginRequest = async () => {
   const result = await v$.value.$validate()
   if (!result) {
     // notify user form is invalid
-    console.log("error")
-    console.log(v$.value.$errors)
+    
+    
     return
   }
 
