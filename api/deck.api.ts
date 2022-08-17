@@ -17,6 +17,21 @@ export async function getSubDeck() {
   return data
 }
 
+export async function getEditorDecks() {
+  const token = useCookie('token')
+
+  const data: HTTPResponse = await $fetch<HTTPResponse>(
+    `/decks/editor`,
+    {
+      method: 'GET',
+      baseURL: baseUrl,
+      headers: {
+        Authorization: 'Bearer ' + token.value,
+      },
+    }).catch((error: any) => error.data)
+  return data.data
+}
+
 export async function getAvailableDeck() {
   const token = useCookie('token')
 

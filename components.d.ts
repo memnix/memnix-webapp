@@ -22,6 +22,7 @@ declare module '@vue/runtime-core' {
     IconLucideMessageCircle: typeof import('~icons/lucide/message-circle')['default']
     IconLucideMoon: typeof import('~icons/lucide/moon')['default']
     IconLucidePencil: typeof import('~icons/lucide/pencil')['default']
+    IconLucidePlusCircle: typeof import('~icons/lucide/plus-circle')['default']
     IconLucideSmartphone: typeof import('~icons/lucide/smartphone')['default']
     IconLucideSun: typeof import('~icons/lucide/sun')['default']
     IconLucideTimerReset: typeof import('~icons/lucide/timer-reset')['default']
