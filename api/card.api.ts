@@ -22,6 +22,34 @@ export async function postResponse(
   return data
 }
 
+// Fetch all cards from a deck
+export async function getCardsFromDeck(deckID: number) {
+  const token = useCookie('token')
+  const data: HTTPResponse = await $fetch<HTTPResponse>(
+    '/cards/deck/' + deckID,
+    {
+      method: 'GET',
+      baseURL: baseUrl,
+      headers: {
+        Authorization: 'Bearer ' + token.value,
+      },
+    }
+  ).catch((error: any) => error.data)
+  return data.data
+}
+
+export async function getMCQfromDeck(deckID: number) {
+  const token = useCookie('token')
+  const data: HTTPResponse = await $fetch<HTTPResponse>('/mcqs/' + deckID, {
+    method: 'GET',
+    baseURL: baseUrl,
+    headers: {
+      Authorization: 'Bearer ' + token.value,
+    },
+  }).catch((error: any) => error.data)
+  return data.data
+}
+
 export async function todays() {
   const token = useCookie('token')
 
