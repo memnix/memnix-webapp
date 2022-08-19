@@ -78,6 +78,11 @@
       <button class="hoveranimation btn btn-success">New</button>
     </div>
   </div>
+  <ModalMcqForm
+    :mcq="selected"
+    v-if="edit"
+    @closeModalEditMcqForm="edit = false"
+  />
 </template>
 
 <script setup lang="ts">

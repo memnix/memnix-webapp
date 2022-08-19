@@ -124,7 +124,7 @@ export interface Card {
 
 export interface Mcq {
   ID: number
-  mcq_answer: string
+  mcq_answers: string
   mcq_name: string
   mcq_type: number
   deck_id: number
