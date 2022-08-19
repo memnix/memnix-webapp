@@ -168,7 +168,7 @@ function closeModalEditCardForm() {
 const state = reactive({
   question: props.card.card_question,
   answer: props.card.card_answer,
-  mcq: '',
+  mcq: props.card.mcq_id.Int32,
   type: props.card.card_type,
   isCaseSensitive: props.card.card_case,
   isSpacesSensitive: props.card.card_spaces,

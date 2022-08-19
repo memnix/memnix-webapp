@@ -40,7 +40,7 @@
           <TabPanel>
             <EditorCard :cards="cards" :mcqs="mcqs" />
           </TabPanel>
-          <TabPanel>Content 3</TabPanel>
+          <TabPanel><EditorMcq :mcqs="mcqs" /></TabPanel>
         </TabPanels>
       </TabGroup>
     </div>

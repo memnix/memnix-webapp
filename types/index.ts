@@ -116,7 +116,7 @@ export interface Card {
   card_question: string
   card_type: number
   card_spaces: boolean
-  mcq: {
+  mcq_id: {
     Int32: number
     Valid: true
   }
