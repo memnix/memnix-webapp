@@ -9,14 +9,14 @@
           class="relative w-full cursor-default overflow-hidden rounded-lg text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-secondary sm:text-sm"
         >
           <ComboboxInput
-            class="input input-bordered w-full py-2 pl-3 pr-10 text-sm leading-5 focus:ring-0"
             :displayValue="(mcq) => mcq.mcq_name"
+            class="input input-bordered w-full py-2 pl-3 pr-10 text-sm leading-5 focus:ring-0"
             @change="query = $event.target.value"
           />
           <ComboboxButton
             class="absolute inset-y-0 right-0 flex items-center pr-2"
           >
-            <SelectorIcon class="h-5 w-5" aria-hidden="true" />
+            <SelectorIcon aria-hidden="true" class="h-5 w-5" />
           </ComboboxButton>
         </div>
         <TransitionRoot
@@ -37,32 +37,32 @@
 
             <ComboboxOption
               v-for="mcq in filteredMcq"
-              as="template"
               :key="mcq.ID"
-              :value="mcq"
               v-slot="{ selected, active }"
+              :value="mcq"
+              as="template"
             >
               <li
-                class="relative cursor-default select-none py-2 pl-10 pr-4"
                 :class="{
                   'bg-primary text-primary-content': active,
                   '': !active,
                 }"
+                class="relative cursor-default select-none py-2 pl-10 pr-4"
               >
                 <span
-                  class="block truncate"
                   :class="{ 'font-medium': selected, 'font-normal': !selected }"
+                  class="block truncate"
                 >
                   {{ mcq.mcq_name }}
                 </span>
                 <span
                   v-if="selected"
-                  class="absolute inset-y-0 left-0 flex items-center pl-3"
                   :class="{
                     'text-primary-content': active,
                   }"
+                  class="absolute inset-y-0 left-0 flex items-center pl-3"
                 >
-                  <CheckIcon class="h-5 w-5" aria-hidden="true" />
+                  <CheckIcon aria-hidden="true" class="h-5 w-5" />
                 </span>
               </li>
             </ComboboxOption>
@@ -75,25 +75,34 @@
       <button class="hoveranimation btn btn-secondary" @click="edit = true">
         Edit
       </button>
-      <button class="hoveranimation btn btn-success">New</button>
+      <button class="hoveranimation btn btn-success" @click="create = true">
+        New
+      </button>
     </div>
   </div>
   <ModalMcqForm
-    :mcq="selected"
     v-if="edit"
-    @closeModalEditMcqForm="edit = false"
+    :is_edit="true"
+    :mcq="selected"
+    @closeModalMcqForm="edit = false"
+  />
+  <ModalMcqForm
+    v-if="create"
+    :is_edit="false"
+    :mcq="selected"
+    @closeModalMcqForm="create = false"
   />
 </template>
 
-<script setup lang="ts">
-import { CardList, McqList } from '~/types'
+<script lang="ts" setup>
+import { McqList } from '~/types'
 import { PropType } from '@vue/runtime-core'
 import {
   Combobox,
-  ComboboxInput,
   ComboboxButton,
-  ComboboxOptions,
+  ComboboxInput,
   ComboboxOption,
+  ComboboxOptions,
   TransitionRoot,
 } from '@headlessui/vue'
 import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid'
@@ -109,6 +118,7 @@ let selected = ref(props.mcqs[0])
 let query = ref('')
 
 let edit = ref(false)
+let create = ref(false)
 
 let filteredMcq = computed(() =>
   query.value === ''

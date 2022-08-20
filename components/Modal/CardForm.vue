@@ -4,7 +4,7 @@
       <div class="hoveranimation absolute right-2 top-[0.5rem]">
         <button
           class="btn btn-ghost text-xl md:text-xl lg:text-2xl"
-          @click="closeModalEditCardForm"
+          @click="closeModalCardForm"
         >
           <Icon-lucide-x />
         </button>
@@ -157,23 +157,27 @@ const props = defineProps({
     type: Array as PropType<McqList>,
     required: true,
   },
+  is_edit: {
+    type: Boolean,
+    required: true,
+  },
 })
 
-const emit = defineEmits(['closeModalEditCardForm'])
+const emit = defineEmits(['closeModalCardForm'])
 
-function closeModalEditCardForm() {
-  emit('closeModalEditCardForm')
+function closeModalCardForm() {
+  emit('closeModalCardForm')
 }
 
 const state = reactive({
-  question: props.card.card_question,
-  answer: props.card.card_answer,
-  mcq: props.card.mcq_id.Int32,
-  type: props.card.card_type,
-  isCaseSensitive: props.card.card_case,
-  isSpacesSensitive: props.card.card_spaces,
-  format: props.card.card_format,
-  imageURL: props.card.card_image,
+  question: props.is_edit ? props.card.card_question : '',
+  answer: props.is_edit ? props.card.card_answer : '',
+  mcq: props.is_edit ? props.card.mcq_id.Int32 : '',
+  type: props.is_edit ? props.card.card_type : '',
+  isCaseSensitive: props.is_edit ? props.card.card_case : '',
+  isSpacesSensitive: props.is_edit ? props.card.card_spaces : '',
+  format: props.is_edit ? props.card.card_format : '',
+  imageURL: props.is_edit ? props.card.card_image : '',
 })
 
 const rules = {

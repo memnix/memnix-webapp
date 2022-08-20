@@ -4,7 +4,7 @@
       <div class="hoveranimation absolute right-2 top-[0.5rem]">
         <button
           class="btn btn-ghost text-xl md:text-xl lg:text-2xl"
-          @click="closeModalEditCardForm"
+          @click="closeModalMcqForm"
         >
           <Icon-lucide-x />
         </button>
@@ -39,11 +39,11 @@
           </div>
           <div class="form-control mx-auto w-full max-w-md">
             <label class="label">
-              <span class="label-text">MCQ *</span>
+              <span class="label-text">Answers *</span>
             </label>
             <input
               class="input input-bordered w-full max-w-md"
-              placeholder="MCQ"
+              placeholder="Answers"
               v-model="state.answers"
               type="text"
               @blur="v$.$touch()"
@@ -77,19 +77,23 @@ const props = defineProps({
     type: Object as PropType<Mcq>,
     required: true,
   },
+  is_edit: {
+    type: Boolean,
+    required: true,
+  },
 })
 
-const emit = defineEmits(['closeModalEditMcqForm'])
+const emit = defineEmits(['closeModalMcqForm'])
 
-function closeModalEditCardForm() {
-  emit('closeModalEditMcqForm')
+function closeModalMcqForm() {
+  emit('closeModalMcqForm')
 }
 
 const state = reactive({
-  name: props.mcq.mcq_name,
-  type: props.mcq.mcq_type,
-  answers: props.mcq.mcq_answers,
-  deck_id: props.mcq.deck_id,
+  name: props.is_edit ? props.mcq.mcq_name : '',
+  type: props.is_edit ? props.mcq.mcq_type : '',
+  answers: props.is_edit ? props.mcq.mcq_answers : '',
+  deck_id: props.is_edit ? props.mcq.deck_id : '',
 })
 
 const rules = {

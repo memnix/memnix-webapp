@@ -75,19 +75,29 @@
       <button class="hoveranimation btn btn-secondary" @click="edit = true">
         Edit
       </button>
-      <button class="hoveranimation btn btn-success">New</button>
+      <button class="hoveranimation btn btn-success" @click="create = true">
+        New
+      </button>
     </div>
   </div>
   <ModalCardForm
     :card="selected"
     :mcqs="mcqs"
-    @closeModalEditCardForm="edit = false"
+    :is_edit="true"
+    @closeModalCardForm="edit = false"
     v-if="edit"
+  />
+  <ModalCardForm
+    v-if="create"
+    @closeModalCardForm="create = false"
+    :card="{}"
+    :is_edit="false"
+    :mcqs="mcqs"
   />
 </template>
 
 <script setup lang="ts">
-import { CardList, McqList } from '~/types'
+import { Card, CardList, McqList } from '~/types'
 import { PropType } from '@vue/runtime-core'
 import {
   Combobox,
@@ -114,6 +124,7 @@ let selected = ref(props.cards[0])
 let query = ref('')
 
 let edit = ref(false)
+let create = ref(false)
 
 let filteredCard = computed(() =>
   query.value === ''
