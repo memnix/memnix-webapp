@@ -132,7 +132,7 @@
               type="submit"
               @click="submitUpdateCardRequest"
             >
-              Update
+              {{ buttonActionText }}
             </button>
           </div>
         </div>
@@ -162,6 +162,8 @@ const props = defineProps({
     required: true,
   },
 })
+
+const buttonActionText = props.is_edit ? 'Update' : 'Create'
 
 const emit = defineEmits(['closeModalCardForm'])
 
