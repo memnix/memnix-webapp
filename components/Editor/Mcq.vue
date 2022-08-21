@@ -3,13 +3,13 @@
     <Combobox v-model="selected">
       <div class="relative mt-1">
         <label class="label">
-          <span class="label-text">Select a card</span>
+          <span class="label-text">Select a mcq</span>
         </label>
         <div
           class="relative w-full cursor-default overflow-hidden rounded-lg text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-secondary sm:text-sm"
         >
           <ComboboxInput
-            :displayValue="(mcq) => mcq.mcq_name"
+            :displayValue="(mcq) => mcq?.mcq_name"
             class="input input-bordered w-full py-2 pl-3 pr-10 text-sm leading-5 focus:ring-0"
             @change="query = $event.target.value"
           />
@@ -71,8 +71,18 @@
       </div>
     </Combobox>
     <div class="flex flex-row justify-between pt-5">
-      <button class="hoveranimation btn btn-error">Delete</button>
-      <button class="hoveranimation btn btn-secondary" @click="edit = true">
+      <button
+        :disabled="selected === null"
+        class="hoveranimation btn btn-error"
+        @click="deleteSelectedMcq"
+      >
+        Delete
+      </button>
+      <button
+        :disabled="selected === null"
+        class="hoveranimation btn btn-secondary"
+        @click="edit = true"
+      >
         Edit
       </button>
       <button class="hoveranimation btn btn-success" @click="create = true">
@@ -84,13 +94,15 @@
     v-if="edit"
     :is_edit="true"
     :mcq="selected"
-    @closeModalMcqForm="edit = false"
+    :deck_id="deck_id"
+    @closeModalMcqForm="closeModalMcqForm"
   />
   <ModalMcqForm
     v-if="create"
     :is_edit="false"
-    :mcq="selected"
-    @closeModalMcqForm="create = false"
+    :mcq="{}"
+    :deck_id="deck_id"
+    @closeModalMcqForm="closeModalMcqForm"
   />
 </template>
 
@@ -106,24 +118,49 @@ import {
   TransitionRoot,
 } from '@headlessui/vue'
 import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid'
+import { deleteMcq, getMCQfromDeck } from '~/api/card.api'
 
 const props = defineProps({
   mcqs: {
     type: Array as PropType<McqList>,
     required: true,
   },
+  deck_id: {
+    type: Number as PropType<number>,
+    required: true,
+  },
 })
 
-let selected = ref(props.mcqs[0])
+let deckMcqs = props.mcqs
+
+let selected = ref(deckMcqs.length > 0 ? deckMcqs[0] : null)
 let query = ref('')
 
 let edit = ref(false)
 let create = ref(false)
+let submitting = false
+
+async function closeModalMcqForm() {
+  edit.value = false
+  create.value = false
+  deckMcqs = await getMCQfromDeck(props.deck_id)
+  selected.value = deckMcqs.length > 0 ? deckMcqs[0] : null
+}
+
+async function deleteSelectedMcq() {
+  if (submitting) return
+  submitting = true
+  await deleteMcq(selected.value.ID).then(async () => {
+    submitting = false
+    deckMcqs = await getMCQfromDeck(props.deck_id)
+    selected.value = deckMcqs.length > 0 ? deckMcqs[0] : null
+  })
+}
 
 let filteredMcq = computed(() =>
   query.value === ''
-    ? props.mcqs
-    : props.mcqs.filter((mcq) =>
+    ? deckMcqs
+    : deckMcqs.filter((mcq) =>
         mcq.mcq_name
           .toLowerCase()
           .replace(/\s+/g, '')

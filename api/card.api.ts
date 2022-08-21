@@ -1,4 +1,4 @@
-import { Card, HTTPResponse, TodayResponse } from '~/types'
+import { Card, HTTPResponse, Mcq, TodayResponse } from '~/types'
 import { baseUrl } from '~/api/api'
 
 export async function postResponse(
@@ -40,13 +40,16 @@ export async function getCardsFromDeck(deckID: number) {
 
 export async function getMCQfromDeck(deckID: number) {
   const token = useCookie('token')
-  const data: HTTPResponse = await $fetch<HTTPResponse>('/mcqs/' + deckID, {
-    method: 'GET',
-    baseURL: baseUrl,
-    headers: {
-      Authorization: 'Bearer ' + token.value,
-    },
-  }).catch((error: any) => error.data)
+  const data: HTTPResponse = await $fetch<HTTPResponse>(
+    '/mcqs/' + deckID + '?refresh=true',
+    {
+      method: 'GET',
+      baseURL: baseUrl,
+      headers: {
+        Authorization: 'Bearer ' + token.value,
+      },
+    }
+  ).catch((error: any) => error.data)
   return data.data
 }
 
@@ -117,6 +120,50 @@ export async function deleteCard(cardID: number) {
   const token = useCookie('token')
 
   const data: HTTPResponse = await $fetch<HTTPResponse>('/cards/' + cardID, {
+    method: 'DELETE',
+    baseURL: baseUrl,
+    headers: {
+      Authorization: 'Bearer ' + token.value,
+    },
+  }).catch((error: any) => error.data)
+  return data
+}
+
+export async function createMcq(mcq: Mcq) {
+  const token = useCookie('token')
+
+  const data: HTTPResponse = await $fetch<HTTPResponse>('/mcqs/new', {
+    method: 'POST',
+    baseURL: baseUrl,
+    headers: {
+      Authorization: 'Bearer ' + token.value,
+    },
+    body: mcq,
+  }).catch((error: any) => error.data)
+  return data
+}
+
+export async function updateMcq(mcq: Mcq) {
+  const token = useCookie('token')
+
+  const data: HTTPResponse = await $fetch<HTTPResponse>(
+    '/mcqs/' + mcq.ID + '/edit',
+    {
+      method: 'PUT',
+      baseURL: baseUrl,
+      headers: {
+        Authorization: 'Bearer ' + token.value,
+      },
+      body: mcq,
+    }
+  ).catch((error: any) => error.data)
+  return data
+}
+
+export async function deleteMcq(mcqID: number) {
+  const token = useCookie('token')
+
+  const data: HTTPResponse = await $fetch<HTTPResponse>('/mcqs/' + mcqID, {
     method: 'DELETE',
     baseURL: baseUrl,
     headers: {

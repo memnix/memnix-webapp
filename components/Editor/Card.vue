@@ -10,7 +10,7 @@
         >
           <ComboboxInput
             class="input input-bordered w-full py-2 pl-3 pr-10 text-sm leading-5 focus:ring-0"
-            :displayValue="(card) => card.card_question"
+            :displayValue="(card) => card?.card_question"
             @change="query = $event.target.value"
           />
           <ComboboxButton
@@ -73,6 +73,7 @@
     <div class="flex flex-row justify-between pt-5">
       <button
         class="hoveranimation btn btn-error"
+        :disabled="selected === null"
         @click.once="deleteSelectedCard"
       >
         Delete
@@ -80,6 +81,7 @@
       <button
         class="hoveranimation btn btn-secondary"
         @click.once="edit = true"
+        :disabled="selected === null"
       >
         Edit
       </button>
@@ -139,20 +141,19 @@ const props = defineProps({
 })
 
 let deckCards = props.cards
-let deckMcqs = props.mcqs
 
 let edit = ref(false)
 let create = ref(false)
 let submitting = false
 
-let selected = ref(deckCards[0])
+let selected = ref(deckCards.length > 0 ? deckCards[0] : null)
 let query = ref('')
 
 async function closeModalCardForm() {
   edit.value = false
   create.value = false
   deckCards = await getCardsFromDeck(props.deck_id)
-  selected.value = deckCards[0]
+  selected.value = deckCards.length > 0 ? deckCards[0] : null
 }
 
 async function deleteSelectedCard() {
@@ -161,7 +162,7 @@ async function deleteSelectedCard() {
   await deleteCard(selected.value.ID).then(async () => {
     submitting = false
     deckCards = await getCardsFromDeck(props.deck_id)
-    selected.value = deckCards[0]
+    selected.value = deckCards.length > 0 ? deckCards[0] : null
   })
 }
 

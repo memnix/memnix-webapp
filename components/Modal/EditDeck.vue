@@ -41,7 +41,9 @@
           <TabPanel>
             <EditorCard :cards="cards" :mcqs="mcqs" :deck_id="deck.deck_id" />
           </TabPanel>
-          <TabPanel><EditorMcq :mcqs="mcqs" /></TabPanel>
+          <TabPanel
+            ><EditorMcq :mcqs="mcqs" :deck_id="deck.deck_id"
+          /></TabPanel>
         </TabPanels>
       </TabGroup>
     </div>

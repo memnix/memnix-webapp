@@ -30,11 +30,11 @@
             </label>
             <select
               v-model="state.type"
+              :class="v$.type.$error ? 'select-error' : ''"
               class="select select-bordered w-full max-w-md"
               @blur="v$.$touch()"
-              :class="v$.type.$error ? 'select-error' : ''"
             >
-              <option value="" disabled selected>Select type</option>
+              <option disabled selected value="">Select type</option>
               <option :value="McqType.Standalone">Standalone</option>
               <option :value="McqType.Linked">Linked</option>
             </select>
@@ -49,11 +49,11 @@
             <input
               v-model="state.answers"
               :class="v$.answers.$error ? 'input-error' : ''"
+              :disabled="state.type === McqType.Linked"
               class="input input-bordered w-full max-w-md"
               placeholder="Answers"
               type="text"
               @blur="v$.$touch()"
-              :disabled="state.type === McqType.Linked"
             />
           </div>
           <div class="form-control mx-auto w-full max-w-md pt-2">
@@ -75,13 +75,9 @@
 import { PropType } from '@vue/runtime-core'
 import { Mcq, McqType } from '~/types'
 import useVuelidate from '@vuelidate/core'
-import {
-  maxLength,
-  minLength,
-  required,
-  requiredIf,
-} from '@vuelidate/validators'
+import { maxLength, required, requiredIf } from '@vuelidate/validators'
 import { Config } from '~/utils/config'
+import { createMcq, updateMcq } from '~/api/card.api'
 
 const props = defineProps({
   mcq: {
@@ -90,6 +86,10 @@ const props = defineProps({
   },
   is_edit: {
     type: Boolean,
+    required: true,
+  },
+  deck_id: {
+    type: Number,
     required: true,
   },
 })
@@ -106,7 +106,6 @@ const state = reactive({
   name: props.is_edit ? props.mcq.mcq_name : '',
   type: props.is_edit ? props.mcq.mcq_type : '',
   answers: props.is_edit ? props.mcq.mcq_answers : '',
-  deck_id: props.is_edit ? props.mcq.deck_id : '',
 })
 
 const answersCustomRules = (value) => {
@@ -125,24 +124,49 @@ const rules = {
     required,
   },
   answers: {
-    required: requiredIf(state.type !== McqType.Linked),
     answersCustomRules,
   },
 }
 
 const v$ = useVuelidate(rules, state)
 
-console.log(props.mcq)
+let submitting = false
 
 const submitMcqFormRequest = async () => {
-  console.log('submit')
   const result = await v$.value.$validate()
   if (!result) {
-    console.log('Pas content form pas bien')
     // notify user form is invalid
     return
   }
-  console.log('Form is valid')
+
+  if (submitting) {
+    return
+  }
+
+  submitting = true
+
+  if (!props.is_edit) {
+    await createMcq(<Mcq>{
+      mcq_name: state.name,
+      mcq_type: state.type,
+      mcq_answers: state.answers,
+      deck_id: props.deck_id,
+    }).then((_) => {
+      submitting = false
+    })
+  } else {
+    await updateMcq(<Mcq>{
+      ID: props.mcq.ID,
+      mcq_name: state.name,
+      mcq_type: state.type,
+      mcq_answers: state.answers,
+      deck_id: props.deck_id,
+    }).then((_) => {
+      submitting = false
+    })
+  }
+
+  closeModalMcqForm()
 }
 </script>
 
