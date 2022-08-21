@@ -1,6 +1,5 @@
 import { defineNuxtConfig } from 'nuxt'
 import UnpluginComponentsVite from 'unplugin-vue-components/vite'
-import compress from 'vite-plugin-compress'
 import IconsResolver from 'unplugin-icons/resolver'
 
 export default defineNuxtConfig({
@@ -20,6 +19,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@intlify/nuxt3',
     'unplugin-icons/nuxt',
+    '@nuxt/image-edge',
   ],
 
   tailwindcss: {
@@ -43,7 +43,6 @@ export default defineNuxtConfig({
 
   vite: {
     plugins: [
-      compress(),
       UnpluginComponentsVite({
         dts: true,
         resolvers: [

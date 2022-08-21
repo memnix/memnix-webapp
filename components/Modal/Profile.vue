@@ -12,7 +12,15 @@
       <div class="flex items-center">
         <div class="avatar">
           <div class="w-16 rounded-full">
-            <img :src="avatarUrl" alt="User Avatar" />
+            <nuxt-img
+              :src="avatarUrl"
+              alt="User Avatar"
+              format="webp"
+              height="64"
+              width="64"
+              loading="lazy"
+              quality="80"
+            />
           </div>
         </div>
         <h2 class="ml-3 text-xl font-medium">
