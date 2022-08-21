@@ -1,0 +1,135 @@
+<template>
+  <div class="mx-auto w-full max-w-md">
+    <Combobox v-model="selected">
+      <div class="relative mt-1">
+        <label class="label">
+          <span class="label-text">Select a card</span>
+        </label>
+        <div
+          class="relative w-full cursor-default overflow-hidden rounded-lg text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-secondary sm:text-sm"
+        >
+          <ComboboxInput
+            :displayValue="(mcq) => mcq.mcq_name"
+            class="input input-bordered w-full py-2 pl-3 pr-10 text-sm leading-5 focus:ring-0"
+            @change="query = $event.target.value"
+          />
+          <ComboboxButton
+            class="absolute inset-y-0 right-0 flex items-center pr-2"
+          >
+            <SelectorIcon aria-hidden="true" class="h-5 w-5" />
+          </ComboboxButton>
+        </div>
+        <TransitionRoot
+          leave="transition ease-in duration-100"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+          @after-leave="query = ''"
+        >
+          <ComboboxOptions
+            class="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-base-200 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+          >
+            <div
+              v-if="mcqs.length === 0 && query !== ''"
+              class="relative cursor-default select-none py-2 px-4"
+            >
+              Nothing found.
+            </div>
+
+            <ComboboxOption
+              v-for="mcq in filteredMcq"
+              :key="mcq.ID"
+              v-slot="{ selected, active }"
+              :value="mcq"
+              as="template"
+            >
+              <li
+                :class="{
+                  'bg-primary text-primary-content': active,
+                  '': !active,
+                }"
+                class="relative cursor-default select-none py-2 pl-10 pr-4"
+              >
+                <span
+                  :class="{ 'font-medium': selected, 'font-normal': !selected }"
+                  class="block truncate"
+                >
+                  {{ mcq.mcq_name }}
+                </span>
+                <span
+                  v-if="selected"
+                  :class="{
+                    'text-primary-content': active,
+                  }"
+                  class="absolute inset-y-0 left-0 flex items-center pl-3"
+                >
+                  <CheckIcon aria-hidden="true" class="h-5 w-5" />
+                </span>
+              </li>
+            </ComboboxOption>
+          </ComboboxOptions>
+        </TransitionRoot>
+      </div>
+    </Combobox>
+    <div class="flex flex-row justify-between pt-5">
+      <button class="hoveranimation btn btn-error">Delete</button>
+      <button class="hoveranimation btn btn-secondary" @click="edit = true">
+        Edit
+      </button>
+      <button class="hoveranimation btn btn-success" @click="create = true">
+        New
+      </button>
+    </div>
+  </div>
+  <ModalMcqForm
+    v-if="edit"
+    :is_edit="true"
+    :mcq="selected"
+    @closeModalMcqForm="edit = false"
+  />
+  <ModalMcqForm
+    v-if="create"
+    :is_edit="false"
+    :mcq="selected"
+    @closeModalMcqForm="create = false"
+  />
+</template>
+
+<script lang="ts" setup>
+import { McqList } from '~/types'
+import { PropType } from '@vue/runtime-core'
+import {
+  Combobox,
+  ComboboxButton,
+  ComboboxInput,
+  ComboboxOption,
+  ComboboxOptions,
+  TransitionRoot,
+} from '@headlessui/vue'
+import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid'
+
+const props = defineProps({
+  mcqs: {
+    type: Array as PropType<McqList>,
+    required: true,
+  },
+})
+
+let selected = ref(props.mcqs[0])
+let query = ref('')
+
+let edit = ref(false)
+let create = ref(false)
+
+let filteredMcq = computed(() =>
+  query.value === ''
+    ? props.mcqs
+    : props.mcqs.filter((mcq) =>
+        mcq.mcq_name
+          .toLowerCase()
+          .replace(/\s+/g, '')
+          .includes(query.value.toLowerCase().replace(/\s+/g, ''))
+      )
+)
+</script>
+
+<style scoped></style>

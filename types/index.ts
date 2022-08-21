@@ -19,6 +19,11 @@ export enum LearningStage {
   StageKnown,
 }
 
+export enum McqType {
+  Standalone = 0,
+  Linked,
+}
+
 export interface TodayResponse {
   success: boolean
   data: {
@@ -45,15 +50,21 @@ export interface SubDeck {
   settings_today: boolean
 }
 
-export interface SubDeckList extends Array<SubDeck> {
-}
+export interface SubDeckList extends Array<SubDeck> {}
 
-export interface TrainingCardsList extends Array<TrainingCards> {
-}
+export interface TrainingCardsList extends Array<TrainingCards> {}
 
 export interface HTTPResponse {
   success: boolean
-  data: Record<string, unknown> | Deck | TrainingCardsList | SubDeckList | DeckEditorList | any
+  data:
+    | Record<string, unknown>
+    | Deck
+    | TrainingCardsList
+    | SubDeckList
+    | DeckEditorList
+    | CardList
+    | McqList
+    | any
   message: string
   count: number
 }
@@ -67,8 +78,7 @@ export interface DeckEditor {
   Deck: Deck
 }
 
-export interface DeckResponseList extends Array<DeckResponse> {
-}
+export interface DeckResponseList extends Array<DeckResponse> {}
 
 export interface DeckResponse {
   deck_id: number
@@ -96,10 +106,16 @@ export interface Deck {
   deck_share: boolean
 }
 
-export interface DeckList extends Array<Deck> {
-}
+export interface DeckList extends Array<Deck> {}
 
-export interface CardResponseList extends Array<CardResponse> {
+export interface CardResponseList extends Array<CardResponse> {}
+
+export interface CardList extends Array<Card> {}
+
+export enum CardType {
+  String = 0,
+  Int,
+  Mcq,
 }
 
 export interface Card {
@@ -109,13 +125,23 @@ export interface Card {
   card_format: string
   card_image: string
   card_question: string
-  card_type: number
+  card_type: CardType
   card_spaces: boolean
-  mcq: {
+  mcq_id: {
     Int32: number
     Valid: true
   }
 }
+
+export interface Mcq {
+  ID: number
+  mcq_answers: string
+  mcq_name: string
+  mcq_type: McqType
+  deck_id: number
+}
+
+export interface McqList extends Array<Mcq> {}
 
 export interface User {
   ID: number
