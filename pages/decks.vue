@@ -56,7 +56,7 @@
     <ModalDeckConfig
       v-if="showModalDeckConfig"
       :deck="currentDeck"
-      @closeModalDeckConfig="showModalDeckConfig = false"
+      @closeModalDeckConfig="closeModalDeckConfig"
     />
   </div>
 </template>
@@ -78,11 +78,21 @@ function openDeckConfig(deck) {
   showModalDeckConfig.value = true
 }
 
-onMounted(async () => {
+async function closeModalDeckConfig() {
+  await fetchDecks()
+  showModalDeckConfig.value = false
+}
+
+async function fetchDecks() {
+  loading.value = true
   decks.value = await getSubDeck().then((res) => {
     loading.value = false
     return <SubDeckList>res.data || []
   })
+}
+
+onMounted(async () => {
+  await fetchDecks()
 })
 </script>
 

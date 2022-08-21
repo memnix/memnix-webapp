@@ -92,13 +92,17 @@ let currentDeck = ref({})
 let showModalEditDeck = ref(false)
 let showModalCreateDeck = ref(false)
 
-function closeModalDeckEdit() {
+async function closeModalDeckEdit() {
   showModalEditDeck.value = false
+  await fetchDecks()
 }
 
 async function closeModalDeckCreate() {
-  loading.value = true
   showModalCreateDeck.value = false
+  await fetchDecks()
+}
+
+async function fetchDecks() {
   decks.value = await getEditorDecks().then((res) => {
     loading.value = false
     return <DeckEditorList>res || []
@@ -111,10 +115,7 @@ function openDeckEditor(deck) {
 }
 
 onMounted(async () => {
-  decks.value = await getEditorDecks().then((res) => {
-    loading.value = false
-    return <DeckEditorList>res || []
-  })
+  await fetchDecks()
 })
 </script>
 

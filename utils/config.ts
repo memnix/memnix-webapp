@@ -10,7 +10,7 @@ export class Config {
   static readonly maxEmailLen = 50
 
   static readonly maxDeckNameLen = 50
-  static readonly minDeckNameLen = 4
+  static readonly minDeckNameLen = 5
 
   static readonly maxMcqName = 50
 

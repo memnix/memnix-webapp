@@ -70,7 +70,7 @@
           <button
             class="hoveranimation btn btn-primary w-full"
             type="submit"
-            @click="submitRegisterRequest"
+            @click.once="submitRegisterRequest"
           >
             Register
           </button>
@@ -140,19 +140,26 @@ const rules = {
 
 const v$ = useVuelidate(rules, state)
 
+let submitting = false
+
 const submitRegisterRequest = async () => {
   const result = await v$.value.$validate()
   if (!result) {
     // notify user form is invalid
-
     return
   }
-
+  if (submitting) {
+    return
+  }
+  submitting = true
   await registerRequest()
+  submitting = false
 }
 
 const registerRequest = async function () {
   let result = await register(state.email, state.password, state.username)
+  submitting = false
+
   if (result) {
     let loginResult = await login(state.email, state.password)
     if (loginResult) {

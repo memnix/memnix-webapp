@@ -65,8 +65,12 @@
         </RadioGroup>
       </div>
       <div class="modal-action">
-        <label class="hoveranimation btn btn-error">Unsubscribe</label>
-        <label class="hoveranimation btn btn-primary">Update</label>
+        <label class="hoveranimation btn btn-error" @click="unsubscribeDeck"
+          >Unsubscribe</label
+        >
+        <label class="hoveranimation btn btn-primary" @click="updateDeckConfig"
+          >Update</label
+        >
       </div>
     </div>
   </div>
@@ -81,20 +85,7 @@ import {
   RadioGroupLabel,
   RadioGroupOption,
 } from '@headlessui/vue'
-
-const plans = [
-  {
-    name: 'Daily Learning (recommended)',
-    description:
-      'Work on the deck using our spaced repetition learning algorithm.',
-  },
-  {
-    name: 'Free Learning',
-    description: 'Practice the deck when you want.',
-  },
-]
-
-const selected = ref(plans[0])
+import { setTodaySetting, unsubToDeck } from '~/api/deck.api'
 
 const props = defineProps({
   deck: {
@@ -102,6 +93,36 @@ const props = defineProps({
     required: true,
   },
 })
+
+const plans = [
+  {
+    name: 'Daily Learning (recommended)',
+    description:
+      'Work on the deck using our spaced repetition learning algorithm.',
+    today_setting: true,
+  },
+  {
+    name: 'Free Learning',
+    description: 'Practice the deck when you want.',
+    today_setting: false,
+  },
+]
+
+const emit = defineEmits(['closeModalDeckConfig'])
+
+const selected = ref(props.deck.settings_today ? plans[0] : plans[1])
+
+async function unsubscribeDeck() {
+  await unsubToDeck(props.deck.Deck.ID)
+  emit('closeModalDeckConfig')
+}
+
+async function updateDeckConfig() {
+  if (selected.value.today_setting != props.deck.settings_today) {
+    await setTodaySetting(props.deck.Deck.ID, selected.value.today_setting)
+  }
+  emit('closeModalDeckConfig')
+}
 </script>
 
 <style scoped></style>

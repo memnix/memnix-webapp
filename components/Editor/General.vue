@@ -44,7 +44,7 @@
         <button
           class="hoveranimation btn btn-primary w-full"
           type="submit"
-          @click="submitDeckGeneralRequest"
+          @click.once="submitDeckGeneralRequest"
         >
           {{ buttonActionText }}
         </button>
@@ -54,12 +54,13 @@
 </template>
 
 <script lang="ts" setup>
-import { DeckEditor } from '~/types'
+import { Deck, DeckEditor } from '~/types'
 import { PropType } from '@vue/runtime-core'
 
 import useVuelidate from '@vuelidate/core'
 import { maxLength, minLength, required } from '@vuelidate/validators'
 import { Config } from '~/utils/config'
+import { createDeck, updateDeck } from '~/api/deck.api'
 
 const emit = defineEmits(['closeModalGeneral'])
 
@@ -75,6 +76,7 @@ const props = defineProps({
 })
 
 const buttonActionText = props.is_edit ? 'Update' : 'Create'
+let submitting = false
 
 const state = reactive({
   name: props.is_edit ? props.deck.Deck.deck_name : '',
@@ -105,6 +107,31 @@ const submitDeckGeneralRequest = async () => {
   if (!result) {
     // notify user form is invalid
     return
+  }
+
+  if (submitting) {
+    return
+  }
+
+  submitting = true
+
+  if (!props.is_edit) {
+    await createDeck(<Deck>{
+      deck_name: state.name,
+      deck_description: state.description,
+      deck_banner: state.banner,
+    }).then((_) => {
+      submitting = false
+    })
+  } else {
+    await updateDeck(<Deck>{
+      ID: props.deck.Deck.ID,
+      deck_name: state.name,
+      deck_description: state.description,
+      deck_banner: state.banner,
+    }).then((_) => {
+      submitting = false
+    })
   }
 
   emit('closeModalGeneral')

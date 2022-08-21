@@ -23,13 +23,6 @@
           title="My decks"
           @refreshToday="refreshToday"
         />
-        <CoreDeckMobileSection
-          :deckList="availableDeckList"
-          :type="CarouselType.ToSubscribe"
-          :white="false"
-          title="You might like"
-          @refreshToday="refreshToday"
-        />
       </div>
 
       <div v-show="!isMobile">
@@ -52,13 +45,6 @@
           :type="CarouselType.ToPlay"
           :white="true"
           title="My decks"
-          @refreshToday="refreshToday"
-        />
-        <CoreDeckDesktopSection
-          :deckList="availableDeckList"
-          :type="CarouselType.ToSubscribe"
-          :white="false"
-          title="You might like"
           @refreshToday="refreshToday"
         />
       </div>
