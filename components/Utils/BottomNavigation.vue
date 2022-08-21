@@ -25,7 +25,7 @@
             />
           </button>
         </NuxtLink>
-        <NuxtLink class="hoveranimation hover:cursor-pointer">
+        <NuxtLink class="hoveranimation hover:cursor-pointer" to="/decks">
           <Icon-mdi-cards-outline
             class="hoveranimation pt-1 text-2xl md:text-[1.7em] lg:text-[2em]"
           />

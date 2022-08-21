@@ -16,12 +16,12 @@
               <span class="label-text">Question *</span>
             </label>
             <input
+              v-model="state.question"
+              :class="v$.question.$error ? 'input-error' : ''"
               class="input input-bordered w-full max-w-md"
               placeholder="Question"
-              v-model="state.question"
               type="text"
               @blur="v$.$touch()"
-              :class="v$.question.$error ? 'input-error' : ''"
             />
           </div>
           <div class="form-control mx-auto w-full max-w-md">
@@ -30,11 +30,11 @@
             </label>
             <select
               v-model="state.type"
+              :class="v$.type.$error ? 'select-error' : ''"
               class="select select-bordered w-full max-w-md"
               @blur="v$.$touch()"
-              :class="v$.type.$error ? 'select-error' : ''"
             >
-              <option value="" disabled selected>Select type</option>
+              <option disabled selected value="">Select type</option>
               <option :value="CardType.Int">Int</option>
               <option :value="CardType.String">String</option>
               <option :value="CardType.Mcq">Mcq only</option>
@@ -42,16 +42,16 @@
           </div>
           <div class="form-control mx-auto w-full max-w-md">
             <label class="label">
-              <span class="label-text" v-if="state.type === CardType.Mcq"
+              <span v-if="state.type === CardType.Mcq" class="label-text"
                 >MCQ *</span
               >
-              <span class="label-text" v-else>MCQ </span>
+              <span v-else class="label-text">MCQ </span>
             </label>
             <select
               v-model="state.mcq"
+              :class="v$.mcq.$error ? 'select-error' : ''"
               class="select select-bordered w-full max-w-md"
               @blur="v$.$touch()"
-              :class="v$.mcq.$error ? 'select-error' : ''"
             >
               <option :value="0" selected>None</option>
               <option v-for="mcq in mcqs" :value="mcq.ID">
@@ -65,12 +65,12 @@
               <span class="label-text">Answer *</span>
             </label>
             <input
+              v-model="state.answer"
+              :class="v$.answer.$error ? 'input-error' : ''"
               class="input input-bordered w-full max-w-md"
               placeholder="Answer"
-              v-model="state.answer"
               type="text"
               @blur="v$.$touch()"
-              :class="v$.answer.$error ? 'input-error' : ''"
             />
           </div>
           <div class="form-control mx-auto w-full max-w-md">
@@ -78,12 +78,12 @@
               <span class="label-text">Image</span>
             </label>
             <input
+              v-model="state.imageURL"
+              :class="v$.imageURL.$error ? 'input-error' : ''"
               class="input input-bordered w-full max-w-md"
               placeholder="Image url"
-              v-model="state.imageURL"
               type="text"
               @blur="v$.$touch()"
-              :class="v$.imageURL.$error ? 'input-error' : ''"
             />
           </div>
           <div class="form-control mx-auto w-full max-w-md">
@@ -91,12 +91,12 @@
               <span class="label-text">Format *</span>
             </label>
             <input
+              v-model="state.format"
+              :class="v$.format.$error ? 'input-error' : ''"
               class="input input-bordered w-full max-w-md"
               placeholder="Format"
-              v-model="state.format"
               type="text"
               @blur="v$.$touch()"
-              :class="v$.format.$error ? 'input-error' : ''"
             />
           </div>
           <div class="flex flex-row space-x-3">
@@ -110,10 +110,10 @@
             >
               <span class="sr-only">Use setting</span>
               <span
-                aria-hidden="true"
                 :class="
                   state.isCaseSensitive ? 'translate-x-9' : 'translate-x-0'
                 "
+                aria-hidden="true"
                 class="pointer-events-none inline-block h-[34px] w-[34px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out"
               />
             </Switch>
@@ -128,10 +128,10 @@
             >
               <span class="sr-only">Use setting</span>
               <span
-                aria-hidden="true"
                 :class="
                   state.isSpacesSensitive ? 'translate-x-9' : 'translate-x-0'
                 "
+                aria-hidden="true"
                 class="pointer-events-none inline-block h-[34px] w-[34px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out"
               />
             </Switch>
@@ -151,11 +151,11 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { PropType } from '@vue/runtime-core'
-import { Card, McqList, CardType } from '~/types'
+import { Card, CardType, McqList } from '~/types'
 import useVuelidate from '@vuelidate/core'
-import { maxLength, minLength, required } from '@vuelidate/validators'
+import { maxLength, required } from '@vuelidate/validators'
 import { Switch } from '@headlessui/vue'
 import { Config } from '~/utils/config'
 
