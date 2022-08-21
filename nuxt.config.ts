@@ -20,6 +20,7 @@ export default defineNuxtConfig({
     '@intlify/nuxt3',
     'unplugin-icons/nuxt',
     '@nuxt/image-edge',
+    '@funken-studio/sitemap-nuxt-3',
   ],
 
   tailwindcss: {
@@ -31,6 +32,14 @@ export default defineNuxtConfig({
       availableLocales: ['en', 'fr'],
       locale: 'en',
       fallbackLocale: 'en',
+    },
+  },
+
+  sitemap: {
+    hostname: 'https://memnix.app',
+    cacheTime: 1,
+    defaults: {
+      lastmod: new Date().toISOString(),
     },
   },
 

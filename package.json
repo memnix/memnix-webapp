@@ -19,6 +19,7 @@
     "unplugin-vue-components": "^0.22.4"
   },
   "dependencies": {
+    "@funken-studio/sitemap-nuxt-3": "^3.2.0",
     "@heroicons/vue": "1.0.6",
     "@nuxtjs/i18n": "npm:@nuxtjs/i18n-edge",
     "@pinia/nuxt": "^0.4.1",
@@ -33,7 +34,6 @@
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "theme-change": "^2.2.0",
-    "vite-plugin-compress": "^2.1.1",
     "vue3-carousel": "^0.1.46"
   },
   "overrides": {
