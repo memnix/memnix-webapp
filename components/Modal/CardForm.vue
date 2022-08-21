@@ -28,28 +28,38 @@
             <label class="label">
               <span class="label-text">Type *</span>
             </label>
-            <input
-              class="input input-bordered w-full max-w-md"
-              placeholder="Deck's description"
+            <select
               v-model="state.type"
-              type="text"
+              class="select select-bordered w-full max-w-md"
               @blur="v$.$touch()"
-              :class="v$.type.$error ? 'input-error' : ''"
-            />
+              :class="v$.type.$error ? 'select-error' : ''"
+            >
+              <option value="" disabled selected>Select type</option>
+              <option :value="CardType.Int">Int</option>
+              <option :value="CardType.String">String</option>
+              <option :value="CardType.Mcq">Mcq only</option>
+            </select>
           </div>
           <div class="form-control mx-auto w-full max-w-md">
             <label class="label">
-              <span class="label-text">MCQ *</span>
+              <span class="label-text" v-if="state.type === CardType.Mcq"
+                >MCQ *</span
+              >
+              <span class="label-text" v-else>MCQ </span>
             </label>
-            <input
-              class="input input-bordered w-full max-w-md"
-              placeholder="MCQ"
+            <select
               v-model="state.mcq"
-              type="text"
+              class="select select-bordered w-full max-w-md"
               @blur="v$.$touch()"
-              :class="v$.mcq.$error ? 'input-error' : ''"
-            />
+              :class="v$.mcq.$error ? 'select-error' : ''"
+            >
+              <option :value="0" selected>None</option>
+              <option v-for="mcq in mcqs" :value="mcq.ID">
+                {{ mcq.mcq_name }}
+              </option>
+            </select>
           </div>
+
           <div class="form-control mx-auto w-full max-w-md">
             <label class="label">
               <span class="label-text">Answer *</span>
@@ -91,7 +101,7 @@
           </div>
           <div class="flex flex-row space-x-3">
             <label class="label">
-              <span class="label-text">Case sensitive *</span>
+              <span class="label-text">Case sensitive</span>
             </label>
             <Switch
               v-model="state.isCaseSensitive"
@@ -109,7 +119,7 @@
             </Switch>
             <div class="divider divider-horizontal"></div>
             <label class="label">
-              <span class="label-text">Space sensitive*</span>
+              <span class="label-text">Space sensitive</span>
             </label>
             <Switch
               v-model="state.isSpacesSensitive"
@@ -143,7 +153,7 @@
 
 <script setup lang="ts">
 import { PropType } from '@vue/runtime-core'
-import { Card, McqList } from '~/types'
+import { Card, McqList, CardType } from '~/types'
 import useVuelidate from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
 import { Switch } from '@headlessui/vue'
@@ -174,13 +184,20 @@ function closeModalCardForm() {
 const state = reactive({
   question: props.is_edit ? props.card.card_question : '',
   answer: props.is_edit ? props.card.card_answer : '',
-  mcq: props.is_edit ? props.card.mcq_id.Int32 : '',
+  mcq: props.is_edit ? props.card.mcq_id.Int32 : 0,
   type: props.is_edit ? props.card.card_type : '',
-  isCaseSensitive: props.is_edit ? props.card.card_case : '',
-  isSpacesSensitive: props.is_edit ? props.card.card_spaces : '',
+  isCaseSensitive: props.is_edit ? props.card.card_case : false,
+  isSpacesSensitive: props.is_edit ? props.card.card_spaces : false,
   format: props.is_edit ? props.card.card_format : '',
   imageURL: props.is_edit ? props.card.card_image : '',
 })
+
+const mcqCustomRules = (value) => {
+  if (state.type === CardType.Mcq) {
+    return value !== 0
+  }
+  return true
+}
 
 const rules = {
   question: {
@@ -190,7 +207,7 @@ const rules = {
     required,
   },
   mcq: {
-    required,
+    mcqCustomRules,
   },
   answer: {
     required,
@@ -199,12 +216,6 @@ const rules = {
     required,
   },
   imageURL: {
-    required,
-  },
-  isSpacesSensitive: {
-    required,
-  },
-  isCaseSensitive: {
     required,
   },
 }
