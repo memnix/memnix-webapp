@@ -7,6 +7,7 @@
         <NuxtLink class="hoveranimation hover:cursor-pointer">
           <Icon-lucide-bell
             class="pt-1 text-2xl md:text-[1.7em] lg:text-[2em]"
+            @click="modalNotification = true"
           />
         </NuxtLink>
         <NuxtLink class="hoveranimation hover:cursor-pointer" to="/creator">
@@ -47,6 +48,10 @@
     @closeModalProfile="closeModalProfile"
     @logout="logout"
   />
+  <ModalNotifications
+    v-if="modalNotification"
+    @closeModalNotification="closeModalNotification"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -56,6 +61,11 @@ import { User } from '~/types'
 const route = useRoute()
 
 let modalProfile = ref(false)
+let modalNotification = ref(false)
+
+const closeModalNotification = function () {
+  modalNotification.value = false
+}
 
 const closeModalProfile = () => {
   modalProfile.value = false
