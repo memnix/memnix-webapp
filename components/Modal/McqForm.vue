@@ -9,52 +9,58 @@
           <Icon-lucide-x />
         </button>
       </div>
-      <form class="w-full" @submit.prevent="submitUpdateCardRequest">
+      <form class="w-full" @submit.prevent="submitMcqFormRequest">
         <div class="space-y-4">
           <div class="form-control mx-auto w-full max-w-md pt-2">
             <label class="label">
               <span class="label-text">Question *</span>
             </label>
             <input
+              v-model="state.name"
+              :class="v$.name.$error ? 'input-error' : ''"
               class="input input-bordered w-full max-w-md"
               placeholder="Question"
-              v-model="state.name"
               type="text"
               @blur="v$.$touch()"
-              :class="v$.name.$error ? 'input-error' : ''"
             />
           </div>
           <div class="form-control mx-auto w-full max-w-md">
             <label class="label">
               <span class="label-text">Type *</span>
             </label>
-            <input
-              class="input input-bordered w-full max-w-md"
-              placeholder="Deck's description"
+            <select
               v-model="state.type"
-              type="text"
+              class="select select-bordered w-full max-w-md"
               @blur="v$.$touch()"
-              :class="v$.type.$error ? 'input-error' : ''"
-            />
+              :class="v$.type.$error ? 'select-error' : ''"
+            >
+              <option value="" disabled selected>Select type</option>
+              <option :value="McqType.Standalone">Standalone</option>
+              <option :value="McqType.Linked">Linked</option>
+            </select>
           </div>
           <div class="form-control mx-auto w-full max-w-md">
             <label class="label">
               <span class="label-text">Answers *</span>
+              <span class="label-text">
+                Separate answers using <a class="font-bold">;</a></span
+              >
             </label>
             <input
+              v-model="state.answers"
+              :class="v$.answers.$error ? 'input-error' : ''"
               class="input input-bordered w-full max-w-md"
               placeholder="Answers"
-              v-model="state.answers"
               type="text"
               @blur="v$.$touch()"
-              :class="v$.answers.$error ? 'input-error' : ''"
+              :disabled="state.type === McqType.Linked"
             />
           </div>
           <div class="form-control mx-auto w-full max-w-md pt-2">
             <button
               class="hoveranimation btn btn-primary w-full"
               type="submit"
-              @click="submitUpdateCardRequest"
+              @click="submitMcqFormRequest"
             >
               {{ buttonActionText }}
             </button>
@@ -65,12 +71,11 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { PropType } from '@vue/runtime-core'
-import { Card, Mcq, McqList } from '~/types'
+import { Mcq, McqType } from '~/types'
 import useVuelidate from '@vuelidate/core'
-import { required } from '@vuelidate/validators'
-import { Switch } from '@headlessui/vue'
+import { minLength, required, requiredIf } from '@vuelidate/validators'
 
 const props = defineProps({
   mcq: {
@@ -98,6 +103,13 @@ const state = reactive({
   deck_id: props.is_edit ? props.mcq.deck_id : '',
 })
 
+const answersCustomRules = (value) => {
+  if (state.type === McqType.Standalone) {
+    return value.length >= 1
+  }
+  return state.type === McqType.Linked
+}
+
 const rules = {
   name: {
     required,
@@ -106,10 +118,8 @@ const rules = {
     required,
   },
   answers: {
-    required,
-  },
-  deck_id: {
-    required,
+    required: requiredIf(state.type !== McqType.Linked),
+    answersCustomRules,
   },
 }
 
@@ -117,12 +127,15 @@ const v$ = useVuelidate(rules, state)
 
 console.log(props.mcq)
 
-const submitUpdateCardRequest = async () => {
+const submitMcqFormRequest = async () => {
+  console.log('submit')
   const result = await v$.value.$validate()
   if (!result) {
+    console.log('Pas content form pas bien')
     // notify user form is invalid
     return
   }
+  console.log('Form is valid')
 }
 </script>
 

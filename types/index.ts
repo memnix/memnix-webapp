@@ -19,6 +19,11 @@ export enum LearningStage {
   StageKnown,
 }
 
+export enum McqType {
+  Standalone = 0,
+  Linked,
+}
+
 export interface TodayResponse {
   success: boolean
   data: {
@@ -107,6 +112,12 @@ export interface CardResponseList extends Array<CardResponse> {}
 
 export interface CardList extends Array<Card> {}
 
+export enum CardType {
+  String = 0,
+  Int,
+  Mcq,
+}
+
 export interface Card {
   ID: number
   card_answer: string
@@ -114,7 +125,7 @@ export interface Card {
   card_format: string
   card_image: string
   card_question: string
-  card_type: number
+  card_type: CardType
   card_spaces: boolean
   mcq_id: {
     Int32: number
@@ -126,7 +137,7 @@ export interface Mcq {
   ID: number
   mcq_answers: string
   mcq_name: string
-  mcq_type: number
+  mcq_type: McqType
   deck_id: number
 }
 
