@@ -34,7 +34,8 @@
           <TabPanel>
             <EditorGeneral
               :deck="deck"
-              @closeModalDeckEdit="closeModalDeckEdit"
+              :is_edit="true"
+              @closeModalGeneral="closeModalDeckEdit"
             />
           </TabPanel>
           <TabPanel>
@@ -66,7 +67,6 @@ const props = defineProps({
 })
 
 onMounted(async () => {
-  console.log(props.deck)
   cards.value = await getCardsFromDeck(props.deck.deck_id)
   mcqs.value = await getMCQfromDeck(props.deck.deck_id)
 })

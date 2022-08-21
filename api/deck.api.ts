@@ -21,14 +21,15 @@ export async function getEditorDecks() {
   const token = useCookie('token')
 
   const data: HTTPResponse = await $fetch<HTTPResponse>(
-    `/decks/editor`,
+    `/decks/editor?refresh=true'`,
     {
       method: 'GET',
       baseURL: baseUrl,
       headers: {
         Authorization: 'Bearer ' + token.value,
       },
-    }).catch((error: any) => error.data)
+    }
+  ).catch((error: any) => error.data)
   return data.data
 }
 

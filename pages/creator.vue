@@ -10,7 +10,7 @@
         </h2>
       </div>
       <div
-        v-if="!loading"
+        v-if="loading"
         class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
       >
         <div
@@ -55,6 +55,7 @@
         />
         <div
           class="hoveranimation flex w-full flex-col justify-center hover:cursor-pointer"
+          @click="showModalCreateDeck = true"
         >
           <div class="mx-auto">
             <Icon-lucide-plus-circle class="my-auto text-4xl" />
@@ -71,6 +72,10 @@
       @closeModalDeckEdit="closeModalDeckEdit"
       :deck="currentDeck"
     />
+    <ModalCreateDeck
+      v-if="showModalCreateDeck"
+      @closeModalDeckCreate="closeModalDeckCreate"
+    />
   </div>
 </template>
 
@@ -81,13 +86,23 @@ import { DeckEditorList } from '~/types'
 definePageMeta({ layout: 'connected', middleware: ['auth'] })
 
 let decks = ref(<DeckEditorList>[])
-let loading = ref(false)
+let loading = ref(true)
 let currentDeck = ref({})
 
 let showModalEditDeck = ref(false)
+let showModalCreateDeck = ref(false)
 
 function closeModalDeckEdit() {
   showModalEditDeck.value = false
+}
+
+async function closeModalDeckCreate() {
+  loading.value = true
+  showModalCreateDeck.value = false
+  decks.value = await getEditorDecks().then((res) => {
+    loading.value = false
+    return <DeckEditorList>res || []
+  })
 }
 
 function openDeckEditor(deck) {
@@ -97,11 +112,9 @@ function openDeckEditor(deck) {
 
 onMounted(async () => {
   decks.value = await getEditorDecks().then((res) => {
-    loading.value = true
+    loading.value = false
     return <DeckEditorList>res || []
   })
-
-  console.log(decks.value)
 })
 </script>
 

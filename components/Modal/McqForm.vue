@@ -75,7 +75,13 @@
 import { PropType } from '@vue/runtime-core'
 import { Mcq, McqType } from '~/types'
 import useVuelidate from '@vuelidate/core'
-import { minLength, required, requiredIf } from '@vuelidate/validators'
+import {
+  maxLength,
+  minLength,
+  required,
+  requiredIf,
+} from '@vuelidate/validators'
+import { Config } from '~/utils/config'
 
 const props = defineProps({
   mcq: {
@@ -113,6 +119,7 @@ const answersCustomRules = (value) => {
 const rules = {
   name: {
     required,
+    maxLength: maxLength(Config.maxMcqName),
   },
   type: {
     required,

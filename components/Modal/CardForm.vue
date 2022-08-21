@@ -9,7 +9,7 @@
           <Icon-lucide-x />
         </button>
       </div>
-      <form class="w-full" @submit.prevent="submitUpdateCardRequest">
+      <form class="w-full" @submit.prevent="submitCardFormRequest">
         <div class="space-y-4">
           <div class="form-control mx-auto w-full max-w-md pt-2">
             <label class="label">
@@ -140,7 +140,7 @@
             <button
               class="hoveranimation btn btn-primary w-full"
               type="submit"
-              @click="submitUpdateCardRequest"
+              @click="submitCardFormRequest"
             >
               {{ buttonActionText }}
             </button>
@@ -155,8 +155,9 @@
 import { PropType } from '@vue/runtime-core'
 import { Card, McqList, CardType } from '~/types'
 import useVuelidate from '@vuelidate/core'
-import { required } from '@vuelidate/validators'
+import { maxLength, minLength, required } from '@vuelidate/validators'
 import { Switch } from '@headlessui/vue'
+import { Config } from '~/utils/config'
 
 const props = defineProps({
   card: {
@@ -202,6 +203,7 @@ const mcqCustomRules = (value) => {
 const rules = {
   question: {
     required,
+    maxLength: maxLength(Config.maxDefaultLen),
   },
   type: {
     required,
@@ -211,18 +213,21 @@ const rules = {
   },
   answer: {
     required,
+    maxLength: maxLength(Config.maxDefaultLen),
   },
   format: {
     required,
+    maxLength: maxLength(Config.maxDefaultLen),
   },
   imageURL: {
     required,
+    maxLength: maxLength(Config.maxDefaultLen),
   },
 }
 
 const v$ = useVuelidate(rules, state)
 
-const submitUpdateCardRequest = async () => {
+const submitCardFormRequest = async () => {
   const result = await v$.value.$validate()
   if (!result) {
     // notify user form is invalid

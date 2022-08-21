@@ -1,5 +1,5 @@
 <template>
-  <form class="w-full" @submit.prevent="submitUpdateDeckRequest">
+  <form class="w-full" @submit.prevent="submitDeckGeneralRequest">
     <div class="space-y-4">
       <div class="form-control mx-auto w-full max-w-md pt-2">
         <label class="label">
@@ -44,9 +44,9 @@
         <button
           class="hoveranimation btn btn-primary w-full"
           type="submit"
-          @click="submitUpdateDeckRequest"
+          @click="submitDeckGeneralRequest"
         >
-          Update
+          {{ buttonActionText }}
         </button>
       </div>
     </div>
@@ -58,45 +58,56 @@ import { DeckEditor } from '~/types'
 import { PropType } from '@vue/runtime-core'
 
 import useVuelidate from '@vuelidate/core'
-import { required } from '@vuelidate/validators'
+import { maxLength, minLength, required } from '@vuelidate/validators'
+import { Config } from '~/utils/config'
 
-const emit = defineEmits(['closeModalDeckEdit'])
+const emit = defineEmits(['closeModalGeneral'])
 
 const props = defineProps({
   deck: {
     type: Object as PropType<DeckEditor>,
     required: true,
   },
+  is_edit: {
+    type: Boolean,
+    required: true,
+  },
 })
 
+const buttonActionText = props.is_edit ? 'Update' : 'Create'
+
 const state = reactive({
-  name: props.deck.Deck.deck_name,
-  description: props.deck.Deck.deck_description,
-  banner: props.deck.Deck.deck_banner,
+  name: props.is_edit ? props.deck.Deck.deck_name : '',
+  description: props.is_edit ? props.deck.Deck.deck_description : '',
+  banner: props.is_edit ? props.deck.Deck.deck_banner : '',
 })
 
 const rules = {
   name: {
     required,
+    maxLength: maxLength(Config.maxDeckNameLen),
+    minLength: minLength(Config.minDeckNameLen),
   },
   description: {
     required,
+    maxLength: maxLength(Config.maxDefaultLen),
   },
   banner: {
     required,
+    maxLength: maxLength(Config.maxDefaultLen),
   },
 }
 
 const v$ = useVuelidate(rules, state)
 
-const submitUpdateDeckRequest = async () => {
+const submitDeckGeneralRequest = async () => {
   const result = await v$.value.$validate()
   if (!result) {
     // notify user form is invalid
     return
   }
 
-  emit('closeModalDeckEdit')
+  emit('closeModalGeneral')
 }
 </script>
 
