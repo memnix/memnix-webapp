@@ -9,7 +9,11 @@
           <Icon-lucide-x />
         </button>
       </div>
-      <form class="w-full" @submit.prevent="submitCardFormRequest">
+      <form
+        class="w-full"
+        @submit.prevent="submitCardFormRequest"
+        v-if="loaded"
+      >
         <div class="space-y-4">
           <div class="form-control mx-auto w-full max-w-md pt-2">
             <label class="label">
@@ -159,15 +163,11 @@ import { maxLength, required } from '@vuelidate/validators'
 import { Switch } from '@headlessui/vue'
 import { Config } from '~/utils/config'
 import { createDeck, updateDeck } from '~/api/deck.api'
-import { createCard, updateCard } from '~/api/card.api'
+import { createCard, getMCQfromDeck, updateCard } from '~/api/card.api'
 
 const props = defineProps({
   card: {
     type: Object as PropType<Card>,
-    required: true,
-  },
-  mcqs: {
-    type: Array as PropType<McqList>,
     required: true,
   },
   is_edit: {
@@ -181,6 +181,14 @@ const props = defineProps({
 })
 
 const buttonActionText = props.is_edit ? 'Update' : 'Create'
+
+let loaded = ref(false)
+let mcqs = ref(<McqList>[])
+
+onMounted(async () => {
+  mcqs.value = await getMCQfromDeck(props.deck_id)
+  loaded.value = true
+})
 
 const emit = defineEmits(['closeModalCardForm'])
 
@@ -253,6 +261,7 @@ const submitCardFormRequest = async () => {
       card_answer: state.answer,
       mcq_id: {
         Int32: state.mcq,
+        Valid: true,
       },
       card_type: state.type,
       card_case: state.isCaseSensitive,
@@ -270,6 +279,7 @@ const submitCardFormRequest = async () => {
       card_answer: state.answer,
       mcq_id: {
         Int32: state.mcq,
+        Valid: true,
       },
       card_type: state.type,
       card_case: state.isCaseSensitive,

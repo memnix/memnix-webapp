@@ -74,28 +74,24 @@
       <button
         class="hoveranimation btn btn-error"
         :disabled="selected === null"
-        @click.once="deleteSelectedCard"
+        @click="deleteSelectedCard"
       >
         Delete
       </button>
       <button
         class="hoveranimation btn btn-secondary"
-        @click.once="edit = true"
+        @click="edit = true"
         :disabled="selected === null"
       >
         Edit
       </button>
-      <button
-        class="hoveranimation btn btn-success"
-        @click.once="create = true"
-      >
+      <button class="hoveranimation btn btn-success" @click="create = true">
         New
       </button>
     </div>
   </div>
   <ModalCardForm
     :card="selected"
-    :mcqs="mcqs"
     :is_edit="true"
     @closeModalCardForm="closeModalCardForm"
     :deck_id="deck_id"
@@ -107,7 +103,6 @@
     :card="{}"
     :deck_id="deck_id"
     :is_edit="false"
-    :mcqs="mcqs"
   />
 </template>
 
@@ -130,10 +125,7 @@ const props = defineProps({
     type: Array as PropType<CardList>,
     required: true,
   },
-  mcqs: {
-    type: Array as PropType<McqList>,
-    required: true,
-  },
+
   deck_id: {
     type: Number as PropType<number>,
     required: true,
