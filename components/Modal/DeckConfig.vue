@@ -19,11 +19,11 @@
           <RadioGroupLabel class="sr-only">Server size</RadioGroupLabel>
           <div class="space-y-2">
             <RadioGroupOption
-              as="template"
               v-for="plan in plans"
               :key="plan.name"
-              :value="plan"
               v-slot="{ active, checked }"
+              :value="plan"
+              as="template"
             >
               <div
                 :class="[checked ? 'bg-primary bg-opacity-50' : 'bg-base-200 ']"
@@ -41,20 +41,20 @@
                     </div>
                   </div>
                   <div v-show="checked" class="shrink-0 text-white">
-                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24">
                       <circle
                         cx="12"
                         cy="12"
-                        r="12"
                         fill="#fff"
                         fill-opacity="0.2"
+                        r="12"
                       />
                       <path
                         d="M7 13l3 3 7-7"
                         stroke="#fff"
-                        stroke-width="1.5"
                         stroke-linecap="round"
                         stroke-linejoin="round"
+                        stroke-width="1.5"
                       />
                     </svg>
                   </div>
@@ -64,7 +64,6 @@
           </div>
         </RadioGroup>
       </div>
-
       <div class="modal-action">
         <label class="hoveranimation btn btn-error">Unsubscribe</label>
         <label class="hoveranimation btn btn-primary">Update</label>
@@ -73,13 +72,13 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { SubDeck } from '~/types'
 import { PropType } from '@vue/runtime-core'
 import {
   RadioGroup,
-  RadioGroupLabel,
   RadioGroupDescription,
+  RadioGroupLabel,
   RadioGroupOption,
 } from '@headlessui/vue'
 
