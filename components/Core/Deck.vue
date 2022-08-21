@@ -10,6 +10,7 @@
         format="webp"
         height="256"
         width="256"
+        sizes="sm:64px md:96px lg:256px"
         loading="lazy"
         quality="80"
       />
