@@ -153,11 +153,13 @@
 
 <script lang="ts" setup>
 import { PropType } from '@vue/runtime-core'
-import { Card, CardType, McqList } from '~/types'
+import { Card, CardType, Deck, McqList } from '~/types'
 import useVuelidate from '@vuelidate/core'
 import { maxLength, required } from '@vuelidate/validators'
 import { Switch } from '@headlessui/vue'
 import { Config } from '~/utils/config'
+import { createDeck, updateDeck } from '~/api/deck.api'
+import { createCard, updateCard } from '~/api/card.api'
 
 const props = defineProps({
   card: {
@@ -170,6 +172,10 @@ const props = defineProps({
   },
   is_edit: {
     type: Boolean,
+    required: true,
+  },
+  deck_id: {
+    type: Number,
     required: true,
   },
 })
@@ -220,12 +226,13 @@ const rules = {
     maxLength: maxLength(Config.maxDefaultLen),
   },
   imageURL: {
-    required,
     maxLength: maxLength(Config.maxDefaultLen),
   },
 }
 
 const v$ = useVuelidate(rules, state)
+
+let submitting = false
 
 const submitCardFormRequest = async () => {
   const result = await v$.value.$validate()
@@ -233,6 +240,49 @@ const submitCardFormRequest = async () => {
     // notify user form is invalid
     return
   }
+
+  if (submitting) {
+    return
+  }
+
+  submitting = true
+
+  if (!props.is_edit) {
+    await createCard(<Card>{
+      card_question: state.question,
+      card_answer: state.answer,
+      mcq_id: {
+        Int32: state.mcq,
+      },
+      card_type: state.type,
+      card_case: state.isCaseSensitive,
+      card_spaces: state.isSpacesSensitive,
+      card_format: state.format,
+      card_image: state.imageURL,
+      deck_id: props.deck_id,
+    }).then((_) => {
+      submitting = false
+    })
+  } else {
+    await updateCard(<Card>{
+      ID: props.card.ID,
+      card_question: state.question,
+      card_answer: state.answer,
+      mcq_id: {
+        Int32: state.mcq,
+      },
+      card_type: state.type,
+      card_case: state.isCaseSensitive,
+      card_spaces: state.isSpacesSensitive,
+      card_format: state.format,
+      card_image: state.imageURL,
+      deck_id: props.card.deck_id,
+    }).then((_) => {
+      submitting = false
+    })
+  }
+
+  closeModalCardForm()
 }
 </script>
 

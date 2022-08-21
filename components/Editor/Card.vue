@@ -71,11 +71,22 @@
       </div>
     </Combobox>
     <div class="flex flex-row justify-between pt-5">
-      <button class="hoveranimation btn btn-error">Delete</button>
-      <button class="hoveranimation btn btn-secondary" @click="edit = true">
+      <button
+        class="hoveranimation btn btn-error"
+        @click.once="deleteSelectedCard"
+      >
+        Delete
+      </button>
+      <button
+        class="hoveranimation btn btn-secondary"
+        @click.once="edit = true"
+      >
         Edit
       </button>
-      <button class="hoveranimation btn btn-success" @click="create = true">
+      <button
+        class="hoveranimation btn btn-success"
+        @click.once="create = true"
+      >
         New
       </button>
     </div>
@@ -84,13 +95,15 @@
     :card="selected"
     :mcqs="mcqs"
     :is_edit="true"
-    @closeModalCardForm="edit = false"
+    @closeModalCardForm="closeModalCardForm"
+    :deck_id="deck_id"
     v-if="edit"
   />
   <ModalCardForm
     v-if="create"
-    @closeModalCardForm="create = false"
+    @closeModalCardForm="closeModalCardForm"
     :card="{}"
+    :deck_id="deck_id"
     :is_edit="false"
     :mcqs="mcqs"
   />
@@ -108,6 +121,7 @@ import {
   TransitionRoot,
 } from '@headlessui/vue'
 import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid'
+import { deleteCard, getCardsFromDeck } from '~/api/card.api'
 
 const props = defineProps({
   cards: {
@@ -118,18 +132,43 @@ const props = defineProps({
     type: Array as PropType<McqList>,
     required: true,
   },
+  deck_id: {
+    type: Number as PropType<number>,
+    required: true,
+  },
 })
 
-let selected = ref(props.cards[0])
-let query = ref('')
+let deckCards = props.cards
+let deckMcqs = props.mcqs
 
 let edit = ref(false)
 let create = ref(false)
+let submitting = false
+
+let selected = ref(deckCards[0])
+let query = ref('')
+
+async function closeModalCardForm() {
+  edit.value = false
+  create.value = false
+  deckCards = await getCardsFromDeck(props.deck_id)
+  selected.value = deckCards[0]
+}
+
+async function deleteSelectedCard() {
+  if (submitting) return
+  submitting = true
+  await deleteCard(selected.value.ID).then(async () => {
+    submitting = false
+    deckCards = await getCardsFromDeck(props.deck_id)
+    selected.value = deckCards[0]
+  })
+}
 
 let filteredCard = computed(() =>
   query.value === ''
-    ? props.cards
-    : props.cards.filter((card) =>
+    ? deckCards
+    : deckCards.filter((card) =>
         card.card_question
           .toLowerCase()
           .replace(/\s+/g, '')

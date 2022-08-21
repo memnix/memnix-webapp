@@ -39,7 +39,7 @@
             />
           </TabPanel>
           <TabPanel>
-            <EditorCard :cards="cards" :mcqs="mcqs" />
+            <EditorCard :cards="cards" :mcqs="mcqs" :deck_id="deck.deck_id" />
           </TabPanel>
           <TabPanel><EditorMcq :mcqs="mcqs" /></TabPanel>
         </TabPanels>

@@ -1,4 +1,4 @@
-import { HTTPResponse, TodayResponse } from '~/types'
+import { Card, HTTPResponse, TodayResponse } from '~/types'
 import { baseUrl } from '~/api/api'
 
 export async function postResponse(
@@ -26,7 +26,7 @@ export async function postResponse(
 export async function getCardsFromDeck(deckID: number) {
   const token = useCookie('token')
   const data: HTTPResponse = await $fetch<HTTPResponse>(
-    '/cards/deck/' + deckID,
+    '/cards/deck/' + deckID + '?refresh=true',
     {
       method: 'GET',
       baseURL: baseUrl,
@@ -58,7 +58,6 @@ export async function todays() {
     {
       method: 'GET',
       baseURL: baseUrl,
-
       headers: {
         Authorization: 'Bearer ' + token.value,
       },
@@ -75,11 +74,54 @@ export async function getTrainingCards(deck) {
     {
       method: 'GET',
       baseURL: baseUrl,
-
       headers: {
         Authorization: 'Bearer ' + token.value,
       },
     }
   ).catch((error: any) => error.data)
+  return data
+}
+
+export async function createCard(card: Card) {
+  const token = useCookie('token')
+
+  const data: HTTPResponse = await $fetch<HTTPResponse>('/cards/new', {
+    method: 'POST',
+    baseURL: baseUrl,
+    headers: {
+      Authorization: 'Bearer ' + token.value,
+    },
+    body: card,
+  }).catch((error: any) => error.data)
+  return data
+}
+
+export async function updateCard(card: Card) {
+  const token = useCookie('token')
+
+  const data: HTTPResponse = await $fetch<HTTPResponse>(
+    '/cards/' + card.ID + '/edit',
+    {
+      method: 'PUT',
+      baseURL: baseUrl,
+      headers: {
+        Authorization: 'Bearer ' + token.value,
+      },
+      body: card,
+    }
+  ).catch((error: any) => error.data)
+  return data
+}
+
+export async function deleteCard(cardID: number) {
+  const token = useCookie('token')
+
+  const data: HTTPResponse = await $fetch<HTTPResponse>('/cards/' + cardID, {
+    method: 'DELETE',
+    baseURL: baseUrl,
+    headers: {
+      Authorization: 'Bearer ' + token.value,
+    },
+  }).catch((error: any) => error.data)
   return data
 }
