@@ -3,10 +3,10 @@
     <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-4">
       <div class="pb-12 text-center">
         <h1 class="font-heading text-3xl font-bold md:text-4xl lg:text-5xl">
-          Deck editor
+          {{ $t('deck_editor') }}
         </h1>
         <h2 class="text-base font-bold text-primary">
-          Create & edit your own decks
+          {{ $t('deck_editor_content') }}
         </h2>
       </div>
       <div
@@ -62,15 +62,17 @@
           </div>
 
           <div class="text-center">
-            <span class="md:text-md text-xs lg:text-lg"> Create a deck</span>
+            <span class="md:text-md text-xs lg:text-lg">{{
+              $t('create_a_deck')
+            }}</span>
           </div>
         </div>
       </div>
     </section>
     <ModalEditDeck
       v-if="showModalEditDeck"
-      @closeModalDeckEdit="closeModalDeckEdit"
       :deck="currentDeck"
+      @closeModalDeckEdit="closeModalDeckEdit"
     />
     <ModalCreateDeck
       v-if="showModalCreateDeck"
@@ -116,6 +118,16 @@ function openDeckEditor(deck) {
 
 onMounted(async () => {
   await fetchDecks()
+})
+
+useHead({
+  title: 'Memnix App - Creator',
+  meta: [
+    {
+      name: 'description',
+      content: "Memnix's creator",
+    },
+  ],
 })
 </script>
 

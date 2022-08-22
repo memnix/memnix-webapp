@@ -3,7 +3,7 @@
     <Combobox v-model="selected">
       <div class="relative mt-1">
         <label class="label">
-          <span class="label-text">Select a mcq</span>
+          <span class="label-text">{{ $t('select_a_mcq') }}</span>
         </label>
         <div
           class="relative w-full cursor-default overflow-hidden rounded-lg text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-secondary sm:text-sm"
@@ -32,7 +32,7 @@
               v-if="mcqs.length === 0 && query !== ''"
               class="relative cursor-default select-none py-2 px-4"
             >
-              Nothing found.
+              {{ $t('nothing_found') }}.
             </div>
 
             <ComboboxOption
@@ -76,32 +76,32 @@
         class="hoveranimation btn btn-error"
         @click="deleteSelectedMcq"
       >
-        Delete
+        {{ $t('delete') }}
       </button>
       <button
         :disabled="selected === null"
         class="hoveranimation btn btn-secondary"
         @click="edit = true"
       >
-        Edit
+        {{ $t('edit') }}
       </button>
       <button class="hoveranimation btn btn-success" @click="create = true">
-        New
+        {{ $t('new') }}
       </button>
     </div>
   </div>
   <ModalMcqForm
     v-if="edit"
+    :deck_id="deck_id"
     :is_edit="true"
     :mcq="selected"
-    :deck_id="deck_id"
     @closeModalMcqForm="closeModalMcqForm"
   />
   <ModalMcqForm
     v-if="create"
+    :deck_id="deck_id"
     :is_edit="false"
     :mcq="{}"
-    :deck_id="deck_id"
     @closeModalMcqForm="closeModalMcqForm"
   />
 </template>

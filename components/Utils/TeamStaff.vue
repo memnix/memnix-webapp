@@ -8,7 +8,7 @@
       class="mb-4 h-48 w-48 flex-shrink-0 rounded-lg object-cover object-center sm:mb-0"
       format="webp"
       loading="lazy"
-      quality="80"
+      quality="75"
     />
     <div class="flex-grow sm:pl-8">
       <h2 class="text-2xl font-medium">{{ name }}</h2>
