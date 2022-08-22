@@ -3,11 +3,9 @@
     <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-4">
       <div class="pb-12 text-center">
         <h1 class="font-heading text-3xl font-bold md:text-4xl lg:text-5xl">
-          Deck editor
+          Decks configuration
         </h1>
-        <h2 class="text-base font-bold text-primary">
-          Create & edit your own decks
-        </h2>
+        <h2 class="text-base font-bold text-primary">Configure your decks</h2>
       </div>
       <div
         v-if="loading"
@@ -51,67 +49,46 @@
         <CoreDeck
           v-for="deck in decks"
           :deck="deck.Deck"
-          @click="openDeckEditor(deck)"
+          @click="openDeckConfig(deck)"
         />
-        <div
-          class="hoveranimation flex w-full flex-col justify-center hover:cursor-pointer"
-          @click="showModalCreateDeck = true"
-        >
-          <div class="mx-auto">
-            <Icon-lucide-plus-circle class="my-auto text-4xl" />
-          </div>
-
-          <div class="text-center">
-            <span class="md:text-md text-xs lg:text-lg"> Create a deck</span>
-          </div>
-        </div>
       </div>
     </section>
-    <ModalEditDeck
-      v-if="showModalEditDeck"
-      @closeModalDeckEdit="closeModalDeckEdit"
+    <ModalDeckConfig
+      v-if="showModalDeckConfig"
       :deck="currentDeck"
-    />
-    <ModalCreateDeck
-      v-if="showModalCreateDeck"
-      @closeModalDeckCreate="closeModalDeckCreate"
+      @closeModalDeckConfig="closeModalDeckConfig"
     />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { getEditorDecks } from '~/api/deck.api'
-import { DeckEditorList } from '~/types'
+import { getSubDeck } from '~/api/deck.api'
+import { SubDeckList } from '~/types'
 
 definePageMeta({ layout: 'connected', middleware: ['auth'] })
 
-let decks = ref(<DeckEditorList>[])
+let decks = ref(<SubDeckList>[])
 let loading = ref(true)
 let currentDeck = ref({})
 
-let showModalEditDeck = ref(false)
-let showModalCreateDeck = ref(false)
+let showModalDeckConfig = ref(false)
 
-async function closeModalDeckEdit() {
-  showModalEditDeck.value = false
-  await fetchDecks()
+function openDeckConfig(deck) {
+  currentDeck.value = deck
+  showModalDeckConfig.value = true
 }
 
-async function closeModalDeckCreate() {
-  showModalCreateDeck.value = false
+async function closeModalDeckConfig() {
   await fetchDecks()
+  showModalDeckConfig.value = false
 }
 
 async function fetchDecks() {
-  decks.value = await getEditorDecks().then((res) => {
+  loading.value = true
+  decks.value = await getSubDeck().then((res) => {
     loading.value = false
-    return <DeckEditorList>res || []
+    return <SubDeckList>res.data || []
   })
-}
-
-function openDeckEditor(deck) {
-  currentDeck.value = deck
-  showModalEditDeck.value = true
 }
 
 onMounted(async () => {

@@ -1,6 +1,5 @@
 import { defineNuxtConfig } from 'nuxt'
 import UnpluginComponentsVite from 'unplugin-vue-components/vite'
-import compress from 'vite-plugin-compress'
 import IconsResolver from 'unplugin-icons/resolver'
 
 export default defineNuxtConfig({
@@ -20,9 +19,12 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@intlify/nuxt3',
     'unplugin-icons/nuxt',
+    '@nuxt/image-edge',
+    '@funken-studio/sitemap-nuxt-3',
   ],
 
   tailwindcss: {
+    // @ts-ignore
     jit: true,
   },
   intlify: {
@@ -34,6 +36,14 @@ export default defineNuxtConfig({
     },
   },
 
+  sitemap: {
+    hostname: 'https://memnix.app',
+    cacheTime: 1,
+    defaults: {
+      lastmod: new Date().toISOString(),
+    },
+  },
+
   components: true,
 
   nitro: {
@@ -41,9 +51,9 @@ export default defineNuxtConfig({
     serveStatic: true,
   },
 
+
   vite: {
     plugins: [
-      compress(),
       UnpluginComponentsVite({
         dts: true,
         resolvers: [

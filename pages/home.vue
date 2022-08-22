@@ -1,77 +1,70 @@
 <template>
-  <section v-if='loaded' class='bg-base-100'>
-    <div v-show='isMobile === true'>
-      <CoreDeckMobileSection
-        :deckList='todayDeckList'
-        :type='CarouselType.Today'
-        :white='true'
-        title='Daily decks'
-        @refreshToday='refreshToday'
-      />
-      <CoreDeckMobileSection
-        :deckList='availableDeckList'
-        :type='CarouselType.ToSubscribe'
-        :white='false'
-        title='Featured decks'
-        @refreshToday='refreshToday'
-      />
-      <CoreDeckMobileSection
-        :deckList='myDecksList'
-        :type='CarouselType.ToPlay'
-        :white='true'
-        title='My decks'
-        @refreshToday='refreshToday'
-      />
-      <CoreDeckMobileSection
-        :deckList='availableDeckList'
-        :type='CarouselType.ToSubscribe'
-        :white='false'
-        title='You might like'
-        @refreshToday='refreshToday'
-      />
-    </div>
+  <div>
+    <div v-if="loaded" class="bg-base-100">
+      <div v-show="isMobile === true">
+        <CoreDeckMobileSection
+          :deckList="todayDeckList"
+          :type="CarouselType.Today"
+          :white="true"
+          title="Daily decks"
+          @refreshToday="refreshToday"
+        />
+        <CoreDeckMobileSection
+          :deckList="availableDeckList"
+          :type="CarouselType.ToSubscribe"
+          :white="false"
+          title="Featured decks"
+          @refreshToday="refreshToday"
+        />
+        <CoreDeckMobileSection
+          :deckList="myDecksList"
+          :type="CarouselType.ToPlay"
+          :white="true"
+          title="My decks"
+          @refreshToday="refreshToday"
+        />
+      </div>
 
-    <div v-show='!isMobile'>
-      <CoreDeckDesktopSection
-        :deckList='todayDeckList'
-        :type='CarouselType.Today'
-        :white='true'
-        title='Daily decks'
-        @refreshToday='refreshToday'
-      />
-      <CoreDeckDesktopSection
-        :deckList='availableDeckList'
-        :type='CarouselType.ToSubscribe'
-        :white='false'
-        title='Featured decks'
-        @refreshToday='refreshToday'
-      />
-      <CoreDeckDesktopSection
-        :deckList='myDecksList'
-        :type='CarouselType.ToPlay'
-        :white='true'
-        title='My decks'
-        @refreshToday='refreshToday'
-      />
-      <CoreDeckDesktopSection
-        :deckList='availableDeckList'
-        :type='CarouselType.ToSubscribe'
-        :white='false'
-        title='You might like'
-        @refreshToday='refreshToday'
-      />
+      <div v-show="!isMobile">
+        <CoreDeckDesktopSection
+          :deckList="todayDeckList"
+          :type="CarouselType.Today"
+          :white="true"
+          title="Daily decks"
+          @refreshToday="refreshToday"
+        />
+        <CoreDeckDesktopSection
+          :deckList="availableDeckList"
+          :type="CarouselType.ToSubscribe"
+          :white="false"
+          title="Featured decks"
+          @refreshToday="refreshToday"
+        />
+        <CoreDeckDesktopSection
+          :deckList="myDecksList"
+          :type="CarouselType.ToPlay"
+          :white="true"
+          title="My decks"
+          @refreshToday="refreshToday"
+        />
+      </div>
     </div>
-
-  </section>
-  <section v-else>
-    <CoreSkeletonSection />
-    <CoreSkeletonSection />
-    <CoreSkeletonSection />
-  </section>
+    <div v-else>
+      <CoreSkeletonSection />
+      <CoreSkeletonSection />
+      <CoreSkeletonSection />
+    </div>
+  </div>
 </template>
 
-<script lang='ts' setup>
-import { CarouselType, Deck, DeckList, SubDeckList, TodayResponse } from '~/types'
+<script lang="ts" setup>
+import {
+  CarouselType,
+  Deck,
+  DeckList,
+  SubDeckList,
+  TodayResponse,
+} from '~/types'
 import { getAvailableDeck, getDeck, getSubDeck } from '~/api/deck.api'
 import { todays } from '~/api/card.api'
 import { useTodayStore } from '~/stores/todays'
@@ -84,7 +77,6 @@ let loaded = ref(false)
 let myDecksList = ref(<SubDeckList>[])
 let todayDeckList = ref(<DeckList>[])
 let availableDeckList = ref(<SubDeckList>[])
-
 
 async function refreshToday() {
   const apiStore = useApiStore()
@@ -143,7 +135,7 @@ onMounted(async () => {
   })
 })
 
-const handleData = async function(todayResponse: TodayResponse) {
+const handleData = async function (todayResponse: TodayResponse) {
   const data = todayResponse.data
   const store = useTodayStore()
   for (let i = 0; i < data.count; i++) {
@@ -167,8 +159,7 @@ const handleData = async function(todayResponse: TodayResponse) {
 }
 
 .slide-fade-enter, .slide-fade-leave-to
-  /* .slide-fade-leave-active below version 2.1.8 */
-{
+  /* .slide-fade-leave-active below version 2.1.8 */ {
   transform: translateX(10px);
   opacity: 0;
 }
