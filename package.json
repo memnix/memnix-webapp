@@ -13,7 +13,7 @@
     "@kevinmarrec/nuxt-pwa": "^0.4.2",
     "@nuxt/image-edge": "^1.0.0-27657146.da85542",
     "@nuxtjs/tailwindcss": "^5.3.2",
-    "nuxt": "3.0.0-rc.6",
+    "nuxt": "^3.0.0-rc.8",
     "sass": "1.54.5",
     "sass-loader": "13.0.2",
     "unplugin-icons": "0.14.8",
@@ -42,19 +42,6 @@
     "svgo": "^2.8.0",
     "got": "11.8.5",
     "parse-path": "^5.0.0",
-    "node-fetch": "^3.2.10",
-    "nuxi": "3.0.0-rc.6",
-    "@nuxt/vite-builder": "3.0.0-rc.6",
-    "@nuxt/kit": "3.0.0-rc.6",
-    "@nuxt/schema": "3.0.0-rc.6",
-    "nuxt": "3.0.0-rc.6"
-  },
-
-  "resolutions": {
-    "nuxi": "3.0.0-rc.6",
-    "@nuxt/vite-builder": "3.0.0-rc.6",
-    "@nuxt/kit": "3.0.0-rc.6",
-    "@nuxt/schema": "3.0.0-rc.6",
-    "nuxt": "3.0.0-rc.6"
+    "node-fetch": "^3.2.10"
   }
 }
