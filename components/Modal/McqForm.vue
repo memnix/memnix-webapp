@@ -13,20 +13,20 @@
         <div class="space-y-4">
           <div class="form-control mx-auto w-full max-w-md pt-2">
             <label class="label">
-              <span class="label-text">Question *</span>
+              <span class="label-text"> {{ $t('question') }} *</span>
             </label>
             <input
               v-model="state.name"
               :class="v$.name.$error ? 'input-error' : ''"
+              :placeholder="$t('question')"
               class="input input-bordered w-full max-w-md"
-              placeholder="Question"
               type="text"
               @blur="v$.$touch()"
             />
           </div>
           <div class="form-control mx-auto w-full max-w-md">
             <label class="label">
-              <span class="label-text">Type *</span>
+              <span class="label-text">{{ $t('type') }} *</span>
             </label>
             <select
               v-model="state.type"
@@ -34,24 +34,28 @@
               class="select select-bordered w-full max-w-md"
               @blur="v$.$touch()"
             >
-              <option disabled selected value="">Select type</option>
-              <option :value="McqType.Standalone">Standalone</option>
-              <option :value="McqType.Linked">Linked</option>
+              <option disabled selected value="">
+                {{ $t('select_type') }}
+              </option>
+              <option :value="McqType.Standalone">
+                {{ $t('standalone') }}
+              </option>
+              <option :value="McqType.Linked">{{ $t('linked') }}</option>
             </select>
           </div>
           <div class="form-control mx-auto w-full max-w-md">
             <label class="label">
-              <span class="label-text">Answers *</span>
+              <span class="label-text">{{ $t('answers') }} *</span>
               <span class="label-text">
-                Separate answers using <a class="font-bold">;</a></span
+                {{ $t('separate_answers') }} <a class="font-bold">;</a></span
               >
             </label>
             <input
               v-model="state.answers"
               :class="v$.answers.$error ? 'input-error' : ''"
               :disabled="state.type === McqType.Linked"
+              :placeholder="$t('answers')"
               class="input input-bordered w-full max-w-md"
-              placeholder="Answers"
               type="text"
               @blur="v$.$touch()"
             />
@@ -75,7 +79,7 @@
 import { PropType } from '@vue/runtime-core'
 import { Mcq, McqType } from '~/types'
 import useVuelidate from '@vuelidate/core'
-import { maxLength, required, requiredIf } from '@vuelidate/validators'
+import { maxLength, required } from '@vuelidate/validators'
 import { Config } from '~/utils/config'
 import { createMcq, updateMcq } from '~/api/card.api'
 import { useLang } from '~/composables/useLang'

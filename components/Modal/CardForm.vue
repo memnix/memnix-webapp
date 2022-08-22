@@ -10,27 +10,27 @@
         </button>
       </div>
       <form
+        v-if="loaded"
         class="w-full"
         @submit.prevent="submitCardFormRequest"
-        v-if="loaded"
       >
         <div class="space-y-4">
           <div class="form-control mx-auto w-full max-w-md pt-2">
             <label class="label">
-              <span class="label-text">Question *</span>
+              <span class="label-text">{{ $t('question') }} *</span>
             </label>
             <input
               v-model="state.question"
               :class="v$.question.$error ? 'input-error' : ''"
+              :placeholder="$t('question')"
               class="input input-bordered w-full max-w-md"
-              placeholder="Question"
               type="text"
               @blur="v$.$touch()"
             />
           </div>
           <div class="form-control mx-auto w-full max-w-md">
             <label class="label">
-              <span class="label-text">Type *</span>
+              <span class="label-text">{{ $t('type') }} *</span>
             </label>
             <select
               v-model="state.type"
@@ -38,18 +38,20 @@
               class="select select-bordered w-full max-w-md"
               @blur="v$.$touch()"
             >
-              <option disabled selected value="">Select type</option>
-              <option :value="CardType.Int">Int</option>
-              <option :value="CardType.String">String</option>
-              <option :value="CardType.Mcq">Mcq only</option>
+              <option disabled selected value="">
+                {{ $t('select_type') }}
+              </option>
+              <option :value="CardType.Int">{{ $t('int') }}</option>
+              <option :value="CardType.String">{{ $t('string') }}</option>
+              <option :value="CardType.Mcq">{{ $t('mcq_only') }}</option>
             </select>
           </div>
           <div class="form-control mx-auto w-full max-w-md">
             <label class="label">
               <span v-if="state.type === CardType.Mcq" class="label-text"
-                >MCQ *</span
+                >{{ $t('mcq') }} *</span
               >
-              <span v-else class="label-text">MCQ </span>
+              <span v-else class="label-text">{{ $t('mcq') }} </span>
             </label>
             <select
               v-model="state.mcq"
@@ -57,7 +59,7 @@
               class="select select-bordered w-full max-w-md"
               @blur="v$.$touch()"
             >
-              <option :value="0" selected>None</option>
+              <option :value="0" selected>{{ $t('none') }}</option>
               <option v-for="mcq in mcqs" :value="mcq.ID">
                 {{ mcq.mcq_name }}
               </option>
@@ -66,46 +68,46 @@
 
           <div class="form-control mx-auto w-full max-w-md">
             <label class="label">
-              <span class="label-text">Answer *</span>
+              <span class="label-text">{{ $t('answer') }} *</span>
             </label>
             <input
               v-model="state.answer"
               :class="v$.answer.$error ? 'input-error' : ''"
+              :placeholder="$t('answer')"
               class="input input-bordered w-full max-w-md"
-              placeholder="Answer"
               type="text"
               @blur="v$.$touch()"
             />
           </div>
           <div class="form-control mx-auto w-full max-w-md">
             <label class="label">
-              <span class="label-text">Image</span>
+              <span class="label-text">{{ $t('image') }}</span>
             </label>
             <input
               v-model="state.imageURL"
               :class="v$.imageURL.$error ? 'input-error' : ''"
+              :placeholder="$t('image_url')"
               class="input input-bordered w-full max-w-md"
-              placeholder="Image url"
               type="text"
               @blur="v$.$touch()"
             />
           </div>
           <div class="form-control mx-auto w-full max-w-md">
             <label class="label">
-              <span class="label-text">Format *</span>
+              <span class="label-text">{{ $t('format') }} *</span>
             </label>
             <input
               v-model="state.format"
               :class="v$.format.$error ? 'input-error' : ''"
+              :placeholder="$t('format')"
               class="input input-bordered w-full max-w-md"
-              placeholder="Format"
               type="text"
               @blur="v$.$touch()"
             />
           </div>
           <div class="flex flex-row space-x-3">
             <label class="label">
-              <span class="label-text">Case sensitive</span>
+              <span class="label-text">{{ $t('case_sensitive') }}</span>
             </label>
             <Switch
               v-model="state.isCaseSensitive"
@@ -123,7 +125,7 @@
             </Switch>
             <div class="divider divider-horizontal"></div>
             <label class="label">
-              <span class="label-text">Space sensitive</span>
+              <span class="label-text">{{ $t('space_sensitive') }}</span>
             </label>
             <Switch
               v-model="state.isSpacesSensitive"
@@ -157,12 +159,11 @@
 
 <script lang="ts" setup>
 import { PropType } from '@vue/runtime-core'
-import { Card, CardType, Deck, McqList } from '~/types'
+import { Card, CardType, McqList } from '~/types'
 import useVuelidate from '@vuelidate/core'
 import { maxLength, required } from '@vuelidate/validators'
 import { Switch } from '@headlessui/vue'
 import { Config } from '~/utils/config'
-import { createDeck, updateDeck } from '~/api/deck.api'
 import { createCard, getMCQfromDeck, updateCard } from '~/api/card.api'
 import { useLang } from '~/composables/useLang'
 
