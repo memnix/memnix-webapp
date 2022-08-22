@@ -1,8 +1,19 @@
-# Nuxt 3 Minimal Starter
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+# Memnix web app
 
-## Setup
+The memnix web app
+
+
+## Badges
+
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)[![Discord](https://img.shields.io/discord/560798438099255296?style=flat-square)](https://discord.gg/de4hY4VEkJ)
+
+## Authors
+
+- [@CorentinGS](https://github.com/CorentinGS)
+
+
+## Installation
 
 Make sure to install the dependencies:
 
