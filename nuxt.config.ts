@@ -21,9 +21,11 @@ export default defineNuxtConfig({
     'unplugin-icons/nuxt',
     '@nuxt/image-edge',
     '@funken-studio/sitemap-nuxt-3',
+    '@kevinmarrec/nuxt-pwa',
   ],
 
   tailwindcss: {
+    // @ts-ignore
     jit: true,
   },
   intlify: {
@@ -48,6 +50,25 @@ export default defineNuxtConfig({
   nitro: {
     minify: true,
     serveStatic: true,
+  },
+
+  pwa: {
+    manifest: {
+      name: 'Memnix App',
+      short_name: 'Memnix',
+      background_color: '#111827',
+      theme_color: '#3B82F6',
+    },
+    meta: {
+      name: 'Memnix App',
+      author: 'CorentinGS',
+      description: 'Memnix - A spaced repetition app',
+      mobileAppIOS: true,
+      ogHost: 'https://memnix.app',
+      twitterCard: 'summary',
+      twitterSite: '@memnixapp',
+      twitterCreator: '@memnixapp',
+    },
   },
 
   vite: {

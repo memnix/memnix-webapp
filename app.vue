@@ -30,10 +30,6 @@ useHead({
       crossorigin: true,
     },
     {
-      rel: 'manifest',
-      href: '/manifest.json',
-    },
-    {
       rel: 'icon',
       href: '/favicon.ico',
     },
