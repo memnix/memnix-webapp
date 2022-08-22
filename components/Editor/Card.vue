@@ -3,20 +3,20 @@
     <Combobox v-model="selected">
       <div class="relative mt-1">
         <label class="label">
-          <span class="label-text">Select a card</span>
+          <span class="label-text">{{ $t('select_a_card') }}</span>
         </label>
         <div
           class="relative w-full cursor-default overflow-hidden rounded-lg text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-secondary sm:text-sm"
         >
           <ComboboxInput
-            class="input input-bordered w-full py-2 pl-3 pr-10 text-sm leading-5 focus:ring-0"
             :displayValue="(card) => card?.card_question"
+            class="input input-bordered w-full py-2 pl-3 pr-10 text-sm leading-5 focus:ring-0"
             @change="query = $event.target.value"
           />
           <ComboboxButton
             class="absolute inset-y-0 right-0 flex items-center pr-2"
           >
-            <SelectorIcon class="h-5 w-5" aria-hidden="true" />
+            <SelectorIcon aria-hidden="true" class="h-5 w-5" />
           </ComboboxButton>
         </div>
         <TransitionRoot
@@ -32,37 +32,37 @@
               v-if="cards.length === 0 && query !== ''"
               class="relative cursor-default select-none py-2 px-4"
             >
-              Nothing found.
+              {{ $t('nothing_found') }}
             </div>
 
             <ComboboxOption
               v-for="card in filteredCard"
-              as="template"
               :key="card.ID"
-              :value="card"
               v-slot="{ selected, active }"
+              :value="card"
+              as="template"
             >
               <li
-                class="relative cursor-default select-none py-2 pl-10 pr-4"
                 :class="{
                   'bg-primary text-primary-content': active,
                   '': !active,
                 }"
+                class="relative cursor-default select-none py-2 pl-10 pr-4"
               >
                 <span
-                  class="block truncate"
                   :class="{ 'font-medium': selected, 'font-normal': !selected }"
+                  class="block truncate"
                 >
                   {{ card.card_question }}
                 </span>
                 <span
                   v-if="selected"
-                  class="absolute inset-y-0 left-0 flex items-center pl-3"
                   :class="{
                     'text-primary-content': active,
                   }"
+                  class="absolute inset-y-0 left-0 flex items-center pl-3"
                 >
-                  <CheckIcon class="h-5 w-5" aria-hidden="true" />
+                  <CheckIcon aria-hidden="true" class="h-5 w-5" />
                 </span>
               </li>
             </ComboboxOption>
@@ -72,49 +72,49 @@
     </Combobox>
     <div class="flex flex-row justify-between pt-5">
       <button
-        class="hoveranimation btn btn-error"
         :disabled="selected === null"
+        class="hoveranimation btn btn-error"
         @click="deleteSelectedCard"
       >
-        Delete
+        {{ $t('delete') }}
       </button>
       <button
+        :disabled="selected === null"
         class="hoveranimation btn btn-secondary"
         @click="edit = true"
-        :disabled="selected === null"
       >
-        Edit
+        {{ $t('edit') }}
       </button>
       <button class="hoveranimation btn btn-success" @click="create = true">
-        New
+        {{ $t('new') }}
       </button>
     </div>
   </div>
   <ModalCardForm
+    v-if="edit"
     :card="selected"
+    :deck_id="deck_id"
     :is_edit="true"
     @closeModalCardForm="closeModalCardForm"
-    :deck_id="deck_id"
-    v-if="edit"
   />
   <ModalCardForm
     v-if="create"
-    @closeModalCardForm="closeModalCardForm"
     :card="{}"
     :deck_id="deck_id"
     :is_edit="false"
+    @closeModalCardForm="closeModalCardForm"
   />
 </template>
 
-<script setup lang="ts">
-import { Card, CardList, McqList } from '~/types'
+<script lang="ts" setup>
+import { CardList } from '~/types'
 import { PropType } from '@vue/runtime-core'
 import {
   Combobox,
-  ComboboxInput,
   ComboboxButton,
-  ComboboxOptions,
+  ComboboxInput,
   ComboboxOption,
+  ComboboxOptions,
   TransitionRoot,
 } from '@headlessui/vue'
 import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid'

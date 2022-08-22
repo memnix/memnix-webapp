@@ -11,7 +11,7 @@
       </div>
       <div class="flex items-center">
         <h2 class="ml-2 text-xl font-medium">
-          You don't have any notifications to read...
+          {{ $t('no_notifications_to_read') }}
         </h2>
       </div>
     </div>

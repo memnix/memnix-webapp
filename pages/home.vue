@@ -4,23 +4,23 @@
       <div v-show="isMobile === true">
         <CoreDeckMobileSection
           :deckList="todayDeckList"
+          :title="$t('daily_decks')"
           :type="CarouselType.Today"
           :white="true"
-          title="Daily decks"
           @refreshToday="refreshToday"
         />
         <CoreDeckMobileSection
           :deckList="availableDeckList"
+          :title="$t('featured_decks')"
           :type="CarouselType.ToSubscribe"
           :white="false"
-          title="Featured decks"
           @refreshToday="refreshToday"
         />
         <CoreDeckMobileSection
           :deckList="myDecksList"
+          :title="$t('my_decks')"
           :type="CarouselType.ToPlay"
           :white="true"
-          title="My decks"
           @refreshToday="refreshToday"
         />
       </div>
@@ -28,23 +28,23 @@
       <div v-show="!isMobile">
         <CoreDeckDesktopSection
           :deckList="todayDeckList"
+          :title="$t('daily_decks')"
           :type="CarouselType.Today"
           :white="true"
-          title="Daily decks"
           @refreshToday="refreshToday"
         />
         <CoreDeckDesktopSection
           :deckList="availableDeckList"
+          :title="$t('featured_decks')"
           :type="CarouselType.ToSubscribe"
           :white="false"
-          title="Featured decks"
           @refreshToday="refreshToday"
         />
         <CoreDeckDesktopSection
           :deckList="myDecksList"
+          :title="$t('my_decks')"
           :type="CarouselType.ToPlay"
           :white="true"
-          title="My decks"
           @refreshToday="refreshToday"
         />
       </div>
