@@ -3,16 +3,18 @@
     class="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 lg:drop-shadow-xl"
   >
     <div class="px-6 py-4">
-      <h2 class="text-center text-3xl font-medium">Create an account</h2>
+      <h2 class="text-center text-3xl font-medium">
+        {{ $t('create_an_account') }}
+      </h2>
 
       <form @submit.prevent="submitRegisterRequest">
         <div class="mt-4 w-full">
           <input
             v-model="state.username"
             :class="v$.username.$error ? 'input-error' : ''"
+            :placeholder="$t('username')"
             aria-label="Username"
             class="input-neutral input input-bordered input-ghost w-full max-w-xs"
-            placeholder="Username"
             type="text"
             @blur="v$.$touch()"
           />
@@ -21,9 +23,9 @@
           <input
             v-model="state.email"
             :class="v$.email.$error ? 'input-error' : ''"
+            :placeholder="$t('email')"
             aria-label="Email Address"
             class="input-neutral input input-bordered input-ghost w-full max-w-xs"
-            placeholder="Email"
             type="email"
             @blur="v$.$touch()"
           />
@@ -33,9 +35,9 @@
           <input
             v-model="state.password"
             :class="v$.password.$error ? 'input-error' : ''"
+            :placeholder="$t('password')"
             aria-label="Password"
             class="input-neutral input input-bordered input-ghost w-full max-w-xs"
-            placeholder="Password"
             type="password"
             @blur="v$.$touch()"
           />
@@ -44,9 +46,9 @@
           <input
             v-model="state.passwordConfirm"
             :class="v$.passwordConfirm.$error ? 'input-error' : ''"
+            :placeholder="$t('confirm_password')"
             aria-label="Password"
             class="input-neutral input input-bordered input-ghost w-full max-w-xs"
-            placeholder="Password"
             type="password"
             @blur="v$.$touch()"
           />
@@ -63,7 +65,7 @@
                 @blur="v$.$touch()"
               />
             </label>
-            <span class="label-text my-auto">Accept TOS</span>
+            <span class="label-text my-auto">{{ $t('accept_tos') }}</span>
           </div>
         </div>
         <div class="mt-4 flex items-center justify-center">
@@ -72,7 +74,7 @@
             type="submit"
             @click.once="submitRegisterRequest"
           >
-            Register
+            {{ $t('register') }}
           </button>
         </div>
       </form>
@@ -81,13 +83,13 @@
     <div
       class="mb-2 flex items-center justify-center bg-base-100 py-4 px-6 text-center"
     >
-      <span class="mx-2 text-sm">Already have an account? </span>
+      <span class="mx-2 text-sm">{{ $t('already_account') }} </span>
       <button
         class="btn-neutral hoveranimation btn mx-auto"
         type="button"
         @click="$emit('loginPageEvent')"
       >
-        Login
+        {{ $t('login') }}
       </button>
     </div>
   </div>
