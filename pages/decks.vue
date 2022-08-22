@@ -3,9 +3,11 @@
     <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-4">
       <div class="pb-12 text-center">
         <h1 class="font-heading text-3xl font-bold md:text-4xl lg:text-5xl">
-          Decks configuration
+          {{ $t('decks_configuration') }}
         </h1>
-        <h2 class="text-base font-bold text-primary">Configure your decks</h2>
+        <h2 class="text-base font-bold text-primary">
+          {{ $t('decks_configuration_content') }}
+        </h2>
       </div>
       <div
         v-if="loading"
@@ -93,6 +95,16 @@ async function fetchDecks() {
 
 onMounted(async () => {
   await fetchDecks()
+})
+
+useHead({
+  title: 'Memnix App - Decks',
+  meta: [
+    {
+      name: 'description',
+      content: "Memnix's deck configuration",
+    },
+  ],
 })
 </script>
 

@@ -40,6 +40,12 @@
   "contribute_to_the_project_content": "Contribute to the project by proposing translations and new features or by coding, designing and creating decks.",
   "a_nice_community": "A nice community",
   "a_nice_community_content": "Memnix is based on a real community of helpers whose goal is to ease learning for everyone.",
-
+  "logout": "Logout",
+  "no_notifications_to_read": "You don't have any notifications to read...",
+  "decks_configuration": "Decks configuration",
+  "decks_configuration_content": "Configure your decks",
+  "deck_editor": "Deck editor",
+  "deck_editor_content": "Create & edit your own decks",
+  "create_a_deck": "Create a deck",
   "": ""
 }

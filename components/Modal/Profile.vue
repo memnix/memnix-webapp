@@ -13,7 +13,7 @@
         <div class="avatar">
           <div class="w-16 rounded-full">
             <nuxt-img
-              :src="avatarUrl"
+              :src="avatarUrl || 'icon.png'"
               alt="User Avatar"
               format="webp"
               height="64"
@@ -28,8 +28,8 @@
         </h2>
       </div>
       <div class="modal-action">
-        <label class="hoveranimation btn btn-error" @click="$emit('logout')"
-          >Logout</label
+        <label class="hoveranimation btn btn-error" @click="$emit('logout')">
+          {{ $t('logout') }}</label
         >
       </div>
     </div>
