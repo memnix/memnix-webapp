@@ -81,5 +81,9 @@
   "standalone": "Standalone",
   "linked": "Linked",
   "separate_answers": "Separate answers using",
+  "loading": "Loading",
+  "daily_decks": "Daily decks",
+  "my_decks": "My decks",
+  "featured_decks": "Featured decks",
   "": ""
 }
