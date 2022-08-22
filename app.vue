@@ -10,9 +10,12 @@
 
 <script lang="ts" setup>
 import { LanguageManager } from '~/utils/lang'
-import { themeChange } from 'theme-change'
 
-onMounted(() => {})
+onMounted(() => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+  }
+})
 
 const languageManager = LanguageManager()
 const locale = useState<string>('locale.setting')
@@ -54,6 +57,10 @@ useHead({
       rel: 'theme-color',
       content: '#ffffff',
     },
+    {
+      rel: 'manifest',
+      href: '/manifest.d966320f.json',
+    },
   ],
   meta: [
     {
@@ -88,6 +95,8 @@ useHead({
     { name: 'twitter:url', content: 'https://memnix.app' },
     { name: 'googlebot', content: 'notranslate' },
     { name: 'theme-color', content: '#E9AF98' },
+    { name: 'author', content: 'CorentinGS' },
+    {},
   ],
 })
 </script>
