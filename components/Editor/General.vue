@@ -3,12 +3,12 @@
     <div class="space-y-4">
       <div class="form-control mx-auto w-full max-w-md pt-2">
         <label class="label">
-          <span class="label-text">Name *</span>
+          <span class="label-text">{{ $t('name') }} *</span>
         </label>
         <input
           v-model="state.name"
           class="input input-bordered w-full max-w-md"
-          placeholder="Deck's name"
+          :placeholder="$t('deck_name')"
           type="text"
           @blur="v$.$touch()"
           :class="v$.name.$error ? 'input-error' : ''"
@@ -16,12 +16,12 @@
       </div>
       <div class="form-control mx-auto w-full max-w-md">
         <label class="label">
-          <span class="label-text">Description *</span>
+          <span class="label-text">{{ $t('description') }}*</span>
         </label>
         <input
           v-model="state.description"
           class="input input-bordered w-full max-w-md"
-          placeholder="Deck's description"
+          :placeholder="$t('deck_description')"
           type="text"
           @blur="v$.$touch()"
           :class="v$.description.$error ? 'input-error' : ''"
@@ -29,12 +29,12 @@
       </div>
       <div class="form-control mx-auto w-full max-w-md">
         <label class="label">
-          <span class="label-text">Banner *</span>
+          <span class="label-text">{{ $t('banner') }} *</span>
         </label>
         <input
           v-model="state.banner"
           class="input input-bordered w-full max-w-md"
-          placeholder="Banner url"
+          :placeholder="$t('banner_url')"
           type="text"
           @blur="v$.$touch()"
           :class="v$.banner.$error ? 'input-error' : ''"
@@ -61,6 +61,7 @@ import useVuelidate from '@vuelidate/core'
 import { maxLength, minLength, required } from '@vuelidate/validators'
 import { Config } from '~/utils/config'
 import { createDeck, updateDeck } from '~/api/deck.api'
+import { useLang } from '~/composables/useLang'
 
 const emit = defineEmits(['closeModalGeneral'])
 
@@ -75,7 +76,9 @@ const props = defineProps({
   },
 })
 
-const buttonActionText = props.is_edit ? 'Update' : 'Create'
+const buttonActionText = props.is_edit
+  ? useLang().t('update')
+  : useLang().t('create')
 let submitting = false
 
 const state = reactive({

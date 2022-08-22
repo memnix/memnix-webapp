@@ -164,6 +164,7 @@ import { Switch } from '@headlessui/vue'
 import { Config } from '~/utils/config'
 import { createDeck, updateDeck } from '~/api/deck.api'
 import { createCard, getMCQfromDeck, updateCard } from '~/api/card.api'
+import { useLang } from '~/composables/useLang'
 
 const props = defineProps({
   card: {
@@ -180,7 +181,9 @@ const props = defineProps({
   },
 })
 
-const buttonActionText = props.is_edit ? 'Update' : 'Create'
+const buttonActionText = props.is_edit
+  ? useLang().t('update')
+  : useLang().t('create')
 
 let loaded = ref(false)
 let mcqs = ref(<McqList>[])

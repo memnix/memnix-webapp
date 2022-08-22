@@ -10,22 +10,24 @@
         </button>
       </div>
       <TabGroup as="div" class="mx-auto flex w-full flex-col px-2 sm:px-0">
-        <h1 class="mx-auto py-4 text-3xl">Edit {{ deck.Deck.deck_name }}</h1>
+        <h1 class="mx-auto py-4 text-3xl">
+          {{ $t('edit') }} {{ deck.Deck.deck_name }}
+        </h1>
         <TabList class="mx-auto flex py-4">
           <div class="tabs tabs-boxed rounded-xl p-1">
             <Tab v-slot="{ selected }">
               <div :class="selected ? 'tab-active' : ''" class="tab tab-lg">
-                Generals
+                {{ $t('generals') }}
               </div>
             </Tab>
             <Tab v-slot="{ selected }">
               <div :class="selected ? 'tab-active' : ''" class="tab tab-lg">
-                Cards
+                {{ $t('cards') }}
               </div>
             </Tab>
             <Tab v-slot="{ selected }">
               <div :class="selected ? 'tab-active' : ''" class="tab tab-lg">
-                MCQ
+                {{ $t('mcq') }}
               </div>
             </Tab>
           </div>
@@ -41,9 +43,9 @@
           <TabPanel>
             <EditorCard :cards="cards" :deck_id="deck.deck_id" />
           </TabPanel>
-          <TabPanel
-            ><EditorMcq :mcqs="mcqs" :deck_id="deck.deck_id"
-          /></TabPanel>
+          <TabPanel>
+            <EditorMcq :deck_id="deck.deck_id" :mcqs="mcqs" />
+          </TabPanel>
         </TabPanels>
       </TabGroup>
     </div>

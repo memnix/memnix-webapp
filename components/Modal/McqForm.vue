@@ -78,6 +78,7 @@ import useVuelidate from '@vuelidate/core'
 import { maxLength, required, requiredIf } from '@vuelidate/validators'
 import { Config } from '~/utils/config'
 import { createMcq, updateMcq } from '~/api/card.api'
+import { useLang } from '~/composables/useLang'
 
 const props = defineProps({
   mcq: {
@@ -94,7 +95,9 @@ const props = defineProps({
   },
 })
 
-const buttonActionText = props.is_edit ? 'Update' : 'Create'
+const buttonActionText = props.is_edit
+  ? useLang().t('update')
+  : useLang().t('create')
 
 const emit = defineEmits(['closeModalMcqForm'])
 
