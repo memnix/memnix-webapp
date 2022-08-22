@@ -115,6 +115,10 @@ const state = reactive({
   tos: false,
 })
 
+const passwordRules = (value) => {
+  return state.password === state.passwordConfirm
+}
+
 const rules = {
   email: {
     required,
@@ -128,7 +132,7 @@ const rules = {
   },
   passwordConfirm: {
     required,
-    sameAs: sameAs(state.password),
+    passwordRules,
   },
   username: {
     required,

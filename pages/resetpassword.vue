@@ -40,8 +40,9 @@
           <form>
             <div class="mt-4 w-full">
               <input
-                v-model="email"
+                v-model="state.email"
                 :placeholder="$t('email')"
+                :class="v$.email.$error ? 'input-error' : ''"
                 aria-label="Email Address"
                 class="input-neutral input input-bordered input-ghost w-full max-w-xs"
                 type="email"
@@ -80,7 +81,8 @@
           <form>
             <div class="mt-4 w-full">
               <input
-                v-model="code"
+                v-model="state.code"
+                :class="w$.code.$error ? 'input-error' : ''"
                 :placeholder="$t('code')"
                 aria-label="Code"
                 class="input-neutral input input-bordered input-ghost w-full max-w-xs"
@@ -89,7 +91,8 @@
             </div>
             <div class="mt-4 w-full">
               <input
-                v-model="password"
+                v-model="state.password"
+                :class="w$.password.$error ? 'input-error' : ''"
                 :placeholder="$t('password')"
                 aria-label="Password"
                 class="input-neutral input input-bordered input-ghost w-full max-w-xs"
@@ -98,7 +101,8 @@
             </div>
             <div class="mt-4 w-full">
               <input
-                v-model="repeatpassword"
+                v-model="state.passwordConfirm"
+                :class="w$.passwordConfirm.$error ? 'input-error' : ''"
                 :placeholder="$t('confirm_password')"
                 aria-label="Password"
                 class="input-neutral input input-bordered input-ghost w-full max-w-xs"
@@ -137,13 +141,19 @@
 <script lang="ts" setup>
 import { themeChange } from 'theme-change'
 import { resetPassword, resetPasswordConfirmation } from '~/api/api'
+import { reactive } from '#imports'
+import {
+  email,
+  maxLength,
+  minLength,
+  required,
+  sameAs,
+} from '@vuelidate/validators'
+import { Config } from '~/utils/config'
+import useVuelidate from '@vuelidate/core'
 
 let step = ref(1)
-
-let email = ref('')
-let code = ref('')
-let password = ref('')
-let repeatpassword = ref('')
+let submitting = false
 
 definePageMeta({ keepalive: true, middleware: ['guest'] })
 
@@ -151,10 +161,61 @@ onMounted(() => {
   themeChange(false)
 })
 
+const state = reactive({
+  email: '',
+  code: '',
+  password: '',
+  passwordConfirm: '',
+})
+
+const passwordRules = (value) => {
+  return state.password === state.passwordConfirm
+}
+
+const email_rules = {
+  email: {
+    required,
+    email,
+    maxLength: maxLength(Config.maxEmailLen),
+  },
+}
+
+const code_rules = {
+  code: {
+    required,
+    maxLength: maxLength(Config.maxDefaultLen),
+  },
+  password: {
+    required,
+    minLength: minLength(Config.minPasswordLen),
+    maxLength: maxLength(Config.maxPasswordLen),
+  },
+  passwordConfirm: {
+    required,
+    passwordRules,
+  },
+}
+
+const v$ = useVuelidate(email_rules, state)
+const w$ = useVuelidate(code_rules, state)
+
 const resetPasswordRequest = async function () {
-  let result = await resetPassword(email.value)
+  const validate = await v$.value.$validate()
+  if (!validate) {
+    // notify user form is invalid
+    return
+  }
+
+  if (submitting) {
+    return
+  }
+
+  submitting = true
+
+  let result = await resetPassword(state.email)
 
   if (result) {
+    submitting = false
     step.value = 2
   } else {
     alert('error')
@@ -162,16 +223,24 @@ const resetPasswordRequest = async function () {
 }
 
 const resetPasswordConfirmationRequest = async function () {
-  if (password.value !== repeatpassword.value) {
-    alert("Passwords don't match")
+  const validate = await w$.value.$validate()
+  if (!validate) {
+    // notify user form is invalid
     return
   }
+
+  if (submitting) {
+    return
+  }
+
+  submitting = true
   let result = await resetPasswordConfirmation(
-    email.value,
-    code.value,
-    password.value
+    state.email,
+    state.code,
+    state.password
   )
   if (result) {
+    submitting = false
     step.value = 3
     return navigateTo('/')
   } else {
