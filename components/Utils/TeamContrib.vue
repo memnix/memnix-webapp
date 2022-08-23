@@ -1,16 +1,21 @@
 <template>
-  <div class="flex h-full items-center rounded-lg border border-gray-200 p-4">
-    <nuxt-img
-      :src="image"
-      alt="team"
-      format="webp"
-      loading="lazy"
-      quality="80"
-      class="mr-4 h-16 w-16 flex-shrink-0 rounded-full bg-gray-100 object-cover object-center"
-    />
-    <div class="flex-grow">
+  <div class="flex items-start rounded-lg border border-secondary p-6">
+    <div href="" class="block shrink-0">
+      <nuxt-img
+        alt="moutmout"
+        height="100%"
+        :src="image || 'icon.png'"
+        width="100%"
+        format="webp"
+        loading="lazy"
+        quality="80"
+        class="h-14 w-14 rounded-lg object-cover"
+      />
+    </div>
+
+    <div class="ml-4">
       <h2 class="title-font font-medium">{{ name }}</h2>
-      <h3>{{ job }}</h3>
+      <h3 class="truncate">{{ job }}</h3>
       <span class="inline-flex space-x-4 py-1">
         <NuxtLink v-show="twitter !== null" :to="twitter">
           <Icon-lucide-twitter class="hoveranimation h-6 w-6" />

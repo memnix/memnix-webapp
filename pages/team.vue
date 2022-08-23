@@ -38,18 +38,24 @@
           {{ $t('our_contributors_content') }}
         </div>
       </div>
-      <div class="my-3 flex justify-center space-x-2">
+      <div class="grid-col-1 sm:grid-col-2 my-3 grid gap-4 md:grid-cols-3">
         <UtilsTeamContrib
-          class="py-2 md:w-1/2 lg:w-1/3"
+          class="py-2"
           image="/icon.png"
           :job="$t('translator')"
           name="Chris"
         />
         <UtilsTeamContrib
-          class="py-2 md:w-1/2 lg:w-1/3"
+          class="py-2"
           image="/icon.png"
           :job="$t('translator')"
-          name="vlad"
+          name="Vlad"
+        />
+        <UtilsTeamContrib
+          class="py-2"
+          image="/icon.png"
+          :job="$t('design')"
+          name="Charibou"
         />
       </div>
     </div>

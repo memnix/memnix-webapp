@@ -13,7 +13,7 @@
 
         <div class="drawer-side">
           <label class="drawer-overlay" for="my-drawer-3"></label>
-          <ul class="menu w-80 overflow-y-auto bg-base-100 p-4">
+          <ul class="menu w-64 overflow-y-auto bg-base-100 p-4 sm:w-80">
             <!-- Sidebar content here -->
             <li>
               <NuxtLink to="/discover"> {{ $t('discover') }} </NuxtLink>

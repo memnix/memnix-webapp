@@ -7,11 +7,11 @@
           <h1
             class="text-center text-3xl font-semibold leading-7 lg:text-4xl lg:leading-9"
           >
-            We use cookies
+            {{ $t('we_use_cookies') }}
           </h1>
         </div>
         <p class="mt-6 text-center text-base leading-7 sm:w-80">
-          Please, accept these sweeties to continue enjoying our site!
+          {{ $t('we_use_cookies_content') }}
         </p>
         <div class="mx-auto">
           <div class="pt-5">
@@ -19,7 +19,7 @@
               class="hoveranimation btn btn-primary w-full"
               @click="$emit('aceptedCookies')"
             >
-              Ok !
+              {{ $t('ok') }}
             </button>
           </div>
           <div class="hidden pt-5">
