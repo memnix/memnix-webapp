@@ -82,6 +82,7 @@ export interface DeckResponseList extends Array<DeckResponse> {}
 
 export interface DeckResponse {
   deck_id: number
+  deck: Deck
   cards: CardResponseList
   count: number
 }

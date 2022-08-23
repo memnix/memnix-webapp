@@ -139,14 +139,11 @@ const handleData = async function (todayResponse: TodayResponse) {
   const data = todayResponse.data
   const store = useTodayStore()
   for (let i = 0; i < data.count; i++) {
-    const deck = await getDeck(data.decks_responses[i].deck_id)
-    if (deck.success) {
-      store.setDeck(
-        data.decks_responses[i].deck_id,
-        data.decks_responses[i].cards
-      )
-      todayDeckList.value.push(<Deck>deck.data)
-    }
+    store.setDeck(
+      data.decks_responses[i].deck_id,
+      data.decks_responses[i].cards
+    )
+    todayDeckList.value.push(<Deck>data.decks_responses[i].deck)
   }
 }
 </script>
