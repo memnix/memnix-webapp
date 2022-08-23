@@ -1,5 +1,5 @@
 {
-  "name": "Memnix - A spaced repetition learning system",
+  "name": "Memnix app",
   "short_name": "Memnix",
   "icons": [
     {
@@ -32,7 +32,7 @@
   ],
   "start_url": "/?standalone=true",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "background_color": "#FCFCFC",
+  "theme_color": "#405CA0",
   "lang": "en"
 }
