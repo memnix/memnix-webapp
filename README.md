@@ -6,7 +6,8 @@ The memnix web app
 
 ## Badges
 
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)[![Discord](https://img.shields.io/discord/560798438099255296?style=flat-square)](https://discord.gg/de4hY4VEkJ)
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)[![Discord](https://img.shields.io/discord/560798438099255296?style=flat-square)](https://discord.gg/de4hY4VEkJ)[![Crowdin](https://badges.crowdin.net/memnix-web/localized.svg)](https://crowdin.com/project/memnix-web)
+
 
 ## Authors
 
