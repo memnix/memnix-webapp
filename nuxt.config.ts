@@ -51,7 +51,6 @@ export default defineNuxtConfig({
     serveStatic: true,
   },
 
-
   vite: {
     plugins: [
       UnpluginComponentsVite({
