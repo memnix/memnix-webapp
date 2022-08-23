@@ -44,6 +44,9 @@
         </div>
       </div>
     </div>
+
+    <UtilsCookies v-if="!hasAcceptedCookies" @aceptedCookies="acceptCookies" />
+
     <ModalProfile
       v-if="modalProfile"
       @closeModalProfile="closeModalProfile"
@@ -62,8 +65,14 @@ import { User } from '~/types'
 
 const route = useRoute()
 
+let hasAcceptedCookies = useCookie('cookies')
+
 let modalProfile = ref(false)
 let modalNotification = ref(false)
+
+function acceptCookies() {
+  hasAcceptedCookies.value = true
+}
 
 function openModalProfile() {
   modalProfile.value = true

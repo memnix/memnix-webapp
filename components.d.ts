@@ -35,6 +35,7 @@ declare module '@vue/runtime-core' {
     IconLucideYoutube: typeof import('~icons/lucide/youtube')['default']
     IconMdiCardsOutline: typeof import('~icons/mdi/cards-outline')['default']
     IconMdiHomeOutline: typeof import('~icons/mdi/home-outline')['default']
+    IconTwemojiCookie: typeof import('~icons/twemoji/cookie')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

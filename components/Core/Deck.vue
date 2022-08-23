@@ -4,7 +4,7 @@
   >
     <div class="rounded-box relative mx-auto">
       <nuxt-img
-        :src="deck.deck_banner"
+        :src="deck.deck_banner || 'icon.png'"
         alt="deck image url"
         class="h-24 w-24 object-cover md:h-40 md:w-40 lg:h-64 lg:w-64"
         format="webp"
@@ -17,12 +17,12 @@
 
       <span
         v-if="number_badge !== 0"
-        class="badge badge-sm badge-secondary absolute -top-2 -right-1 md:badge-md lg:badge-lg"
+        class="badge badge-secondary badge-sm absolute -top-2 -right-1 md:badge-md lg:badge-lg"
         >{{ number_badge }}</span
       >
       <span
         v-if="deck.ID === 13"
-        class="badge tooltip badge-sm badge-success absolute -bottom-1 -right-3 text-success-content md:badge-md lg:badge-lg"
+        class="badge tooltip badge-success badge-sm absolute -bottom-1 -right-3 text-success-content md:badge-md lg:badge-lg"
         data-tip="verified"
       >
         <Icon-lucide-verified />
