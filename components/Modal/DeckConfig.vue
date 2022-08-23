@@ -65,12 +65,12 @@
         </RadioGroup>
       </div>
       <div class="modal-action">
-        <label class="hoveranimation btn btn-error" @click="unsubscribeDeck"
-          >Unsubscribe</label
-        >
-        <label class="hoveranimation btn btn-primary" @click="updateDeckConfig"
-          >Update</label
-        >
+        <label class="hoveranimation btn btn-error" @click="unsubscribeDeck">
+          {{ $t('unsubscribe') }}
+        </label>
+        <label class="hoveranimation btn btn-primary" @click="updateDeckConfig">
+          {{ $t('update') }}
+        </label>
       </div>
     </div>
   </div>
@@ -86,6 +86,7 @@ import {
   RadioGroupOption,
 } from '@headlessui/vue'
 import { setTodaySetting, unsubToDeck } from '~/api/deck.api'
+import { useLang } from '~/composables/useLang'
 
 const props = defineProps({
   deck: {
@@ -96,14 +97,13 @@ const props = defineProps({
 
 const plans = [
   {
-    name: 'Daily Learning (recommended)',
-    description:
-      'Work on the deck using our spaced repetition learning algorithm.',
+    name: useLang().t('daily_learning_recommended'),
+    description: useLang().t('daily_learning_recommended_content'),
     today_setting: true,
   },
   {
-    name: 'Free Learning',
-    description: 'Practice the deck when you want.',
+    name: useLang().t('free_learning'),
+    description: useLang().t('free_learning_content'),
     today_setting: false,
   },
 ]
