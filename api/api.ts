@@ -1,6 +1,7 @@
 import { useApiStore } from '~/stores/api'
 
 export const baseUrl = 'https://api.memnix.app/v1'
+//export const baseUrl = 'http://localhost:1813/v1'
 
 export async function login(email: string, password: string) {
   try {
