@@ -21,9 +21,9 @@
         <Icon-lucide-users v-if="icon === 'users'" class="h-10 w-10" />
       </span>
       <div class="mt-4 md:mx-4 md:mt-0">
-        <h1 class="text-2xl font-medium capitalize">
+        <h2 class="text-2xl font-medium capitalize">
           {{ title }}
-        </h1>
+        </h2>
 
         <p class="mt-3">
           <slot></slot>

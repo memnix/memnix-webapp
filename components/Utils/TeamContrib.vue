@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-start rounded-lg border border-secondary p-6">
-    <div href="" class="block shrink-0">
+    <div class="block shrink-0">
       <nuxt-img
         alt="moutmout"
         height="100%"

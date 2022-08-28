@@ -4,11 +4,11 @@
       <div class="relative flex flex-col items-center justify-center py-5 px-4">
         <Icon-twemoji-cookie class="h-16 w-16" />
         <div class="mt-12">
-          <h1
+          <h2
             class="text-center text-3xl font-semibold leading-7 lg:text-4xl lg:leading-9"
           >
             {{ $t('we_use_cookies') }}
-          </h1>
+          </h2>
         </div>
         <p class="mt-6 text-center text-base leading-7 sm:w-80">
           {{ $t('we_use_cookies_content') }}
