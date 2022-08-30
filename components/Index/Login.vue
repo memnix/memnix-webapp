@@ -33,7 +33,6 @@
           <button
             class="hoveranimation btn btn-primary w-full"
             type="submit"
-            @click="submitLoginRequest"
           >
             {{ $t('login') }}
           </button>
