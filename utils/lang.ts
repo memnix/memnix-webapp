@@ -17,6 +17,16 @@ export const availableLocales: { [key: string]: ILocale } = {
     iso: 'fr',
     flag: '🇫🇷',
   },
+  ro: {
+    name: 'Română',
+    iso: 'ro',
+    flag: '🇷🇴',
+  },
+  it: {
+    name: 'Italiano',
+    iso: 'it',
+    flag: '🇮🇹',
+  },
 }
 
 export function LanguageManager() {
