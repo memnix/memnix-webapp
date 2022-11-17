@@ -25,7 +25,7 @@
     "@heroicons/vue": "1.0.6",
     "@nuxtjs/i18n": "npm:@nuxtjs/i18n-edge",
     "@pinia/nuxt": "^0.4.1",
-    "@tailwindcss/aspect-ratio": "0.4.0",
+    "@tailwindcss/aspect-ratio": "0.4.2",
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/line-clamp": "0.4.0",
     "@tailwindcss/typography": "0.5.4",
