@@ -36,7 +36,7 @@
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "theme-change": "^2.2.0",
-    "vue3-carousel": "^0.1.46"
+    "vue3-carousel": "^0.2.0"
   },
   "overrides": {
     "semver-regex": "^3.1.4",
