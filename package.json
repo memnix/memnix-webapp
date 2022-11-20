@@ -38,11 +38,12 @@
     "theme-change": "^2.2.0",
     "vue3-carousel": "^0.2.0"
   },
-  "overrides": {
+  "resolutions": {
     "semver-regex": "^3.1.4",
     "svgo": "^2.8.0",
     "got": "11.8.5",
     "parse-path": "^5.0.0",
-    "node-fetch": "^3.2.10"
+    "node-fetch": "^3.2.10",
+    "parse-url": "8.1.0"
   }
 }
