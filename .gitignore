@@ -107,3 +107,4 @@ dist
 *lock
 package-lock.json
 /.output/
+!/yarn.lock
