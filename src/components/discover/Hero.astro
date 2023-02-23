@@ -1,0 +1,73 @@
+---
+import { Picture } from "@astrojs/image/components"
+import { setDefaultNamespace, t } from "i18next"
+import { Trans } from "astro-i18next/components"
+import Logo from "@img/icon.png"
+
+setDefaultNamespace("common")
+---
+
+<section
+	class="max-w-6xl mx-auto px-4 sm:px-6 md:flex md:h-screen 2xl:h-auto pt-[72px] md:min-h-[calc(100vh-72px)]"
+>
+	<div class="py-12 md:py-12 lg:py-16 block md:flex text-center md:text-left">
+		<div
+			class="pb-12 md:pb-0 md:py-0 mx-auto md:pr-16 flex items-center basis-3/5"
+		>
+			<div>
+				<h1
+					class="text-5xl md:text-[3.48rem] font-bold leading-tighter tracking-tighter mb-4 font-heading px-4 md:px-0"
+				>
+					<Trans
+						i18nKey="description.spaced_repetition_learning_app"
+						ns="discover"
+					>
+						A <span class="text-accent">spaced repetition</span>
+						<span class="lg:block">learning app</span>
+						<span class="sm:whitespace-nowrap text-secondary">using AI</span>
+					</Trans>
+				</h1>
+				<div class="max-w-3xl mx-auto">
+					<div
+						class="max-w-xs sm:max-w-md flex flex-nowrap flex-col sm:flex-row gap-4 m-auto md:m-0 justify-center md:justify-start"
+					>
+						<div class="flex w-full sm:w-auto">
+							<a
+								class="btn btn-primary sm:mb-0 w-full"
+								href={"/auth"}
+								rel="noopener prefetch "
+							>
+								{t("cta.get_started")}
+							</a>
+						</div>
+						<div class="flex w-full sm:w-auto">
+							<a
+								href={"https://github.com/CorentinGS"}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="btn w-full btn-outline"
+							>
+								{t("cta.learn_more")}
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="block md:flex items-center flex-1">
+			<div class="relative m-auto max-w-4xl">
+				<Picture
+					src={Logo}
+					formats={["avif", "webp", "png"]}
+					class="mx-auto w-full rounded-md md:h-full drop-shadow-2xl"
+					sizes={`(min-width: 1024px) 800px, (min-width: 768px) 600px, 400px`}
+					loading={"eager"}
+					decoding={"async"}
+					widths={[400, 600, 800]}
+					aspectRatio={1}
+					alt="Memnix app logo"
+				/>
+			</div>
+		</div>
+	</div>
+</section>

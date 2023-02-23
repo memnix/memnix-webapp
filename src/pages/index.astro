@@ -1,0 +1,19 @@
+---
+// Component imports
+import { Layout } from "@globals";
+import { changeLanguage, setDefaultNamespace } from "i18next";
+import Hero from "../components/discover/Hero.astro";
+import Features from "../components/discover/Features.astro";
+import Header from "../components/global/Header/Header.astro";
+
+changeLanguage("en");
+
+export const prerender = true;
+setDefaultNamespace("common");
+---
+
+<Layout title="Memnix">
+	<Header />
+	<Hero />
+	<Features />
+</Layout>
