@@ -1,15 +1,14 @@
 {
 	"cta": {
 		"get_started": "Get started",
-		"learn_more": "Learn more"
+		"learn_more": "En savoir plus"
 	},
-
 	"auth": {
 		"welcome_back": "Welcome back on Memnix",
 		"email": "Email",
-		"password": "Password",
+		"password": "Mot de passe",
 		"login": "Connection",
 		"forgot_password": "Forgot password?",
-		"register": "Register"
+		"register": "S'inscrire"
 	}
 }
