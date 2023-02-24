@@ -44,7 +44,19 @@ export default defineConfig({
 			serviceEntryPoint: "@astrojs/image/sharp"
 		}),
 		astroI18next(),
-		sitemap(),
+		sitemap({
+			lastmod: new Date(),
+			i18n: {
+				defaultLocale: "en",
+				locales: {
+					en: "en-US",
+					de: "de-DE",
+					fr: "fr-FR",
+					ro: "ro-RO",
+					it: "it-IT",
+				}
+			}
+		}),
 		critters(),
 		purgecss(),
 		compress(),
