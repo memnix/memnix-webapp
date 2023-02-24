@@ -19,6 +19,7 @@
 		"@astrojs/solid-js": "^2.0.2",
 		"@astrojs/tailwind": "^3.0.1",
 		"@iconify-icon/solid": "^1.0.7",
+		"@mbarzda/solid-i18next": "^1.2.2",
 		"@tailwindcss/aspect-ratio": "^0.4.2",
 		"@tailwindcss/forms": "^0.5.3",
 		"@tailwindcss/line-clamp": "^0.4.2",

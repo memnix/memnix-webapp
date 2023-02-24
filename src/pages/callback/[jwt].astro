@@ -1,0 +1,24 @@
+---
+import { changeLanguage } from "i18next"
+import { localizePath } from "astro-i18next"
+
+changeLanguage("en")
+
+const { jwt } = Astro.params
+Astro.cookies.set("jwt", jwt, {
+	httpOnly: true,
+	secure: false,
+	sameSite: "lax",
+	// age of cookie in seconds (7 days)
+	maxAge: 60 * 60 * 24 * 7,
+	path: "/"
+})
+// Get the language from the cookie
+const language = Astro.cookies.get("lang")
+// If the language is not set, set it to the default language
+if (!language) {
+	language.value = "en"
+}
+const lang = language.value?.toString()
+return Astro.redirect(localizePath("/", lang))
+---

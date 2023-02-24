@@ -1,13 +1,17 @@
 ---
 // Component imports
 import { Layout } from "@globals"
-import { changeLanguage, setDefaultNamespace } from "i18next"
+import i18next, { t, setDefaultNamespace, changeLanguage } from "i18next"
 import Hero from "../../components/discover/Hero.astro"
 import Features from "../../components/discover/Features.astro"
 import Header from "../../components/global/Header/Header.astro"
 
 changeLanguage("it")
 
+Astro.cookies.set("lang", i18next.language, {
+	path: "/",
+	sameSite: "lax"
+})
 export const prerender = true
 setDefaultNamespace("common")
 ---

@@ -3,20 +3,40 @@
 import { createSignal, onMount } from "solid-js"
 import { Icon } from "@iconify-icon/solid"
 import { t } from "i18next"
+import { login } from "../../../common/utils/security"
+import { LoginResponse } from "../../../common/types/api"
 
 export default function Auth() {
 	const [username, setUsername] = createSignal("")
 	const [password, setPassword] = createSignal("")
-	const login = async () => {}
+	const onLogin = async () => {
+		await login(username(), password())
+			.then(({ token }: LoginResponse) => {
+				window.location.href = "/callback/" + token
+			})
+			.catch((err) => {
+				console.log(err)
+			})
+	}
+
+	const onLoginWithDiscord = async () => {
+		window.location.href = "http://localhost:1815/v2/security/discord"
+	}
+
+	const onLoginWithGithub = async () => {
+		window.location.href = "http://localhost:1815/v2/security/github"
+	}
 
 	onMount(async () => {})
+
+	// Create a prop for the login button
 
 	return (
 		<>
 			<div class="flex flex-col gap-4 p-4 md:p-8">
 				<div class="">
 					<label class="label">
-						<span class="label-text">auth.email</span>
+						<span class="label-text">{t("auth.email")}</span>
 					</label>
 					<input
 						type="text"
@@ -41,10 +61,10 @@ export default function Auth() {
 				</div>
 
 				<button
-					onClick={login}
+					onClick={onLogin}
 					class="btn-primary btn px-8 py-3 transition duration-100"
 				>
-					"auth.login"
+					{t("auth.login")}
 				</button>
 
 				<div class="relative flex items-center justify-center">
@@ -54,9 +74,23 @@ export default function Auth() {
 					</span>
 				</div>
 
-				<button class="btn-accent btn flex items-center justify-center gap-2 px-8 py-3 transition duration-100">
-					<Icon icon="lucide:github" />
+				<button
+					onClick={onLoginWithGithub}
+					class="btn-accent btn flex items-center justify-center gap-2 px-8 py-2 transition duration-100"
+				>
+					<Icon icon="lucide:github" height="none" style={{ height: "100%" }} />
 					Continue with github
+				</button>
+				<button
+					onClick={onLoginWithDiscord}
+					class="btn-secondary btn flex items-center justify-center gap-2 px-8 py-2 transition duration-100"
+				>
+					<Icon
+						icon="ic:baseline-discord"
+						height="none"
+						style={{ height: "100%" }}
+					/>
+					Continue with discord
 				</button>
 			</div>
 		</>
