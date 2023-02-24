@@ -1,8 +1,8 @@
 /** @jsxImportSource solid-js */
 
-import { createSignal,  onMount } from "solid-js"
+import { createSignal, onMount } from "solid-js"
 import { Icon } from "@iconify-icon/solid"
-import {t} from "i18next";
+import { t } from "i18next"
 
 export default function Auth() {
 	const [username, setUsername] = createSignal("")
