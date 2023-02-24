@@ -1,6 +1,7 @@
 ---
 import Logo from "../Logo/Logo.astro"
 import { LanguageSelector } from "astro-i18next/components"
+import {localizePath} from "astro-i18next";
 ---
 
 <div class="navbar md:px-5 transition-all">
@@ -16,7 +17,7 @@ import { LanguageSelector } from "astro-i18next/components"
 		/>
 
 		<a
-			href={"/auth"}
+			href={localizePath("/auth")}
 			aria-label="login"
 			rel="prefetch"
 			class="ml-3 btn btn-primary h-10 px-5 shadow-none text-base"

@@ -1,10 +1,8 @@
 /** @jsxImportSource solid-js */
 
-import { createSignal, createEffect, onCleanup, lazy, onMount } from "solid-js"
+import { createSignal,  onMount } from "solid-js"
 import { Icon } from "@iconify-icon/solid"
-import {setDefaultNamespace, t} from "i18next"
-
-setDefaultNamespace("common")
+import {t} from "i18next";
 
 export default function Auth() {
 	const [username, setUsername] = createSignal("")
@@ -18,7 +16,7 @@ export default function Auth() {
 			<div class="flex flex-col gap-4 p-4 md:p-8">
 				<div class="">
 					<label class="label">
-						<span class="label-text">{t("auth.email")}</span>
+						<span class="label-text">auth.email</span>
 					</label>
 					<input
 						type="text"
@@ -46,7 +44,7 @@ export default function Auth() {
 					onClick={login}
 					class="btn-primary btn px-8 py-3 transition duration-100"
 				>
-					{t("auth.login")}
+					"auth.login"
 				</button>
 
 				<div class="relative flex items-center justify-center">

@@ -3,6 +3,7 @@ import { Picture } from "@astrojs/image/components"
 import { setDefaultNamespace, t } from "i18next"
 import { Trans } from "astro-i18next/components"
 import Logo from "@img/icon.png"
+import {localizePath} from "astro-i18next";
 
 setDefaultNamespace("common")
 ---
@@ -34,7 +35,7 @@ setDefaultNamespace("common")
 						<div class="flex w-full sm:w-auto">
 							<a
 								class="btn btn-primary sm:mb-0 w-full"
-								href={"/auth"}
+								href={localizePath("/auth")}
 								rel="noopener prefetch "
 							>
 								{t("cta.get_started")}

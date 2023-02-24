@@ -9,6 +9,7 @@ import { HeadHrefLangs } from "astro-i18next/components"
 
 // Helper imports
 import { seoConfig } from "@util/seoConfig"
+import { dataWebsiteId } from "@util/config"
 
 // Props
 export interface Props {
@@ -69,7 +70,12 @@ const {
 			}}
 		/>
 
-		<script async type="text/partytown" defer data-website-id="2cf3d960-ceea-49dc-87cc-a0ed07bc3575" src="http://localhost:3010/umami.js"   data-cache="true"></script>
+		<script
+			async
+			defer
+			data-website-id={dataWebsiteId}
+			src="http://localhost:3010/umami.js"
+		></script>
 
 		<!-- I18n tags -->
 		<HeadHrefLangs />
