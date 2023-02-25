@@ -1,20 +1,20 @@
 ---
-import { Picture } from "@astrojs/image/components"
+import { Image } from "@astrojs/image/components"
 import Logo from "@img/icon.png"
 ---
 
 <span
 	class="self-center ml-2 text-2xl md:text-xl font-bold whitespace-nowrap flex items-center"
 >
-	<Picture
+	<Image
 		src={Logo}
-		formats={["avif", "webp", "png"]}
 		class="inline-block mr-1"
-		sizes={`(min-width: 1024px) 64px, 32px`}
-		loading={"lazy"}
-		widths={[32, 64]}
-		aspectRatio={1}
+		loading={"eager"}
+		decoding={"async"}
 		alt="Logo"
+		quality={60}
+		width={64}
+		height={64}
 	/>
 
 	Memnix
