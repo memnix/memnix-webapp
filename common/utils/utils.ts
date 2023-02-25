@@ -1,4 +1,4 @@
-export const baseUrl = "http://localhost:1815/v2"
+export const baseUrl = "http://127.0.0.1:1815/v2"
 
 export function post(url: string, body?: object) {
 	return fetch(baseUrl + url, {
@@ -9,11 +9,13 @@ export function post(url: string, body?: object) {
 		body: JSON.stringify(body)
 	})
 }
+
 export function getWithToken(url, token) {
 	return fetch(baseUrl + url, {
+		method: "GET",
 		headers: {
 			"Content-Type": "application/json",
-			Authorization: `Bearer ${token}`
+			Authorization: "Bearer " + token
 		}
 	})
 }

@@ -5,5 +5,8 @@ export const ENDPOINTS = {
 		register: "/security/register",
 		discord: "/security/discord",
 		github: "/security/github"
+	},
+	Users: {
+		me: "/user/me"
 	}
 }

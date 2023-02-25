@@ -20,5 +20,5 @@ if (!language) {
 	language.value = "en"
 }
 const lang = language.value?.toString()
-return Astro.redirect(localizePath("/", lang))
+return Astro.redirect(localizePath("/dashboard", lang))
 ---

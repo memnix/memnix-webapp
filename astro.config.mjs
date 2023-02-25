@@ -53,7 +53,7 @@ export default defineConfig({
 					de: "de-DE",
 					fr: "fr-FR",
 					ro: "ro-RO",
-					it: "it-IT",
+					it: "it-IT"
 				}
 			}
 		}),

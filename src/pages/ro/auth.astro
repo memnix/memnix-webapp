@@ -4,15 +4,16 @@ import { Layout } from "@globals"
 import i18next, { t, changeLanguage, setDefaultNamespace } from "i18next"
 import Auth from "../../components/index/Auth"
 import { localizePath } from "astro-i18next"
+import { isConnected } from "../../../common/utils/security"
 
 changeLanguage("ro")
 
-Astro.cookies.set("lang", i18next.language, {
-	path: "/",
-	sameSite: "lax"
-})
 export const prerender = true
 setDefaultNamespace("common")
+const jwt = Astro.cookies.get("jwt")?.value
+if (jwt && (await isConnected(jwt))) {
+	return Astro.redirect(localizePath("/dashboard"))
+}
 ---
 
 <Layout title="Memnix">
