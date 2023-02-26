@@ -13,6 +13,9 @@ import image from "@astrojs/image"
 import solidJs from "@astrojs/solid-js"
 import astroI18next from "astro-i18next"
 
+import vercel from '@astrojs/vercel/serverless';
+
+
 // Helper imports
 import { manifest, seoConfig } from "./utils/seoConfig"
 
@@ -80,7 +83,5 @@ export default defineConfig({
 		]
 	},
 	output: "server",
-	adapter: node({
-		mode: "standalone"
-	})
+	adapter: vercel()
 })
