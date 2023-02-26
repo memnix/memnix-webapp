@@ -1,0 +1,6 @@
+Memnix.app built by CorentinGS
+
+GitHub: https://github.com/corentings
+Personal: https://corentings.vercel.app
+
+Checkout the https://humanstxt.org/ protocol to see how you should format your humans.txt file!

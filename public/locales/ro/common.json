@@ -1,0 +1,14 @@
+{
+	"cta": {
+		"get_started": "Get started",
+		"learn_more": "Aflați mai mult"
+	},
+	"auth": {
+		"welcome_back": "Welcome back on Memnix",
+		"email": "Email",
+		"password": "Parolă",
+		"login": "Conectați-vă",
+		"forgot_password": "Forgot password?",
+		"register": "Înscrieți-vă"
+	}
+}

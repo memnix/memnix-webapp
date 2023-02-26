@@ -1,0 +1,21 @@
+---
+import { Image } from "@astrojs/image/components"
+import Logo from "@img/icon.png"
+---
+
+<span
+	class="self-center ml-2 text-2xl md:text-xl font-bold whitespace-nowrap flex items-center"
+>
+	<Image
+		src={Logo}
+		class="inline-block mr-1"
+		loading={"eager"}
+		decoding={"async"}
+		alt="Logo"
+		quality={60}
+		width={64}
+		height={64}
+	/>
+
+	Memnix
+</span>
