@@ -28,7 +28,6 @@ import node from "@astrojs/node"
 
 // https://astro.build/config
 import critters from "astro-critters"
-import purgecss from "astro-purgecss"
 
 // https://astro.build/config
 
@@ -61,7 +60,6 @@ export default defineConfig({
 			}
 		}),
 		critters(),
-		purgecss(),
 		compress(),
 		compressor()
 	],
@@ -83,5 +81,9 @@ export default defineConfig({
 		]
 	},
 	output: "server",
-	adapter: vercel()
+	//adapter: vercel()
+	adapter: node({
+			mode: "standalone",
+		}
+	)
 })
