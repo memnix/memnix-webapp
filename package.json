@@ -35,6 +35,7 @@
 		"astro-seo": "^0.7.1",
 		"autoprefixer": "^10.4.13",
 		"daisyui": "^2.51.0",
+		"dotenv": "^16.0.3",
 		"i18next": "^22.4.10",
 		"newrelic": "^9.10.2",
 		"sharp": "^0.31.3",

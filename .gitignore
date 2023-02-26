@@ -37,4 +37,3 @@ pnpm-lock.yaml
 !/yarn.lock
 
 .npmrc
-utils/config.ts
