@@ -2,11 +2,10 @@
 
 import { createSignal, onMount } from "solid-js"
 import { Icon } from "@iconify-icon/solid"
-import { t } from "i18next"
 import { login } from "../../../common/utils/security"
 import { LoginResponse } from "../../../common/types/api"
 
-export default function Auth() {
+export default function Auth(props) {
 	const [username, setUsername] = createSignal("")
 	const [password, setPassword] = createSignal("")
 	const onLogin = async () => {
@@ -18,6 +17,9 @@ export default function Auth() {
 				console.log(err)
 			})
 	}
+
+	const {t} = props
+
 
 	const onLoginWithDiscord = async () => {
 		window.location.href = "http://localhost:1815/v2/security/discord"
@@ -36,7 +38,7 @@ export default function Auth() {
 			<div class="flex flex-col gap-4 p-4 md:p-8">
 				<div class="">
 					<label class="label">
-						<span class="label-text">{t("auth.email")}</span>
+						<span class="label-text">{t.email}</span>
 					</label>
 					<input
 						type="text"
@@ -49,7 +51,7 @@ export default function Auth() {
 
 				<div class="">
 					<label class="label">
-						<span class="label-text">{t("auth.password")}</span>
+						<span class="label-text">{t.password}</span>
 					</label>
 					<input
 						type="password"
@@ -64,7 +66,7 @@ export default function Auth() {
 					onClick={onLogin}
 					class="btn-primary btn px-8 py-3 transition duration-100"
 				>
-					{t("auth.login")}
+					{t.login}
 				</button>
 
 				<div class="relative flex items-center justify-center">
