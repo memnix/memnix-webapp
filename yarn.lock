@@ -448,13 +448,13 @@
   resolved "https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.15.5.tgz#91aef76d332cdc7c8942b600fa2307f3387e6f82"
   integrity sha512-UHkDFCfSGTuXq08oQltXxSZmH1TXyWsL+4QhZDWvvLl6mEJQqk3u7/wq1LjhrrAXYIllaTtRSzUXl4Olkf2J8A==
 
-"@funken-studio/sitemap-nuxt-3@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.npmjs.org/@funken-studio/sitemap-nuxt-3/-/sitemap-nuxt-3-3.2.0.tgz"
-  integrity sha512-0ccincYgnFvVHtHhQYJn11/qYoiQY3e2Ek9ZiBWRAfUegCvDiJzxVUMaB8qtQUAGrJK23RtpbkPd/SY/5tqakQ==
+"@funken-studio/sitemap-nuxt-3@^4.0.0":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@funken-studio/sitemap-nuxt-3/-/sitemap-nuxt-3-4.0.4.tgz#2a8c59dcbf1b51ce0bab902b9980aa7e64b6ce94"
+  integrity sha512-bXGA0CVTLWL7QjG14INsnBljsVAvmlGZdvQSIGMSBIZj03ZRila8d0oHUM9IoWJFCUQ653Rwszgjkqh6an6Qjg==
   dependencies:
     "@babel/core" "^7.18.6"
-    "@nuxt/kit" "^3.0.0-rc.4"
+    "@nuxt/kit" "^3.0.0"
     async-cache "^1.1.0"
     consola "^2.15.0"
     etag "^1.8.1"
@@ -821,6 +821,30 @@
     unimport "^0.6.7"
     untyped "^0.4.5"
 
+"@nuxt/kit@^3.0.0":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.2.3.tgz#97d8b4a4bedda4452ea18629c73c6301a964d492"
+  integrity sha512-wcsVlQLwGkh1cRhAFWHc3uYHdIxFTRNdRUzNyfqoX9DL0Fuga3K75q/PBY0xg1viA9R6F5BMPhc7KDLSWbXtWg==
+  dependencies:
+    "@nuxt/schema" "3.2.3"
+    c12 "^1.1.2"
+    consola "^2.15.3"
+    defu "^6.1.2"
+    globby "^13.1.3"
+    hash-sum "^2.0.0"
+    ignore "^5.2.4"
+    jiti "^1.17.1"
+    knitwork "^1.0.0"
+    lodash.template "^4.5.0"
+    mlly "^1.1.1"
+    pathe "^1.1.0"
+    pkg-types "^1.0.2"
+    scule "^1.0.0"
+    semver "^7.3.8"
+    unctx "^2.1.2"
+    unimport "^2.2.4"
+    untyped "^1.2.2"
+
 "@nuxt/kit@^3.2.0":
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.2.2.tgz#5b369122ce853f99ecaf8cddc950ad8c4ca47e58"
@@ -891,6 +915,25 @@
     scule "^1.0.0"
     std-env "^3.3.2"
     ufo "^1.1.0"
+    unimport "^2.2.4"
+    untyped "^1.2.2"
+
+"@nuxt/schema@3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@nuxt/schema/-/schema-3.2.3.tgz#fe84483237a5f6177ebb051422cf556ffab80aa2"
+  integrity sha512-AXzRnBivCwn5RpNFWjUkvOPGPSHl5BM+6GfOpSNglPXi0tiQJ+rawSl7no7BkxGDmQ44Bx9AXwvHTrgjpcuo4g==
+  dependencies:
+    c12 "^1.1.2"
+    create-require "^1.1.1"
+    defu "^6.1.2"
+    hookable "^5.4.2"
+    jiti "^1.17.1"
+    pathe "^1.1.0"
+    pkg-types "^1.0.2"
+    postcss-import-resolver "^2.0.0"
+    scule "^1.0.0"
+    std-env "^3.3.2"
+    ufo "^1.1.1"
     unimport "^2.2.4"
     untyped "^1.2.2"
 
@@ -6074,6 +6117,11 @@ ufo@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ufo/-/ufo-1.1.0.tgz#a5c4c814b0a98f7e0ca42c478688663fd3e3c037"
   integrity sha512-LQc2s/ZDMaCN3QLpa+uzHUOQ7SdV0qgv3VBXOolQGXTaaZpIur6PwUclF5nN2hNkiTRcUugXd1zFOW3FLJ135Q==
+
+ufo@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/ufo/-/ufo-1.1.1.tgz#e70265e7152f3aba425bd013d150b2cdf4056d7c"
+  integrity sha512-MvlCc4GHrmZdAllBc0iUDowff36Q9Ndw/UzqmEKyrfSzokTd9ZCy1i+IIk5hrYKkjoYVQyNbrw7/F8XJ2rEwTg==
 
 unctx@^1.1.4:
   version "1.2.0"

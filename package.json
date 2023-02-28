@@ -21,7 +21,7 @@
     "unplugin-vue-components": "^0.24.0"
   },
   "dependencies": {
-    "@funken-studio/sitemap-nuxt-3": "^3.2.0",
+    "@funken-studio/sitemap-nuxt-3": "^4.0.0",
     "@heroicons/vue": "1.0.6",
     "@nuxtjs/i18n": "npm:@nuxtjs/i18n-edge",
     "@pinia/nuxt": "^0.4.1",
