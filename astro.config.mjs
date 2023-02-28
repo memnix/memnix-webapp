@@ -13,6 +13,9 @@ import image from "@astrojs/image"
 import solidJs from "@astrojs/solid-js"
 import astroI18next from "astro-i18next"
 
+import vercel from '@astrojs/vercel/serverless';
+
+
 // Helper imports
 import { manifest, seoConfig } from "./utils/seoConfig"
 
@@ -25,7 +28,6 @@ import node from "@astrojs/node"
 
 // https://astro.build/config
 import critters from "astro-critters"
-import purgecss from "astro-purgecss"
 
 // https://astro.build/config
 
@@ -58,7 +60,6 @@ export default defineConfig({
 			}
 		}),
 		critters(),
-		purgecss(),
 		compress(),
 		compressor()
 	],
@@ -80,7 +81,6 @@ export default defineConfig({
 		]
 	},
 	output: "server",
-	adapter: node({
-		mode: "standalone"
-	})
+	adapter: vercel()
+	// adapter: node({mode: "standalone"})
 })
