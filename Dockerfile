@@ -1,4 +1,4 @@
-FROM node:16.18.1-alpine
+FROM node:18.14.2-alpine
 
 RUN apk --no-cache update && rm -rf /var/cache/apk/*
 
