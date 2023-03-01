@@ -49,5 +49,5 @@ export const manifest: Partial<ManifestOptions> = {
 		}
 	],
 	start_url: "/standalone=true",
-	lang: "en",
+	lang: "en"
 }

@@ -5,6 +5,5 @@ export default {
 	fallbackLocale: "en",
 	load: ["server"],
 	defaultNS: "common",
-	namespaces: ["common", "discover"],
-
+	namespaces: ["common", "discover"]
 }

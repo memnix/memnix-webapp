@@ -18,8 +18,7 @@ export default function Auth(props) {
 			})
 	}
 
-	const {t} = props
-
+	const { t } = props
 
 	const onLoginWithDiscord = async () => {
 		window.location.href = "http://localhost:1815/v2/security/discord"
