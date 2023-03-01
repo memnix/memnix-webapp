@@ -15,6 +15,7 @@ import astroI18next from "astro-i18next"
 
 import vercel from '@astrojs/vercel/serverless';
 
+import AstroPWA from '@vite-pwa/astro'
 
 // Helper imports
 import { manifest, seoConfig } from "./utils/seoConfig"
@@ -60,26 +61,23 @@ export default defineConfig({
 			}
 		}),
 		critters(),
+		AstroPWA({
+			registerType: "autoUpdate",
+			injectRegister: "script",
+			manifest,
+			workbox: {
+				globDirectory: "dist",
+				globPatterns: [
+					"**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}"
+				],
+				// Don't fall back on document based (e.g. `/some-page`) requests
+				// This removes an errant console.log message from showing up.
+				navigateFallback: null
+			}
+		}),
 		compress(),
 		compressor()
 	],
-	vite: {
-		plugins: [
-			VitePWA({
-				registerType: "autoUpdate",
-				manifest,
-				workbox: {
-					globDirectory: "dist",
-					globPatterns: [
-						"**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}"
-					],
-					// Don't fall back on document based (e.g. `/some-page`) requests
-					// This removes an errant console.log message from showing up.
-					navigateFallback: null
-				}
-			})
-		]
-	},
 	output: "server",
 	// adapter: vercel()
 	adapter: node({mode: "standalone"})

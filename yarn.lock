@@ -2081,6 +2081,13 @@
     node-gyp-build "^4.2.2"
     resolve-from "^5.0.0"
 
+"@vite-pwa/astro@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@vite-pwa/astro/-/astro-0.0.4.tgz#a78b350945d8b52287079263d79da2f1a1017438"
+  integrity sha512-lfCbwr569+IUw5Oy9LZxp0B1+8k/OyC4ijM2OhobnOX6owO/MOVVcLQpv3A/WmHlZK9ISBSc9unPLjjMruuSBQ==
+  dependencies:
+    vite-plugin-pwa "^0.14.4"
+
 "@vscode/emmet-helper@^2.8.4":
   version "2.8.6"
   resolved "https://registry.yarnpkg.com/@vscode/emmet-helper/-/emmet-helper-2.8.6.tgz#ee2fa52321d6af8a40310fd9d37b8590a4dabb18"

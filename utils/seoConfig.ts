@@ -27,9 +27,9 @@ export const manifest: Partial<ManifestOptions> = {
 	name: "Memnix app", // Change this to your website's name.
 	short_name: "Memnix", // Change this to your website's short name.
 	description: "Memnix.app is a spaced repetition learning system", // Change this to your websites description.
-	theme_color: "#30E130", // Change this to your primary color.
+	theme_color: "#E9AF98", // Change this to your primary color.
 	background_color: "#ffffff", // Change this to your background color.
-	display: "minimal-ui",
+	display: "standalone",
 	icons: [
 		{
 			src: "/favicons/favicon-192x192.png",
@@ -47,5 +47,7 @@ export const manifest: Partial<ManifestOptions> = {
 			type: "image/png",
 			purpose: "any maskable"
 		}
-	]
+	],
+	start_url: "/standalone=true",
+	lang: "en",
 }
