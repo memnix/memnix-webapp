@@ -4,7 +4,8 @@ export const ENDPOINTS = {
 		logout: "/security/logout",
 		register: "/security/register",
 		discord: "/security/discord",
-		github: "/security/github"
+		github: "/security/github",
+		meilisearchToken: "/security/key"
 	},
 	Users: {
 		me: "/user/me"

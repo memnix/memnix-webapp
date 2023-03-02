@@ -1,7 +1,11 @@
 ---
 import { changeLanguage } from "i18next"
-import { isConnected } from "../../common/utils/security"
+import { getMeilisearchToken, isConnected } from "../../common/utils/security"
 import { localizePath } from "astro-i18next"
+import Header from "../components/global/Header/Header.astro"
+import { Layout } from "../components/global"
+import Meilisearch from "../components/decks/Meilisearch.vue"
+import Slider from "../components/decks/Slider.tsx"
 
 changeLanguage("en")
 
@@ -9,4 +13,19 @@ const jwt = Astro.cookies.get("jwt")?.value
 if (!jwt || !(await isConnected(jwt))) {
 	return Astro.redirect(localizePath("/auth"))
 }
+
+let meilisearchToken = Astro.cookies.get("meilisearch_token")?.value
+if (!meilisearchToken) {
+	const result = await getMeilisearchToken()
+	meilisearchToken = result?.token
+	Astro.cookies.set("meilisearch_token", meilisearchToken, {
+		maxAge: 60 * 60 * 24 * 30
+	})
+}
 ---
+
+<Layout title="Memnix">
+	<Header />
+	<Meilisearch client:visible token={meilisearchToken} class="hidden" />
+	<Slider client:idle/>
+</Layout>

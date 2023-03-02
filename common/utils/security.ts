@@ -3,7 +3,7 @@
 // @param {string} email
 // @param {string} password
 // @returns {Promise<{token: string}>}
-import { getWithToken, post } from "./utils"
+import { get, getWithToken, post } from "./utils"
 import { ENDPOINTS } from "./endpoints"
 
 export async function login(email, password) {
@@ -16,8 +16,13 @@ export async function login(email, password) {
 
 export async function isConnected(token) {
 	const res = await getWithToken(ENDPOINTS.Users.me, token)
+	return res.ok
+}
+
+export async function getMeilisearchToken() {
+	const res = await get(ENDPOINTS.Security.meilisearchToken)
 	if (res.ok) {
-		return true
+		return res.json()
 	}
 	throw new Error(await res.text())
 }

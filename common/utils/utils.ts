@@ -19,3 +19,12 @@ export function getWithToken(url, token) {
 		}
 	})
 }
+
+export function get(url) {
+	return fetch(baseUrl + url, {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json"
+		}
+	})
+}

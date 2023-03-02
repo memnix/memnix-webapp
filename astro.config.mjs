@@ -12,9 +12,7 @@ import image from "@astrojs/image"
 // https://astro.build/config
 import solidJs from "@astrojs/solid-js"
 import astroI18next from "astro-i18next"
-
 import vercel from "@astrojs/vercel/serverless"
-
 import AstroPWA from "@vite-pwa/astro"
 
 // Helper imports
@@ -31,6 +29,7 @@ import node from "@astrojs/node"
 import critters from "astro-critters"
 
 // https://astro.build/config
+import vue from "@astrojs/vue"
 
 // https://astro.build/config
 export default defineConfig({
@@ -76,9 +75,12 @@ export default defineConfig({
 			}
 		}),
 		compress(),
-		compressor()
+		compressor(),
+		vue({ appEntrypoint: "/src/pages/_app" })
 	],
 	output: "server",
 	// adapter: vercel()
-	adapter: node({ mode: "standalone" })
+	adapter: node({
+		mode: "standalone"
+	})
 })
