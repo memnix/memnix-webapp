@@ -1,9 +1,9 @@
 ---
-import { changeLanguage } from "i18next"
-import { getMeilisearchToken, isConnected } from "../../common/utils/security"
-import { localizePath } from "astro-i18next"
+import {changeLanguage} from "i18next"
+import {getMeilisearchToken, isConnected} from "../../common/utils/security"
+import {localizePath} from "astro-i18next"
 import Header from "../components/global/Header/Header.astro"
-import { Layout } from "../components/global"
+import {Layout} from "../components/global"
 import Meilisearch from "../components/decks/Meilisearch.vue"
 import Slider from "../components/decks/Slider.tsx"
 
@@ -25,7 +25,11 @@ if (!meilisearchToken) {
 ---
 
 <Layout title="Memnix">
-	<Header />
-	<Meilisearch client:visible token={meilisearchToken} class="hidden" />
-	<Slider client:idle/>
+	<Header/>
+	<Meilisearch client:visible token={meilisearchToken} class="hidden"/>
+	<Slider client:only="solid-js"/>
+	<Slider client:only="solid-js"/>
+	<Slider client:only="solid-js"/>
+	<Slider client:only="solid-js"/>
+	<Slider client:only="solid-js"/>
 </Layout>
