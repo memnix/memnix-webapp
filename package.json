@@ -11,10 +11,8 @@
 	},
 	"dependencies": {
 		"@astrojs/image": "^0.15.1",
-		"@astrojs/mdx": "^0.17.2",
 		"@astrojs/node": "^5.0.4",
 		"@astrojs/partytown": "^1.0.3",
-		"@astrojs/preact": "^2.0.3",
 		"@astrojs/prefetch": "^0.1.2",
 		"@astrojs/react": "^2.0.2",
 		"@astrojs/sitemap": "^1.1.0",
@@ -28,8 +26,8 @@
 		"@tailwindcss/forms": "^0.5.3",
 		"@tailwindcss/line-clamp": "^0.4.2",
 		"@tailwindcss/typography": "^0.5.9",
-		"@types/react": "^18.0.21",
-		"@types/react-dom": "^18.0.6",
+		"@types/react": "^18.0.28",
+		"@types/react-dom": "^18.0.11",
 		"@vite-pwa/astro": "^0.0.5",
 		"algoliasearch": "^4.15.0",
 		"astro": "^2.0.17",
@@ -47,9 +45,8 @@
 		"i18next": "^22.4.10",
 		"instantsearch.js": "^4.51.1",
 		"newrelic": "^9.10.2",
-		"preact": "^10.6.5",
-		"react": "^18.0.0",
-		"react-dom": "^18.0.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
 		"react-instantsearch-dom": "^6.39.0",
 		"sharp": "^0.31.3",
 		"solid-js": "^1.6.11",
@@ -68,9 +65,5 @@
 		"prettier": "^2.8.4",
 		"prettier-plugin-astro": "^0.8.0",
 		"prettier-plugin-tailwindcss": "^0.2.4"
-	},
-	"overrides": {
-		"react": "npm:@preact/compat@latest",
-		"react-dom": "npm:@preact/compat@latest"
 	}
 }
