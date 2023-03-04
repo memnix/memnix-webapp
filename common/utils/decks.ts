@@ -1,8 +1,8 @@
 import { getWithToken } from "./utils"
 import { ENDPOINTS } from "./endpoints"
-import {ApiResponse,  IDeckList} from "../types/api";
+import { ApiResponse, IDeckList } from "../types/api"
 
-export async function getOwnedDeck(token):  Promise<ApiResponse<IDeckList>> {
+export async function getOwnedDeck(token): Promise<ApiResponse<IDeckList>> {
 	const res = await getWithToken(ENDPOINTS.Decks.owned, token)
 	if (!res.ok) {
 		throw new Error(await res.text())

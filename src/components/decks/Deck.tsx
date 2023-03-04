@@ -6,7 +6,7 @@ export default function Deck(props) {
 	const deck: IDeck = props.deck
 	return (
 		<>
-			<div class="scale-100 transform transition-all duration-300 hover:scale-95 flex w-full flex-col justify-center hover:cursor-pointer">
+			<div class="flex w-full scale-100 transform flex-col justify-center transition-all duration-300 hover:scale-95 hover:cursor-pointer">
 				<img
 					src={deck.banner}
 					class="mr-2.5 max-h-32 w-full  object-contain"
