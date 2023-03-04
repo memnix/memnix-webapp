@@ -8,6 +8,13 @@ export interface LoginResponse {
 	message: string
 }
 
+export interface IUser {
+	id: number
+	email: string
+	username: string
+	avatar: string
+}
+
 export interface IDeck {
 	id: number
 	name: string
@@ -16,3 +23,4 @@ export interface IDeck {
 	banner: string
 }
 
+export interface IDeckList extends Array<IDeck> {}

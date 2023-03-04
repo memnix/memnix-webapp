@@ -1,0 +1,41 @@
+---
+import Logo from "../Logo/Logo.astro"
+import { LanguageSelector } from "astro-i18next/components"
+import { localizePath } from "astro-i18next"
+import { Image } from "@astrojs/image/components"
+import {getMe} from "../../../../common/utils/user";
+
+const jwt = Astro.cookies.get("jwt")?.value
+
+const user = await getMe(jwt).then((res) => res.data)
+
+const avatar = user?.avatar ? user.avatar : 'https://source.boringavatars.com/beam/120/' + user.username +'?colors=070705,3E4B51,6F737E,89A09A,C1C0AE'
+
+---
+
+<div class="navbar md:px-5 transition-all">
+	<div class="navbar-start">
+		<a class="" href={"/"} rel="prefetch">
+			<Logo />
+		</a>
+	</div>
+	<div class="navbar-end">
+		<LanguageSelector
+			showFlag={true}
+			class="hidden md:block my-select-class select select-bordered select-md w-full max-w-[10rem] 0 text-base-content px-5"
+		/>
+
+		<div class="avatar pl-5">
+			<div class="w-14 rounded-xl">
+				<Image src={avatar}
+					   loading={"eager"}
+					   decoding={"async"}
+					   alt={user?.username}
+					   format={"webp"}
+					   quality={60}
+					   width={64}
+					   height={64}/>
+			</div>
+		</div>
+	</div>
+</div>

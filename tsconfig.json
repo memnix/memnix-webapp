@@ -17,6 +17,6 @@
 			"@icon/*": ["src/assets/svg/icon/*"]
 		},
 		"jsxImportSource": "solid-js",
-		"jsx": "preserve"
+		"jsx": "preserve",
 	}
 }

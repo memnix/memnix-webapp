@@ -9,5 +9,10 @@ export const ENDPOINTS = {
 	},
 	Users: {
 		me: "/user/me"
+	},
+	Decks: {
+		deck: "/deck",
+		owned: "/deck/owned",
+		learning: "/deck/learning"
 	}
 }
