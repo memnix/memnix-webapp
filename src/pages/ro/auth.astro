@@ -1,0 +1,45 @@
+---
+// Component imports
+import { Layout } from "@globals"
+import i18next, { t, changeLanguage, setDefaultNamespace } from "i18next"
+import Auth from "../../components/index/Auth"
+import { localizePath } from "astro-i18next"
+import { isConnected } from "../../../common/utils/security"
+import Header from "../../components/global/Header/Header.astro"
+
+changeLanguage("ro")
+
+setDefaultNamespace("common")
+const jwt = Astro.cookies.get("jwt")?.value
+if (jwt && (await isConnected(jwt))) {
+	return Astro.redirect(localizePath("/dashboard"))
+}
+const authBundle = i18next.getResourceBundle(i18next.language, "common")
+export const prerender = true
+---
+
+<Layout title="Memnix">
+	<div class="py-6 sm:py-8 lg:py-12">
+		<div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+			<h2 class="mb-4 text-center text-2xl font-bold md:mb-8 lg:text-3xl">
+				{t("auth.login")}
+			</h2>
+
+			<div class="mx-auto max-w-lg rounded-lg border">
+				<Auth client:load t={authBundle.auth} />
+
+				<div class="flex items-center justify-center p-4">
+					<p class="text-center text-sm">
+						Don't have an account?{" "}
+						<a
+							href={localizePath("/register")}
+							class="text-secondary transition duration-100"
+						>
+							Register
+						</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</Layout>
