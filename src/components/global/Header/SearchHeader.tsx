@@ -13,7 +13,7 @@ export default function SearchHeader() {
 		<>
 			<span
 				class="hoveranimation mx-5 h-8 w-8 hover:cursor-pointer"
-				onclick={() => isSearchOpen.set(!$isSearchOpen())}
+				onClick={() => isSearchOpen.set(!$isSearchOpen())}
 			>
 				<Icon icon="lucide:search" height="none" style={{ height: "100%" }} />
 			</span>
