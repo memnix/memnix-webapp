@@ -3,6 +3,9 @@ import Logo from "../Logo/Logo.astro"
 import { LanguageSelector } from "astro-i18next/components"
 import { localizePath } from "astro-i18next"
 import { Image } from "@astrojs/image/components"
+import { Icon } from "astro-iconify"
+import SearchHeader from "./SearchHeader.tsx"
+
 import { getMe } from "../../../../common/utils/user"
 
 const jwt = Astro.cookies.get("jwt")?.value
@@ -23,13 +26,18 @@ const avatar = user?.avatar
 		</a>
 	</div>
 	<div class="navbar-end">
+		<SearchHeader client:idle class="" />
+
 		<LanguageSelector
 			showFlag={true}
-			class="hidden md:block my-select-class select select-bordered select-md w-full max-w-[10rem] 0 text-base-content px-5"
+			class="hidden md:block my-select-class select select-bordered select-md w-full max-w-[10rem] text-base-content px-5"
 		/>
 
 		<div class="dropdown dropdown-end pl-5 w-16">
-			<label tabindex="0" class="avatar rounded-xl mask mask-squircle">
+			<label
+				tabindex="0"
+				class="avatar rounded-xl mask mask-squircle hover:cursor-pointer"
+			>
 				<Image
 					src={avatar}
 					loading={"eager"}
@@ -41,9 +49,11 @@ const avatar = user?.avatar
 					height={64}
 				/>
 			</label>
-			<ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+			<ul
+				tabindex="0"
+				class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4"
+			>
 				<li><a href="logout">logout</a></li>
-				<li><a>Item 2</a></li>
 			</ul>
 		</div>
 	</div>
