@@ -1,20 +1,20 @@
 ---
 // Component imports
-import { Layout } from "@globals";
-import i18next, { t, changeLanguage, setDefaultNamespace } from "i18next";
-import Auth from "../components/index/Auth";
-import { localizePath } from "astro-i18next";
-import { isConnected } from "../../common/utils/security";
-import Header from "../components/global/Header/Header.astro";
+import { Layout } from "@globals"
+import i18next, { t, changeLanguage, setDefaultNamespace } from "i18next"
+import Auth from "../components/index/Auth"
+import { localizePath } from "astro-i18next"
+import { isConnected } from "../../common/utils/security"
+import Header from "../components/global/Header/Header.astro"
 
-changeLanguage("en");
+changeLanguage("en")
 
-setDefaultNamespace("common");
-const jwt = Astro.cookies.get("jwt")?.value;
+setDefaultNamespace("common")
+const jwt = Astro.cookies.get("jwt")?.value
 if (jwt && (await isConnected(jwt))) {
-    return Astro.redirect(localizePath("/dashboard"));
+	return Astro.redirect(localizePath("/dashboard"))
 }
-const authBundle = i18next.getResourceBundle(i18next.language, "common");
+const authBundle = i18next.getResourceBundle(i18next.language, "common")
 ---
 
 <Layout title="Memnix">
