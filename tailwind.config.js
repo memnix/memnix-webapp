@@ -7,17 +7,22 @@ module.exports = {
 	theme: {
 		extend: {
 			keyframes: {
+				marquee: {
+					'0%': { transform: 'translateX(0%)' },
+					'100%': { transform: 'translateX(-50%)' },
+				},
 				marquee2: {
-					'0%': { transform: 'translateX(100%)' },
-					'100%': { transform: 'translateX(0%)' },
+					'0%': { transform: 'translateX(0%)' },
+					'100%': { transform: 'translateX(-50%)' },
 				},
 			},
 			animation:
 				{
-					"slider": "marquee2 linear infinite 20s",
+					slider: 'marquee 25s linear infinite',
+					slider2: 'marquee2 20s linear infinite reverse',
 				},
 			fontFamily: {
-				sans: ["Syne", "Nunito", "Do Hyeon", ...defaultTheme.fontFamily.sans]
+				sans: ["Syne", "Nunito",  ...defaultTheme.fontFamily.sans]
 			}
 		}
 	},
