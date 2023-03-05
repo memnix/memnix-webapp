@@ -28,8 +28,8 @@ const avatar = user?.avatar
 			class="hidden md:block my-select-class select select-bordered select-md w-full max-w-[10rem] 0 text-base-content px-5"
 		/>
 
-		<div class="avatar pl-5">
-			<div class="w-14 rounded-xl mask mask-squircle">
+		<div class="dropdown dropdown-end pl-5 w-16">
+			<label tabindex="0" class="avatar rounded-xl mask mask-squircle">
 				<Image
 					src={avatar}
 					loading={"eager"}
@@ -40,7 +40,11 @@ const avatar = user?.avatar
 					width={64}
 					height={64}
 				/>
-			</div>
+			</label>
+			<ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+				<li><a href="logout">logout</a></li>
+				<li><a>Item 2</a></li>
+			</ul>
 		</div>
 	</div>
 </div>

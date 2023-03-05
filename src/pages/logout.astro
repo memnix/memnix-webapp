@@ -1,36 +1,23 @@
 ---
-import { changeLanguage } from "i18next";
-import { localizePath } from "astro-i18next";
-import {Icon} from "astro-iconify";
+import {localizePath} from "astro-i18next";
+import {Icon} from "astro-iconify"
 
-export const prerender = true;
+Astro.cookies.delete("jwt");
 
-changeLanguage("en");
-
-const { jwt } = Astro.params;
-Astro.cookies.set("jwt", jwt, {
-    httpOnly: true,
-    secure: false,
-    sameSite: "lax",
-    // age of cookie in seconds (7 days)
-    maxAge: 60 * 60 * 24 * 7,
-    path: "/"
-});
-// Get the language from the cookie
 const language = Astro.cookies.get("lang");
 // If the language is not set, set it to the default language
 if (!language) {
-    language.value = "en";
+	language.value = "en";
 }
-const lang = language.value?.toString();
-return Astro.redirect(localizePath("/dashboard", lang));
 
+export const prerender = true;
 
+return Astro.redirect(localizePath("/auth", language.value));
 ---
 
 <div class="w-full h-screen flex flex-col items-center justify-between">
 	<div class="xl:w-1/2 flex-1 flex flex-col items-center justify-center text-center px-4 lg:px-0">
-		<p class="text-4xl font-bold capitalize tracking-wide mt-8">Logging you in !</p>
+		<p class="text-4xl font-bold capitalize tracking-wide mt-8">Logging you out !</p>
 		<div class="text-xl uppercase mt-4 flex flex-row align-middle items-center">
 			<svg aria-hidden="true" class="w-12 h-12 mr-2 animate-spin text-secondary fill-secondary-content"
 				 viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
