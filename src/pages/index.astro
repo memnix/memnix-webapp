@@ -5,6 +5,7 @@ import i18next, { t, setDefaultNamespace, changeLanguage } from "i18next"
 import Hero from "../components/discover/Hero.astro"
 import Features from "../components/discover/Features.astro"
 import Header from "../components/global/Header/Header.astro"
+import Scroller from "../components/discover/Scroller.astro"
 
 changeLanguage("en")
 
@@ -20,4 +21,5 @@ setDefaultNamespace("common")
 	<Header />
 	<Hero />
 	<Features />
+	<Scroller />
 </Layout>

@@ -1,0 +1,16 @@
+---
+const TAGS = ['HTML', 'CSS', 'JavaScript', 'Typescript', 'Tailwind', 'React', 'Next.js', 'Gatsby', 'UI/UX', 'SVG', 'animation', 'webdev'];
+---
+
+<section>
+	<div class='w-[30rem] max-w-[90vw] flex flex-shrink-0 flex-col gap-[1rem] relative p-x-[1rem] overflow-hidden'>
+		<div class="flex w-fit animate-slider">
+		{TAGS.map((tag, index) => (
+			<span class='tag'>
+				{tag}
+			</span>
+		))}
+		</div>
+	</div>
+
+</section>

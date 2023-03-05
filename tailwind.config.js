@@ -6,6 +6,16 @@ module.exports = {
 	content: ["./src/**/*.{astro,html,jsx,tsx,svelte,vue,js,ts}"],
 	theme: {
 		extend: {
+			keyframes: {
+				marquee2: {
+					'0%': { transform: 'translateX(100%)' },
+					'100%': { transform: 'translateX(0%)' },
+				},
+			},
+			animation:
+				{
+					"slider": "marquee2 linear infinite 20s",
+				},
 			fontFamily: {
 				sans: ["Syne", "Nunito", "Do Hyeon", ...defaultTheme.fontFamily.sans]
 			}
