@@ -5,7 +5,7 @@ import type { ManifestOptions } from "vite-plugin-pwa"
  * Defines the default SEO configuration for the website.
  */
 export const seoConfig = {
-	baseURL: "https://memnix.app", // Change this to your production URL.
+	baseURL: "https://memnix.corentings.dev", // Change this to your production URL.
 	description: "Memnix.app is a spaced repetition learning system", // Change this to be your website's description.
 	type: "website",
 	image: {
