@@ -8,21 +8,20 @@ module.exports = {
 		extend: {
 			keyframes: {
 				marquee: {
-					'0%': { transform: 'translateX(0%)' },
-					'100%': { transform: 'translateX(-50%)' },
+					"0%": { transform: "translateX(0%)" },
+					"100%": { transform: "translateX(-50%)" }
 				},
 				marquee2: {
-					'0%': { transform: 'translateX(0%)' },
-					'100%': { transform: 'translateX(-50%)' },
-				},
+					"0%": { transform: "translateX(0%)" },
+					"100%": { transform: "translateX(-50%)" }
+				}
 			},
-			animation:
-				{
-					slider: 'marquee 25s linear infinite',
-					slider2: 'marquee2 20s linear infinite reverse',
-				},
+			animation: {
+				slider: "marquee 25s linear infinite",
+				slider2: "marquee2 20s linear infinite reverse"
+			},
 			fontFamily: {
-				sans: ["Syne", "Nunito",  ...defaultTheme.fontFamily.sans]
+				sans: ["Syne", "Nunito", ...defaultTheme.fontFamily.sans]
 			}
 		}
 	},

@@ -14,7 +14,8 @@
 			"@util/*": ["utils/*"],
 			"@img/*": ["src/assets/img/*"],
 			"@svg/*": ["src/assets/svg/*"],
-			"@icon/*": ["src/assets/svg/icon/*"]
+			"@icon/*": ["src/assets/svg/icon/*"],
+			"@common/*": ["common/*"]
 		},
 		"jsxImportSource": "solid-js",
 		"jsx": "preserve"

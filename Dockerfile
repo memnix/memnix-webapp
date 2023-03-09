@@ -1,18 +1,4 @@
-FROM node:18.12.1-alpine
+# Create a dockerfile that build my astrojs project using multiple stage
 
-RUN apk --no-cache update && rm -rf /var/cache/apk/*
+FROM node:12.16.1-alpine3.9 as builder
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-COPY package*.json yarn.lock ./
-
-RUN yarn install
-
-COPY . .
-
-RUN yarn build
-
-EXPOSE 3000
-
-CMD [ "yarn", "start" ]

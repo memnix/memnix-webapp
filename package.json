@@ -7,7 +7,11 @@
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"astro": "astro"
+		"astro": "astro",
+		"format": "prettier --write --plugin-search-dir=. .",
+		"i18n": "npx astro-i18next generate",
+		"serve": "node ./dist/server/entry.mjs",
+		"deploy": "yarn i18n && yarn build && yarn serve"
 	},
 	"dependencies": {
 		"@astrojs/image": "^0.15.1",
