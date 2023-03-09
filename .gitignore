@@ -37,3 +37,5 @@ pnpm-lock.yaml
 !/yarn.lock
 
 .npmrc
+
+docker-compose.yml
