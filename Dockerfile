@@ -1,5 +1,5 @@
 # Stage 1: Build the project
-FROM node:18.12.1-alpine AS build
+FROM node:18-alpine AS build
 
 RUN apk --no-cache update && rm -rf /var/cache/apk/*
 
