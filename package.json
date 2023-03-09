@@ -10,7 +10,7 @@
 		"astro": "astro",
 		"format": "prettier --write --plugin-search-dir=. .",
 		"i18n": "npx astro-i18next generate",
-		"serve": "node ./dist/server/entry.mjs",
+		"serve": "HOST=0.0.0.0 node ./dist/server/entry.mjs",
 		"deploy": "yarn i18n && yarn build && yarn serve"
 	},
 	"dependencies": {
