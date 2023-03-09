@@ -1,16 +1,16 @@
 /** @jsxImportSource solid-js */
 
-import { createSignal, onMount } from "solid-js"
-import { Icon } from "@iconify-icon/solid"
-import { login } from "../../../common/utils/security"
-import { LoginResponse } from "../../../common/types/api"
+import {createSignal, onMount} from "solid-js"
+import {Icon} from "@iconify-icon/solid"
+import {login} from "../../../common/utils/security"
+import {LoginResponse} from "../../../common/types/api"
 
 export default function Auth(props) {
 	const [username, setUsername] = createSignal("")
 	const [password, setPassword] = createSignal("")
 	const onLogin = async () => {
 		await login(username(), password())
-			.then(({ token }: LoginResponse) => {
+			.then(({token}: LoginResponse) => {
 				window.location.href = "/callback/" + token
 			})
 			.catch((err) => {
@@ -18,17 +18,19 @@ export default function Auth(props) {
 			})
 	}
 
-	const { t } = props
+	const {t} = props
 
 	const onLoginWithDiscord = async () => {
-		window.location.href = "http://localhost:1815/v2/security/discord"
+		await fetch("/login/discord")
+
 	}
 
 	const onLoginWithGithub = async () => {
-		window.location.href = "http://localhost:1815/v2/security/github"
+		await fetch("/login/github")
 	}
 
-	onMount(async () => {})
+	onMount(async () => {
+	})
 
 	// Create a prop for the login button
 
@@ -79,7 +81,7 @@ export default function Auth(props) {
 					onClick={onLoginWithGithub}
 					class="btn-accent btn flex items-center justify-center gap-2 px-8 py-2 transition duration-100"
 				>
-					<Icon icon="lucide:github" height="none" style={{ height: "100%" }} />
+					<Icon icon="lucide:github" height="none" style={{height: "100%"}}/>
 					Continue with github
 				</button>
 				<button
@@ -89,7 +91,7 @@ export default function Auth(props) {
 					<Icon
 						icon="ic:baseline-discord"
 						height="none"
-						style={{ height: "100%" }}
+						style={{height: "100%"}}
 					/>
 					Continue with discord
 				</button>
