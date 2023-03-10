@@ -4,14 +4,10 @@ import {
 	SearchBox,
 	Hits,
 	Highlight
-} from "react-instantsearch-dom"
+} from "react-instantsearch-hooks-web"
 import { instantMeiliSearch } from "@meilisearch/instant-meilisearch"
-import { useStore } from "@nanostores/react"
-import { isSearchOpen } from "../../store/searchStore"
 
 export default function Search({ meilisearchToken }) {
-	const $isSearchOpen = useStore(isSearchOpen)
-
 	const searchClient = instantMeiliSearch(
 		"http://localhost:7700",
 		meilisearchToken
@@ -19,12 +15,13 @@ export default function Search({ meilisearchToken }) {
 
 	const Hit = ({ hit }) => <Highlight attribute="name" hit={hit} />
 
-	return $isSearchOpen ? (
+	return (
 		<>
+			<p></p>
 			<InstantSearch indexName="decks" searchClient={searchClient}>
 				<SearchBox />
 				<Hits hitComponent={Hit} />
 			</InstantSearch>
 		</>
-	) : null
+	)
 }

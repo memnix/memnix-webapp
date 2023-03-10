@@ -3,7 +3,7 @@
 import { onMount } from "solid-js"
 import { register } from "swiper/element/bundle"
 import Deck from "@component/decks/Deck"
-import { IDeck, IDeckList } from "common/types/api"
+import { IDeckList } from "common/types/api"
 
 register()
 export default function Slider(props) {

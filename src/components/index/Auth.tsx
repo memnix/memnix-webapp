@@ -67,32 +67,6 @@ export default function Auth(props) {
 				>
 					{t.login}
 				</button>
-
-				<div class="relative flex items-center justify-center">
-					<span class="absolute inset-x-0 h-px bg-base-content"></span>
-					<span class="relative bg-base-100 px-4 text-sm">
-						Log in with social
-					</span>
-				</div>
-
-				<button
-					onClick={onLoginWithGithub}
-					class="btn-accent btn flex items-center justify-center gap-2 px-8 py-2 transition duration-100"
-				>
-					<Icon icon="lucide:github" height="none" style={{ height: "100%" }} />
-					Continue with github
-				</button>
-				<button
-					onClick={onLoginWithDiscord}
-					class="btn-secondary btn flex items-center justify-center gap-2 px-8 py-2 transition duration-100"
-				>
-					<Icon
-						icon="ic:baseline-discord"
-						height="none"
-						style={{ height: "100%" }}
-					/>
-					Continue with discord
-				</button>
 			</div>
 		</>
 	)

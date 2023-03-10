@@ -1,24 +1,6 @@
-/** @jsxImportSource react */
-import {
-	InstantSearch,
-	SearchBox,
-	Hits,
-	Highlight
-} from "react-instantsearch-dom"
-import { instantMeiliSearch } from "@meilisearch/instant-meilisearch"
-import { useStore } from "@nanostores/react"
-import { isSearchOpen } from "../../store/searchStore"
+/** @jsxImportSource solid-js */
 
-export default function Marquee() {
-	const COLORS = [
-		"#bbf7d0",
-		"#99f6e4",
-		"#bfdbfe",
-		"#ddd6fe",
-		"#f5d0fe",
-		"#fed7aa",
-		"#fee2e2"
-	]
+export default function Auth() {
 	const TAGS = [
 		"Open Source",
 		"Learn",
@@ -49,12 +31,12 @@ export default function Marquee() {
 				}}
 			>
 				{reverse ? (
-					<div className={"flex w-fit animate-slider2"}>
+					<div class={"flex w-fit animate-slider2"}>
 						{children}
 						{children}
 					</div>
 				) : (
-					<div className={"flex w-fit animate-slider"}>
+					<div class={"flex w-fit animate-slider"}>
 						{children}
 						{children}
 					</div>
@@ -64,19 +46,19 @@ export default function Marquee() {
 	}
 
 	const Tag = ({ text }) => (
-		<div className="mr-4 flex items-center gap-y-1 rounded-md bg-base-200/80 p-4 text-sm drop-shadow-md">
+		<div class="mr-4 flex items-center gap-y-1 rounded-md bg-base-200/80 p-4 text-sm drop-shadow-md">
 			<span>#</span> {text}
 		</div>
 	)
 
 	return (
 		<>
-			<div className="p-x-4 relative mx-auto flex w-[50%] max-w-[90%] flex-shrink-0 flex-col gap-y-4 overflow-hidden">
+			<div class="p-x-4 relative mx-auto flex w-[50%] max-w-[90%] flex-shrink-0 flex-col gap-y-4 overflow-hidden">
 				{[...new Array(ROWS)].map((_, i) => (
 					<InfiniteLoopSlider
 						key={i}
 						duration={random(DURATION - 5000, DURATION + 5000)}
-						reverse={i % 2}
+						reverse={i % 2 === 0}
 					>
 						{shuffle(TAGS)
 							.slice(0, TAGS_PER_ROW)
@@ -85,7 +67,7 @@ export default function Marquee() {
 							))}
 					</InfiniteLoopSlider>
 				))}
-				<div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-base-100 via-transparent to-base-100 " />
+				<div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-base-100 via-transparent to-base-100 " />
 			</div>
 		</>
 	)

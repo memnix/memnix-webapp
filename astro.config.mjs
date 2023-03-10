@@ -4,34 +4,28 @@ import { defineConfig } from "astro/config"
 import tailwind from "@astrojs/tailwind"
 import sitemap from "@astrojs/sitemap"
 import compress from "astro-compress"
-import { VitePWA } from "vite-plugin-pwa"
-
-// https://astro.build/config
 import image from "@astrojs/image"
-
-// https://astro.build/config
 import solidJs from "@astrojs/solid-js"
 import astroI18next from "astro-i18next"
-import vercel from "@astrojs/vercel/serverless"
-import AstroPWA from "@vite-pwa/astro"
 
 // Helper imports
-import { manifest, seoConfig } from "./utils/seoConfig"
-
-// https://astro.build/config
+import { seoConfig } from "./utils/seoConfig"
 import compressor from "astro-compressor"
 import prefetch from "@astrojs/prefetch"
 
-// https://astro.build/config
 import node from "@astrojs/node"
 
 // https://astro.build/config
 import critters from "astro-critters"
 
 // https://astro.build/config
-
 // https://astro.build/config
 import react from "@astrojs/react"
+
+// https://astro.build/config
+import preact from "@astrojs/preact"
+
+import svelte from "@astrojs/svelte"
 
 // https://astro.build/config
 export default defineConfig({
@@ -43,6 +37,8 @@ export default defineConfig({
 			}
 		}),
 		prefetch(),
+		preact(),
+		svelte(),
 		solidJs(),
 		react(),
 		image({
@@ -63,22 +59,6 @@ export default defineConfig({
 			}
 		}),
 		critters(),
-		/* PWA */
-		// AstroPWA({
-		// 	registerType: "autoUpdate",
-		// 	injectRegister: "script",
-		// 	manifest,
-		// 	workbox: {
-		// 		globDirectory: "dist",
-		// 		globPatterns: [
-		// 			"**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}"
-		// 		],
-		// 		// Don't fall back on document based (e.g. `/some-page`) requests
-		// 		// This removes an errant console.log message from showing up.
-		// 		navigateFallback: null
-		// 	}
-		// }),
-
 		compress(),
 		compressor()
 	],

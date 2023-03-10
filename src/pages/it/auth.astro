@@ -1,20 +1,22 @@
 ---
 // Component imports
-import { Layout } from "@globals";
-import i18next, { t, changeLanguage, setDefaultNamespace } from "i18next";
-import Auth from "../../components/index/Auth";
-import { localizePath } from "astro-i18next";
-import { isConnected } from "../../../common/utils/security";
-import Header from "../../components/global/Header/Header.astro";
+import { Layout } from "@globals"
+import i18next, { t, changeLanguage, setDefaultNamespace } from "i18next"
+import Auth from "../../components/index/Auth"
+import { localizePath } from "astro-i18next"
+import { isConnected } from "../../../common/utils/security"
+import Header from "../../components/global/Header/Header.astro"
+import { baseUrl } from "../../../common/utils/utils"
+import { ENDPOINTS } from "../../../common/utils/endpoints"
 
-changeLanguage("it");
+changeLanguage("it")
 
-setDefaultNamespace("common");
-const jwt = Astro.cookies.get("jwt")?.value;
+setDefaultNamespace("common")
+const jwt = Astro.cookies.get("jwt")?.value
 if (jwt && (await isConnected(jwt))) {
-    return Astro.redirect(localizePath("/dashboard"));
+	return Astro.redirect(localizePath("/dashboard"))
 }
-const authBundle = i18next.getResourceBundle(i18next.language, "common");
+const authBundle = i18next.getResourceBundle(i18next.language, "common")
 ---
 
 <Layout title="Memnix">
@@ -26,6 +28,37 @@ const authBundle = i18next.getResourceBundle(i18next.language, "common");
 
 			<div class="mx-auto max-w-lg rounded-lg border">
 				<Auth client:load t={authBundle.auth} />
+				<div class="flex flex-col gap-4 px-4">
+					<div class="relative flex items-center justify-center">
+						<span class="absolute inset-x-0 h-px bg-base-content"></span>
+						<span class="relative bg-base-100 px-4 text-sm">
+							Log in with social
+						</span>
+					</div>
+
+					<a
+						href={baseUrl + ENDPOINTS.Security.github}
+						class="btn-accent btn flex items-center justify-center gap-2 px-8 py-2 transition duration-100"
+					>
+						<Icon
+							icon="lucide:github"
+							height="none"
+							style={{ height: "100%" }}
+						/>
+						Continue with github
+					</a>
+					<a
+						href={baseUrl + ENDPOINTS.Security.discord}
+						class="btn-secondary btn flex items-center justify-center gap-2 px-8 py-2 transition duration-100"
+					>
+						<Icon
+							icon="ic:baseline-discord"
+							height="none"
+							style={{ height: "100%" }}
+						/>
+						Continue with discord
+					</a>
+				</div>
 
 				<div class="flex items-center justify-center p-4">
 					<p class="text-center text-sm">

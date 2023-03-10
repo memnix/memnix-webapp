@@ -1,25 +1,28 @@
 ---
 // Component imports
-import { Layout } from "@globals";
-import i18next, { t, setDefaultNamespace, changeLanguage } from "i18next";
-import Hero from "../../components/discover/Hero.astro";
-import Features from "../../components/discover/Features.astro";
-import Header from "../../components/global/Header/Header.astro";
-import Marquee from "../../components/discover/Marquee.tsx";
+import { Layout } from "@globals"
+import i18next, { t, setDefaultNamespace, changeLanguage } from "i18next"
+import Hero from "../../components/discover/Hero.astro"
+import Features from "../../components/discover/Features.astro"
+import Header from "../../components/global/Header/Header.astro"
+import Marquee from "../../components/discover/Marquee.tsx"
+import MarqueeSolid from "../../components/discover/MarqueeSolid.tsx"
+import MarqueePreact from "../../components/discover/MarqueePreact.tsx"
 
-changeLanguage("fr");
+changeLanguage("fr")
 
 Astro.cookies.set("lang", i18next.language, {
-    path: "/",
-    sameSite: "lax"
-});
-export const prerender = true;
-setDefaultNamespace("common");
+	path: "/",
+	sameSite: "lax"
+})
+setDefaultNamespace("common")
+export const prerender = true
 ---
 
 <Layout title="Memnix">
 	<Header />
 	<Hero />
-	<Marquee client:visible />
+	<MarqueeSolid client:visible />
+	<MarqueePreact client:visible />
 	<Features />
 </Layout>
