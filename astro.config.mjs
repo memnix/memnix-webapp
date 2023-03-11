@@ -1,67 +1,54 @@
-import { defineConfig } from "astro/config"
+import { defineConfig } from "astro/config";
 
 // Astro integration imports
-import tailwind from "@astrojs/tailwind"
-import sitemap from "@astrojs/sitemap"
-import compress from "astro-compress"
-import image from "@astrojs/image"
-import solidJs from "@astrojs/solid-js"
-import astroI18next from "astro-i18next"
+import tailwind from "@astrojs/tailwind";
+import sitemap from "@astrojs/sitemap";
+import compress from "astro-compress";
+import image from "@astrojs/image";
+import solidJs from "@astrojs/solid-js";
+import astroI18next from "astro-i18next";
 
 // Helper imports
-import { seoConfig } from "./utils/seoConfig"
-import compressor from "astro-compressor"
-import prefetch from "@astrojs/prefetch"
+import { seoConfig } from "./utils/seoConfig";
+import compressor from "astro-compressor";
+import prefetch from "@astrojs/prefetch";
+import node from "@astrojs/node";
 
-import node from "@astrojs/node"
-
-// https://astro.build/config
-import critters from "astro-critters"
+import critters from "astro-critters";
 
 // https://astro.build/config
 // https://astro.build/config
-import react from "@astrojs/react"
+import react from "@astrojs/react";
 
 // https://astro.build/config
-import preact from "@astrojs/preact"
+import preact from "@astrojs/preact";
+
+// https://astro.build/config
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-	site: seoConfig.baseURL,
-	integrations: [
-		tailwind({
-			config: {
-				path: "./tailwind.config.js"
-			}
-		}),
-		prefetch(),
-		preact(),
-		solidJs(),
-		react(),
-		image({
-			serviceEntryPoint: "@astrojs/image/sharp"
-		}),
-		astroI18next(),
-		sitemap({
-			lastmod: new Date(),
-			i18n: {
-				defaultLocale: "en",
-				locales: {
-					en: "en-US",
-					de: "de-DE",
-					fr: "fr-FR",
-					ro: "ro-RO",
-					it: "it-IT"
-				}
-			}
-		}),
-		critters(),
-		compress(),
-		compressor()
-	],
-	output: "server",
-	// adapter: vercel()
-	adapter: node({
-		mode: "standalone"
-	})
-})
+  site: seoConfig.baseURL,
+  integrations: [tailwind({
+    config: {
+      path: "./tailwind.config.js"
+    }
+  }), prefetch(), preact(), solidJs(), react(), image({
+    serviceEntryPoint: "@astrojs/image/sharp"
+  }), astroI18next(), sitemap({
+    lastmod: new Date(),
+    i18n: {
+      defaultLocale: "en",
+      locales: {
+        en: "en-US",
+        de: "de-DE",
+        fr: "fr-FR",
+        ro: "ro-RO",
+        it: "it-IT"
+      }
+    }
+  }), critters(), compress(), compressor()],
+  output: "server",
+  adapter: vercel()
+  // adapter: node({ mode: "standalone"	})
+});

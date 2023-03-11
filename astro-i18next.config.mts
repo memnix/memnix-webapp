@@ -3,7 +3,7 @@ export default {
 	defaultLocale: "en",
 	locales: ["en", "fr", "de", "it", "ro"],
 	fallbackLocale: "en",
-	load: ["server"],
+	load: ["server", "client"],
 	defaultNS: "common",
 	namespaces: ["common", "discover"]
 }

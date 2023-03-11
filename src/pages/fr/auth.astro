@@ -15,7 +15,6 @@ const jwt = Astro.cookies.get("jwt")?.value;
 if (jwt && (await isConnected(jwt))) {
     return Astro.redirect(localizePath("/dashboard"));
 }
-const authBundle = i18next.getResourceBundle(i18next.language, "common");
 ---
 
 <Layout title="Memnix">
@@ -26,7 +25,7 @@ const authBundle = i18next.getResourceBundle(i18next.language, "common");
 			</h2>
 
 			<div class="mx-auto max-w-lg rounded-lg border">
-				<Auth client:load t={authBundle.auth} />
+				<Auth client:load />
 				<div class="flex flex-col gap-4 px-4">
 					<div class="relative flex items-center justify-center">
 						<span class="absolute inset-x-0 h-px bg-base-content"></span>

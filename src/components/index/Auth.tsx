@@ -2,10 +2,12 @@
 
 import { createSignal, onMount } from "solid-js"
 import { Icon } from "@iconify-icon/solid"
-import { login } from "../../../common/utils/security"
-import { LoginResponse } from "../../../common/types/api"
+import { login } from "@common/utils/security"
+import { LoginResponse } from "@common/types/api"
+import { t } from "i18next"
 
-export default function Auth(props) {
+
+export default function Auth() {
 	const [username, setUsername] = createSignal("")
 	const [password, setPassword] = createSignal("")
 	const onLogin = async () => {
@@ -17,8 +19,6 @@ export default function Auth(props) {
 				console.log(err)
 			})
 	}
-
-	const { t } = props
 
 	const onLoginWithDiscord = async () => {
 		await fetch("/login/discord")
@@ -37,7 +37,7 @@ export default function Auth(props) {
 			<div class="flex flex-col gap-4 p-4 md:p-8">
 				<div class="">
 					<label class="label">
-						<span class="label-text">{t.email}</span>
+						<span class="label-text">{t("auth.email")}</span>
 					</label>
 					<input
 						type="text"
@@ -50,7 +50,7 @@ export default function Auth(props) {
 
 				<div class="">
 					<label class="label">
-						<span class="label-text">{t.password}</span>
+						<span class="label-text">{t("auth.password")}</span>
 					</label>
 					<input
 						type="password"
@@ -65,7 +65,7 @@ export default function Auth(props) {
 					onClick={onLogin}
 					class="btn-primary btn px-8 py-3 transition duration-100"
 				>
-					{t.login}
+					{t("auth.login")}
 				</button>
 			</div>
 		</>
