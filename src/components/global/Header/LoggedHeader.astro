@@ -1,32 +1,26 @@
 ---
 import Logo from "../Logo/Logo.astro"
-import { LanguageSelector } from "astro-i18next/components"
-import { localizePath } from "astro-i18next"
-import { Image } from "astro:assets"
-import { Icon } from "astro-iconify"
+import {LanguageSelector} from "astro-i18next/components"
+import {localizePath} from "astro-i18next"
+import {Image} from "astro:assets"
+import {Icon} from "astro-iconify"
 import SearchHeader from "./SearchHeader.tsx"
 
-import { getMe } from "../../../../common/utils/user"
+import {getMe} from "../../../../common/utils/user"
 
 const jwt = Astro.cookies.get("jwt")?.value
 
-const user = await getMe(jwt).then((res) => res.data)
 
-const avatar = user?.avatar
-	? user.avatar
-	: "https://source.boringavatars.com/beam/120/" +
-	  user.username +
-	  "?colors=070705,3E4B51,6F737E,89A09A,C1C0AE"
 ---
 
 <div class="navbar md:px-5 transition-all">
 	<div class="navbar-start">
 		<a class="" href={localizePath("/")} rel="prefetch">
-			<Logo />
+			<Logo/>
 		</a>
 	</div>
 	<div class="navbar-end">
-		<SearchHeader client:idle class="" />
+		<SearchHeader client:idle class=""/>
 
 		<LanguageSelector
 			showFlag={true}
@@ -38,12 +32,12 @@ const avatar = user?.avatar
 				tabindex="0"
 				class="avatar rounded-xl mask mask-squircle hover:cursor-pointer"
 			>
-				<Image
-					src={avatar}
+				<img
+					src={"https://source.boringavatars.com/beam/120/" +
+						"yume" +
+						"?colors=070705,3E4B51,6F737E,89A09A,C1C0AE"}
 					loading={"eager"}
 					decoding={"async"}
-					alt={user?.username}
-					quality={60}
 					width={64}
 					height={64}
 				/>

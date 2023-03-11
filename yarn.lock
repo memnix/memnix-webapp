@@ -112,6 +112,14 @@
     send "^0.18.0"
     server-destroy "^1.0.1"
 
+"@astrojs/partytown@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/@astrojs/partytown/-/partytown-1.1.0.tgz"
+  integrity sha512-2cO2MuK8KEWRIsYyAkxopSL7Q5aB3ra+HTkk0umNUwAKVEZWZdDtYifdztU7WFYIlV/6t+2191MvBTqTcnenJQ==
+  dependencies:
+    "@builder.io/partytown" "^0.7.4"
+    mrmime "^1.0.0"
+
 "@astrojs/preact@^2.1.0":
   version "2.1.0"
   resolved "https://registry.npmjs.org/@astrojs/preact/-/preact-2.1.0.tgz"
@@ -147,7 +155,7 @@
 
 "@astrojs/rss@^2.1.1":
   version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/rss/-/rss-2.2.0.tgz#b60015abbedff73eaea95af477241601e6952920"
+  resolved "https://registry.npmjs.org/@astrojs/rss/-/rss-2.2.0.tgz"
   integrity sha512-U/OdXpUT4wWJ+fKEoyzUlniOR99P6TyIAsk6nYxLf472vcW8Md6XSdNb6B6kmdqytgiJ9khChYkm1hY+JgMGCw==
   dependencies:
     fast-xml-parser "^4.0.8"
@@ -163,7 +171,7 @@
 
 "@astrojs/solid-js@2.1.0":
   version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/solid-js/-/solid-js-2.1.0.tgz#1968880bc95b32f49b8927e0b60be2e99b209f7d"
+  resolved "https://registry.npmjs.org/@astrojs/solid-js/-/solid-js-2.1.0.tgz"
   integrity sha512-p07DP9NRWJPjtF+CzPZ9lzOMkoyw6wSs3S6g3OZUxR+DVQy3VIXXDqCcnZZVJI34VakkHuViZaoNNkBW/9I54w==
   dependencies:
     babel-preset-solid "^1.4.2"
@@ -1130,6 +1138,11 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
+"@builder.io/partytown@^0.7.4":
+  version "0.7.5"
+  resolved "https://registry.npmjs.org/@builder.io/partytown/-/partytown-0.7.5.tgz"
+  integrity sha512-Zbr2Eo0AQ4yzmQr/36/h+6LKjmdVBB3Q5cGzO6rtlIKB/IOpbQVUZW+XAnhpJmJr9sIF97OZjgbhG9k7Sjn4yw==
+
 "@colors/colors@1.5.0":
   version "1.5.0"
   resolved "https://registry.npmjs.org/@colors/colors/-/colors-1.5.0.tgz"
@@ -1284,19 +1297,19 @@
 
 "@eslint-community/eslint-utils@^4.2.0":
   version "4.2.0"
-  resolved "https://registry.yarnpkg.com/@eslint-community/eslint-utils/-/eslint-utils-4.2.0.tgz#a831e6e468b4b2b5ae42bf658bea015bf10bc518"
+  resolved "https://registry.npmjs.org/@eslint-community/eslint-utils/-/eslint-utils-4.2.0.tgz"
   integrity sha512-gB8T4H4DEfX2IV9zGDJPOBgP1e/DbfCPDTtEqUMckpvzS1OYtva8JdFYBqMwYk7xAQ429WGF/UPqn8uQ//h2vQ==
   dependencies:
     eslint-visitor-keys "^3.3.0"
 
 "@eslint-community/regexpp@^4.4.0":
   version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@eslint-community/regexpp/-/regexpp-4.4.0.tgz#3e61c564fcd6b921cb789838631c5ee44df09403"
+  resolved "https://registry.npmjs.org/@eslint-community/regexpp/-/regexpp-4.4.0.tgz"
   integrity sha512-A9983Q0LnDGdLPjxyXQ00sbV+K+O+ko2Dr+CZigbHWtX9pNfxlaBkMR8X1CztI73zuEyEBXTVjx7CE+/VSwDiQ==
 
 "@eslint/eslintrc@^2.0.1":
   version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-2.0.1.tgz#7888fe7ec8f21bc26d646dbd2c11cd776e21192d"
+  resolved "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-2.0.1.tgz"
   integrity sha512-eFRmABvW2E5Ho6f5fHLqgena46rOj7r7OKHYfLElqcBfGFHHpjBhivyi5+jOEQuSpdc/1phIZJlbC2te+tZNIw==
   dependencies:
     ajv "^6.12.4"
@@ -1311,7 +1324,7 @@
 
 "@eslint/js@8.36.0":
   version "8.36.0"
-  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.36.0.tgz#9837f768c03a1e4a30bd304a64fb8844f0e72efe"
+  resolved "https://registry.npmjs.org/@eslint/js/-/js-8.36.0.tgz"
   integrity sha512-lxJ9R5ygVm8ZWgYdUweoq5ownDlJ4upvoWmO4eLxBYHdMo+vZ/Rx0EN6MbKWDJOSUGrqJy2Gt+Dyv/VKml0fjg==
 
 "@fontsource/do-hyeon@^4.5.10":
@@ -2018,21 +2031,13 @@
     "@typescript-eslint/typescript-estree" "5.54.1"
     debug "^4.3.4"
 
-"@typescript-eslint/scope-manager@5.54.1":
+"@typescript-eslint/scope-manager@5.54.1", "@typescript-eslint/scope-manager@^5.48.2":
   version "5.54.1"
   resolved "https://registry.npmjs.org/@typescript-eslint/scope-manager/-/scope-manager-5.54.1.tgz"
   integrity sha512-zWKuGliXxvuxyM71UA/EcPxaviw39dB2504LqAmFDjmkpO8qNLHcmzlh6pbHs1h/7YQ9bnsO8CCcYCSA8sykUg==
   dependencies:
     "@typescript-eslint/types" "5.54.1"
     "@typescript-eslint/visitor-keys" "5.54.1"
-
-"@typescript-eslint/scope-manager@^5.48.2":
-  version "5.53.0"
-  resolved "https://registry.npmjs.org/@typescript-eslint/scope-manager/-/scope-manager-5.53.0.tgz"
-  integrity sha512-Opy3dqNsp/9kBBeCPhkCNR7fmdSQqA+47r21hr9a14Bx0xnkElEQmhoHga+VoaoQ6uDHjDKmQPIYcUcKJifS7w==
-  dependencies:
-    "@typescript-eslint/types" "5.53.0"
-    "@typescript-eslint/visitor-keys" "5.53.0"
 
 "@typescript-eslint/type-utils@5.54.1":
   version "5.54.1"
@@ -2044,12 +2049,7 @@
     debug "^4.3.4"
     tsutils "^3.21.0"
 
-"@typescript-eslint/types@5.53.0", "@typescript-eslint/types@^5.25.0":
-  version "5.53.0"
-  resolved "https://registry.npmjs.org/@typescript-eslint/types/-/types-5.53.0.tgz"
-  integrity sha512-5kcDL9ZUIP756K6+QOAfPkigJmCPHcLN7Zjdz76lQWWDdzfOhZDTj1irs6gPBKiXx5/6O3L0+AvupAut3z7D2A==
-
-"@typescript-eslint/types@5.54.1":
+"@typescript-eslint/types@5.54.1", "@typescript-eslint/types@^5.25.0":
   version "5.54.1"
   resolved "https://registry.npmjs.org/@typescript-eslint/types/-/types-5.54.1.tgz"
   integrity sha512-G9+1vVazrfAfbtmCapJX8jRo2E4MDXxgm/IMOF4oGh3kq7XuK3JRkOg6y2Qu1VsTRmWETyTkWt1wxy7X7/yLkw==
@@ -2080,14 +2080,6 @@
     eslint-scope "^5.1.1"
     eslint-utils "^3.0.0"
     semver "^7.3.7"
-
-"@typescript-eslint/visitor-keys@5.53.0":
-  version "5.53.0"
-  resolved "https://registry.npmjs.org/@typescript-eslint/visitor-keys/-/visitor-keys-5.53.0.tgz"
-  integrity sha512-JqNLnX3leaHFZEN0gCh81sIvgrp/2GOACZNgO4+Tkf64u51kTpAyWFOY8XHx8XuXr3N2C9zgPPHtcpMg6z1g0w==
-  dependencies:
-    "@typescript-eslint/types" "5.53.0"
-    eslint-visitor-keys "^3.3.0"
 
 "@typescript-eslint/visitor-keys@5.54.1":
   version "5.54.1"
@@ -2355,7 +2347,7 @@ astro-critters@^1.1.31:
 
 astro-eslint-parser@^0.12.0:
   version "0.12.0"
-  resolved "https://registry.yarnpkg.com/astro-eslint-parser/-/astro-eslint-parser-0.12.0.tgz#3eac9ecf41eca12948f29190e1650e3966b67522"
+  resolved "https://registry.npmjs.org/astro-eslint-parser/-/astro-eslint-parser-0.12.0.tgz"
   integrity sha512-1r8TXPHoUk6OSNzeGOGpklmPedleYVpZU50jIPfsQjzrGMs+XpCSCc8+AATnKraPYnTvkmNClhjafSY6w3H90g==
   dependencies:
     "@astrojs/compiler" "^1.0.0"
@@ -2368,7 +2360,7 @@ astro-eslint-parser@^0.12.0:
 
 astro-i18next@1.0.0-beta.21:
   version "1.0.0-beta.21"
-  resolved "https://registry.yarnpkg.com/astro-i18next/-/astro-i18next-1.0.0-beta.21.tgz#f1c2f1b4430f1369cdde690fd14813f7d4cefa23"
+  resolved "https://registry.npmjs.org/astro-i18next/-/astro-i18next-1.0.0-beta.21.tgz"
   integrity sha512-1YPqwexumHpK/d9afEoi52CBFTu6k4MYv/oHjsaAasZDvFClU6U5VPttC/OgZcXRYggCM6ee2LOnyHqlmXOeLA==
   dependencies:
     "@proload/core" "^0.3.3"
@@ -2465,7 +2457,7 @@ astrojs-compiler-sync@^0.3.0:
 
 astrojs-service-worker@^0.0.9:
   version "0.0.9"
-  resolved "https://registry.yarnpkg.com/astrojs-service-worker/-/astrojs-service-worker-0.0.9.tgz#9e3c7bfac0204724f54ef0de28171c16cda58d0a"
+  resolved "https://registry.npmjs.org/astrojs-service-worker/-/astrojs-service-worker-0.0.9.tgz"
   integrity sha512-bj9v+jvhWdC+C/NSkVgCSJ2pJQf/8xh9B5v4MwgrkBkux+KivSaEZ/i3f/XYHhJRd6YLS9S7SfoJw0j5wUmYzA==
   dependencies:
     workbox-build "^6.5.4"
@@ -2490,25 +2482,13 @@ at-least-node@^1.0.0:
   resolved "https://registry.npmjs.org/at-least-node/-/at-least-node-1.0.0.tgz"
   integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
 
-autoprefixer@^10.4.14:
+autoprefixer@^10.4.14, autoprefixer@^10.4.7:
   version "10.4.14"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.14.tgz#e28d49902f8e759dd25b153264e862df2705f79d"
+  resolved "https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.4.14.tgz"
   integrity sha512-FQzyfOsTlwVzjHxKEqRIAdJx9niO6VCBCoEwax/VLSoQF29ggECcPuBqUMZ+u8jCZOPSy8b8/8KnuFbp0SaFZQ==
   dependencies:
     browserslist "^4.21.5"
     caniuse-lite "^1.0.30001464"
-    fraction.js "^4.2.0"
-    normalize-range "^0.1.2"
-    picocolors "^1.0.0"
-    postcss-value-parser "^4.2.0"
-
-autoprefixer@^10.4.7:
-  version "10.4.13"
-  resolved "https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.4.13.tgz"
-  integrity sha512-49vKpMqcZYsJjwotvt4+h/BCjJVnhGwcLpDt5xkcaOG3eLrG/HUYLagrihYsQ+qrIBgIzX1Rw7a6L8I/ZA1Atg==
-  dependencies:
-    browserslist "^4.21.4"
-    caniuse-lite "^1.0.30001426"
     fraction.js "^4.2.0"
     normalize-range "^0.1.2"
     picocolors "^1.0.0"
@@ -2675,7 +2655,7 @@ braces@^3.0.2, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-browserslist@^4.21.3, browserslist@^4.21.4, browserslist@^4.21.5:
+browserslist@^4.21.3, browserslist@^4.21.5:
   version "4.21.5"
   resolved "https://registry.npmjs.org/browserslist/-/browserslist-4.21.5.tgz"
   integrity sha512-tUkiguQGW7S3IhB7N+c2MV/HZPSCPAAiYBZXLsBhFB/PCy6ZKKsZrmBayHV9fdGV/ARIfJ14NkxKzRDjvp7L6w==
@@ -2754,14 +2734,9 @@ camelcase@^6.2.0:
   resolved "https://registry.npmjs.org/camelcase/-/camelcase-6.3.0.tgz"
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
-caniuse-lite@^1.0.30001426, caniuse-lite@^1.0.30001449:
-  version "1.0.30001458"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001458.tgz"
-  integrity sha512-lQ1VlUUq5q9ro9X+5gOEyH7i3vm+AYVT1WDCVB69XOZ17KZRhnZ9J0Sqz7wTHQaLBJccNCHq8/Ww5LlOIZbB0w==
-
-caniuse-lite@^1.0.30001464:
+caniuse-lite@^1.0.30001449, caniuse-lite@^1.0.30001464:
   version "1.0.30001464"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001464.tgz#888922718df48ce5e33dcfe1a2af7d42676c5eb7"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001464.tgz"
   integrity sha512-oww27MtUmusatpRpCGSOneQk2/l5czXANDSFvsc7VuOQ86s3ANhZetpwXNf1zY/zdfP63Xvjz325DAdAoES13g==
 
 ccount@^2.0.0:
@@ -3710,7 +3685,7 @@ escape-string-regexp@^5.0.0:
 
 eslint-plugin-astro@^0.24.0:
   version "0.24.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-astro/-/eslint-plugin-astro-0.24.0.tgz#e494f9249967e3e902c3bc9fb359ea76f5064eb8"
+  resolved "https://registry.npmjs.org/eslint-plugin-astro/-/eslint-plugin-astro-0.24.0.tgz"
   integrity sha512-oRGBMZPAFHhAHD8cyZez4OA5LRkgxLA+RtCIInC4nzw8thO/uojMdKXDri+sy2IFsGcu2PpOw70Uik0U5/izug==
   dependencies:
     "@jridgewell/sourcemap-codec" "^1.4.14"
@@ -3777,7 +3752,7 @@ eslint-visitor-keys@^3.0.0, eslint-visitor-keys@^3.3.0:
 
 eslint@^8.36.0:
   version "8.36.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.36.0.tgz#1bd72202200a5492f91803b113fb8a83b11285cf"
+  resolved "https://registry.npmjs.org/eslint/-/eslint-8.36.0.tgz"
   integrity sha512-Y956lmS7vDqomxlaaQAHVmeb4tNMp2FWIvU/RnU5BD3IKMD/MJPr76xdyr68P8tV1iNMvN2mRK0yy3c+UjL+bw==
   dependencies:
     "@eslint-community/eslint-utils" "^4.2.0"
@@ -3821,18 +3796,9 @@ eslint@^8.36.0:
     strip-json-comments "^3.1.0"
     text-table "^0.2.0"
 
-espree@^9.0.0:
-  version "9.4.1"
-  resolved "https://registry.npmjs.org/espree/-/espree-9.4.1.tgz"
-  integrity sha512-XwctdmTO6SIvCzd9810yyNzIrOrqNYV9Koizx4C/mRhf9uq0o4yHoCEU/670pOxOL/MSraektvSAji79kX90Vg==
-  dependencies:
-    acorn "^8.8.0"
-    acorn-jsx "^5.3.2"
-    eslint-visitor-keys "^3.3.0"
-
-espree@^9.5.0:
+espree@^9.0.0, espree@^9.5.0:
   version "9.5.0"
-  resolved "https://registry.yarnpkg.com/espree/-/espree-9.5.0.tgz#3646d4e3f58907464edba852fa047e6a27bdf113"
+  resolved "https://registry.npmjs.org/espree/-/espree-9.5.0.tgz"
   integrity sha512-JPbJGhKc47++oo4JkEoTe2wjy4fmMwvFpgJT9cQzmfXKp22Dr6Hf1tdCteLz1h0P3t+mGvWZ+4Uankvh8+c6zw==
   dependencies:
     acorn "^8.8.0"
@@ -3986,7 +3952,7 @@ fast-levenshtein@^2.0.6:
 
 fast-xml-parser@^4.0.8:
   version "4.1.3"
-  resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-4.1.3.tgz#0254ad0d4d27f07e6b48254b068c0c137488dd97"
+  resolved "https://registry.npmjs.org/fast-xml-parser/-/fast-xml-parser-4.1.3.tgz"
   integrity sha512-LsNDahCiCcJPe8NO7HijcnukHB24tKbfDDA5IILx9dmW3Frb52lhbeX6MPNUSvyGNfav2VTYpJ/OqkRoVLrh2Q==
   dependencies:
     strnum "^1.0.5"
@@ -4613,9 +4579,9 @@ i18next-http-backend@^2.1.1:
     cross-fetch "3.1.5"
 
 i18next@^22.4.10:
-  version "22.4.11"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-22.4.11.tgz#8b6c9be95176de90d3f10a78af125d95d3a3258d"
-  integrity sha512-ShfTzXVMjXdF2iPiT/wbizOrssLh9Ab6VpuVROihLCAu+u25KbZiEYVgsA0W6g0SgjPa/JmGWcUEV/g6cKzEjQ==
+  version "22.4.10"
+  resolved "https://registry.npmjs.org/i18next/-/i18next-22.4.10.tgz"
+  integrity sha512-3EqgGK6fAJRjnGgfkNSStl4mYLCjUoJID338yVyLMj5APT67HUtWoqSayZewiiC5elzMUB1VEUwcmSCoeQcNEA==
   dependencies:
     "@babel/runtime" "^7.20.6"
 
@@ -5854,6 +5820,11 @@ mri@^1.1.0:
   resolved "https://registry.npmjs.org/mri/-/mri-1.2.0.tgz"
   integrity sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==
 
+mrmime@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/mrmime/-/mrmime-1.0.1.tgz"
+  integrity sha512-hzzEagAgDyoU1Q6yg5uI+AorQgdvMCur3FcKf7NhMKWsaYg+RnbTyHRa/9IlLF9rf455MOCtcqqrQQ83pPP7Uw==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/ms/-/ms-2.0.0.tgz"
@@ -7050,7 +7021,7 @@ setprototypeof@1.2.0:
 
 sharp@0.31.3, sharp@^0.31.3:
   version "0.31.3"
-  resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.31.3.tgz#60227edc5c2be90e7378a210466c99aefcf32688"
+  resolved "https://registry.npmjs.org/sharp/-/sharp-0.31.3.tgz"
   integrity sha512-XcR4+FCLBFKw1bdB+GEhnUNXNXvnt0tDo4WsBsraKymuo/IAuPuCBVAL2wIkUw2r/dwFW5Q5+g66Kwl2dgDFVg==
   dependencies:
     color "^4.2.3"
@@ -7145,7 +7116,7 @@ slash@^4.0.0:
 
 solid-js@1.6.11:
   version "1.6.11"
-  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.6.11.tgz#263a512bf94efd89245a77f58dc18c195302237f"
+  resolved "https://registry.npmjs.org/solid-js/-/solid-js-1.6.11.tgz"
   integrity sha512-JquQQHPArGq+i2PLURxJ99Pcz2/1docpbycSio/cKSA0SeI3z5zRjy0TNcH4NRYvbOLrcini+iovXwnexKabyw==
   dependencies:
     csstype "^3.1.0"
@@ -7347,7 +7318,7 @@ strip-json-comments@~2.0.1:
 
 strnum@^1.0.5:
   version "1.0.5"
-  resolved "https://registry.yarnpkg.com/strnum/-/strnum-1.0.5.tgz#5c4e829fe15ad4ff0d20c3db5ac97b73c9b072db"
+  resolved "https://registry.npmjs.org/strnum/-/strnum-1.0.5.tgz"
   integrity sha512-J8bbNyKKXl5qYcR36TIO8W3mVGVHrmmxsd5PAItGkmyzwJvybiw2IVq5nqd0i4LSNSkB/sx9VHllbfFdr9k1JA==
 
 suf-log@^2.5.3:
