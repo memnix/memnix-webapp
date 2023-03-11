@@ -20,8 +20,8 @@ COPY --from=runtime /app/dist /app
 COPY --from=runtime /app/node_modules /app/node_modules
 
 ENV HOST=0.0.0.0
-ENV PORT=3000
+ENV PORT=1809
 # Expose the port on which the application will run
-EXPOSE 3000
+EXPOSE 1809
 
 CMD node ./server/entry.mjs

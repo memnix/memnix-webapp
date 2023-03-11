@@ -1,24 +1,26 @@
 ---
-import { Layout } from "@globals";
-import i18next, { t, setDefaultNamespace, changeLanguage } from "i18next";
-import Hero from "../components/discover/Hero.astro";
-import Features from "../components/discover/Features.astro";
-import Header from "../components/global/Header/Header.astro";
-import MarqueePreact from "../components/discover/MarqueePreact.tsx";
+import { Layout } from "@globals"
+import i18next, { t, setDefaultNamespace, changeLanguage } from "i18next"
+import Hero from "../components/discover/Hero.astro"
+import Features from "../components/discover/Features.astro"
+import Header from "../components/global/Header/Header.astro"
+import MarqueePreact from "../components/discover/MarqueePreact.tsx"
 
-changeLanguage("en");
+changeLanguage("en")
+
+console.log("i18next.language", i18next.language)
 
 Astro.cookies.set("lang", i18next.language, {
-    path: "/",
-    sameSite: "lax"
-});
-setDefaultNamespace("common");
-export const prerender = true;
+	path: "/",
+	sameSite: "lax"
+})
+setDefaultNamespace("common")
+export const prerender = true
 ---
 
 <Layout title="Memnix">
-	<Header/>
-	<Hero/>
-	<MarqueePreact client:visible/>
-	<Features/>
+	<Header />
+	<Hero />
+	<MarqueePreact client:visible />
+	<Features />
 </Layout>
