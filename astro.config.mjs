@@ -25,8 +25,6 @@ import react from "@astrojs/react"
 // https://astro.build/config
 import preact from "@astrojs/preact"
 
-import svelte from "@astrojs/svelte"
-
 // https://astro.build/config
 export default defineConfig({
 	site: seoConfig.baseURL,
@@ -38,7 +36,6 @@ export default defineConfig({
 		}),
 		prefetch(),
 		preact(),
-		svelte(),
 		solidJs(),
 		react(),
 		image({
