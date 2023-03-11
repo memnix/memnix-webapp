@@ -5,10 +5,14 @@ import { localizePath } from "astro-i18next";
 import LoggedHeader from "../../components/global/Header/LoggedHeader.astro";
 import { Layout } from "../../components/global";
 import Slider from "../../components/decks/Slider.tsx";
-import { IDeckList } from "../../../common/types/api";
+import { IDeckList, IUser } from "../../../common/types/api";
 import { getLearningDeck, getOwnedDeck } from "../../../common/utils/decks";
 import Search from "../../components/decks/Search.tsx";
 import SearchWrapper from "../../components/decks/SearchWrapper.tsx";
+import { getMe } from "../../../common/utils/user";
+import { LanguageSelector } from "astro-i18next/components";
+import SearchHeader from "../../components/global/Header/SearchHeader";
+import { Image } from "astro:assets";
 
 changeLanguage("ro");
 
@@ -30,11 +34,13 @@ const ownedDecks: IDeckList = await getOwnedDeck(jwt).then((res) => {
 const learningDecks: IDeckList = await getLearningDeck(jwt).then((res) => {
     return res.data;
 });
+const user = await getMe(jwt).then((res) => {
+    return res.data;
+});
 ---
 
 <Layout title="Memnix">
-	<LoggedHeader />
-
+	<LoggedHeader user={user}/>
 	<SearchWrapper client:idle>
 		<Search client:visible meilisearchToken={meilisearchToken} />
 	</SearchWrapper>
