@@ -27,12 +27,6 @@ export default function Auth(props) {
 		await fetch("/login/github")
 	}
 
-	onMount(async () => {
-		console.log(props)
-	})
-
-	// Create a prop for the login button
-
 	return (
 		<>
 			<div class="flex flex-col gap-4 p-4 md:p-8">

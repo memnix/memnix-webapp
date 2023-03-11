@@ -1,7 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-const defaultTheme = require("tailwindcss/defaultTheme")
-
 module.exports = {
 	content: ["./src/**/*.{astro,html,jsx,tsx,svelte,vue,js,ts}"],
 	theme: {
@@ -21,7 +19,7 @@ module.exports = {
 				slider2: "marquee2 20s linear infinite reverse"
 			},
 			fontFamily: {
-				sans: ["Syne", "Nunito", ...defaultTheme.fontFamily.sans]
+				sans: ["Syne", "Nunito"]
 			}
 		}
 	},

@@ -2360,7 +2360,7 @@ astro-eslint-parser@^0.12.0:
 
 astro-i18next@1.0.0-beta.21:
   version "1.0.0-beta.21"
-  resolved "https://registry.npmjs.org/astro-i18next/-/astro-i18next-1.0.0-beta.21.tgz"
+  resolved "https://registry.yarnpkg.com/astro-i18next/-/astro-i18next-1.0.0-beta.21.tgz#f1c2f1b4430f1369cdde690fd14813f7d4cefa23"
   integrity sha512-1YPqwexumHpK/d9afEoi52CBFTu6k4MYv/oHjsaAasZDvFClU6U5VPttC/OgZcXRYggCM6ee2LOnyHqlmXOeLA==
   dependencies:
     "@proload/core" "^0.3.3"
@@ -4578,14 +4578,7 @@ i18next-http-backend@^2.1.1:
   dependencies:
     cross-fetch "3.1.5"
 
-i18next@^22.4.10:
-  version "22.4.10"
-  resolved "https://registry.npmjs.org/i18next/-/i18next-22.4.10.tgz"
-  integrity sha512-3EqgGK6fAJRjnGgfkNSStl4mYLCjUoJID338yVyLMj5APT67HUtWoqSayZewiiC5elzMUB1VEUwcmSCoeQcNEA==
-  dependencies:
-    "@babel/runtime" "^7.20.6"
-
-i18next@^22.4.11:
+i18next@^22.4.10, i18next@^22.4.11:
   version "22.4.11"
   resolved "https://registry.yarnpkg.com/i18next/-/i18next-22.4.11.tgz#8b6c9be95176de90d3f10a78af125d95d3a3258d"
   integrity sha512-ShfTzXVMjXdF2iPiT/wbizOrssLh9Ab6VpuVROihLCAu+u25KbZiEYVgsA0W6g0SgjPa/JmGWcUEV/g6cKzEjQ==

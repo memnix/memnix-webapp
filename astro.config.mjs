@@ -22,9 +22,6 @@ import react from "@astrojs/react"
 import preact from "@astrojs/preact"
 
 // https://astro.build/config
-import partytown from "@astrojs/partytown"
-
-// https://astro.build/config
 export default defineConfig({
 	site: seoConfig.baseURL,
 	experimental: {

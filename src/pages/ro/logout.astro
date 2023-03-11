@@ -1,17 +1,17 @@
 ---
-import { changeLanguage } from "i18next"
-import { localizePath } from "astro-i18next"
-import { Icon } from "astro-iconify"
+import { changeLanguage } from "i18next";
+import { localizePath } from "astro-i18next";
+import { Icon } from "astro-iconify";
 
-changeLanguage("ro")
+changeLanguage("ro");
 
-Astro.cookies.delete("jwt")
-const language = Astro.cookies.get("lang")
+Astro.cookies.delete("jwt");
+const language = Astro.cookies.get("lang");
 // If the language is not set, set it to the default language
 if (!language) {
-	language.value = "en"
+    language.value = "en";
 }
-return Astro.redirect(localizePath("/auth", language.value))
+return Astro.redirect(localizePath("/auth", language.value));
 ---
 
 <div class="w-full h-screen flex flex-col items-center justify-between">
