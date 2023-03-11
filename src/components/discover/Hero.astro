@@ -1,9 +1,9 @@
 ---
-import { Picture } from "@astrojs/image/components"
 import { setDefaultNamespace, t } from "i18next"
 import { Trans } from "astro-i18next/components"
 import Logo from "@img/icon.png"
 import { localizePath } from "astro-i18next"
+import { Image } from 'astro:assets';
 
 setDefaultNamespace("common")
 ---
@@ -57,14 +57,15 @@ setDefaultNamespace("common")
 		</div>
 		<div class="block md:flex items-center flex-1">
 			<div class="relative m-auto max-w-4xl">
-				<Picture
-					src={Logo}
-					formats={["avif", "webp", "png"]}
+				<Image
+					src={Logo.src}
+					quality={"high"}
+					format="avif"
 					class="mx-auto w-full rounded-md md:h-full drop-shadow-2xl"
-					sizes={`(min-width: 1024px) 600px, (min-width: 768px) 400px, 200px`}
+					width={600}
+					height={600}
 					loading={"eager"}
 					decoding={"async"}
-					widths={[200, 400, 600]}
 					aspectRatio={1}
 					alt="Memnix app logo"
 				/>

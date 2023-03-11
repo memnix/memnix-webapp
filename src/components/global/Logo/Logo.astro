@@ -1,5 +1,5 @@
 ---
-import { Image } from "@astrojs/image/components"
+import { Image } from 'astro:assets';
 import Logo from "@img/icon.png"
 ---
 
@@ -7,8 +7,8 @@ import Logo from "@img/icon.png"
 	class="self-center ml-2 text-2xl md:text-xl font-bold whitespace-nowrap flex items-center hoveranimation"
 >
 	<Image
-		src={Logo}
-		class="inline-block mr-1 w-14"
+		src={Logo.src}
+		class="inline-block mr-1 w-12"
 		loading={"eager"}
 		decoding={"async"}
 		alt="Logo"

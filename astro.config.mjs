@@ -4,7 +4,6 @@ import { defineConfig } from "astro/config"
 import tailwind from "@astrojs/tailwind"
 import sitemap from "@astrojs/sitemap"
 import compress from "astro-compress"
-import image from "@astrojs/image"
 import solidJs from "@astrojs/solid-js"
 import astroI18next from "astro-i18next"
 
@@ -26,6 +25,12 @@ import preact from "@astrojs/preact"
 // https://astro.build/config
 export default defineConfig({
 	site: seoConfig.baseURL,
+	experimental: {
+		assets: true
+	},
+	image: {
+		service: "astro/assets/services/sharp",
+	},
 	integrations: [
 		tailwind({
 			config: {
@@ -36,9 +41,6 @@ export default defineConfig({
 		preact(),
 		solidJs(),
 		react(),
-		image({
-			serviceEntryPoint: "@astrojs/image/sharp"
-		}),
 		astroI18next(),
 		sitemap({
 			lastmod: new Date(),
