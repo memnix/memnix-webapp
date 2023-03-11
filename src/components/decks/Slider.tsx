@@ -65,15 +65,18 @@ export default function Slider(props) {
 					{decks.map((deck) => {
 						return (
 							<>
+								{/*// @ts-ignore */}
 								<swiper-slide class="flex items-center justify-center text-center ">
 									<div class="flex h-full w-full flex-col items-center justify-center">
 										<Deck deck={deck} />
 										<div class="swiper-lazy-preloader dark:swiper-lazy-preloader-white"></div>
 									</div>
+									{/*// @ts-ignore */}
 								</swiper-slide>
 							</>
 						)
 					})}
+					{/*// @ts-ignore */}
 				</swiper-container>
 			</div>
 		</>

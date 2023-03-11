@@ -7,6 +7,8 @@ import compress from "astro-compress"
 import solidJs from "@astrojs/solid-js"
 import astroI18next from "astro-i18next"
 
+import serviceWorker from "astrojs-service-worker"
+
 // Helper imports
 import { seoConfig } from "./utils/seoConfig"
 import compressor from "astro-compressor"
@@ -29,7 +31,7 @@ export default defineConfig({
 		assets: true
 	},
 	image: {
-		service: "astro/assets/services/sharp",
+		service: "astro/assets/services/sharp"
 	},
 	integrations: [
 		tailwind({
@@ -55,6 +57,7 @@ export default defineConfig({
 				}
 			}
 		}),
+		serviceWorker({}),
 		critters(),
 		compress(),
 		compressor()
