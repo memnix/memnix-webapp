@@ -58,7 +58,6 @@ export default defineConfig({
 		}),
 		serviceWorker({}),
 		critters(),
-		purgecss(),
 		compress(),
 		compressor()
 	],
