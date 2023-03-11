@@ -16,7 +16,6 @@ if (jwt && (await isConnected(jwt))) {
     return Astro.redirect(localizePath("/dashboard"));
 }
 const labels = t("auth", { returnObjects: true });
-export const prerender = true;
 ---
 
 <Layout title="Memnix">
