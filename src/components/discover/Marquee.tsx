@@ -1,6 +1,6 @@
 /** @jsxImportSource solid-js */
 
-export default function Auth() {
+export default function Marquee() {
 	const TAGS = [
 		"Open Source",
 		"Learn",

@@ -1,21 +1,21 @@
 ---
-import { Layout } from "@globals"
-import { t, changeLanguage, setDefaultNamespace } from "i18next"
-import Auth from "../../components/index/Auth"
-import { localizePath } from "astro-i18next"
-import { isConnected } from "../../../common/utils/security"
-import { baseUrl } from "../../../common/utils/utils"
-import { ENDPOINTS } from "../../../common/utils/endpoints"
-import { Icon } from "astro-iconify"
+import { Layout } from "@globals";
+import { t, changeLanguage, setDefaultNamespace } from "i18next";
+import Auth from "../../components/index/Auth";
+import { localizePath } from "astro-i18next";
+import { isConnected } from "../../../common/utils/security";
+import { baseUrl } from "../../../common/utils/utils";
+import { ENDPOINTS } from "../../../common/utils/endpoints";
+import { Icon } from "astro-iconify";
 
-changeLanguage("fr")
+changeLanguage("fr");
 
-setDefaultNamespace("common")
-const jwt = Astro.cookies.get("jwt")?.value
+setDefaultNamespace("common");
+const jwt = Astro.cookies.get("jwt")?.value;
 if (jwt && (await isConnected(jwt))) {
-	return Astro.redirect(localizePath("/dashboard"))
+    return Astro.redirect(localizePath("/dashboard"));
 }
-const labels = t("auth", { returnObjects: true })
+const labels = t("auth", { returnObjects: true });
 ---
 
 <Layout title="Memnix">
