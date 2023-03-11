@@ -1,10 +1,10 @@
 ---
 import { Layout } from "@globals";
-import i18next, { t, setDefaultNamespace, changeLanguage } from "i18next";
+import i18next, { setDefaultNamespace, changeLanguage } from "i18next";
 import Hero from "../../components/discover/Hero.astro";
 import Features from "../../components/discover/Features.astro";
 import Header from "../../components/global/Header/Header.astro";
-import Marquee from "../../../components/discover/Marquee.tsx";
+import Marquee from "../../components/discover/Marquee.tsx";
 
 changeLanguage("de");
 
@@ -18,8 +18,8 @@ export const prerender = true;
 ---
 
 <Layout title="Memnix">
-	<Header />
-	<Hero />
-	<Marquee client:visible />
-	<Features />
+	<Header/>
+	<Hero/>
+	<Marquee client:visible/>
+	<Features/>
 </Layout>
