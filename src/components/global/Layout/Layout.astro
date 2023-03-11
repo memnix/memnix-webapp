@@ -1,15 +1,15 @@
 ---
 // Component imports
-import { SEO } from "astro-seo"
+import {SEO} from "astro-seo"
 
 // Style imports
 import "@style/tailwind.css"
 
-import { HeadHrefLangs } from "astro-i18next/components"
+import {HeadHrefLangs} from "astro-i18next/components"
 
 // Helper imports
-import { seoConfig } from "@util/seoConfig"
-import { dataWebsiteId } from "@util/config"
+import {seoConfig} from "@util/seoConfig"
+import {dataWebsiteId} from "@util/config"
 
 // Import fonts
 import "@fontsource/syne"
@@ -46,154 +46,154 @@ const {
 ---
 
 <html lang="en">
-	<head>
-		<!-- SEO. -->
-		<SEO
-			title={title}
-			description={seoConfig.description || description}
-			noindex={disableIndexing}
-			nofollow={disableIndexing}
-			openGraph={{
-				basic: {
-					title: ogTitle || title,
-					type: "website",
-					image: seoConfig.image.url || image.url
-				},
-				image: {
-					width: seoConfig.image.width,
-					height: seoConfig.image.height,
-					alt: seoConfig.image.alt || image.alt
-				},
-				optional: {
-					siteName: seoConfig.siteName,
-					description: seoConfig.description || description
-				}
-			}}
-			twitter={{
-				card: seoConfig.twitter.card
-			}}
-		/>
+<head>
+	<!-- SEO. -->
+	<SEO
+		title={title}
+		description={seoConfig.description || description}
+		noindex={disableIndexing}
+		nofollow={disableIndexing}
+		openGraph={{
+			basic: {
+				title: ogTitle || title,
+				type: "website",
+				image: seoConfig.image.url || image.url
+			},
+			image: {
+				width: seoConfig.image.width,
+				height: seoConfig.image.height,
+				alt: seoConfig.image.alt || image.alt
+			},
+			optional: {
+				siteName: seoConfig.siteName,
+				description: seoConfig.description || description
+			}
+		}}
+		twitter={{
+			card: seoConfig.twitter.card
+		}}
+	/>
 
-		<!-- Google Fonts -->
-		<link
-			rel="preconnect"
-			href="https://fonts.googleapis.com"
-			crossorigin="anonymous"
-		/>
-		<link
-			rel="preconnect"
-			href="https://fonts.gstatic.com"
-			crossorigin="anonymous"
-		/>
+	<!-- Google Fonts -->
+	<link
+		rel="preconnect"
+		href="https://fonts.googleapis.com"
+		crossorigin="anonymous"
+	/>
+	<link
+		rel="preconnect"
+		href="https://fonts.gstatic.com"
+		crossorigin="anonymous"
+	/>
 
-		<!-- Umami analytics. -->
-		<link rel="preconnect" href="https://umami.memnix.app" />
+	<!-- Umami analytics. -->
+	<link rel="preconnect" href="https://umami.memnix.app"/>
 
-		<script
-			type="text/partytown"
-			data-website-id={dataWebsiteId}
-			src="https://umami.memnix.app/umami.js"
-		></script>
+	<script
+		async
+		data-website-id={dataWebsiteId}
+		src="https://umami.memnix.app/umami.js"
+	></script>
 
-		<!-- I18n tags -->
-		<HeadHrefLangs />
+	<!-- I18n tags -->
+	<HeadHrefLangs/>
 
-		<!-- Global meta tags. -->
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- Global meta tags. -->
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-		<!-- Favicons. -->
-		<link
-			rel="apple-touch-icon"
-			sizes="57x57"
-			href="/favicons/favicon-57x57.png"
-		/>
-		<link
-			rel="apple-touch-icon"
-			sizes="60x60"
-			href="/favicons/favicon-60x60.png"
-		/>
-		<link
-			rel="apple-touch-icon"
-			sizes="72x72"
-			href="/favicons/favicon-72x72.png"
-		/>
-		<link
-			rel="apple-touch-icon"
-			sizes="76x76"
-			href="/favicons/favicon-76x76.png"
-		/>
-		<link
-			rel="apple-touch-icon"
-			sizes="114x114"
-			href="/favicons/favicon-114x114.png"
-		/>
-		<link
-			rel="apple-touch-icon"
-			sizes="120x120"
-			href="/favicons/favicon-120x120.png"
-		/>
-		<link
-			rel="apple-touch-icon"
-			sizes="144x144"
-			href="/favicons/favicon-144x144.png"
-		/>
-		<link
-			rel="apple-touch-icon"
-			sizes="152x152"
-			href="/favicons/favicon-152x152.png"
-		/>
-		<link
-			rel="apple-touch-icon"
-			sizes="180x180"
-			href="/favicons/favicon-180x180.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href="/favicons/favicon-16x16.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="/favicons/favicon-32x32.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="96x96"
-			href="/favicons/favicon-96x96.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="192x192"
-			href="/favicons/favicon-192x192.png"
-		/>
-		<link
-			rel="shortcut icon"
-			type="image/x-icon"
-			href="/favicons/favicon.ico"
-		/>
-		<link rel="icon" type="image/x-icon" href="/favicons/favicon.ico" />
-		<meta name="msapplication-TileColor" content="#30E130" />
-		<meta
-			name="msapplication-TileImage"
-			content="/favicons/favicon-144x144.png"
-		/>
-		<meta name="msapplication-config" content="/browserconfig.xml" />
+	<!-- Favicons. -->
+	<link
+		rel="apple-touch-icon"
+		sizes="57x57"
+		href="/favicons/favicon-57x57.png"
+	/>
+	<link
+		rel="apple-touch-icon"
+		sizes="60x60"
+		href="/favicons/favicon-60x60.png"
+	/>
+	<link
+		rel="apple-touch-icon"
+		sizes="72x72"
+		href="/favicons/favicon-72x72.png"
+	/>
+	<link
+		rel="apple-touch-icon"
+		sizes="76x76"
+		href="/favicons/favicon-76x76.png"
+	/>
+	<link
+		rel="apple-touch-icon"
+		sizes="114x114"
+		href="/favicons/favicon-114x114.png"
+	/>
+	<link
+		rel="apple-touch-icon"
+		sizes="120x120"
+		href="/favicons/favicon-120x120.png"
+	/>
+	<link
+		rel="apple-touch-icon"
+		sizes="144x144"
+		href="/favicons/favicon-144x144.png"
+	/>
+	<link
+		rel="apple-touch-icon"
+		sizes="152x152"
+		href="/favicons/favicon-152x152.png"
+	/>
+	<link
+		rel="apple-touch-icon"
+		sizes="180x180"
+		href="/favicons/favicon-180x180.png"
+	/>
+	<link
+		rel="icon"
+		type="image/png"
+		sizes="16x16"
+		href="/favicons/favicon-16x16.png"
+	/>
+	<link
+		rel="icon"
+		type="image/png"
+		sizes="32x32"
+		href="/favicons/favicon-32x32.png"
+	/>
+	<link
+		rel="icon"
+		type="image/png"
+		sizes="96x96"
+		href="/favicons/favicon-96x96.png"
+	/>
+	<link
+		rel="icon"
+		type="image/png"
+		sizes="192x192"
+		href="/favicons/favicon-192x192.png"
+	/>
+	<link
+		rel="shortcut icon"
+		type="image/x-icon"
+		href="/favicons/favicon.ico"
+	/>
+	<link rel="icon" type="image/x-icon" href="/favicons/favicon.ico"/>
+	<meta name="msapplication-TileColor" content="#30E130"/>
+	<meta
+		name="msapplication-TileImage"
+		content="/favicons/favicon-144x144.png"
+	/>
+	<meta name="msapplication-config" content="/browserconfig.xml"/>
 
-		<meta name="theme-color" content="#E9AF98" />
+	<meta name="theme-color" content="#E9AF98"/>
 
-		<!-- PWA -->
-		<link rel="manifest" href="/manifest.webmanifest" />
-	</head>
-	<body class="min-h-screen flex flex-col w-full overflow-x-hidden">
-		<!-- Header -->
-		<main class="flex flex-1 flex-col h-[100%] w-full">
-			<slot />
-		</main>
-	</body>
+	<!-- PWA -->
+	<link rel="manifest" href="/manifest.webmanifest"/>
+</head>
+<body class="min-h-screen flex flex-col w-full overflow-x-hidden">
+<!-- Header -->
+<main class="flex flex-1 flex-col h-[100%] w-full">
+	<slot/>
+</main>
+</body>
 </html>

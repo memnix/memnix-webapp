@@ -49,7 +49,7 @@ export default defineConfig({
         it: "it-IT"
       }
     }
-  }), serviceWorker({}), partytown({}), critters(), compress(), compressor()],
+  }), serviceWorker({}), critters(), compress(), compressor()],
   output: "server",
   adapter: node({
     mode: "standalone"

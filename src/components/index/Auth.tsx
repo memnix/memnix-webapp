@@ -27,7 +27,9 @@ export default function Auth(props) {
 		await fetch("/login/github")
 	}
 
-	onMount(async () => {})
+	onMount(async () => {
+		console.log(props)
+	})
 
 	// Create a prop for the login button
 
