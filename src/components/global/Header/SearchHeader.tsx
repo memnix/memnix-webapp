@@ -1,7 +1,5 @@
 /** @jsxImportSource solid-js */
 
-import { createSignal, onMount } from "solid-js"
-
 import { Icon } from "@iconify-icon/solid"
 import { useStore } from "@nanostores/solid"
 import { isSearchOpen } from "../../../store/searchStore"

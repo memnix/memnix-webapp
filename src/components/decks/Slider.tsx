@@ -1,9 +1,9 @@
 /** @jsxImportSource solid-js */
 
-import { onMount } from "solid-js"
-import { register } from "swiper/element/bundle"
 import Deck from "@component/decks/Deck"
 import { IDeckList } from "common/types/api"
+import { onMount } from "solid-js"
+import { register } from "swiper/element/bundle"
 
 register()
 export default function Slider(props) {
@@ -18,7 +18,7 @@ export default function Slider(props) {
 			<div class="flex flex-row items-center justify-between px-5 pt-7">
 				<h1 class="md:text-xl">Title</h1>
 			</div>
-			<div class="flex h-full items-center justify-center px-5 py-5">
+			<div class="flex h-full items-center justify-center p-5">
 				{/*// @ts-ignore */}
 				<swiper-container
 					slides-per-view={1}

@@ -1,4 +1,5 @@
 {
+	"extends": "astro/tsconfigs/strict",
 	"compilerOptions": {
 		"experimentalDecorators": true,
 		"target": "ESNext",
@@ -19,6 +20,8 @@
 			"@common/*": ["common/*"]
 		},
 		"jsxImportSource": "solid-js",
-		"jsx": "preserve"
-	}
+		"jsx": "preserve",
+		"importsNotUsedAsValues": "remove"
+	},
+	"include": ["**/*", ".eslintrc.cjs"]
 }

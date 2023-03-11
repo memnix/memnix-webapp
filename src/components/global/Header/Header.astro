@@ -4,7 +4,7 @@ import { LanguageSelector } from "astro-i18next/components"
 import { localizePath } from "astro-i18next"
 ---
 
-<div class="navbar md:px-5 transition-all">
+<div class="navbar transition-all md:px-5">
 	<div class="navbar-start">
 		<a class="" href={localizePath("/")} rel="prefetch">
 			<Logo />
@@ -13,14 +13,14 @@ import { localizePath } from "astro-i18next"
 	<div class="navbar-end">
 		<LanguageSelector
 			showFlag={true}
-			class="hidden md:block my-select-class select select-bordered select-md w-full max-w-[10rem] 0 text-base-content px-5"
+			class="my-select-class select select-bordered select-md 0 text-base-content hidden w-full max-w-[10rem] px-5 md:block"
 		/>
 
 		<a
 			href={localizePath("/auth")}
 			aria-label="login"
 			rel="prefetch"
-			class="ml-3 btn btn-primary h-10 px-5 shadow-none text-base"
+			class="btn btn-primary ml-3 h-10 px-5 text-base shadow-none"
 		>
 			Login
 		</a>

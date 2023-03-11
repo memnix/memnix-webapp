@@ -3,8 +3,8 @@
 // @param {string} email
 // @param {string} password
 // @returns {Promise<{token: string}>}
-import { get, getWithToken, post } from "./utils"
 import { ENDPOINTS } from "./endpoints"
+import { get, getWithToken, post } from "./utils"
 
 export async function login(email, password) {
 	const res = await post(ENDPOINTS.Security.login, { email, password })

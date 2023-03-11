@@ -15,11 +15,13 @@ import prefetch from "@astrojs/prefetch"
 import node from "@astrojs/node"
 import critters from "astro-critters"
 
-// https://astro.build/config
 import react from "@astrojs/react"
 
 // https://astro.build/config
 import preact from "@astrojs/preact"
+
+// https://astro.build/config
+import purgecss from "astro-purgecss"
 
 // https://astro.build/config
 export default defineConfig({
@@ -56,6 +58,7 @@ export default defineConfig({
 		}),
 		serviceWorker({}),
 		critters(),
+		purgecss(),
 		compress(),
 		compressor()
 	],

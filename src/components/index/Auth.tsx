@@ -1,8 +1,8 @@
 /** @jsxImportSource solid-js */
 
-import { createSignal, onMount } from "solid-js"
-import { login } from "@common/utils/security"
 import { LoginResponse } from "@common/types/api"
+import { login } from "@common/utils/security"
+import { createSignal } from "solid-js"
 
 export default function Auth(props) {
 	const [username, setUsername] = createSignal("")

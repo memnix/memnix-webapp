@@ -33,18 +33,18 @@ const items = [
 ---
 
 <section class="scroll-mt-16" id="features">
-	<div class="px-4 py-16 mx-auto max-w-6xl lg:px-8 lg:py-20">
-		<div class="mb-10 md:mx-auto sm:text-center md:mb-12 max-w-3xl">
-			<p class="text-base text-primary font-semibold tracking-wide uppercase">
+	<div class="mx-auto max-w-6xl px-4 py-16 lg:px-8 lg:py-20">
+		<div class="mb-10 max-w-3xl sm:text-center md:mx-auto md:mb-12">
+			<p class="text-primary text-base font-semibold uppercase tracking-wide">
 				{t("features.features")}
 			</p>
 			<h2
-				class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading"
+				class="leading-tighter font-heading mb-4 text-4xl font-bold tracking-tighter md:text-5xl"
 			>
 				{t("features.what_you_get")}
 			</h2>
 		</div>
-		<div class="grid mx-auto space-y-6 md:grid-cols-2 md:space-y-0">
+		<div class="mx-auto grid space-y-6 md:grid-cols-2 md:space-y-0">
 			{
 				items.map((subitems) => (
 					<div class="space-y-8 sm:px-8">

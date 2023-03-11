@@ -1,8 +1,8 @@
 /** @jsxImportSource solid-js */
 
 import { useStore } from "@nanostores/solid"
-import { isSearchOpen } from "../../store/searchStore"
 import { Show } from "solid-js"
+import { isSearchOpen } from "../../store/searchStore"
 
 export default function SearchHeader(props) {
 	const $isSearchOpen = useStore(isSearchOpen)

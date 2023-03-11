@@ -1,11 +1,11 @@
 /** @jsxImportSource react */
-import {
-	InstantSearch,
-	SearchBox,
-	Hits,
-	Highlight
-} from "react-instantsearch-hooks-web"
 import { instantMeiliSearch } from "@meilisearch/instant-meilisearch"
+import {
+	Highlight,
+	Hits,
+	InstantSearch,
+	SearchBox
+} from "react-instantsearch-hooks-web"
 
 export default function Search({ meilisearchToken }) {
 	const searchClient = instantMeiliSearch(

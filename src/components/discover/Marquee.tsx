@@ -31,12 +31,12 @@ export default function Marquee() {
 				}}
 			>
 				{reverse ? (
-					<div class={"flex w-fit animate-slider2"}>
+					<div class={"animate-slider2 flex w-fit"}>
 						{children}
 						{children}
 					</div>
 				) : (
-					<div class={"flex w-fit animate-slider"}>
+					<div class={"animate-slider flex w-fit"}>
 						{children}
 						{children}
 					</div>
@@ -46,7 +46,7 @@ export default function Marquee() {
 	}
 
 	const Tag = ({ text }) => (
-		<div class="mr-4 flex items-center gap-y-1 rounded-md bg-base-200/80 p-4 text-sm drop-shadow-md">
+		<div class="bg-base-200/80 mr-4 flex items-center gap-y-1 rounded-md p-4 text-sm drop-shadow-md">
 			<span>#</span> {text}
 		</div>
 	)
@@ -68,7 +68,7 @@ export default function Marquee() {
 							))}
 					</InfiniteLoopSlider>
 				))}
-				<div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-base-100 via-transparent to-base-100 " />
+				<div class="from-base-100 to-base-100 pointer-events-none absolute inset-0 bg-gradient-to-r via-transparent " />
 			</div>
 		</>
 	)

@@ -17,15 +17,15 @@ const avatar = user.avatar
 	  "?colors=070705,3E4B51,6F737E,89A09A,C1C0AE"
 ---
 
-<div class="navbar md:px-5 transition-all">
+<div class="navbar transition-all md:px-5">
 	<div class="navbar-start">
 		<a class="" href={"/"} rel="prefetch">
 			<span
-				class="self-center ml-2 text-2xl md:text-xl font-bold whitespace-nowrap flex items-center hoveranimation"
+				class="hoveranimation ml-2 flex items-center self-center whitespace-nowrap text-2xl font-bold md:text-xl"
 			>
 				<img
 					src={Logo.src}
-					class="inline-block mr-1 w-12"
+					class="mr-1 inline-block w-12"
 					loading={"eager"}
 					decoding={"async"}
 					alt="Logo"
@@ -33,7 +33,7 @@ const avatar = user.avatar
 					height={64}
 				/>
 				<h2
-					class="from-primary via-[#DF9594] via-[#CC7F97] via-[#AD6E9E] via-[#8163A2] to-secondary bg-clip-text text-4xl font-bold text-primary dark:bg-gradient-to-r dark:text-transparent"
+					class="from-primary to-secondary text-primary via-[#DF9594] via-[#CC7F97] via-[#AD6E9E] via-[#8163A2] bg-clip-text text-4xl font-bold dark:bg-gradient-to-r dark:text-transparent"
 				>
 					Memnix
 				</h2>
@@ -45,25 +45,26 @@ const avatar = user.avatar
 
 		<LanguageSelector
 			showFlag={true}
-			class="hidden md:block my-select-class select select-bordered select-md w-full max-w-[10rem] text-base-content px-5"
+			class="my-select-class select select-bordered select-md text-base-content hidden w-full max-w-[10rem] px-5 md:block"
 		/>
 
-		<div class="dropdown dropdown-end pl-5 w-16">
+		<div class="dropdown dropdown-end w-16 pl-5">
 			<label
 				tabindex="0"
-				class="avatar rounded-xl mask mask-squircle hover:cursor-pointer"
+				class="avatar mask mask-squircle rounded-xl hover:cursor-pointer"
 			>
 				<img
 					src={avatar}
 					loading={"eager"}
 					decoding={"async"}
+					alt="Avatar"
 					width={64}
 					height={64}
 				/>
 			</label>
 			<ul
 				tabindex="0"
-				class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4"
+				class="menu dropdown-content bg-base-100 rounded-box mt-4 w-52 p-2 shadow"
 			>
 				<li><a href="/logout">logout</a></li>
 			</ul>
