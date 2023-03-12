@@ -2700,7 +2700,7 @@ astrojs-compiler-sync@^0.3.0:
 
 astrojs-service-worker@^0.0.9:
   version "0.0.9"
-  resolved "https://registry.npmjs.org/astrojs-service-worker/-/astrojs-service-worker-0.0.9.tgz"
+  resolved "https://registry.yarnpkg.com/astrojs-service-worker/-/astrojs-service-worker-0.0.9.tgz#9e3c7bfac0204724f54ef0de28171c16cda58d0a"
   integrity sha512-bj9v+jvhWdC+C/NSkVgCSJ2pJQf/8xh9B5v4MwgrkBkux+KivSaEZ/i3f/XYHhJRd6YLS9S7SfoJw0j5wUmYzA==
   dependencies:
     workbox-build "^6.5.4"
@@ -8612,21 +8612,9 @@ vite-plugin-pwa@^0.14.4:
     workbox-build "^6.5.4"
     workbox-window "^6.5.4"
 
-vite@^4.1.2:
+vite@^4.1.2, vite@^4.1.4:
   version "4.1.4"
   resolved "https://registry.npmjs.org/vite/-/vite-4.1.4.tgz"
-  integrity sha512-3knk/HsbSTKEin43zHu7jTwYWv81f8kgAL99G5NWBcA1LKvtvcVAC4JjBH1arBunO9kQka+1oGbrMKOjk4ZrBg==
-  dependencies:
-    esbuild "^0.16.14"
-    postcss "^8.4.21"
-    resolve "^1.22.1"
-    rollup "^3.10.0"
-  optionalDependencies:
-    fsevents "~2.3.2"
-
-vite@^4.1.4:
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-4.1.4.tgz#170d93bcff97e0ebc09764c053eebe130bfe6ca0"
   integrity sha512-3knk/HsbSTKEin43zHu7jTwYWv81f8kgAL99G5NWBcA1LKvtvcVAC4JjBH1arBunO9kQka+1oGbrMKOjk4ZrBg==
   dependencies:
     esbuild "^0.16.14"

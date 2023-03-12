@@ -17,7 +17,7 @@ import critters from "astro-critters"
 import react from "@astrojs/react"
 
 import purgeCSS from "astro-purgecss"
-
+import serviceWorker from "astrojs-service-worker"
 // https://astro.build/config
 import preact from "@astrojs/preact"
 
@@ -55,23 +55,11 @@ export default defineConfig({
 				}
 			}
 		}),
-		AstroPWA({
-			registerType: "autoUpdate",
-			manifest,
-			workbox: {
-				globDirectory: 'dist',
-				globPatterns: [
-					'**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}',
-				],
-				// Don't fallback on document based (e.g. `/some-page`) requests
-				// This removes an errant console.log message from showing up.
-				navigateFallback: null,
-			},
-		}),
 		critters(),
 		purgeCSS(),
 		compress(),
-		compressor()
+		compressor(),
+		serviceWorker({}),
 	],
 	output: "server",
 	adapter: node({

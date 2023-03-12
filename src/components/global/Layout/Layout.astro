@@ -189,8 +189,6 @@ const {
 		<meta name="theme-color" content="#E9AF98" />
 
 		<!-- PWA -->
-		<script src="/src/pwa.ts"></script>
-		{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
 		<link rel="manifest" href="/manifest.webmanifest" />
 	</head>
 	<body class="flex min-h-screen w-full flex-col overflow-x-hidden">
@@ -198,5 +196,6 @@ const {
 		<main class="flex h-[100%] w-full flex-1 flex-col">
 			<slot />
 		</main>
+
 	</body>
 </html>
