@@ -1,2 +1,2 @@
 // @ts-ignore
-export { default as Logo } from "./Logo.astro"
+export { default as Logo } from "./Logo.astro";

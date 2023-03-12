@@ -1,5 +1,4 @@
 /** @jsxImportSource solid-js */
-import { integer } from "vscode-languageserver-types"
 
 export default function Marquee() {
 	const TAGS = [

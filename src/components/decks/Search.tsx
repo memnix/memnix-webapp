@@ -1,13 +1,13 @@
 /** @jsxImportSource react */
+import { JSXElement } from "@babel/types"
 import { instantMeiliSearch } from "@meilisearch/instant-meilisearch"
+import { useStore } from "@nanostores/react"
 import {
 	Highlight,
 	Hits,
 	InstantSearch,
 	SearchBox
 } from "react-instantsearch-hooks-web"
-import { JSXElement } from "@babel/types"
-import { useStore } from "@nanostores/react"
 import { isSearchOpen } from "../../store/searchStore"
 
 export default function Search({

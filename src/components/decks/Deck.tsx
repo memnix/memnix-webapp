@@ -2,7 +2,7 @@
 
 import { IDeck } from "common/types/api"
 
-export default function Deck(props) {
+export default function Deck(props: { deck: IDeck }) {
 	const deck: IDeck = props.deck
 	return (
 		<>

@@ -20,8 +20,6 @@ import serviceWorker from "astrojs-service-worker"
 // https://astro.build/config
 import preact from "@astrojs/preact"
 
-require("newrelic")
-
 export default defineConfig({
 	site: seoConfig.baseURL,
 	experimental: {
