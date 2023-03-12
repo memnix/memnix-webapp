@@ -2506,19 +2506,6 @@ astro-critters@^1.1.31:
     critters "0.0.16"
     files-pipe "0.0.1"
 
-astro-eslint-parser@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/astro-eslint-parser/-/astro-eslint-parser-0.11.0.tgz#91aea3ca3a8d6edc2d1997bb013d348cf6bd2afe"
-  integrity sha512-vcz8KBQ20WNOot6qK6w7DQtz2hwg+aLLqlUa6nAnitJLqbR12GxJN/+96U3O+VI4da5Up+FMWqNoL9mywSENtA==
-  dependencies:
-    "@astrojs/compiler" "^1.0.0"
-    "@typescript-eslint/scope-manager" "^5.48.2"
-    "@typescript-eslint/types" "^5.25.0"
-    astrojs-compiler-sync "^0.3.0"
-    debug "^4.3.4"
-    eslint-visitor-keys "^3.0.0"
-    espree "^9.0.0"
-
 astro-eslint-parser@^0.12.0:
   version "0.12.0"
   resolved "https://registry.npmjs.org/astro-eslint-parser/-/astro-eslint-parser-0.12.0.tgz"
@@ -7816,10 +7803,10 @@ smartypants@^0.1.6:
   resolved "https://registry.yarnpkg.com/smartypants/-/smartypants-0.1.6.tgz#976d23dcccae83d56da93d59db1ba76838c976f7"
   integrity sha512-zGXh+Q6Y3OPTLM5x2HxAIkEAj4ZcePftmIOdIYozv2T+m03Sp5R4YppczKuo6IdnSMc99U+Wgvy8Mil0eeep7g==
 
-solid-js@1.6.11:
-  version "1.6.11"
-  resolved "https://registry.npmjs.org/solid-js/-/solid-js-1.6.11.tgz"
-  integrity sha512-JquQQHPArGq+i2PLURxJ99Pcz2/1docpbycSio/cKSA0SeI3z5zRjy0TNcH4NRYvbOLrcini+iovXwnexKabyw==
+solid-js@1.6.14:
+  version "1.6.14"
+  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.6.14.tgz#8946bce073f9baf723c2f5eae6820452715140b7"
+  integrity sha512-9SSpGWZqzq8n/JhIt2PsYzLreG4PySmAexLnRM386oMeG5oSWa9QIRoiok45rLNJg148USEfI9wlkJkMrA2qGg==
   dependencies:
     csstype "^3.1.0"
 
