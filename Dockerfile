@@ -24,4 +24,4 @@ ENV PORT=1809
 # Expose the port on which the application will run
 EXPOSE 1809
 
-CMD node ./dist/server/entry.mjs
+CMD node -r newrelic ./dist/server/entry.mjs
