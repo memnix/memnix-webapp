@@ -1,0 +1,50 @@
+---
+import { changeLanguage } from "i18next"
+import {
+	getMeilisearchToken,
+	isConnected
+} from "../../../common/utils/security"
+import { localizePath } from "astro-i18next"
+import LoggedHeader from "../../components/global/Header/LoggedHeader.astro"
+import { Layout } from "../../components/global"
+import Slider from "../../components/decks/Slider.tsx"
+import { IDeckList, IUser } from "../../../common/types/api"
+import { getLearningDeck, getOwnedDeck } from "../../../common/utils/decks"
+import Search from "../../components/decks/Search.tsx"
+import SearchWrapper from "../../components/decks/SearchWrapper.tsx"
+import { getMe } from "../../../common/utils/user"
+
+changeLanguage("it")
+
+const jwt = Astro.cookies.get("jwt")?.value
+if (!jwt || !(await isConnected(jwt))) {
+	return Astro.redirect(localizePath("/auth"))
+}
+let meilisearchToken = Astro.cookies.get("meilisearch_token")?.value
+if (!meilisearchToken) {
+	const result = await getMeilisearchToken()
+	meilisearchToken = result?.token
+	Astro.cookies.set("meilisearch_token", meilisearchToken, {
+		maxAge: 60 * 60 * 24 * 30
+	})
+}
+const ownedDecks: IDeckList = await getOwnedDeck(jwt).then((res) => {
+	return res.data
+})
+const learningDecks: IDeckList = await getLearningDeck(jwt).then((res) => {
+	return res.data
+})
+const user = await getMe(jwt).then((res) => {
+	return res.data
+})
+---
+
+<Layout title="Memnix">
+	<LoggedHeader user={user} />
+	<Search client:idle meilisearchToken={meilisearchToken} />
+	<Slider client:only="solid-js" decks={ownedDecks} />
+	<Slider client:only="solid-js" decks={learningDecks} />
+	<Slider client:only="solid-js" decks={ownedDecks} />
+	<Slider client:only="solid-js" decks={ownedDecks} />
+	<Slider client:only="solid-js" decks={ownedDecks} />
+</Layout>

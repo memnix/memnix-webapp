@@ -1,0 +1,53 @@
+---
+import { LanguageSelector } from "astro-i18next/components"
+import { localizePath } from "astro-i18next"
+import { Icon } from "astro-iconify"
+import SearchHeader from "./SearchHeader.tsx"
+import Logo from "../../../assets/img/icon.png"
+import { IUser } from "../../../../common/types/api"
+import Avatar from "./Avatar.tsx"
+
+interface Props {
+	user: IUser
+}
+const { user } = Astro.props
+const avatar = user.avatar
+	? user.avatar
+	: "https://source.boringavatars.com/beam/120/" +
+	  user.username +
+	  "?colors=070705,3E4B51,6F737E,89A09A,C1C0AE"
+---
+
+<div class="navbar transition-all md:px-5">
+	<div class="navbar-start">
+		<a class="" href={localizePath("/")} rel="prefetch">
+			<span
+				class="hoveranimation ml-2 flex items-center self-center whitespace-nowrap text-2xl font-bold md:text-xl"
+			>
+				<img
+					src={Logo.src}
+					class="mr-1 inline-block w-12"
+					loading={"eager"}
+					decoding={"async"}
+					alt="Logo"
+					width={64}
+					height={64}
+				/>
+				<h2
+					class="from-primary to-secondary text-primary via-[#DF9594] via-[#CC7F97] via-[#AD6E9E] via-[#8163A2] bg-clip-text text-4xl font-bold dark:bg-gradient-to-r dark:text-transparent"
+				>
+					Memnix
+				</h2>
+			</span>
+		</a>
+	</div>
+	<div class="navbar-end">
+		<SearchHeader client:idle class="" />
+
+		<LanguageSelector
+			showFlag={true}
+			class="my-select-class select select-bordered select-md text-base-content hidden w-full max-w-[10rem] px-5 md:block"
+		/>
+		<Avatar avatar={avatar} client:idle />
+	</div>
+</div>
