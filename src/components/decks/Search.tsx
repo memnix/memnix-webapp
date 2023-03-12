@@ -6,20 +6,22 @@ import {
 	InstantSearch,
 	SearchBox
 } from "react-instantsearch-hooks-web"
+import {JSXElement} from "@babel/types";
 
-export default function Search({ meilisearchToken }) {
+export default function Search({ meilisearchToken } : { meilisearchToken: string }) {
 	const searchClient = instantMeiliSearch(
-		"http://localhost:7700",
+		"https://meilisearch.memnix.app",
 		meilisearchToken
 	)
 
-	const Hit = ({ hit }) => <Highlight attribute="name" hit={hit} />
+	const Hit = ({ hit } : {hit: JSXElement}) => <Highlight attribute="name" hit={hit} />
 
 	return (
 		<>
 			<p></p>
 			<InstantSearch indexName="decks" searchClient={searchClient}>
 				<SearchBox />
+				{/*// @ts-ignore */}
 				<Hits hitComponent={Hit} />
 			</InstantSearch>
 		</>
