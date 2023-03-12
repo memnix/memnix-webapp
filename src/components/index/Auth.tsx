@@ -4,7 +4,7 @@ import { LoginResponse } from "@common/types/api"
 import { login } from "@common/utils/security"
 import { createSignal } from "solid-js"
 
-export default function Auth(props) {
+export default function Auth(props: { labels: any }) {
 	const [username, setUsername] = createSignal("")
 	const [password, setPassword] = createSignal("")
 	const onLogin = async () => {
@@ -18,14 +18,6 @@ export default function Auth(props) {
 	}
 
 	const { labels } = props
-
-	const onLoginWithDiscord = async () => {
-		await fetch("/login/discord")
-	}
-
-	const onLoginWithGithub = async () => {
-		await fetch("/login/github")
-	}
 
 	return (
 		<>

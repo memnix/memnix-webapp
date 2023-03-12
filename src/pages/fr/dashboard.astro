@@ -13,9 +13,6 @@ import { getLearningDeck, getOwnedDeck } from "../../../common/utils/decks"
 import Search from "../../components/decks/Search.tsx"
 import SearchWrapper from "../../components/decks/SearchWrapper.tsx"
 import { getMe } from "../../../common/utils/user"
-import { LanguageSelector } from "astro-i18next/components"
-import SearchHeader from "../../components/global/Header/SearchHeader"
-import { Image } from "astro:assets"
 
 changeLanguage("fr")
 
@@ -44,9 +41,7 @@ const user = await getMe(jwt).then((res) => {
 
 <Layout title="Memnix">
 	<LoggedHeader user={user} />
-	<SearchWrapper client:idle>
-		<Search client:visible meilisearchToken={meilisearchToken} />
-	</SearchWrapper>
+	<Search client:idle meilisearchToken={meilisearchToken} />
 	<Slider client:only="solid-js" decks={ownedDecks} />
 	<Slider client:only="solid-js" decks={learningDecks} />
 	<Slider client:only="solid-js" decks={ownedDecks} />

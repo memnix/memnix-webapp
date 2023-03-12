@@ -11,7 +11,7 @@ export function post(url: string, body?: object) {
 	})
 }
 
-export function getWithToken(url, token) {
+export function getWithToken(url: string, token: string) {
 	return fetch(baseUrl + url, {
 		method: "GET",
 		headers: {
@@ -21,7 +21,7 @@ export function getWithToken(url, token) {
 	})
 }
 
-export function get(url) {
+export function get(url: string) {
 	return fetch(baseUrl + url, {
 		method: "GET",
 		headers: {

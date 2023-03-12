@@ -6,17 +6,30 @@ import {
 	InstantSearch,
 	SearchBox
 } from "react-instantsearch-hooks-web"
-import {JSXElement} from "@babel/types";
+import { JSXElement } from "@babel/types"
+import { useStore } from "@nanostores/react"
+import { isSearchOpen } from "../../store/searchStore"
 
-export default function Search({ meilisearchToken } : { meilisearchToken: string }) {
+export default function Search({
+	meilisearchToken
+}: {
+	meilisearchToken: string
+}) {
 	const searchClient = instantMeiliSearch(
 		"https://meilisearch.memnix.app",
 		meilisearchToken
 	)
 
-	const Hit = ({ hit } : {hit: JSXElement}) => <Highlight attribute="name" hit={hit} />
+	const Hit = ({ hit }: { hit: JSXElement }) => {
+		{
+			/*// @ts-ignore */
+		}
+		return <Highlight attribute="name" hit={hit} />
+	}
 
-	return (
+	const $isSearchOpen = useStore(isSearchOpen)
+
+	return $isSearchOpen ? (
 		<>
 			<p></p>
 			<InstantSearch indexName="decks" searchClient={searchClient}>
@@ -25,5 +38,5 @@ export default function Search({ meilisearchToken } : { meilisearchToken: string
 				<Hits hitComponent={Hit} />
 			</InstantSearch>
 		</>
-	)
+	) : null
 }

@@ -1,4 +1,5 @@
 /** @jsxImportSource solid-js */
+import { integer } from "vscode-languageserver-types"
 
 export default function Marquee() {
 	const TAGS = [
@@ -19,10 +20,19 @@ export default function Marquee() {
 	const ROWS = 3
 	const TAGS_PER_ROW = 7
 
-	const random = (min, max) => Math.floor(Math.random() * (max - min)) + min
-	const shuffle = (arr) => [...arr].sort(() => 0.5 - Math.random())
+	const random = (min: number, max: number) =>
+		Math.floor(Math.random() * (max - min)) + min
+	const shuffle = (arr: string[]) => [...arr].sort(() => 0.5 - Math.random())
 
-	const InfiniteLoopSlider = ({ children, duration, reverse = false }) => {
+	const InfiniteLoopSlider = ({
+		children,
+		duration,
+		reverse = false
+	}: {
+		children: any
+		duration: number
+		reverse: boolean
+	}) => {
 		return (
 			<div
 				style={{
@@ -45,7 +55,7 @@ export default function Marquee() {
 		)
 	}
 
-	const Tag = ({ text }) => (
+	const Tag = ({ text }: { text: string }) => (
 		<div class="bg-base-200/80 mr-4 flex items-center gap-y-1 rounded-md p-4 text-sm drop-shadow-md">
 			<span>#</span> {text}
 		</div>
@@ -64,6 +74,7 @@ export default function Marquee() {
 						{shuffle(TAGS)
 							.slice(0, TAGS_PER_ROW)
 							.map((tag) => (
+								/*// @ts-ignore */
 								<Tag text={tag} key={tag} />
 							))}
 					</InfiniteLoopSlider>

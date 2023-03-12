@@ -6,7 +6,7 @@ import { onMount } from "solid-js"
 import { register } from "swiper/element/bundle"
 
 register()
-export default function Slider(props) {
+export default function Slider(props: { decks: IDeckList }) {
 	onMount(async () => {})
 
 	const spaceBetween = 10

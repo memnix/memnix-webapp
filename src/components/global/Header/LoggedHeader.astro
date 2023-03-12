@@ -5,6 +5,7 @@ import { Icon } from "astro-iconify"
 import SearchHeader from "./SearchHeader.tsx"
 import Logo from "../../../assets/img/icon.png"
 import { IUser } from "../../../../common/types/api"
+import Avatar from "./Avatar.tsx"
 
 interface Props {
 	user: IUser
@@ -19,7 +20,7 @@ const avatar = user.avatar
 
 <div class="navbar transition-all md:px-5">
 	<div class="navbar-start">
-		<a class="" href={"/"} rel="prefetch">
+		<a class="" href={localizePath("/")} rel="prefetch">
 			<span
 				class="hoveranimation ml-2 flex items-center self-center whitespace-nowrap text-2xl font-bold md:text-xl"
 			>
@@ -47,27 +48,6 @@ const avatar = user.avatar
 			showFlag={true}
 			class="my-select-class select select-bordered select-md text-base-content hidden w-full max-w-[10rem] px-5 md:block"
 		/>
-
-		<div class="dropdown dropdown-end w-16 pl-5">
-			<label
-				tabindex="0"
-				class="avatar mask mask-squircle rounded-xl hover:cursor-pointer"
-			>
-				<img
-					src={avatar}
-					loading={"eager"}
-					decoding={"async"}
-					alt="Avatar"
-					width={64}
-					height={64}
-				/>
-			</label>
-			<ul
-				tabindex="0"
-				class="menu dropdown-content bg-base-100 rounded-box mt-4 w-52 p-2 shadow"
-			>
-				<li><a href="/logout">logout</a></li>
-			</ul>
-		</div>
+		<Avatar avatar={avatar} client:idle />
 	</div>
 </div>

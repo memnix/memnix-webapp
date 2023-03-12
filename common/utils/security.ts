@@ -6,7 +6,7 @@
 import { ENDPOINTS } from "./endpoints"
 import { get, getWithToken, post } from "./utils"
 
-export async function login(email, password) {
+export async function login(email: string, password: string) {
 	const res = await post(ENDPOINTS.Security.login, { email, password })
 	if (res.ok) {
 		return res.json()
@@ -14,7 +14,7 @@ export async function login(email, password) {
 	throw new Error(await res.text())
 }
 
-export async function isConnected(token) {
+export async function isConnected(token: string) {
 	const res = await getWithToken(ENDPOINTS.Users.me, token)
 	return res.ok
 }
