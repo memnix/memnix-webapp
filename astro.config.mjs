@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config"
+import {defineConfig} from "astro/config"
 
 // Astro integration imports
 import tailwind from "@astrojs/tailwind"
@@ -6,10 +6,9 @@ import sitemap from "@astrojs/sitemap"
 import compress from "astro-compress"
 import solidJs from "@astrojs/solid-js"
 import astroI18next from "astro-i18next"
-import serviceWorker from "astrojs-service-worker"
-
+import AstroPWA from '@vite-pwa/astro'
 // Helper imports
-import { seoConfig } from "./utils/seoConfig"
+import {seoConfig} from "./utils/seoConfig"
 import compressor from "astro-compressor"
 import prefetch from "@astrojs/prefetch"
 import node from "@astrojs/node"
@@ -21,8 +20,6 @@ import react from "@astrojs/react"
 import preact from "@astrojs/preact"
 
 // https://astro.build/config
-import purgecss from "astro-purgecss"
-
 // https://astro.build/config
 export default defineConfig({
 	site: seoConfig.baseURL,
@@ -56,7 +53,9 @@ export default defineConfig({
 				}
 			}
 		}),
-		serviceWorker({}),
+		AstroPWA({
+			workbox: {navigateFallback: '/404'}
+		}),
 		critters(),
 		compress(),
 		compressor()
