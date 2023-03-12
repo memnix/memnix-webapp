@@ -8,13 +8,15 @@ import solidJs from "@astrojs/solid-js"
 import astroI18next from "astro-i18next"
 import AstroPWA from '@vite-pwa/astro'
 // Helper imports
-import {seoConfig} from "./utils/seoConfig"
+import {manifest, seoConfig} from "./utils/seoConfig"
 import compressor from "astro-compressor"
 import prefetch from "@astrojs/prefetch"
 import node from "@astrojs/node"
 import critters from "astro-critters"
 
 import react from "@astrojs/react"
+
+import purgeCSS from "astro-purgecss"
 
 // https://astro.build/config
 import preact from "@astrojs/preact"
@@ -54,9 +56,20 @@ export default defineConfig({
 			}
 		}),
 		AstroPWA({
-			workbox: {navigateFallback: '/404'}
+			registerType: "autoUpdate",
+			manifest,
+			workbox: {
+				globDirectory: 'dist',
+				globPatterns: [
+					'**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}',
+				],
+				// Don't fallback on document based (e.g. `/some-page`) requests
+				// This removes an errant console.log message from showing up.
+				navigateFallback: null,
+			},
 		}),
 		critters(),
+		purgeCSS(),
 		compress(),
 		compressor()
 	],
