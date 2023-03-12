@@ -1,0 +1,69 @@
+---
+import { Icon } from "astro-iconify"
+import { setDefaultNamespace, t } from "i18next"
+
+setDefaultNamespace("discover")
+
+const items = [
+	[
+		{
+			title: t("features.personalized_learning"),
+			description: t("features.personalized_learning_description"),
+			icon: "subway:world"
+		},
+		{
+			title: t("features.modern"),
+			description: t("features.modern_description"),
+			icon: "ion:rocket-sharp"
+		}
+	],
+	[
+		{
+			title: t("features.open_source_free"),
+			description: t("features.open_source_free_description"),
+			icon: "ri:open-source-fill"
+		},
+		{
+			title: t("features.accessible"),
+			description: t("features.accessible_description"),
+			icon: "lucide:feather"
+		}
+	]
+]
+---
+
+<section class="scroll-mt-16" id="features">
+	<div class="mx-auto max-w-6xl px-4 py-16 lg:px-8 lg:py-20">
+		<div class="mb-10 max-w-3xl sm:text-center md:mx-auto md:mb-12">
+			<p class="text-primary text-base font-semibold uppercase tracking-wide">
+				{t("features.features")}
+			</p>
+			<h2
+				class="leading-tighter font-heading mb-4 text-4xl font-bold tracking-tighter md:text-5xl"
+			>
+				{t("features.what_you_get")}
+			</h2>
+		</div>
+		<div class="mx-auto grid space-y-6 md:grid-cols-2 md:space-y-0">
+			{
+				items.map((subitems) => (
+					<div class="space-y-8 sm:px-8">
+						{subitems.map(({ title, description, icon }) => (
+							<div class="flex max-w-md flex-row">
+								<div class="mb-4 mr-4">
+									<div class="flex h-12 w-12 items-center justify-center rounded-full">
+										<Icon name={icon} />
+									</div>
+								</div>
+								<div>
+									<h3 class="mb-3 text-xl font-bold">{title}</h3>
+									<p class="">{description}</p>
+								</div>
+							</div>
+						))}
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
