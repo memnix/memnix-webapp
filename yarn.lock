@@ -2705,10 +2705,10 @@ astrojs-compiler-sync@^0.3.0:
   dependencies:
     synckit "^0.8.0"
 
-astrojs-service-worker@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/astrojs-service-worker/-/astrojs-service-worker-0.0.9.tgz#9e3c7bfac0204724f54ef0de28171c16cda58d0a"
-  integrity sha512-bj9v+jvhWdC+C/NSkVgCSJ2pJQf/8xh9B5v4MwgrkBkux+KivSaEZ/i3f/XYHhJRd6YLS9S7SfoJw0j5wUmYzA==
+astrojs-service-worker@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/astrojs-service-worker/-/astrojs-service-worker-1.0.0.tgz#e714d2a71745b68b8d188c6cd7493a67dc432e7d"
+  integrity sha512-+lP8O7dNJ7NTjC4j0MbCOdpM5Dhxi0tfm+ewgKr0YP48GdASWj5AzDzOoKos1JJbkxdpQqewtLFOTFdNfyakpQ==
   dependencies:
     workbox-build "^6.5.4"
 
