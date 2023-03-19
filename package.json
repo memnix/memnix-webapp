@@ -52,7 +52,7 @@
 		"astro-iconify": "^1.2.0",
 		"astro-purgecss": "^2.0.1",
 		"astro-seo": "^0.7.1",
-		"astrojs-service-worker": "^0.0.9",
+		"astrojs-service-worker": "^1.0.0",
 		"autoprefixer": "^10.4.14",
 		"daisyui": "^2.51.3",
 		"dotenv": "^16.0.3",
