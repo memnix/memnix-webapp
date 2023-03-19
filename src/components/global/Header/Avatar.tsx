@@ -1,22 +1,24 @@
 /** @jsxImportSource react */
-import { Menu, Transition } from "@headlessui/react"
-import { Fragment } from "react"
+import {Menu, Transition} from "@headlessui/react"
+import {Fragment} from "react"
 
 function classNames(...classes: string[]) {
 	return classes.filter(Boolean).join(" ")
 }
 
-export default function Avatar({ avatar }: { avatar: string }) {
+export default function Avatar({avatar}: { avatar: string }) {
 	return (
 		<>
 			<Menu as="div" className="relative inline-block text-left">
 				<div>
-					<Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold  shadow-sm ">
+					<Menu.Button
+						className="inline-flex w-full justify-center gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold shadow-sm">
 						<img
 							src={avatar}
 							loading={"eager"}
 							decoding={"async"}
 							alt="Avatar"
+							className="rounded-full"
 							width={64}
 							height={64}
 						/>
@@ -32,10 +34,11 @@ export default function Avatar({ avatar }: { avatar: string }) {
 					leaveFrom="transform opacity-100 scale-100"
 					leaveTo="transform opacity-0 scale-95"
 				>
-					<Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+					<Menu.Items
+						className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
 						<div className="py-1">
 							<Menu.Item>
-								{({ active }) => (
+								{({active}) => (
 									<a
 										href="#"
 										className={classNames(
@@ -48,7 +51,7 @@ export default function Avatar({ avatar }: { avatar: string }) {
 								)}
 							</Menu.Item>
 							<Menu.Item>
-								{({ active }) => (
+								{({active}) => (
 									<a
 										href="#"
 										className={classNames(
@@ -63,7 +66,7 @@ export default function Avatar({ avatar }: { avatar: string }) {
 						</div>
 						<div className="py-1">
 							<Menu.Item>
-								{({ active }) => (
+								{({active}) => (
 									<a
 										href="#"
 										className={classNames(
@@ -76,7 +79,7 @@ export default function Avatar({ avatar }: { avatar: string }) {
 								)}
 							</Menu.Item>
 							<Menu.Item>
-								{({ active }) => (
+								{({active}) => (
 									<a
 										href="/logout"
 										className={classNames(
