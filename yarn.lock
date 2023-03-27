@@ -7816,10 +7816,10 @@ smartypants@^0.1.6:
   resolved "https://registry.yarnpkg.com/smartypants/-/smartypants-0.1.6.tgz#976d23dcccae83d56da93d59db1ba76838c976f7"
   integrity sha512-zGXh+Q6Y3OPTLM5x2HxAIkEAj4ZcePftmIOdIYozv2T+m03Sp5R4YppczKuo6IdnSMc99U+Wgvy8Mil0eeep7g==
 
-solid-js@1.6.11:
-  version "1.6.11"
-  resolved "https://registry.npmjs.org/solid-js/-/solid-js-1.6.11.tgz"
-  integrity sha512-JquQQHPArGq+i2PLURxJ99Pcz2/1docpbycSio/cKSA0SeI3z5zRjy0TNcH4NRYvbOLrcini+iovXwnexKabyw==
+solid-js@1.6.12:
+  version "1.6.12"
+  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.6.12.tgz#c3f1007f28f0fcd543fdf29ec84bb7a48200d823"
+  integrity sha512-JFqRobfG3q5r1l4RYVOAukk6+FWtHpXGIjgh/GEsHKweN/kK+iHOtzUALE6+P5t/jIcSNeGiVitX8gmJg+cYvQ==
   dependencies:
     csstype "^3.1.0"
 
