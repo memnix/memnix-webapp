@@ -8,10 +8,9 @@ import { localizePath } from "astro-i18next"
 import LoggedHeader from "../../components/global/Header/LoggedHeader.astro"
 import { Layout } from "../../components/global"
 import Slider from "../../components/decks/Slider.tsx"
-import { IDeckList, IUser } from "../../../common/types/api"
+import { IDeckList } from "../../../common/types/api"
 import { getLearningDeck, getOwnedDeck } from "../../../common/utils/decks"
 import Search from "../../components/decks/Search.tsx"
-import SearchWrapper from "../../components/decks/SearchWrapper.tsx"
 import { getMe } from "../../../common/utils/user"
 
 changeLanguage("it")
@@ -20,7 +19,7 @@ const jwt = Astro.cookies.get("jwt")?.value
 if (!jwt || !(await isConnected(jwt))) {
 	return Astro.redirect(localizePath("/auth"))
 }
-let meilisearchToken = Astro.cookies.get("meilisearch_token")?.value
+let meilisearchToken: string = Astro.cookies.get("meilisearch_token")?.value
 if (!meilisearchToken) {
 	const result = await getMeilisearchToken()
 	meilisearchToken = result?.token

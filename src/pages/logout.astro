@@ -7,12 +7,10 @@ changeLanguage("en")
 
 Astro.cookies.delete("jwt")
 const language = Astro.cookies.get("lang")
-
 // If the language is not set, set it to the default language
 if (!language) {
 	language.value = "en"
 }
-
 return Astro.redirect(localizePath("/auth", language.value))
 ---
 

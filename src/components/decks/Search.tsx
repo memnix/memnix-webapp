@@ -1,5 +1,4 @@
 /** @jsxImportSource react */
-import { JSXElement } from "@babel/types"
 import { IDeck } from "@common/types/api"
 import { Dialog, Transition } from "@headlessui/react"
 import { instantMeiliSearch } from "@meilisearch/instant-meilisearch"
@@ -22,7 +21,7 @@ export default function Search({
 		meilisearchToken
 	)
 
-	const Hit = ({ hit }: { hit: JSXElement }) => {
+	const Hit = ({ hit }: { hit: any }) => {
 		{
 			/*// @ts-ignore */
 		}
