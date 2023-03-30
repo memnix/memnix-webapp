@@ -11,12 +11,13 @@ export default function Avatar({ avatar }: { avatar: string }) {
 		<>
 			<Menu as="div" className="relative inline-block text-left">
 				<div>
-					<Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold  shadow-sm ">
+					<Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold shadow-sm">
 						<img
 							src={avatar}
 							loading={"eager"}
 							decoding={"async"}
 							alt="Avatar"
+							className="rounded-full"
 							width={64}
 							height={64}
 						/>
