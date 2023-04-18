@@ -6,7 +6,6 @@ import sitemap from "@astrojs/sitemap"
 import compress from "astro-compress"
 import solidJs from "@astrojs/solid-js"
 import astroI18next from "astro-i18next"
-import AstroPWA from "@vite-pwa/astro"
 // Helper imports
 import { manifest, seoConfig } from "./utils/seoConfig"
 import compressor from "astro-compressor"
