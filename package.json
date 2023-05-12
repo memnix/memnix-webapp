@@ -72,7 +72,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/rss": "^2.3.1",
-		"@astrojs/site-kit": "github:withastro/site-kit#f1f73aec5fc32213bc55984af7c1033105a96cbd",
+		"@astrojs/site-kit": "github:withastro/site-kit#471556a66a9b5cb8f15204c58d9d6efee281016e",
 		"@typescript-eslint/eslint-plugin": "^5.57.0",
 		"@typescript-eslint/parser": "^5.57.0",
 		"@vite-pwa/astro": "^0.0.5",
