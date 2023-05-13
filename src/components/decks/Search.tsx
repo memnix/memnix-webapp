@@ -17,8 +17,8 @@ export default function Search({
 	meilisearchToken: string
 }) {
 	const searchClient = instantMeiliSearch(
-		  "https://meilisearch.memnix.app",
-		// "localhost:7700",
+		//  "https://meilisearch.memnix.app",
+		 "localhost:7700",
 		meilisearchToken
 	)
 
