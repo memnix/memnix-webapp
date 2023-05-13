@@ -15,6 +15,7 @@ import { dataWebsiteId } from "@util/config"
 import "@fontsource/syne"
 import "@fontsource/nunito"
 import { pwaInfo } from "virtual:pwa-info"
+import i18next from "i18next";
 
 // Props
 export interface Props {
@@ -46,7 +47,7 @@ const {
 } = Astro.props as Props
 ---
 
-<html lang="en">
+<html lang={i18next.language}>
 	<head>
 		<!-- SEO. -->
 		<SEO
@@ -76,7 +77,7 @@ const {
 		/>
 
 		<!-- I18n tags -->
-		<HeadHrefLangs />
+		 <HeadHrefLangs />
 
 		<!-- Google Fonts -->
 		<link
@@ -96,7 +97,7 @@ const {
 		<script
 			async
 			data-website-id={dataWebsiteId}
-			src="https://umami.memnix.app/umami.js"
+			src="https://umami.memnix.app/script.js"
 		></script>
 
 		<!-- Global meta tags. -->

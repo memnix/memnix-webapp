@@ -1,5 +1,4 @@
 /** @jsxImportSource react */
-import { JSXElement } from "@babel/types"
 import { IDeck } from "@common/types/api"
 import { Dialog, Transition } from "@headlessui/react"
 import { instantMeiliSearch } from "@meilisearch/instant-meilisearch"
@@ -18,11 +17,12 @@ export default function Search({
 	meilisearchToken: string
 }) {
 	const searchClient = instantMeiliSearch(
-		"https://meilisearch.memnix.app",
+		//  "https://meilisearch.memnix.app",
+		 "localhost:7700",
 		meilisearchToken
 	)
 
-	const Hit = ({ hit }: { hit: JSXElement }) => {
+	const Hit = ({ hit }: { hit: any }) => {
 		{
 			/*// @ts-ignore */
 		}
@@ -124,7 +124,7 @@ export default function Search({
 														<SearchBox
 															autoFocus={true}
 															submitIconComponent={({ classNames }) => (
-																<button className={classNames.submitIcon}>
+																<a className={classNames.submitIcon}>
 																	<svg
 																		xmlns="http://www.w3.org/2000/svg"
 																		className="h-6 w-6"
@@ -139,7 +139,7 @@ export default function Search({
 																			d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
 																		/>
 																	</svg>
-																</button>
+																</a>
 															)}
 															classNames={{
 																root: "form-control",

@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config"
+import { defineConfig, sharpImageService } from "astro/config"
 
 // Astro integration imports
 import tailwind from "@astrojs/tailwind"
@@ -6,9 +6,8 @@ import sitemap from "@astrojs/sitemap"
 import compress from "astro-compress"
 import solidJs from "@astrojs/solid-js"
 import astroI18next from "astro-i18next"
-import AstroPWA from "@vite-pwa/astro"
 // Helper imports
-import { manifest, seoConfig } from "./utils/seoConfig"
+import { seoConfig } from "./utils/seoConfig"
 import compressor from "astro-compressor"
 import prefetch from "@astrojs/prefetch"
 import node from "@astrojs/node"
@@ -18,7 +17,6 @@ import react from "@astrojs/react"
 
 import serviceWorker from "astrojs-service-worker"
 // https://astro.build/config
-import preact from "@astrojs/preact"
 
 export default defineConfig({
 	site: seoConfig.baseURL,
@@ -26,7 +24,7 @@ export default defineConfig({
 		assets: true
 	},
 	image: {
-		service: "astro/assets/services/sharp"
+		service: sharpImageService()
 	},
 	integrations: [
 		tailwind({
@@ -35,7 +33,6 @@ export default defineConfig({
 			}
 		}),
 		prefetch(),
-		preact(),
 		solidJs(),
 		react(),
 		astroI18next(),
@@ -48,7 +45,6 @@ export default defineConfig({
 					de: "de-DE",
 					fr: "fr-FR",
 					ro: "ro-RO",
-					it: "it-IT"
 				}
 			}
 		}),

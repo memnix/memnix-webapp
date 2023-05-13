@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets"
+import {Image} from "astro:assets"
 import Logo from "@img/icon.png"
 ---
 
@@ -7,7 +7,7 @@ import Logo from "@img/icon.png"
 	class="hoveranimation ml-2 flex items-center self-center whitespace-nowrap text-2xl font-bold md:text-xl"
 >
 	<Image
-		src={Logo.src}
+		src={Logo}
 		class="mr-1 inline-block w-12"
 		loading={"eager"}
 		decoding={"async"}
@@ -15,6 +15,7 @@ import Logo from "@img/icon.png"
 		quality={60}
 		width={64}
 		height={64}
+		format={"avif"}
 	/>
 	<h2
 		class="from-primary to-secondary text-primary via-[#CC7F97] bg-clip-text text-4xl font-bold dark:bg-gradient-to-r dark:text-transparent"
