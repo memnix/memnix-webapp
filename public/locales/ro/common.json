@@ -1,14 +1,29 @@
 {
-	"cta": {
-		"get_started": "Get started",
-		"learn_more": "Aflați mai mult"
-	},
-	"auth": {
-		"welcome_back": "Welcome back on Memnix",
-		"email": "Email",
-		"password": "Parolă",
-		"login": "Conectați-vă",
-		"forgot_password": "Forgot password?",
-		"register": "Înscrieți-vă"
-	}
+    "cta": {
+        "get_started": "",
+        "learn_more": ""
+    },
+    "auth": {
+        "welcome_back": "",
+        "email": "",
+        "password": "",
+        "login": "",
+        "forgot_password": "",
+        "register": ""
+    },
+    "description": {
+        "spaced_repetition_learning_app": ""
+    },
+    "features": {
+        "personalized_learning": "",
+        "open_source_free": "",
+        "modern": "",
+        "accessible": "",
+        "personalized_learning_description": "",
+        "open_source_free_description": "",
+        "modern_description": "",
+        "accessible_description": "",
+        "features": "",
+        "what_you_get": ""
+    }
 }
