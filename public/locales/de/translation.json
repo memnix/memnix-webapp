@@ -1,29 +1,29 @@
 {
     "cta": {
-        "get_started": "",
-        "learn_more": ""
+        "get_started": "Loslegen",
+        "learn_more": "Erfahren Sie mehr"
     },
     "auth": {
-        "welcome_back": "",
-        "email": "",
-        "password": "",
-        "login": "",
-        "forgot_password": "",
-        "register": ""
+        "welcome_back": "Willkommen zurück auf Memnix",
+        "email": "Email",
+        "password": "Passwort",
+        "login": "Anmeldung",
+        "forgot_password": "Passwort vergessen?",
+        "register": "Registrieren"
     },
     "description": {
-        "spaced_repetition_learning_app": ""
+        "spaced_repetition_learning_app": "Eine <0>räumliche Wiederholung</0> <1>Lern-App</1> <2>mit KI</2> "
     },
     "features": {
-        "personalized_learning": "",
-        "open_source_free": "",
-        "modern": "",
-        "accessible": "",
-        "personalized_learning_description": "",
-        "open_source_free_description": "",
-        "modern_description": "",
-        "accessible_description": "",
-        "features": "",
-        "what_you_get": ""
+        "personalized_learning": "Personalisiertes Lernen",
+        "open_source_free": "Open Source und kostenlos",
+        "modern": "Modern",
+        "accessible": "Zugänglich",
+        "personalized_learning_description": "Die App passt sich Ihrem Lernstil und Ihren Bedürfnissen an",
+        "open_source_free_description": "Die App ist Open Source und kostenlos",
+        "modern_description": "Die App ist modern und einfach zu bedienen",
+        "accessible_description": "Die App ist zugänglich und einfach zu bedienen",
+        "features": "Merkmale",
+        "what_you_get": "Was Sie mit der App erhalten"
     }
 }
