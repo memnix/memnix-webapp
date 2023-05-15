@@ -53,7 +53,7 @@
 		"autoprefixer": "^10.4.14",
 		"daisyui": "^2.51.6",
 		"dotenv": "^16.0.3",
-		"i18next": "22.4.11",
+		"i18next": "22.4.15",
 		"nanostores": "^0.8.1",
 		"newrelic": "^10.1.0",
 		"preact": "^10.13.2",
