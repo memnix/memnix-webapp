@@ -126,7 +126,6 @@
   dependencies:
     prismjs "^1.28.0"
 
-
 "@astrojs/react@^2.1.3":
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/@astrojs/react/-/react-2.1.3.tgz#bb21611383f7195af32e3c327f568835d68ca5f7"
@@ -1424,10 +1423,10 @@
   resolved "https://registry.npmjs.org/@fontsource/nunito/-/nunito-4.5.12.tgz"
   integrity sha512-Li90TCJha1E+nBgP51GjcIGV6LxyQi7QisW8KZ4kpz5mpnQc1HmsJWVr9fyTMItUF/OuZUOfEazenXjaY6qRpQ==
 
-"@fontsource/syne@^4.5.13":
-  version "4.5.13"
-  resolved "https://registry.npmjs.org/@fontsource/syne/-/syne-4.5.13.tgz"
-  integrity sha512-wZQJ3rf/CkE5PQLQYOfoDGXCp1t6yyA0VTcgElyLHcSNiUGrvNUylCk9SjDan0xCGnnJ4lpwZP1iNorbBgBpRQ==
+"@fontsource/syne@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/syne/-/syne-5.0.0.tgz#335c1ac1128c33cd3715738fa34ff16681f6ac59"
+  integrity sha512-Q3ClMXaYz5RVh80cA16d2WqexN9EBofdse/ha6kD1o7kTyejagn9yMUcZ73rKf/bIfW486hFDSjzTaBor/m6vw==
 
 "@grpc/grpc-js@^1.8.10":
   version "1.8.13"
