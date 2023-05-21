@@ -126,7 +126,6 @@
   dependencies:
     prismjs "^1.28.0"
 
-
 "@astrojs/react@^2.1.3":
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/@astrojs/react/-/react-2.1.3.tgz#bb21611383f7195af32e3c327f568835d68ca5f7"
@@ -1414,10 +1413,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.40.0.tgz#3ba73359e11f5a7bd3e407f70b3528abfae69cec"
   integrity sha512-ElyB54bJIhXQYVKjDSvCkPO1iU1tSAeVQJbllWJq1XQSmmA4dgFk8CbiBGpiOPxleE48vDogxCtmMYku4HSVLA==
 
-"@fontsource/do-hyeon@^4.5.10":
-  version "4.5.10"
-  resolved "https://registry.npmjs.org/@fontsource/do-hyeon/-/do-hyeon-4.5.10.tgz"
-  integrity sha512-QPXRmH1kgc/8vZNcci7aTwZbH7Ap+GWTjZbJ7WgQ/Ad6SnI9w23kkG4ii0gnwZcTfRUsh2ZwfhbdyVlW1CA0vA==
+"@fontsource/do-hyeon@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/do-hyeon/-/do-hyeon-5.0.0.tgz#fda995b25d6d404779b63fce1530806cff43ef06"
+  integrity sha512-ODdZvN339VOp45H21N+f0J9QsXjQ/LqWpUMQTPZhlUiLGKaHhWCu3CJyRiInJwQ1bPsDFO8glyQ9XMPNN1RfOg==
 
 "@fontsource/nunito@^4.5.12":
   version "4.5.12"
