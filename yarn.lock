@@ -42,9 +42,9 @@
     find-up "^5.0.0"
 
 "@antfu/utils@^0.7.2":
-  version "0.7.2"
-  resolved "https://registry.npmjs.org/@antfu/utils/-/utils-0.7.2.tgz"
-  integrity sha512-vy9fM3pIxZmX07dL+VX1aZe7ynZ+YyB0jY+jE6r3hOK6GNY2t6W8rzpFC4tgpbXUYABkFQwgJq2XYXlxbXAI0g==
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/@antfu/utils/-/utils-0.7.4.tgz#b1c11b95f89f13842204d3d83de01e10bb9257db"
+  integrity sha512-qe8Nmh9rYI/HIspLSTwtbMFPj6dISG6+dJnOguTlPNXtCvS2uezdxscVBb7/3DrmNbQK49TDqpkSQ1chbRGdpQ==
 
 "@apideck/better-ajv-errors@^0.3.1":
   version "0.3.6"
@@ -125,7 +125,6 @@
   integrity sha512-+II6nfIFGZ7iH0FunhRGcj/J1mCxjcHl85cZRuFePKLoIhFHJT3nC3myQnUw386hUaIn2W20McxxtAVf4leeRQ==
   dependencies:
     prismjs "^1.28.0"
-
 
 "@astrojs/react@^2.1.3":
   version "2.1.3"
