@@ -56,7 +56,7 @@
 		"i18next": "22.4.11",
 		"nanostores": "^0.8.1",
 		"newrelic": "^10.1.0",
-		"preact": "^10.13.2",
+		"preact": "^10.14.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-instantsearch-hooks-web": "^6.43.0",
