@@ -126,7 +126,6 @@
   dependencies:
     prismjs "^1.28.0"
 
-
 "@astrojs/react@^2.1.3":
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/@astrojs/react/-/react-2.1.3.tgz#bb21611383f7195af32e3c327f568835d68ca5f7"
@@ -1414,20 +1413,20 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.40.0.tgz#3ba73359e11f5a7bd3e407f70b3528abfae69cec"
   integrity sha512-ElyB54bJIhXQYVKjDSvCkPO1iU1tSAeVQJbllWJq1XQSmmA4dgFk8CbiBGpiOPxleE48vDogxCtmMYku4HSVLA==
 
-"@fontsource/do-hyeon@^4.5.10":
-  version "4.5.10"
-  resolved "https://registry.npmjs.org/@fontsource/do-hyeon/-/do-hyeon-4.5.10.tgz"
-  integrity sha512-QPXRmH1kgc/8vZNcci7aTwZbH7Ap+GWTjZbJ7WgQ/Ad6SnI9w23kkG4ii0gnwZcTfRUsh2ZwfhbdyVlW1CA0vA==
+"@fontsource/do-hyeon@^5.0.0":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@fontsource/do-hyeon/-/do-hyeon-5.0.3.tgz#fa90a7e50be37386944d7480f4495d5524b17b77"
+  integrity sha512-NNy8d6ar+pi068jJkk8o0O6tt0nPeStp21t+WE34JsIiXzOcXLzPw3m8Yku6v1oUfr1cVQ/RCUmXws3obXAxBg==
 
-"@fontsource/nunito@^4.5.12":
-  version "4.5.12"
-  resolved "https://registry.npmjs.org/@fontsource/nunito/-/nunito-4.5.12.tgz"
-  integrity sha512-Li90TCJha1E+nBgP51GjcIGV6LxyQi7QisW8KZ4kpz5mpnQc1HmsJWVr9fyTMItUF/OuZUOfEazenXjaY6qRpQ==
+"@fontsource/nunito@^5.0.0":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@fontsource/nunito/-/nunito-5.0.3.tgz#38f84381e72883ac3ed87c093c3bd1194f49de36"
+  integrity sha512-NhWeAgtKjGtcAsZulNzaYFIXuX9SKiUjWE5L4tsrvr/Dfu2vWgnjOwL7GX0tvJ4go1bymwVLuQI27OcxHwMPvQ==
 
-"@fontsource/syne@^4.5.13":
-  version "4.5.13"
-  resolved "https://registry.npmjs.org/@fontsource/syne/-/syne-4.5.13.tgz"
-  integrity sha512-wZQJ3rf/CkE5PQLQYOfoDGXCp1t6yyA0VTcgElyLHcSNiUGrvNUylCk9SjDan0xCGnnJ4lpwZP1iNorbBgBpRQ==
+"@fontsource/syne@^5.0.0":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@fontsource/syne/-/syne-5.0.3.tgz#aa3eecb4eda65c7ac39ff94df0ecd391c50e97cd"
+  integrity sha512-b4N0u8TAFdyUjA1vhFbgZHq9ZQpC6gMXfq6nN0C5H+7k7i+UhRj1tvd323wLL1vBhAFzjtmSCJQVMwP5G2a0tA==
 
 "@grpc/grpc-js@^1.8.10":
   version "1.8.13"
