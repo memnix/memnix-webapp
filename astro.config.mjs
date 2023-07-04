@@ -58,11 +58,4 @@ export default defineConfig({
 	adapter: node({
 		mode: "standalone"
 	}),
-	server: {
-		port: 1809,
-	},
-	build: {
-
-	},
-
 })
