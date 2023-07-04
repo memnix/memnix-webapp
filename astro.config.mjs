@@ -53,7 +53,6 @@ export default defineConfig({
 		compressor(),
 		serviceWorker({})
 	],
-	compressHTML: true,
 	output: "server",
 	adapter: node({
 		mode: "standalone"
