@@ -3,7 +3,10 @@ import { setDefaultNamespace, t } from "i18next"
 import { Trans } from "astro-i18next/components"
 import Logo from "@img/icon.png"
 import { localizePath } from "astro-i18next"
-import { Image } from "astro:assets"
+import {getImage, Image} from "astro:assets"
+
+const optimizedLogo = await getImage({src: Logo, format: 'avif', width: 450, height: 450, quality: "low"})
+
 
 ---
 
@@ -53,17 +56,7 @@ import { Image } from "astro:assets"
 		</div>
 		<div class="block flex-1 items-center md:flex">
 			<div class="relative m-auto max-w-4xl">
-				<Image
-					src={Logo}
-					quality={"mid"}
-					format={"avif"}
-					class="mx-auto w-full rounded-md drop-shadow-2xl md:h-full"
-					width={600}
-					height={600}
-					loading={"eager"}
-					decoding={"async"}
-					alt="Memnix app logo"
-				/>
+				<img src={optimizedLogo.src} alt="Memnix app logo" class="hidden md:block" width="600" height="600"/>
 			</div>
 		</div>
 	</div>
