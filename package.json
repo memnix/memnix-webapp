@@ -52,7 +52,7 @@
 		"autoprefixer": "^10.4.14",
 		"daisyui": "^3.4.0",
 		"dotenv": "^16.3.1",
-		"i18next": "22.4.11",
+		"i18next": "23.2.11",
 		"nanostores": "^0.9.3",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
