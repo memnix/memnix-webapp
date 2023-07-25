@@ -1,17 +1,17 @@
 import { defineConfig, sharpImageService } from "astro/config"
 
 // Astro integration imports
-import tailwind from "@astrojs/tailwind"
 import sitemap from "@astrojs/sitemap"
-import compress from "astro-compress"
 import solidJs from "@astrojs/solid-js"
+import tailwind from "@astrojs/tailwind"
+import compress from "astro-compress"
 import astroI18next from "astro-i18next"
 // Helper imports
-import { seoConfig } from "./utils/seoConfig"
-import compressor from "astro-compressor"
-import prefetch from "@astrojs/prefetch"
 import node from "@astrojs/node"
+import prefetch from "@astrojs/prefetch"
+import compressor from "astro-compressor"
 import critters from "astro-critters"
+import { seoConfig } from "./utils/seoConfig"
 
 import react from "@astrojs/react"
 
