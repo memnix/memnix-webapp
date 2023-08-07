@@ -2512,13 +2512,10 @@ astro-compressor@^0.4.0:
   resolved "https://registry.yarnpkg.com/astro-compressor/-/astro-compressor-0.4.0.tgz#43449877235e2ee9d8b03a6caa8af076c6f38536"
   integrity sha512-yw6wM+cjkdyAMc6HW2lrdinOxt64PwQuL5NCAe71cXF/5xjnyJhgg9nyyFE32oQtmtd5I/57Pyp/kPe9IfYAxg==
 
-astro-critters@^1.1.39:
-  version "1.1.39"
-  resolved "https://registry.yarnpkg.com/astro-critters/-/astro-critters-1.1.39.tgz#d38a6a9199f82cb167f1c6a8c872980fae53337a"
-  integrity sha512-Y4sqVwIAqEdpABEbf4mO0sB1KuibAjng7vxw66qrOrCkZuOoozqf3lbGWiB9PDqR6vQHTMr9zjcDcpxb1GRg0Q==
-  dependencies:
-    critters "0.0.19"
-    files-pipe "0.0.7"
+astro-critters@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/astro-critters/-/astro-critters-2.0.0.tgz#e4de95523c4737e842cf096b25ba7da4ceecfa0f"
+  integrity sha512-S635xqrwnGrWBLXKzUDI3yvFDZJlft0JAg7hkfwUP/7c/3fz/dS5ng7YHn7fxsRzT2U7jxPdRml1jiZQrUeWRw==
 
 astro-eslint-parser@^0.14.0:
   version "0.14.0"
@@ -2937,7 +2934,7 @@ chalk@^2.0.0, chalk@^2.4.1:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chalk@^4.0.0, chalk@^4.0.2, chalk@^4.1.0, chalk@^4.1.2:
+chalk@^4.0.0, chalk@^4.0.2, chalk@^4.1.2:
   version "4.1.2"
   resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -3172,19 +3169,6 @@ core-js-compat@^3.25.1:
   integrity sha512-myzPgE7QodMg4nnd3K1TDoES/nADRStM8Gpz0D6nhkwbmwEnE0ZGJgoWsvQ722FR8D7xS0n0LV556RcEicjTyg==
   dependencies:
     browserslist "^4.21.5"
-
-critters@0.0.19:
-  version "0.0.19"
-  resolved "https://registry.yarnpkg.com/critters/-/critters-0.0.19.tgz#15e3a3a0ed77ae4b69c3b2fe29c8e7e87fc77d1b"
-  integrity sha512-Fm4ZAXsG0VzWy1U30rP4qxbaWGSsqXDgSupJW1OUJGDAs0KWC+j37v7p5a2kZ9BPJvhRzWm3be+Hc9WvQOBUOw==
-  dependencies:
-    chalk "^4.1.0"
-    css-select "^5.1.0"
-    dom-serializer "^2.0.0"
-    domhandler "^5.0.2"
-    htmlparser2 "^8.0.2"
-    postcss "^8.4.23"
-    pretty-bytes "^5.3.0"
 
 cross-fetch@3.1.5:
   version "3.1.5"
@@ -4713,16 +4697,6 @@ htmlparser2@^8.0.1:
     domhandler "^5.0.2"
     domutils "^3.0.1"
     entities "^4.3.0"
-
-htmlparser2@^8.0.2:
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-8.0.2.tgz#f002151705b383e62433b5cf466f5b716edaec21"
-  integrity sha512-GYdjWKDkbRLkZ5geuHs5NY1puJ+PXwP7+fHPRz06Eirsb9ugf6d8kkXav6ADhcODhFFPMIXyxkxSuMf3D6NCFA==
-  dependencies:
-    domelementtype "^2.3.0"
-    domhandler "^5.0.3"
-    domutils "^3.0.1"
-    entities "^4.4.0"
 
 http-errors@2.0.0:
   version "2.0.0"
