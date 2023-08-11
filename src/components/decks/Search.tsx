@@ -122,7 +122,7 @@ export default function Search({
 														searchClient={searchClient}
 													>
 														<SearchBox
-															autoFocus={true}
+															
 															submitIconComponent={({ classNames }) => (
 																<a className={classNames.submitIcon}>
 																	<svg
