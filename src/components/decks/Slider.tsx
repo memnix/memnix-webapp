@@ -69,7 +69,7 @@ export default function Slider(props: { decks: IDeckList }) {
 								<swiper-slide class="flex items-center justify-center text-center ">
 									<div class="flex h-full w-full flex-col items-center justify-center">
 										<Deck deck={deck} />
-										<div class="swiper-lazy-preloader dark:swiper-lazy-preloader-white"></div>
+										<div class="swiper-lazy-preloader dark:swiper-lazy-preloader-white" />
 									</div>
 									{/*// @ts-ignore */}
 								</swiper-slide>
