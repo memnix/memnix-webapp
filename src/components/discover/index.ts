@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-expect-error
 export { default as Features } from "./Features.astro"
-// @ts-ignore
+// @ts-expect-error
 export { default as Hero } from "./Hero.astro"

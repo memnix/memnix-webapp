@@ -24,7 +24,7 @@ export default function Search({
 
 	const Hit = ({ hit }: { hit: any }) => {
 		{
-			/*// @ts-ignore */
+			/*// @ts-expect-error */
 		}
 		const deck: IDeck = {
 			name: hit.name,
@@ -151,7 +151,7 @@ export default function Search({
 																reset: "hidden"
 															}}
 														/>
-														{/*// @ts-ignore */}
+														{/*// @ts-expect-error */}
 														<CustomHits hitComponent={Hit} />
 													</InstantSearch>
 												</div>

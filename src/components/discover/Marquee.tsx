@@ -65,7 +65,7 @@ export default function Marquee() {
 			<div class="p-x-4 relative mx-auto flex w-[50%] max-w-[90%] flex-shrink-0 flex-col gap-y-4 overflow-hidden">
 				{[...new Array(ROWS)].map((_, i) => (
 					<InfiniteLoopSlider
-						/*// @ts-ignore */
+						/*// @ts-expect-error */
 						key={i}
 						duration={random(DURATION - 5000, DURATION + 5000)}
 						reverse={i % 2 === 0}
@@ -73,7 +73,7 @@ export default function Marquee() {
 						{shuffle(TAGS)
 							.slice(0, TAGS_PER_ROW)
 							.map((tag) => (
-								/*// @ts-ignore */
+								/*// @ts-expect-error */
 								<Tag text={tag} key={tag} />
 							))}
 					</InfiniteLoopSlider>

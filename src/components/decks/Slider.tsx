@@ -19,7 +19,7 @@ export default function Slider(props: { decks: IDeckList }) {
 				<h1 class="md:text-xl">Title</h1>
 			</div>
 			<div class="flex h-full items-center justify-center p-5">
-				{/*// @ts-ignore */}
+				{/*// @ts-expect-error */}
 				<swiper-container
 					slides-per-view={1}
 					space-between={spaceBetween}
@@ -65,18 +65,18 @@ export default function Slider(props: { decks: IDeckList }) {
 					{decks.map((deck) => {
 						return (
 							<>
-								{/*// @ts-ignore */}
+								{/*// @ts-expect-error */}
 								<swiper-slide class="flex items-center justify-center text-center ">
 									<div class="flex h-full w-full flex-col items-center justify-center">
 										<Deck deck={deck} />
 										<div class="swiper-lazy-preloader dark:swiper-lazy-preloader-white"></div>
 									</div>
-									{/*// @ts-ignore */}
+									{/*// @ts-expect-error */}
 								</swiper-slide>
 							</>
 						)
 					})}
-					{/*// @ts-ignore */}
+					{/*// @ts-expect-error */}
 				</swiper-container>
 			</div>
 		</>
