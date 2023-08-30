@@ -118,12 +118,11 @@
     unist-util-visit "^4.1.0"
     vfile "^5.3.2"
 
-"@astrojs/node@^5.3.0":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/node/-/node-5.3.0.tgz#20eb42626e40e7630fdfec4ba833a6d90a920979"
-  integrity sha512-q7gJEPSZzC4FIRNmq3ks6mw0Jby4irXTfRhbOPOS4HRmbu4FDANnRqnZBOGe96cfBQTgDC3/FhQccDQtx+n4pg==
+"@astrojs/node@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/node/-/node-6.0.0.tgz#1c3626dde18846512abb3a6490a0b67b3874f868"
+  integrity sha512-06x5UBt+g0EIUpOdtCdnTxRJhOTLxUnjzmGwIHp9RNBlIEpzd/dJs6pwvfiM2zuPolTLI53T8VOsdw3EMh2V+w==
   dependencies:
-    "@astrojs/webapi" "^2.2.0"
     send "^0.18.0"
     server-destroy "^1.0.1"
 
