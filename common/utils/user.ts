@@ -1,4 +1,4 @@
-import { ApiResponse, IUser } from "../types/api"
+import type { ApiResponse, IUser } from "../types/api"
 import { ENDPOINTS } from "./endpoints"
 import { getWithToken } from "./utils"
 

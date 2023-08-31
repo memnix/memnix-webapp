@@ -1,6 +1,5 @@
 /** @jsxImportSource solid-js */
-
-import { IDeck } from "common/types/api"
+import type {IDeck} from "common/types/api"
 
 export default function Deck(props: { deck: IDeck }) {
 	const deck: IDeck = props.deck

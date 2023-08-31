@@ -1,4 +1,5 @@
 // Type imports
+// @ts-ignore
 import type { ManifestOptions } from "vite-plugin-pwa"
 
 /**

@@ -1,6 +1,5 @@
 /** @jsxImportSource solid-js */
-
-import { LoginResponse } from "@common/types/api"
+import type { LoginResponse } from "@common/types/api"
 import { login } from "@common/utils/security"
 import { createSignal } from "solid-js"
 
