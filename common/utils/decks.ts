@@ -1,4 +1,4 @@
-import type {ApiResponse, IDeckList} from "../types/api"
+import type { ApiResponse, IDeckList } from "../types/api"
 import { ENDPOINTS } from "./endpoints"
 import { getWithToken } from "./utils"
 

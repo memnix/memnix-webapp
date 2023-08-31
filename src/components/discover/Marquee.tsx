@@ -1,5 +1,41 @@
 /** @jsxImportSource solid-js */
 
+const InfiniteLoopSlider = ({
+								children,
+								duration,
+								reverse = false
+							}: {
+	children: any
+	duration: number
+	reverse: boolean
+}) => {
+	return (
+		<div
+			style={{
+				"--duration": `${duration}ms`,
+				"--direction": reverse ? "reverse" : "normal"
+			}}
+		>
+			{reverse ? (
+				<div class={"animate-slider2 flex w-fit"}>
+					{children}
+					{children}
+				</div>
+			) : (
+				<div class={"animate-slider flex w-fit"}>
+					{children}
+					{children}
+				</div>
+			)}
+		</div>
+	)
+}
+
+const Tag = ({ text }: { text: string }) => (
+	<div class="bg-base-200/80 mr-4 flex items-center gap-y-1 rounded-md p-4 text-sm drop-shadow-md">
+		<span>#</span> {text}
+	</div>
+)
 export default function Marquee() {
 	const TAGS = [
 		"Open Source",
@@ -23,42 +59,7 @@ export default function Marquee() {
 		Math.floor(Math.random() * (max - min)) + min
 	const shuffle = (arr: string[]) => [...arr].sort(() => 0.5 - Math.random())
 
-	const InfiniteLoopSlider = ({
-		children,
-		duration,
-		reverse = false
-	}: {
-		children: any
-		duration: number
-		reverse: boolean
-	}) => {
-		return (
-			<div
-				style={{
-					"--duration": `${duration}ms`,
-					"--direction": reverse ? "reverse" : "normal"
-				}}
-			>
-				{reverse ? (
-					<div class={"animate-slider2 flex w-fit"}>
-						{children}
-						{children}
-					</div>
-				) : (
-					<div class={"animate-slider flex w-fit"}>
-						{children}
-						{children}
-					</div>
-				)}
-			</div>
-		)
-	}
 
-	const Tag = ({ text }: { text: string }) => (
-		<div class="bg-base-200/80 mr-4 flex items-center gap-y-1 rounded-md p-4 text-sm drop-shadow-md">
-			<span>#</span> {text}
-		</div>
-	)
 
 	return (
 		<>

@@ -1,7 +1,7 @@
 /** @jsxImportSource solid-js */
 
 import Deck from "@component/decks/Deck"
-import { IDeckList } from "common/types/api"
+import type {IDeckList} from "common/types/api"
 import { onMount } from "solid-js"
 import { register } from "swiper/element/bundle"
 

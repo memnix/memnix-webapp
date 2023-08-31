@@ -1,4 +1,4 @@
-import {defineConfig} from "astro/config"
+import { defineConfig } from "astro/config"
 
 // Astro integration imports
 import sitemap from "@astrojs/sitemap"
@@ -9,8 +9,8 @@ import astroI18next from "astro-i18next"
 // Helper imports
 import node from "@astrojs/node"
 import prefetch from "@astrojs/prefetch"
-import {seoConfig} from "./utils/seoConfig"
 import compressor from "astro-compressor"
+import { seoConfig } from "./utils/seoConfig"
 
 import react from "@astrojs/react"
 
