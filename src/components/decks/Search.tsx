@@ -23,9 +23,6 @@ export default function Search({
 	)
 
 	const Hit = ({ hit }: { hit: any }) => {
-		{
-			/*// @ts-ignore */
-		}
 		const deck: IDeck = {
 			name: hit.name,
 			description: hit.description,
