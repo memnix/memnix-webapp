@@ -1,0 +1,46 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint --ext .ts,.js,.vue . --fix"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxt/eslint-config": "^0.2.0",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@nuxtjs/fontaine": "^0.4.1",
+    "@nuxtjs/google-fonts": "^3.0.2",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-anti-trojan-source": "^1.1.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-security-node": "^1.1.1",
+    "prettier": "^3.0.3",
+    "@iconify/json": "^2.2.109"
+  },
+  "dependencies": {
+    "nuxt": "^3.7.0",
+    "@nuxt/image": "rc",
+    "@nuxtjs/color-mode": "^3.3.0",
+    "@nuxtjs/device": "^3.1.0",
+    "@nuxtjs/i18n": "next",
+    "@nuxtjs/tailwindcss": "^6.8.0",
+    "@pinia/nuxt": "^0.4.11",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.6",
+    "@tailwindcss/typography": "^0.5.9",
+    "@vee-validate/nuxt": "^4.11.3",
+    "@vee-validate/yup": "^4.11.3",
+    "daisyui": "^3.6.4",
+    "nuxt-headlessui": "^1.1.4",
+    "nuxt-icon": "^0.5.0",
+    "pinia": "^2.1.6",
+    "sharp": "^0.32.5",
+    "yup": "^1.2.0"
+  }
+}
