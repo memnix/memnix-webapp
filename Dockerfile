@@ -35,7 +35,9 @@ RUN rm -rf node_modules/@vscode \
   && rm -rf node_modules/@esbuild \
   && rm -rf node_modules/esbuild-linux-64 \
   && rm -rf node_modules/vscode-css-languageservice \
-  && rm -rf node_modules/vscode-html-languageservice
+  && rm -rf node_modules/vscode-html-languageservice \
+    && rm -rf node_modules/@iconify \
+    && rm -rf node_modules/@intlify
 
 
 # Stage 2: Use Google Distroless as production image
@@ -59,4 +61,4 @@ USER nonroot
 EXPOSE 1809
 
 
-CMD ["./dist/server/entry.mjs"]
+CMD ["./.output/server/index.mjs"]
