@@ -3,7 +3,6 @@
     <div v-if="isDesktop">
       <DashboardWebHeader />
     </div>
-
     <div class="min-h-screen">
       <slot />
     </div>

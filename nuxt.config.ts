@@ -52,7 +52,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     "/": { prerender: true },
-    "/auth": { prerender: true, ssr: true },
+    "/auth": { ssr: true },
     "/dashboard": { ssr: true },
     "/decks": { ssr: true },
     "/deck/**": { swr: 3600 },
