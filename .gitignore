@@ -25,6 +25,5 @@ logs
 docker-compose.yml
 
 # lock files
-yarn.lock
 package-lock.json
 bun.lockb

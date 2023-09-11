@@ -3,7 +3,7 @@ FROM node:lts-alpine AS build
 
 WORKDIR /app
 
-COPY package.json ./
+COPY package.json yarn.lock ./
 
 # install dependencies
 RUN yarn install --frozen-lockfile
@@ -20,7 +20,7 @@ FROM node:lts-alpine AS dep
 
 WORKDIR /app
 
-COPY package.json ./
+COPY package.json yarn.lock ./
 
 # install dependencies
 RUN yarn install --frozen-lockfile --production
