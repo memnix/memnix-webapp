@@ -4,6 +4,10 @@ import { useUserStore } from "~/stores/userStore";
 const userStore = useUserStore();
 
 const user = ref(userStore.user);
+
+if (!user.value.avatar) {
+  user.value.avatar = "/img/icon.png";
+}
 </script>
 
 <template>
@@ -32,7 +36,7 @@ const user = ref(userStore.user);
         </div>
       </NuxtLink>
       <div class="divider divider-horizontal"></div>
-      <NuxtLink class="btn btn-ghost" to="/decks"> Decks </NuxtLink>
+      <NuxtLink class="btn btn-ghost" href="/browse"> Decks </NuxtLink>
       <NuxtLink class="btn btn-ghost"> Contribute </NuxtLink>
     </div>
     <div class="navbar-end">

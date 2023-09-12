@@ -6,7 +6,7 @@
     <div class="min-h-screen">
       <slot />
     </div>
-    <div v-if="!isDesktop" class="min-w-screen">
+    <div v-if="!isDesktop" class="min-w-screen mt-12">
       <DashboardBottomNav />
     </div>
   </div>

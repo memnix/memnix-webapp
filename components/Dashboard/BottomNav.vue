@@ -28,7 +28,7 @@
 
     <NuxtLink
       class="flex flex-col items-center gap-1 text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600"
-      href="/decks"
+      href="/browse"
     >
       <svg
         class="h-6 w-6"
