@@ -29,7 +29,6 @@ RUN rm -rf node_modules/@vscode \
   && rm -rf node_modules/vscode-languageserver-protocol \
   && rm -rf node_modules/vscode-oniguruma \
   && rm -rf node_modules/typescript \
-  && rm -rf node_modules/@astrojs/language-server \
   && rm -rf node_modules/shiki \
   && rm -rf node_modules/@types \
   && rm -rf node_modules/@esbuild \
@@ -38,15 +37,7 @@ RUN rm -rf node_modules/@vscode \
   && rm -rf node_modules/vscode-html-languageservice \
     && rm -rf node_modules/@iconify \
     && rm -rf node_modules/@intlify \
-    && rm -rf node_modules/@rollup \
-    && rm -rf node_modules/vue \
-    && rm -rf node_modules/@babel \
-    && rm -rf node_modules/web-streams-polyfill \
-    && rm -rf node_modules/openapi-typescript \
-    && rm -rf node_modules/nuxi \
     && rm -rf node_modules/eslint \
-    && rm -rf node_modules/tailwindcss \
-    && rm -rf node_modules/daisyui
 
 
 # Stage 2: Use Google Distroless as production image
