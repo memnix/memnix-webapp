@@ -37,7 +37,7 @@ RUN rm -rf node_modules/@vscode \
   && rm -rf node_modules/vscode-html-languageservice \
     && rm -rf node_modules/@iconify \
     && rm -rf node_modules/@intlify \
-    && rm -rf node_modules/eslint \
+    && rm -rf node_modules/eslint
 
 
 # Stage 2: Use Google Distroless as production image
