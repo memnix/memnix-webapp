@@ -27,10 +27,10 @@ const deck = {
 <template>
   <div>
     <!-- header - start -->
-    <button class="btn btn-ghost px-5" @click="$router.push('/decks')">
+    <NuxtLink class="btn btn-ghost px-5" href="/browse">
       <Icon class="h-6 w-6" name="mdi:arrow-left" />
       Back to decks list
-    </button>
+    </NuxtLink>
     <div class="py-6 sm:py-8 lg:py-12">
       <div class="mx-auto max-w-screen-lg px-4 md:px-8">
         <div class="grid gap-8 md:grid-cols-2 gap-y-4">
