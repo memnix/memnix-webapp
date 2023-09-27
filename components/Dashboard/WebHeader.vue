@@ -37,7 +37,7 @@ if (!user.value.avatar) {
       </NuxtLink>
       <div class="divider divider-horizontal"></div>
       <NuxtLink class="btn btn-ghost" href="/browse"> Decks </NuxtLink>
-      <NuxtLink class="btn btn-ghost"> Contribute </NuxtLink>
+      <NuxtLink class="btn btn-ghost" href="/creator"> Creator </NuxtLink>
     </div>
     <div class="navbar-end">
       <div class="btn btn-ghost rounded-btn">
