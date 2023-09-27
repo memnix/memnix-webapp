@@ -1,6 +1,6 @@
-export const baseUrl = "http://127.0.0.1:1815/v2";
+// export const baseUrl = "http://127.0.0.1:1815/v2";
 
-// export const baseUrl = "https://beta.memnix.app/v2"
+export const baseUrl = "https://beta.memnix.app/v2"
 
 export function post<type>(url: string, body?: object) {
     return useFetch(<type>baseUrl + url, {
