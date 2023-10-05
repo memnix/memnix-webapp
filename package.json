@@ -24,7 +24,7 @@
     "@iconify/json": "^2.2.109"
   },
   "dependencies": {
-    "nuxt": "^3.7.0",
+    "nuxt": "^3.7.3",
     "@nuxt/image": "rc",
     "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/device": "^3.1.0",
