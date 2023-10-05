@@ -3122,16 +3122,16 @@ cuint@^0.2.2:
   resolved "https://registry.yarnpkg.com/cuint/-/cuint-0.2.2.tgz#408086d409550c2631155619e9fa7bcadc3b991b"
   integrity sha512-d4ZVpCW31eWwCMe1YT3ur7mUDnTXbgwyzaL320DrcRT45rfjYxkt5QWLrmOJ+/UEAI2+fQgKe/fCjR8l4TpRgw==
 
-daisyui@^3.6.4:
-  version "3.7.3"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-3.7.3.tgz#247cfefa0112c31679af9035eff65e1bd866f062"
-  integrity sha512-gKlz3RwfaukZxf8nQZsDAZ7quUSi7F8HjGGB34tkHruvfQB9cgVDQsmqUqSQtkAJYvzbrg/3dLUa9+5jF4iC1A==
+daisyui@^3.7.4:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-3.9.1.tgz#ac0fc5cb57e586cd02e11193627e4818f9de6c9b"
+  integrity sha512-xkZgVpPPpNbaZiG+djoP+XZF+6YeVA8sIP5ZwDzhaOlg1tXHfXvqhTmwKXGKLng3la2rwDrHYw3zjMMHLIGFUQ==
   dependencies:
     colord "^2.9"
     css-selector-tokenizer "^0.8"
     postcss "^8"
     postcss-js "^4"
-    tailwindcss "^3"
+    tailwindcss "^3.1"
 
 data-uri-to-buffer@^4.0.0:
   version "4.0.1"
@@ -8087,7 +8087,7 @@ tailwind-config-viewer@^1.7.2:
     portfinder "^1.0.26"
     replace-in-file "^6.1.0"
 
-tailwindcss@^3, tailwindcss@~3.3.2:
+tailwindcss@^3.1, tailwindcss@~3.3.2:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.3.3.tgz#90da807393a2859189e48e9e7000e6880a736daf"
   integrity sha512-A0KgSkef7eE4Mf+nKJ83i75TMyq8HqY3qmFIJSWy8bNt0v1lG7jUcpGpoTFxAwYcWOphcTBLPPJg+bDfhDf52w==
