@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "nuxt": "^3.7.3",
-    "@nuxt/image": "rc",
+    "@nuxt/image": "1.0.0",
     "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/device": "^3.1.0",
     "@nuxtjs/i18n": "next",
